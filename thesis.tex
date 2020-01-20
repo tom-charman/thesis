@@ -10,17 +10,17 @@
 \author{Thomas Charman}
 \submitdate{\today}
 
-\normallinespacing
+\pagenumbering{arabic}
+\doublespacing
 \maketitle
 
-\frontmatter
 \input{00c-declaration/declaration}
 \input{00a-abstract/abstract}
 \input{00b-acknowledgements/acknowledgements}
 \tableofcontents*
+\listoffigures
+\listoftables
 
-
-\mainmatter
 \input{01-introduction/introduction}
 \input{02-phys-theory/theory}
 \input{03-detector/detector}
@@ -28,7 +28,6 @@
 \input{05-BDT-rw-results/results}
 \input{06-conclusion/conclusion}
 
-\backmatter
 \bibliographystyle{unsrtnat}
 \bibliography{07a-bibliography/thesis.bib}
 

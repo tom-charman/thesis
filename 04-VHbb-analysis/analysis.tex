@@ -1,0 +1,111 @@
+\chapter{Analysis Strategy}%
+\label{sec:analysis}
+
+This chapter gives a brief outline of the analysis strategy followed for a result shown at
+ICHEP~2018~\cite{ATLAS-CONF-2018-036} henceforth referred to as the ICHEP result. Due to similarities
+in the analysis procedures reference will also be made to the 2017 result publish in
+JHEP~\cite{Hbb2017:ATLAS} that will be referred to as the JHEP result.
+
+\section{Object reconstruction}
+
+Object reconstruction is largely the same for both the ICHEP and JHEP results.
+
+As mentioned in Chapter~\ref{sec:detector} tracks in the inner detector are used to reconstruct
+interaction vertices, the method for this procedure is described in Ref.~\cite{ATLAS:vertex-reco}.
+It was also previously mentioned that the interaction vertex associated with the highest energy
+hard scattering event is selected as primary however strictly speaking energy of a track is not
+measured. The actual procedure is to take the vertex with the highest sum of squared transverse
+momenta.
+
+Electrons are muons are both reconstructed under a number of different criteria. These
+are referred to as loose or tight based on how stringent the requirements are for identification.
+For the electrons deposits of energy in the calorimeters must match a track in the ID, the
+parameters on which a loose or tight identification is made are the transverse momentum and
+pseudo-rapidity~\cite{ATLAS:electron-reco:2016, ATLAS:electron-reco:2012}. For muons the
+procedure~\cite{ATLAS:muon-reco:2016} is similar but instead of deposits of energy in the calorimeters
+the requirement is signatures in the muon spectrometers. Only tau particles which decay hadronically
+are reconstructed~\cite{ATLAS:tau-reco:2016, ATLAS:tau-reco:2017} so that they are not identified as
+jets.
+
+The treatment of jets is complicated and only some of the details are given here. The algorithm used
+to reconstruct jets is the anti-$k_t$ algorithm~\cite{anti-kt}, and a tool known as a jet vertex
+tagger~\cite{ATLAS:JVT:2016} is used mitigate pollution from jets that come from secondary hard
+scatter vertices (known as pile-up vertices). The most obvious reason why jets are very important to
+this analysis is that the signature contains two b quarks. Given that all quarks initiate jets in the
+detector is important to have some way of identifying jets initiated by a b quark to those initiated
+by other flavours. The procedure used to achieve this is known as b-tagging with the MV2c10
+multivariate discriminant~\cite{ATLAS:btag:2017} output value used a metric on which a threshold is
+decided above which a jet is considered b-tagged. Finally jets are calibrated using information
+on the jet energy scale~\cite{ATLAS:JES:2015, ATLAS:JES:2017}, a measure of how well the energy of a
+jet can be resolved in the detector.
+
+Missing transverse energy is then calculated~\cite{ATLAS:exMET-reco:2015, ATLAS:MET-reco:2015} based
+on the known energy of the initial proton-proton collision and the summed up energy and momenta of the
+other reconstructed objects, this includes some objects not mentioned here.
+
+\section{Event Selection}
+
+The full event selection is different for all three channels considered in the analysis and can be
+found in Ref.~\cite{ATLAS-CONF-2018-036}. Here a summary of some important details will be given.
+All channels require the presence of exactly two b-tagged jets in the event of which the leading
+b-tagged jet is required to have transverse momentum > 45 GeV. All channels also
+require jet transverse momentum > 20 GeV for |$\eta$| < 2.5 and > 30 GeV for 2.5 < |$\eta$| < 4.5.
+The zero lepton channel uses missing transverse energy as a value on which to trigger as does the
+muon sub-channel of the one lepton channel whereas the electron sub-channel triggers using the single
+lepton trigger. Both of the one lepton sub-channels require a tight lepton of their respective
+flavours. Events for all channels may require exactly two jets, though for the zero and one lepton
+channels events with exactly three jets are also selected whereas in the two lepton channel any event
+with greater than three jets is also selected.
+
+\section{Multivariate analysis}
+
+Multivariate techniques are used to separate selected events into signal or background categories.
+There is also a version of the analysis based on making simple threshold cuts on variables however
+no details of that analysis will be given here. These algorithms are trained on simulated events which
+will be discussed briefly in the next section.
+
+In total when all channels and variations of event selections are considered there are eight signal
+regions. These come from two and three jet selections in each of the three channels and additional
+two regions which will not be discussed. Boosted decision trees (BDTs) are used as the multivariate
+algorithm of choice and the final disciminating variables of the analysis are the outputs of these
+algorithms. Two different BDTs are trained one to perform the actual analysis and another to validate
+it. The analysis BDT is designed to separate Higgs boson events from all other backgrounds. The second
+BDT is used to classify so-called diboson events where a Z boson is produced in association with
+another vector boson of any type and then decays into two b quarks. Analysis of this process is chosen
+as a validation method due to the similarity yet orthogonality with the signal process. The ICHEP and
+JHEP results used the same BDT input variables with minor differences.
+
+\section{Data sets and simulation}
+
+A full table of the generators used to simulate signal and background processes can be found in
+Ref.~\cite{ATLAS-CONF-2018-036}. Nothing more will be said here about the choice of these generators
+however it should be noted that the choice of tools used simulate events is tightly coupled with the
+results of the analysis. The performance of the BDTs discussed in the previous section can only be
+trusted if it can also be trusted that the simulated events that they were trained on match up as
+expected with events from real data. 
+
+\section{Treatment of systematic uncertainties}
+
+The full treatment of systematic uncertainties can be found in Ref.~\cite{ATLAS-CONF-2018-036},
+here only two systematics will be discussed as they related to work completed by the author.
+
+The decay of single top quarks in the $Wt$-channel is a background to the signal process in the one
+lepton channel. At next-to-leading order there exists an overlap between a $Wt$ diagram and a
+$t\bar{t}$ diagram~\cite{White:single-top} as shown in figure~\ref{fig:single-top-overlap}. This is a
+problem as decays of pairs of top quarks ($t\bar{t}$) is also a background to the signal and so
+something needs to be done to stop the double counting of events. In order to counteract this problem
+two schemes are considered referred to as Diagram Removal and Diagram Subtraction, they are both
+discussed in Ref.~\cite{White:single-top}. The differences resulting from the use of the two
+schemes mentioned is the largest source of uncertainty on the single top systematic error.
+\input{04-VHbb-analysis/single-top-feyn}
+Currently this uncertainty is derived by analysing the normalisation, shapes and acceptance of the
+reconstructed di-jet mass $m_{bb}$ and the transverse momentum of the vector boson. A potential
+improvement to these uncertainties is to use a bespoke BDT re-weighting algorithm to quantify the
+difference between the diagram removal and digram subtraction samples in a higher dimensional phase
+space, results of a preliminary study into this technique will be shown in Chapter~\ref{sec:results}.
+
+Another systematic uncertainty comes from diboson production, those events where any combination
+of gauge bosons are produced in association with one another. Events where $WW$ only form a tiny
+fraction of the total background and so are not that important. The same variables are used as in
+the single top procedure to look at normalisation, relative acceptance and shape in order to derive
+systematic uncertainties. 

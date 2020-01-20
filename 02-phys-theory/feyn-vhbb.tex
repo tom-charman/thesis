@@ -1,0 +1,16 @@
+\begin{figure}
+  \centering
+  \feynmandiagram [horizontal=a to f] {
+    i1 [particle=\(q\)] -- [fermion] a -- [fermion] i2 [particle=\(\overline{q}\)],
+    a -- [photon, edge label=\(V\)] b -- [draw=none] f,
+    w1 -- [photon, edge label=\(V\)] b -- [scalar, edge label=\(H^{0}\)] h1,
+    l [particle=\(\ell^{+}/\overline{\nu}\)] -- [fermion] w1 -- [fermion] nu [particle=\(\ell^{-}/\nu\)],
+    b1 [particle=\(\overline{b}\)] -- [fermion] h1 -- [fermion] b2 [particle=\(b\)],
+    b2 -- [draw=none] f -- [draw=none] nu,
+    h1 -- [draw=none] f -- [draw=none] w1,
+  };
+  \caption{A diagram showing a Higgs boson (decaying to a pair of b quarks) produced in association with a vector
+    boson (decaying to 0, 1, or 2 charged leptons denoted $\ell^{+/-}$).
+  }
+  \label{fig:feyn-vhbb}
+\end{figure}

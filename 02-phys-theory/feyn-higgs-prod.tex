@@ -1,0 +1,45 @@
+\begin{figure}[ht]
+  \centering
+  \subfloat[]{
+    \feynmandiagram [horizontal=a to b, yscale=0.9, xscale=0.8] {
+      i1 [particle=\(g\)] -- [gluon] d -- [fermion, edge label=\(t\)] c -- [gluon] i2 [particle=\(g\)],
+      i1 -- [draw=none] i2, 
+      d -- [anti fermion, edge label=\(t\)] a -- [anti fermion, edge label=\(\overline{t}\)] c,
+      a -- [scalar] b [particle=\(H^{0}\)],
+    };
+  }
+  %\hspace{5.5mm}
+  \subfloat[]{
+    \feynmandiagram [horizontal=s to b, yscale=0.675, xscale=0.9] {
+      i1 [particle=\(q_{1}\)] -- w1 -- f1 [particle=\(q_{2}\)],
+      i2 [particle=\(q_{3}\)] -- w2 -- f2 [particle=\(q_{4}\)],
+      s -- [draw=none] a,
+      i1 -- [draw=none] s -- [draw=none] i2,
+      w2 -- [photon] a -- [photon] w1,
+      f1 -- [draw=none] b -- [draw=none] f2,
+      a -- [scalar, edge label=\(H^{0}\)] b,
+    };
+  }
+  %\vspace{1mm}
+  \subfloat[]{
+    \feynmandiagram [horizontal=a to b, scale =0.9] {
+      i1 [particle=\(q\)] -- [fermion] a -- [fermion] i2 [particle=\(\overline{q}\)],
+      a -- [photon, edge label=\(V\)] b,
+      f1 [particle=\(V\)] -- [photon] b -- [scalar] f2 [particle=\(H^{0}\)],
+    };
+  }
+  %\hspace{15mm}
+  \subfloat[]{
+    \feynmandiagram [horizontal=s to b, yscale=0.675, xscale=0.9] {
+      i1 [particle=\(g\)] -- [gluon] q1 -- [anti fermion] f1 [particle=\(\overline{t}\)],
+      i2 [particle=\(g\)] -- [gluon] q2 -- [fermion] f2 [particle=\(t\)],
+      s -- [draw=none] a,
+      i1 -- [draw=none] s -- [draw=none] i2,
+      q2 -- a -- q1,
+      f1 -- [draw=none] b -- [draw=none] f2,
+      a -- [scalar, edge label=\(H^{0}\)] b,
+    };
+  }
+  \caption{The four most common Higgs boson production methods from proton-proton collisions at the LHC.}
+  \label{fig:feyn-higgs-prod}
+\end{figure}

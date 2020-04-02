@@ -1,3 +1,36 @@
-\chapter{Results}%
-\label{sec:results}
+\documentclass[a4paper,12pt, oneside]{memoir}
 
+\include{thesis.preamble}
+\setlrmarginsandblock{4cm}{2cm}{*}
+\setulmarginsandblock{2.5cm}{*}{1}
+\checkandfixthelayout 
+
+\begin{document}
+
+\title{Measurements of $H \rightarrow b\bar{b}$ decays and $VH$ production}
+
+\author{Thomas Charman}
+\submitdate{\today}
+
+\pagenumbering{arabic}
+\doublespacing
+\maketitle
+
+\input{00c-declaration/declaration}
+
+\setcounter{tocdepth}{3}
+\tableofcontents*
+\listoffigures
+\listoftables
+
+\input{07-results/results-body}
+
+\bibliographystyle{unsrtnat}
+\bibliography{09a-bibliography/thesis.bib}
+
+
+\clearpage
+
+\begin{appendices}
+\end{appendices}
+\end{document}

@@ -19,26 +19,27 @@
 \input{00c-declaration/declaration}
 \input{00a-abstract/abstract}
 \input{00b-acknowledgements/acknowledgements}
+\setcounter{tocdepth}{3}
 \tableofcontents*
-\listoffigures
-\listoftables
+%\listoffigures
+%\listoftables
 
-\input{01-introduction/introduction}
-\input{02-phys-theory/theory}
-\input{03-detector/detector}
-\input{04-machine-learning-theory/ml-theory}
-\input{05-analysis-methodology/methodology}
-\input{06-background-modelling/modelling}
-\input{07-results/results}
-\input{08-conclusion/conclusion}
+\input{01-introduction/introduction-body}
+\input{02-phys-theory/theory-body}
+\input{03-detector/detector-body}
+\input{04-machine-learning/machine-learning-body}
+\input{05-analysis-methodology/method-body}
+\input{06-background-modelling/modelling-body}
+\input{07-results/results-body}
+\input{08-conclusion/conclusion-body}
 
 \bibliographystyle{unsrtnat}
-\bibliography{07a-bibliography/thesis.bib}
+\bibliography{09a-bibliography/thesis.bib}
 
-\appendix
-\input{07b-appendices/datasets}
-\input{07b-appendices/features}
-\input{07b-appendices/theory}
+% \appendix
+% \input{09b-appendices/datasets}
+% \input{09b-appendices/features}
+% \input{09b-appendices/theory}
 
 \clearpage
 %\titleformat{\chapter}{\large\bfseries}{\chaptertitlename\ \thechapter:}{20pt}{\large\bfseries}

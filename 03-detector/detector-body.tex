@@ -1,25 +1,20 @@
  \chapter{The ATLAS Detector at the Large Hadron Collider}%
 \label{sec:detector}
 
-\input{03-detector/dipole}
-\input{03-detector/quadrupole}
 \section{The Large Hadron Collider}%
 \label{sec:lhc}%
 The Large Hadron Collider (LHC)~\cite{LHC-dr} is a large circular machine
 located 100~m underground straddling the Swiss-French border at the European
-Organisation for Nuclear Research (CERN). The machine is primarily a proton
-collider~\footnote{The LHC also collides other charged particles such as ions of
-  lead of xenon.} and is designed so that protons may be accelerated
-over to very high energies before being allowed to collide. The diameter of the
-LHC is 27~km, it resides in a tunnel which was originally excavated for the
-Large Electron-Positron Collider~\cite{LEP} experiment and at the time was the
-largest civil engineering project in Europe. Today there are many experiments at
-CERN, all with the goal of improving our understanding of a particular area of
-physics some of which are marked in figure.~\ref{fig:lhc-acc}. In particular
-there are seven experiments that record data from the collisions at the LHC:
-ATLAS~\cite{ATLAS-loi}, CMS~\cite{CMS-loi}, LHCb~\cite{lhcb-loi},
-ALICE~\cite{ALICE-loi}, MoEDAL~\cite{MoEDAL-loi}, TOTEM~\cite{TOTEM-loi} and
-LHCf~\cite{lhcf-loi}.
+Organisation for Nuclear Research (CERN). The LHC accelerates and collides
+protons and other charged particles. It has a diameter of 27~km and resides in a
+tunnel which was originally excavated for the Large Electron-Positron
+Collider~\cite{LEP} experiment. During its construction the tunnel was the
+largest civil engineering project in Europe to date. Today there are many
+physics experiments that take place at CERN, some of which are marked in
+figure.~\ref{fig:lhc-acc}. There are currently seven experiments that record
+data from the collisions at the LHC: ATLAS~\cite{ATLAS-loi}, CMS~\cite{CMS-loi},
+LHCb~\cite{lhcb-loi}, ALICE~\cite{ALICE-loi}, MoEDAL~\cite{MoEDAL-loi},
+TOTEM~\cite{TOTEM-loi} and LHCf~\cite{lhcf-loi}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{lhc-accelerator}
@@ -28,28 +23,98 @@ LHCf~\cite{lhcf-loi}.
   \label{fig:lhc-acc}
 \end{figure}
 
-The LHC receives protons that have already been accelerated somewhat by the
-Super Proton Synchrotron (SPS), another of the accelerators at the CERN
-accelerator complex shown in figure~\ref{fig:lhc-acc}. The circular design of
-both the LHC and SPS allows protons to be accelerated many times around their
-respective rings until their velocity is fast enough for a high energy
-collision. The highest energy collisions achieved take place at a centre of mass
-energy of $\sqrt{s} = 13 $~TeV, although the design energy of the LHC is
-$\sqrt{s} = 14 $~TeV. Despite having not yet reached its design energy the LHC
-collides particles with the highest energy of any particle collider in history
-and is currently alone at the energy frontier of modern physics. At the time of
-writing the LHC is in it's second long shutdown during which maintenance and
-upgrades to the LHC and the particle detectors located around its ring take
-place. The LHC has completed two runs data taking from collisions, Run 1 took
-place from 2009 to 2013, followed  by Run 2
-between 2015 and 2018. The period between runs is known as long shutdown 1 (LS1), and
-was used to perform maintenance and upgrades. Many analyses from Run 1 have been
-published including, most notably the discovery of the Higgs
-boson~\cite{DiscoHiggsATLAS, DiscoHiggsCMS}. Some Run 2 analyses have also
-published results a highlight of which is LHCb's discovery of charge parity
-violation in charm decays~\cite{cp-charm}. Despite these impactful results there
-are many more results expected from the LHC experiments as data continues to be
-analysed.
+The Lorentz force is fundamental to the LHC's accelerator technologies and
+detectors. Expressed as
+\begin{equation}
+  \label{eq:lorentz}
+  \vec{F} = q(\vec{E} + \vec{v} \times \vec{B}),
+\end{equation}
+it is clear that the force due to an electric field $\vec{E}$ on a particle with
+charge $q$ acts in the direction of the velocity of the field whereas the force
+due to a magnetic field $\vec{B}$ acts perpendicular to both the field and the
+velocity of the particle $\vec{v}$. It is therefore clear that an electric field
+may be used to accelerate and give energy to a charged particle whereas a
+magnetic field will alter the trajectory of a particle whilst keeping its energy
+constant.
+
+The LHC is a Synchrotron, an accelerator that uses magnets in a dipole
+configuration, such as in figure~\ref{fig:dipole}, to bend the path of charged
+particles into conformity with its circular shape. It is apart from studying the
+figure that counter-rotating beams of same sign charged particles will require
+two sets of dipole magnets in order to rotate in opposite directions around the
+same ring. This is one disadvantage of a proton-proton collider with respect to
+a proton-anti-proton collider such as the Tevatron~\cite{tevatron} The bending magnets of a
+Synchrotron are designed to ramp up their magnetic field in synchronoisation
+with the kinetic energy of the accelerated particles, allowing higher energies
+to be achieved before the beam is lost. The LHC can accelerate each beam to an
+energy of 6.5~TeV leading to collisions with a centre of mass energy of
+$\sqrt{s} = 13 $~TeV, although the design energy of the LHC is $\sqrt{s} = 14
+$~TeV centre of mass energy of  The LHC has 1232 dipole magnets~\cite{LHC-dr}
+which are made of copper-clad niobium-titanium cables, a
+
+superconducting material whose electrical resistance falls to zero at a
+threshold temperature. In order to maintain super-conductivity a cryogenic
+system using liquid helium is employed to cool the magnets. The higher the
+velocity of a charged particle, and the tighter the desired bending radius, the
+larger the magnetic field required to perform the bending. The large size of the
+LHC and the choice of superconducting magnet technologies are both informed by
+the aim to accelerate protons to the highest energy, and therefore velocity,
+possible.
+\input{03-detector/dipole}
+
+The force which accelerates the particles is provided by radio-frequency
+cavities such as in figure~\ref{fig:rf-cavity}, of which the LHC has
+16~\cite{LHC-dr} The electric field in the radio-frequency cavity forms a
+standing wave, the separation between bunches of particles to be accelerated
+must be matched to the frequency of this wave. Protons in the LHC are
+accelerated in bunches and in vacuum, this to increase the likelihood of
+collisions and mitigate loss of energy and scattering effects due to
+interactions with air molecules. These two factors lead to the occurrence of
+space charge which causes an increase in the emittance of the beam, where the
+emittance is defined as the total area that the beam occupies in its beam-pipe.
+The greater the energy of the particles the more they can overcome increase in
+emittance due to space charge. Increased emittance is especially problematic in
+circular accelerators where periodic effects can quickly lead to the loss of
+beam. For these reasons it would be very challenging to accelerate protons from
+rest in a synchrotron, the starting point for the protons of the LHC is
+therefore a linear accelerator called Linac2~\cite{linac2} which is used to
+overcome space charge effects before the protons move on to a series of
+synchrotrons.
+\input{03-detector/rf_cavity}
+
+Even a beam with its emittance under control would still be lost from the
+accelerator if only dipole magnets were used to control its path. Magnets in a
+quadrupole configuration as in figure~\ref{fig:quadrupole} are used to focus the
+beam and keep it in the beam-pipe. The quadrupoles behave such that particles
+feel a force that increases with the distance from the centre of the beam
+leading to simple harmonic motion of individual particles in a bunch. The LHC
+has a series of 24 quarupole magnets each for focusing in the horizontal and vertical
+directions~\cite{LHC-dr} as well as higher multiplicity configurations;
+sextupole, octupole, decapole and dodecapole which are used to correct
+imperfections in the fields of other magnets.
+\input{03-detector/quadrupole}
+% The LHC receives protons that have already been accelerated somewhat by the
+% Super Proton Synchrotron (SPS), another of the accelerators at the CERN
+% accelerator complex shown in figure~\ref{fig:lhc-acc}. The circular design of
+% both the LHC and SPS allows protons to be accelerated many times around their
+% respective rings until their velocity is fast enough for a high energy
+% collision. The highest energy collisions achieved take place at a centre of mass
+% energy of $\sqrt{s} = 13 $~TeV, although the design energy of the LHC is
+% $\sqrt{s} = 14 $~TeV. Despite having not yet reached its design energy the LHC
+% collides particles with the highest energy of any particle collider in history
+% and is currently alone at the energy frontier of modern physics. At the time of
+% writing the LHC is in it's second long shutdown during which maintenance and
+% upgrades to the LHC and the particle detectors located around its ring take
+% place. The LHC has completed two runs data taking from collisions, Run 1 took
+% place from 2009 to 2013, followed  by Run 2
+% between 2015 and 2018. The period between runs is known as long shutdown 1 (LS1), and
+% was used to perform maintenance and upgrades. Many analyses from Run 1 have been
+% published including, most notably the discovery of the Higgs
+% boson~\cite{DiscoHiggsATLAS, DiscoHiggsCMS}. Some Run 2 analyses have also
+% published results a highlight of which is LHCb's discovery of charge parity
+% violation in charm decays~\cite{cp-charm}. Despite these impactful results there
+% are many more results expected from the LHC experiments as data continues to be
+% analysed.
 
 The statistical nature of particle physics analyses means that larger datasets
 (more recorded collisions) increase the sensitivity of searches and
@@ -61,20 +126,24 @@ data is available for an analysis, it is written as
   \label{eq:luminosity}
   L = \frac{1}{\sigma}\frac{dN}{dt},
 \end{equation}
-where $\sigma$ is the interaction cross-section, a volume within which particles
-must pass by one another in order to interact, and $N$ is the number of events
-recorded in a period of time $t$. For luminosity at the LHC N can be expressed as
+where $\sigma$ is the cross-section, a volume within which particles must pass
+by one another in order to interact, and $N$ is the number of events recorded in
+a period of time $t$. For luminosity at the LHC N can be expressed as
 \begin{equation}
   \label{eq:lhc-lumi}
   N = n_{bp}n_{1}n_{2}\nu_{r},
 \end{equation}
 where $n_{bp}$ is the number of colliding bunch pairs, $n_{1}$ and $n_{2}$ are
 the number of protons in each beam and $\nu_r$ is the frequency with which the
-beams rotate around the LHC's circumference. It is clear that to increase
-luminosity any one of these parameters can be increased. The LHC has already
-exceeded it's design luminosity providing physicists with more data to analyse
-than expected and plans are well underway for the upgrade to a High-Luminosity
-LHC (HL-LHC)~\cite{hilumi-tdr}.
+beams rotate around the LHC's circumference. The number of particles in the
+beams is limited by space charge. The number of bunches is limited by the
+frequency that the radio-frequency cavities can operate at. The revolution
+frequency is limited by the strength of the dipole magnets and the circumference
+of the accelerator ring. Increasing luminosity by reducing the cross-section
+amounts to reducing the beam widths which is limited by the emittance of the
+beam. The LHC has already exceeded it's design luminosity providing physicists
+with more data to analyse than expected and plans are well underway for the
+upgrade to a High-Luminosity LHC (HL-LHC)~\cite{hilumi-tdr}.
 
 \section{The ATLAS Detector}%
 \label{sec:atlas}

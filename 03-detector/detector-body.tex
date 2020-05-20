@@ -37,29 +37,31 @@ may be used to accelerate and give energy to a charged particle whereas a
 magnetic field will alter the trajectory of a particle whilst keeping its energy
 constant.
 
-The LHC is a Synchrotron, an accelerator that uses magnets in a dipole
+The LHC is a synchrotron, an accelerator that uses magnets in a dipole
 configuration, such as in figure~\ref{fig:dipole}, to bend the path of charged
-particles into conformity with its circular shape. It is apart from studying the
-figure that counter-rotating beams of same sign charged particles will require
-two sets of dipole magnets in order to rotate in opposite directions around the
-same ring. This is one disadvantage of a proton-proton collider with respect to
-a proton-anti-proton collider such as the Tevatron~\cite{tevatron} The bending magnets of a
-Synchrotron are designed to ramp up their magnetic field in synchronoisation
+particles into conformity with its circular shape. It is apparent from studying
+the figure that counter-rotating beams of same sign charged particles will
+require two sets of dipole magnets in order to rotate in opposite directions
+around the same ring. This is one disadvantage of a proton-proton collider with
+respect to a proton-anti-proton collider such as the Tevatron~\cite{tevatron-01}
+which can use the same magnets for both beams. On the other hand, the
+proton-proton collider is able to separate the beams after they have been
+brought together to collide with a single dipole. The bending magnets of a
+synchrotron are designed to ramp up their magnetic field in synchronoisation
 with the kinetic energy of the accelerated particles, allowing higher energies
 to be achieved before the beam is lost. The LHC can accelerate each beam to an
 energy of 6.5~TeV leading to collisions with a centre of mass energy of
 $\sqrt{s} = 13 $~TeV, although the design energy of the LHC is $\sqrt{s} = 14
-$~TeV centre of mass energy of  The LHC has 1232 dipole magnets~\cite{LHC-dr}
-which are made of copper-clad niobium-titanium cables, a
-
-superconducting material whose electrical resistance falls to zero at a
-threshold temperature. In order to maintain super-conductivity a cryogenic
-system using liquid helium is employed to cool the magnets. The higher the
-velocity of a charged particle, and the tighter the desired bending radius, the
-larger the magnetic field required to perform the bending. The large size of the
-LHC and the choice of superconducting magnet technologies are both informed by
-the aim to accelerate protons to the highest energy, and therefore velocity,
-possible.
+$~TeV. The Tevatron held the previous record for centre of mass energy of
+collisions of $\sqrt{s} = 2 $~TeV. The LHC has 1232 dipole magnets~\cite{LHC-dr}
+which are made of copper-clad niobium-titanium cables, a superconducting
+material whose electrical resistance falls to zero below $10$~K. In order to
+maintain super-conductivity a cryogenic system using liquid helium is employed
+to cool the magnets. The higher the velocity of a charged particle, and the
+tighter the desired bending radius, the larger the magnetic field required to
+perform the bending. The large size of the LHC and the choice of superconducting
+magnet technologies are both informed by the aim to accelerate protons to the
+highest energy, and therefore velocity, possible.
 \input{03-detector/dipole}
 
 The force which accelerates the particles is provided by radio-frequency
@@ -79,7 +81,8 @@ beam. For these reasons it would be very challenging to accelerate protons from
 rest in a synchrotron, the starting point for the protons of the LHC is
 therefore a linear accelerator called Linac2~\cite{linac2} which is used to
 overcome space charge effects before the protons move on to a series of
-synchrotrons.
+synchrotrons as seen in figure~\ref{fig:
+  lhc-acc}.
 \input{03-detector/rf_cavity}
 
 Even a beam with its emittance under control would still be lost from the
@@ -153,11 +156,10 @@ Point 1, its full name is A Toroidal LHC ApparatuS. A diagram of the detector is
 shown in figure~\ref{fig:ATLAS-det}. ATLAS is considered to be a general purpose
 particle detector and has a wide physics program including: Higgs boson physics,
 top quark physics, searches for Supersymmetry and exotic states, probes of CP
-violation in b-quarks and light states and heavy ion physics. The work in this
-report is concerned with the measurement of products from proton-proton
-collisions. The detector itself is very large in size, spanning a width of 25~m
-and a length of 44~m and weighs 7000~tonnes which is comparable to the weight of
-the wrought iron content of the Eiffel tower~\cite{Eiffel-weight}.
+violation in b-quarks and light states and heavy ion physics. The detector
+itself is very large in size, spanning a width of 25~m and a length of 44~m and
+weighs 7000~tonnes which is comparable to the weight of the wrought iron content
+of the Eiffel tower~\cite{Eiffel-weight}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{ATLAS-detector}
@@ -174,70 +176,52 @@ collisions are also a possibility. The number of hard scattering events in a
 given bunch crossing is known as the pile-up of the collision and is often
 denoted with the symbol $\mu$. As can be seen by inspecting
 equations~\ref{eq:lhc-lumi}~and~\ref{eq:luminosity} increasing the luminosity
-will often cause a higher pile-up environment in the detector. High pile-up,
-along with the numerous decay products of each collision necessitate the use of
-specialised sub-detectors in order to accurately measure the output of
-collisions. For certain types of decay product there are different dedicated
-sub-systems in ATLAS with the purpose of measuring properties of particles of
-that type. At this stage it is sufficient to say that the treatment of
-electrically charged particles must be different to those that are electrically
-neutral, but this concept will be expanded upon in more detail in the further
-sections. It is interesting to note that despite the many charges that are
-associated with the forces of nature discussed in chapter~\ref{sec:theory} the
-only one that we can directly measure is electric charge.%\footnote{This is true
-  %for current human technology, it is not known if future or alien technology
-  %can access other charges.}.
+will often cause a higher pile-up environment in the detector. The variety of
+decay products of each collision necessitate the use of specialised
+sub-detectors in order to accurately measure the output of collisions. There are
+dedicated sub-systems in ATLAS with the purpose of measuring properties of
+specific classes of particles. Ultimately in all cases a digital electrical
+signal is the desired output of a sub-detector which usually originates as an
+analogue signal. It is interesting to note that despite the many charges that
+are associated with the forces of nature discussed in chapter~\ref{sec:theory}
+the only one that we can directly measure is electric charge.
 
 The ATLAS sub-systems are located in either the barrel of the detector or one of
-the end-caps. These two areas have a different geometry and so the design of a
-sub-system in the barrel will differ from the same sub-system in the end-cap.
-What follows is a description of the ATLAS sub-systems and their individual
-components, for each component more detail will be given about which properties
-of which types of particles it is used to measure. These details are based on
-the ATLAS technical design report volumes~\cite{ATLAS-TDR-01, ATLAS-TDR-02}
-unless another citation is present. Before detailing individual components it is
-important to detail certain properties of the detector relevant to all
-sub-systems.  The coordinate system used to describe the ATLAS detector is known
-as right-handed. Three orthogonal axes $(x, y, z)$ are used to describe the 3D
-space of the detector. The x-axis points towards the centre of the LHC ring, the
-y-axis points upwards and the z-axis points along the LHC beam pipe y-axis. The
-three axes meet at the interaction point which is the nominal position where
-bunches cross, located in the centre of the detector. Cylindrical coordinates
-$(r, \phi)$ are also often used to describe the physical features of the
-detector and phenomena caused by interactions in the detector that shall be
-referred to as analysis objects. Their definitions are that $\phi$ is the
-azimuthal angle in the x-y plane (transverse) around the beam pipe and $r$ is
-the distance from the interaction point. A final quantity used due to its
-compatibility with description relativistic objects in the detector is
-pseudo-rapidity $\eta = - \ln(\tan(\theta / 2))$ where $\theta$ is the zenith
-angle measured from the z-axis.
+the end-caps. These two areas have a different geometry, and due to their
+relative positions with respect to the beam-pipe are exposed to different
+amounts of radiation, so the design of a sub-system in the barrel will differ
+from that of a sub-system measuring the same quantities in the end-cap. The
+details that follow are based on the ATLAS technical design report
+volumes~\cite{ATLAS-TDR-01, ATLAS-TDR-02} unless another citation is present.
+Before detailing individual components it is important to detail certain
+properties of the detector relevant to all sub-systems.  The coordinate system
+used to describe the ATLAS detector is known as right-handed. Three orthogonal
+axes $(x, y, z)$ are used to describe the 3D space of the detector. The x-axis
+points towards the centre of the LHC ring, the y-axis points upwards and the
+z-axis points along the LHC beam pipe y-axis. The three axes meet at the
+interaction point which is the nominal position where bunches cross, located in
+the centre of the detector. Cylindrical coordinates $(r, \phi)$ are also often
+used to describe the physical features of the detector and phenomena caused by
+interactions in the detector that shall be referred to as analysis objects.
+Their definitions are that $\phi$ is the azimuthal angle in the x-y plane
+(transverse) around the beam pipe and $r$ is the distance from the interaction
+point. A relativistic invariant analogy to the zenith angle of an object
+measured from the z-axis is pseudo-rapidity $\eta = - \ln(\tan(\theta / 2))$
+where $\theta$ is the ordinary zenith angle measured from the same axis.
 
-The grouping of particles into electrically charged or neutral is largely due to
-the fact charged particles experience the Lorentz force
-\begin{equation}
-  \label{eq:lorentz}
-  \vec{F} = q(\vec{E} + \vec{v} \times \vec{B}),
-\end{equation}
-whereas neutral particles have $q=0$, and so they do not. The magnetic field
-$\vec{B}$ has the effect of changing the direction of the particles trajectory
-only. This is due to the fact that any force $\vec{F}$ resulting from the cross
-product of two vectors, in this case the field vector and the velocity $\vec{v}$,
-much act in a perpendicular to the two crossed vectors and thus perpendicular to
-the direction of the motion (the direction of velocity). Similarly the electric
-field term $\vec{E}$ has the effect that the particle is accelerated in the
-direction (or opposite in the case of a negative particle) of the field lines.
-The consequence of this is that in a known magnetic field the velocity of a
-particle can be calculated by measuring the radius of curvature of its
-trajectory. In order to exploit these properties of charged particles a large
-portion of the ATLAS detector is immersed in magnetic fields created by the
-magnet systems. There are four magnet systems in ATLAS the solenoid, the barrel
+By inspecting equation~\ref{eq:lorentz} it is clear that neutral particles for
+which $q=0$ do not experience the Lorentz force. However for charged particles,
+as previously discussed, a magnetic field alters the trajectory of the particle
+whilst preserving its energy. A large portion of the ATLAS detector is immersed
+in magnetic fields created by the magnet systems, and so this deflection
+phenomenon is present and exploited when making measurements of charged
+particles. There are four magnet systems in ATLAS the solenoid, the barrel
 toroid, and two end-cap toroids. The solenoid surrounds the inner detector
 whilst the toroid systems surround the muon chambers.
 Figure~\ref{fig:ATLAS-magnets} shows a heat map of the magnetic field strengths
 within ATLAS, the image is from an article detailing the superconducting magnet
 system~\cite{ATLAS-magnets}. The magnet systems store a total energy of 1.6~GJ
-and produce fields of a combined volume of approximately
-$12\times 10^4$~m$^3$.
+and produce fields of a combined volume of approximately $12\times 10^4$~m$^3$.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{ATLAS-magnet}
@@ -247,29 +231,44 @@ $12\times 10^4$~m$^3$.
   \label{fig:ATLAS-magnets}
 \end{figure}
 
-\subsection{Inner Detector}%
+\subsection{Tracking: The Inner Detector}%
 \label{sec:id}
 
-The Inner Detector (ID) is comprised of pixel detectors, the semiconductor
+The Inner Detector (ID) is comprised of a number of different tracking detector
+sub-systems; the pixel detectors, the semiconductor
 tracker (SCT) and a transition radiation tracker (TRT) as seen in
 figure~\ref{fig:ATLAS-inner-det}. It covers a volume corresponding with the
-total $\phi$ angle. In relation to $\eta$ the pixel detectors and SCT cover the
-range $|\eta|~<~2.5$ and the TRT covers $|\eta|~<~2.0$. Being the innermost
-sub-detector of ATLAS the primary goals of the ID are to reconstruct the
-locations of the origin of interactions (known as the interaction vertex), and
-to track the propagation of charged particles through the detector. This is
-achieved by measuring a sequence of hits for each charged particle that
-propagates through its material, upon which reconstruction algorithms can be
-applied, known as track finding algorithms. From this sequence of hits
+total $\phi$ angle. The pixel detectors and SCT cover the range $|\eta|~<~2.5$
+and the TRT covers $|\eta|~<~2.0$. The job of the ID is to track the propagation
+of charged particles through the detector. This is achieved by measuring a
+sequence of hits for each charged particle that propagates through its volume.
+The sequence of hits describing the trajectory of a given charged particle must
+be disentangled from other hits in the detector, track-finding algorithms are
+applied to this end. Using these tracks we can measure; the direction of the
+particle, the sign of the electric charge of the particle, the rate of energy
+loss of the particle with respect to its distance traveled and by constructing
+the sagitta the transverse momentum of the particle (denoted $p_T$). An example
+construction of the sagitta is shown in figure~\ref{fig:sagita} and its relation
+to $p_T$ is
+\begin{equation}
+  \label{eq:sagitta}
+  S = \frac{qL^{2}B}{8p_{T}},
+\end{equation}
+where $L$ is the distance between the first and last hits in the track, $q$ is
+the charge of the particle, and $B$ is the strength of the magnetic field, in
+this case the field produced by the solenoid magnet system. The system is made
+of a single layer coil with an inner diameter of 2.46~m  and produces 2~T field
+in the axial direction with respect to the beam-pipe. Using multiple tracks
 interaction vertices can also be reconstructed, the vertex which comes from the
 highest energy collision in a given event is known as the primary vertex.
-Information from the tracker is used to match activity in outer regions of the
-detector to an interaction vertex. Each reconstructed track will have a momentum
-assigned to it, which is calculated using equation~\ref{eq:lorentz}. The
-magnetic field that the ID is immersed in is produced by the solenoid magnet
-system. The system is made of a single layer coil with an inner diameter of
-2.46~m  and produces 2~T field in the axial direction with respect to the
-beam-pipe.
+Vertices coming from pile-up and glancing collisions of partons also need to be
+reconstructed in order to separate detector response due to these collisions
+from that of the primary vertex. So-called impact parameters $d_0$ and $z_0$ are
+used to identify secondary and pile-up vertices, their construction is shown in
+figure~\ref{fig:impact-params}. These parameters are also used to perform
+identification of particles within the detector such as $b-$quarks and $\tau$s.
+Tracks are also used to calculate the calorimeter impact point and in general
+match activity in outer regions of the detector to an interaction vertex.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{Inner-detector}
@@ -278,10 +277,23 @@ beam-pipe.
   \label{fig:ATLAS-inner-det}
 \end{figure}
 
+With the exception of the TRT the tracking sub-systems are silicon based
+detectors. The silicon detection medium acts as a reverse bias diode. Charged
+particles incident on the silicon cause ionisation in the depletion layer. The
+products of this ionisation are electons and holes (excess pockets of positive
+charge in the silicon) which produce a signal that must be handled by a
+read-out system. The signal is referred to as the charge collected.
+Application-specific integrated circuits (ASICs) are used to readout the signal
+performing the analogue to digital conversion. The combination of the detection
+medium, readout system and the printed circuit board (PCB) on which they are
+joined is referred to as a module.
+
 \subsubsection{Pixel Detectors}
 
 There are four layers of pixel detectors that are the closest components of the
-ID to the beam-pipe. The design originally had three layers, each 250~$\mu$m
+ID to the beam-pipe. Pixel detectors are silicon detectors where the diodes are
+approximately square in shape, giving the benefit of being able to resolve hits
+in two directions. The design originally had three layers, each 250~$\mu$m
 thick with 50~$\mu$m by 250~$\mu$m pixels, of oxygen doped n-type silicon
 crystals. During LS1 a fourth layer, closest to the beam-pipe (which was also
 replaced for a smaller radius version) was added. This layer is known as the
@@ -294,19 +306,24 @@ beam-pipe allows for interaction vertices to be measured more precisely. The
 need for better reconstruction of vertices is motivated by their role in the
 performance of algorithms that classify jets of activity in the detector that
 are initiated by B-hadrons, this is where the IBL gets its name. There are no
-pixel detectors in the end-caps.
+pixel detectors in the end-caps. Each pixel is small in size which mean many can
+fit on one module, all requiring their own conductor for readout. The solution
+to this challenge is to use a complex process known as bump bonding, which is
+both expensive and time consuming.
 
 \subsubsection{Semiconductor Tracker}
 
-Next closest to the beam-pipe are the semiconductor trackers. Similarly to the pixel
-detectors the semiconductor trackers are also made of silicon. In contrast to
-the n-type silicon of the pixels, the semiconductor trackers use p-in-n type
-technology. The semiconductor modules are comprised of two back to back silicon
-wafers that are offset by a small angle in order to improve coverage. Each wafer
-has a series of strips of p-in-type material covered in a metalised layer, the
-strips are separated by a distance of 80~$\mu$m. The strips have a bias voltage
-applied and on the wafers the necessary electronics are mounted for readout as
-seen in figure~\ref{fig:strip-module}.
+Next closest to the beam-pipe is the SCT whose modules have long thin strip
+shaped diodes. The strips provide high resolution in only a single direction. In
+contrast to the n-type silicon of the pixels, the strips are made from p-in-n
+type silicon. Each SCT module is comprised of two back to back wafers such that
+the orientation of the strips are offset by a small angle in order to improve
+coverage. Each strip is covered in a metalised layer, the strips are separated
+by a distance of 80~$\mu$m. A rather old and dirty SCT module left over from the
+quality control testing stage of production that took place at Queen Mary
+University of London can be seen in figure~\ref{fig:strip-module}. As can be
+seen in the figure the SCT modules are wire bonded to their ASICs which is
+cheaper and faster than the bump bonding used on the pixel modules.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{sct-module}
@@ -332,16 +349,14 @@ SCT module.
 \end{figure}
 The modules come in two different designs, short strips and long
 strips with the short strips forming the layer closest to the pixel detectors
-and the long strips on the outside.
-
-The original operating bias voltage was 150~V but again due to radiation
-exposure this will raise to up to 350~V over time as necessary. There are four
-layers of semiconductor trackers in the barrel arranged so that sensors have a
-tilt with respect to a perfect coaxial cylinders of approximately 11~$\degree$.
-This tilt increases the amount of material that particles will travel through
-and is optimized to the geometry of the detector. Similarly the end-cap modules
-are arranged in petal like structures, with a number of different geometric
-designed based on the position within the end-cap.
+and the long strips on the outside. The original operating bias voltage was
+150~V but again due to radiation exposure this will raise to up to 350~V over
+time as necessary. There are four layers of semiconductor trackers in the barrel
+arranged so that sensors have a tilt with respect to a perfect coaxial cylinders
+of approximately 11~$\degree$. This tilt increases the amount of material that
+particles will travel through and is optimized to the geometry of the detector.
+Similarly the end-cap modules are arranged in petal like structures, with a
+number of different geometric designed based on the position within the end-cap.
 
 \subsubsection{Transition Radiation Tracker}
 
@@ -357,7 +372,7 @@ both the barrel and end-caps.
 \label{sec:calo}
 
 The purpose of the calorimeters is to measure the total energy of particles that
-pass all the way through the ID, this is achievable only if the calorimeter
+pass through their volume, this is achievable only if the calorimeter
 stops the particle completely. A desirable side effect is that they also act as
 a barrier to stop particles passing through to the muon spectrometers, of course
 this means necessarily that muons pass through the calorimeters. There are two
@@ -365,9 +380,6 @@ calorimeter systems in ATLAS the electromagnetic calorimeter (ECAL) and the
 hadronic calorimeter (HCAL), they will be explained in the following sections.
 The calorimeters are not immersed in a significant magnetic field compared to
 the rest of the ATLAS as seen in the heat map of figure~\ref{fig:ATLAS-magnets}.
-This is because measuring the energy of
-
-particles and acting as a barrier to them does not require curved trajectories.
 The geometric layout of the calorimeter systems, as well as the location of
 specific components can be seen in figure~\ref{fig:ATLAS-calo}, in which the ID
 can also be seen (greyed out). Information from the two calorimeters is used in
@@ -382,13 +394,29 @@ determine the position of decay products in the detector.
   \label{fig:ATLAS-calo}
 \end{figure}
 
+High energy physics calorimeters function by measuring the shower
+of particles that are produced as a result of the incident particle losing its
+energy Both calorimeters in ATLAS are sampling calorimeters, meaning that they
+are comprised of alternating layers of absorber and detection medium. The purpose
+of the absorber medium is to provide a material in which particle showers evolve
+rapidly over a short distance, though they are in general not sensitive to
+measuring those showers. The detection medium or active material is used to then
+measure those showers.
+
 \subsubsection{Electromagnetic Calorimeter}
-The ECAL is primarily concerned with measuring the energy and stopping the
-trajectory of electrons and photons. It has liquid argon (LAr) as it's active
-material. Particles initiate an electromagnetic shower of decay products in the
-active material which ionizes it. An applied electric field causes these ions to
-drift in such a way that the current induced is proportional to the energy
-deposited by the incident particle.
+The ECAL is primarily concerned with measuring the energy of electrons,
+positrons and photons. Theses particles primarily interact with the
+electromagnetic force and so produce electromagnetic showers when they lose
+their energy. The ECAL resides closer to the interaction point that the HCAL and
+has liquid argon (LAr) as it's active material. LAr is a good choice for the
+calorimeter which is closer to the interaction point as it is naturally
+resistant to damage by radiation. The absorber of the ECAL is lead, it is
+suitable as it has a high number of nucleons ($Z$) and the radiation
+length\footnote{The radiation length $X_{0}$ is the thickness of material that
+  reduces the energy of a particle by a factor of $e$ the natural number.} of a
+given shower is inversely proportional to $Z^2$. An applied electric field
+causes ions produced in the EM shower to drift in such a way that the signal
+induced is proportional to the energy deposited by the incident particle.
 
 \subsubsection{Hadronic Calorimeter}
 The HCAL also has a LAr component which works in a similar way to that of the

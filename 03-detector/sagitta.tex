@@ -1,0 +1,69 @@
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(2,-2){A}
+    \tkzDefPoint(3.5,0){Bfield}
+    \tkzLabelPoint[right](Bfield){{\Large$\otimes$}$\vec{B}$}
+    \tkzLabelPoint[below right](A){First hit}
+    \tkzDefPointBy[rotation= center O angle 90](A)
+    \tkzGetPoint{B}
+    \tkzLabelPoint[above right](B){Last hit}
+    % \tkzDrawPoints(A, B)
+   
+    \tkzDefPointBy[rotation=center O angle -10](A)
+    \tkzGetPoint{trackstart}
+    \tkzDefPointBy[rotation=center O angle 100](A)
+    \tkzGetPoint{trackend}
+    \tkzDrawLines[add=0 and 0](A,B)
+    \tkzDrawArc[color=blue, ->](O,trackstart)(trackend)
+    \tkzLabelLine[left, pos=0.25](A,B){$L$}
+    \tkzDefMidPoint(A,B) \tkzGetPoint{D}
+    \tkzDrawLines[add=0 and 0](O,D)
+    
+    \tkzDefPointBy[rotation=center O angle 45](A)
+    \tkzGetPoint{E}
+    \tkzDrawLines[add=0 and 0, color=red](D,E)
+    \tkzLabelLine[above](D,E){$S$}
+    %\tkzDrawArc(O,B)(A)
+    \tkzDrawLines[add = 0 and 0](O,A O,B)
+    \tkzDefPointBy[rotation=center O angle 10](A)
+    \tkzGetPoint{h1}
+    \tkzDefPointBy[rotation=center O angle 20](A)
+    \tkzGetPoint{h2}
+    \tkzDefPointBy[rotation=center O angle 30](A)
+    \tkzGetPoint{h3}
+    \tkzDefPointBy[rotation=center O angle 40](A)
+    \tkzGetPoint{h4}
+    \tkzDefPointBy[rotation=center O angle 50](A)
+    \tkzGetPoint{h5}
+    \tkzDefPointBy[rotation=center O angle 60](A)
+    \tkzGetPoint{h6}
+    \tkzDefPointBy[rotation=center O angle 70](A)
+    \tkzGetPoint{h7}
+    \tkzDefPointBy[rotation=center O angle 80](A)
+    \tkzGetPoint{h8}
+    
+    \tkzDrawPoints[cross out](A,B,h1,h2,h3,h4,h5,h6,h7,h8)
+    \tkzDrawPoints(trackstart)
+    \tkzLabelPoint[left](trackstart){Interaction vertex}
+    %\tkzLabelPoints[below](O,A,B)
+    \tkzDefTangent[at=A](O)
+    \tkzGetPoint{h}
+    %\tkzDrawLine[add = 4 and 3](A,h)
+    \tkzMarkRightAngle[size=0.2](O,A,h)
+    \tkzDefTangent[at=B](O)
+    \tkzGetPoint{h}
+    \tkzDefPointOnLine[pos=-1](B,h)
+    \tkzGetPoint{h}
+    %\tkzDrawLine[add = 4 and 3](B,h)
+    \tkzMarkRightAngle[size=0.2](O,B,h)
+  \end{tikzpicture}
+  \caption{A diagram showing the geometric construction of the sagitta ($S$) of a
+    track. The track is comprised of a sequence of hits marked by crosses and the ``lever-arm''
+    distance between the first and last hit in the track is marked $L$. Charged
+    tracks in a magnetic field pointing into the page, as shown, form arcs of
+    circles. The two lines marked as normal to the track are radii of the circle
+    to which this track's arc belongs.}
+  \label{fig:sagitta}
+\end{figure}

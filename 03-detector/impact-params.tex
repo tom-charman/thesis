@@ -1,0 +1,116 @@
+\begin{figure}[h]
+  \centering
+  \subfloat[]{
+    \begin{tikzpicture}
+      \coordinate (A) at (-2, 0) {};
+      \coordinate (B) at (4, 0) {};
+      \coordinate (C) at (0, 3.5) {};
+      \coordinate (0) at (0, 0) {};
+
+      \tkzDefPoint(-1.2, 1){trackstart}
+      \tkzDefPoint(-1.2, 5){O}
+      \tkzDefPointBy[rotation=center O angle 60](trackstart)
+      \tkzGetPoint{trackend}
+
+      \tkzDrawArc[color=blue, ->](O,trackstart)(trackend)
+
+      \tkzDefPointBy[rotation=center O angle 30](trackstart)
+      \tkzGetPoint{normal}
+
+      \tkzDefPointBy[rotation=center O angle 12](trackstart)
+      \tkzGetPoint{hit1}
+
+      \tkzDefPointBy[rotation=center O angle 24](trackstart)
+      \tkzGetPoint{hit2}
+
+      \tkzDefPointBy[rotation=center O angle 36](trackstart)
+      \tkzGetPoint{hit3}
+
+      \tkzDefPointBy[rotation=center O angle 48](trackstart)
+      \tkzGetPoint{hit4}
+
+      \tkzDrawPoints[cross](hit1,hit2,hit3,hit4)
+      
+      \tkzDefPointOnLine[pos=1.3](O,normal)
+      \tkzGetPoint{primary}
+      
+      
+      \tkzDrawLines[add=0 and 0](normal,primary)
+      \tkzLabelLine[right, pos=0.5](normal,primary){$d_0$}
+      
+      \tkzDefTangent[at=normal](O)
+      \tkzGetPoint{h}
+      %\tkzDefPointOnLine[pos=-1](B,h)
+      \tkzGetPoint{h}
+      \tkzMarkRightAngle[size=0.2](primary,normal,h)
+
+      \tkzDrawPoints(trackstart,primary)
+      \tkzLabelPoint[left, align=left](trackstart){Track\\origin}
+      \tkzLabelPoint[right](primary){Primary vertex}
+            
+      % axis lines
+      \tkzDrawLines[add=0 and 0, arrows=->](A,B 0,C)
+      \tkzLabelLine[left, pos=0.9](0, C){y}
+      \tkzLabelLine[below, pos=0.9](A, B){x}
+    \end{tikzpicture}
+  }
+  %
+  \subfloat[]{
+    \begin{tikzpicture} 
+      \coordinate (A) at (-2, 0) {};
+      \coordinate (B) at (4, 0) {};
+      \coordinate (C) at (0, 3.5) {};
+      \coordinate (0) at (0, 0) {};
+
+      \tkzDefPoint(-1.2, 1){trackstart}
+      \tkzDefPoint(3,3){trackend}
+
+      \tkzDrawLines[add=0 and 0, color=blue, ->](trackstart,trackend)
+
+      \tkzDefPointOnLine[pos=0.4](trackstart,trackend)
+      \tkzGetPoint{normal}
+
+      \tkzDefPointOnLine[pos=0.15](trackstart,trackend)
+      \tkzGetPoint{hit1}
+
+      \tkzDefPointOnLine[pos=0.30](trackstart,trackend)
+      \tkzGetPoint{hit2}
+
+      \tkzDefPointOnLine[pos=0.45](trackstart,trackend)
+      \tkzGetPoint{hit3}
+
+      \tkzDefPointOnLine[pos=0.60](trackstart,trackend)
+      \tkzGetPoint{hit4}
+
+      \tkzDefPointOnLine[pos=0.75](trackstart,trackend)
+      \tkzGetPoint{hit5}
+      
+      \tkzDefPointOnLine[pos=0.90](trackstart,trackend)
+      \tkzGetPoint{hit6}
+
+      \tkzDrawPoints[cross](hit1,hit2,hit3,hit4,hit5,hit6)
+      
+      
+      \tkzDefPointWith[orthogonal,K=-.5](normal,trackend)
+      \tkzGetPoint{primary}
+      
+      \tkzDrawLines[add=0 and 0](normal,primary)
+      \tkzLabelLine[right, pos=0.5](normal,primary){$z_0$}
+
+      \tkzMarkRightAngle[size=0.2](primary,normal,trackend)
+
+      \tkzDrawPoints(trackstart,primary)
+      \tkzLabelPoint[left, align=left](trackstart){Track\\origin}
+      \tkzLabelPoint[right](primary){Primary vertex}
+      
+      % axis lines
+      \tkzDrawLines[add=0 and 0, arrows=->](A,B 0,C)
+      \tkzLabelLine[left, pos=0.9](0, C){r}
+      \tkzLabelLine[below, pos=0.9](A, B){z}
+      
+    \end{tikzpicture}
+  }
+  \caption{A diagram showing the geometric construction of the impact parameters
+    $d_0$ and $z_0$.}
+  \label{fig:impact-params}
+\end{figure}

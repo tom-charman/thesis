@@ -248,7 +248,7 @@ applied to this end. Using these tracks we can measure; the direction of the
 particle, the sign of the electric charge of the particle, the rate of energy
 loss of the particle with respect to its distance traveled and by constructing
 the sagitta the transverse momentum of the particle (denoted $p_T$). An example
-construction of the sagitta is shown in figure~\ref{fig:sagita} and its relation
+construction of the sagitta is shown in figure~\ref{fig:sagitta} and its relation
 to $p_T$ is
 \begin{equation}
   \label{eq:sagitta}
@@ -256,19 +256,22 @@ to $p_T$ is
 \end{equation}
 where $L$ is the distance between the first and last hits in the track, $q$ is
 the charge of the particle, and $B$ is the strength of the magnetic field, in
-this case the field produced by the solenoid magnet system. The system is made
-of a single layer coil with an inner diameter of 2.46~m  and produces 2~T field
-in the axial direction with respect to the beam-pipe. Using multiple tracks
-interaction vertices can also be reconstructed, the vertex which comes from the
-highest energy collision in a given event is known as the primary vertex.
-Vertices coming from pile-up and glancing collisions of partons also need to be
-reconstructed in order to separate detector response due to these collisions
-from that of the primary vertex. So-called impact parameters $d_0$ and $z_0$ are
-used to identify secondary and pile-up vertices, their construction is shown in
-figure~\ref{fig:impact-params}. These parameters are also used to perform
-identification of particles within the detector such as $b-$quarks and $\tau$s.
-Tracks are also used to calculate the calorimeter impact point and in general
-match activity in outer regions of the detector to an interaction vertex.
+this case the field produced by the solenoid magnet system.
+\input{03-detector/sagitta}
+The system is made of a single layer coil with an inner diameter of 2.46~m  and
+produces 2~T field in the axial direction with respect to the beam-pipe. Using
+multiple tracks interaction vertices can also be reconstructed, the vertex which
+comes from the highest energy collision in a given event is known as the primary
+vertex. Vertices coming from pile-up and glancing collisions of partons also
+need to be reconstructed in order to separate detector response due to these
+collisions from that of the primary vertex.
+\input{03-detector/impact-params}
+So-called impact parameters $d_0$ and $z_0$ are used to identify secondary and
+pile-up vertices, their construction is shown in figure~\ref{fig:impact-params}.
+These parameters are also used to perform identification of particles within the
+detector such as $b-$quarks and $\tau$s. Tracks are also used to calculate the
+calorimeter impact point and in general match activity in outer regions of the
+detector to an interaction vertex.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\textwidth]{Inner-detector}
@@ -365,8 +368,8 @@ electron identification by measurement of transition radiation. The TRT is
 mostly made up of polyimide drift tubes with a diameter of 4~mm. The drift tubes
 are filled with a gas mixture whose majority constituent is xenon. These tubes
 operate with a voltage of -1530~V and are contained within a carbon fibre
-support structure. The geometrics layout of the tubes is optimized for
-both the barrel and end-caps.
+support structure. The geometric layout of the tubes is optimised individually for
+the barrel and end-caps.
 
 \subsection{Calorimeters}%
 \label{sec:calo}
@@ -403,6 +406,22 @@ rapidly over a short distance, though they are in general not sensitive to
 measuring those showers. The detection medium or active material is used to then
 measure those showers.
 
+In general a good calorimeter will have the following properties. It should be
+hermetic meaning that there are no gaps for particles to escape through without
+being measured. It should have a fast response time to keep up with the rate of
+collisions (actually the rate of the trigger see the following section). It
+should be radiation tolerant in order to perform over a long period of time. It
+should be able to measure energy to a high resolution in order to resolve
+resonances over backgrounds and have a high granularity of cells in order to
+accurately determine the position of energy deposits (and aid particle
+identification). High energy resolution is greatly aided by not having anything
+front of the calorimeter which may change an incident particles energy before it
+strikes the calorimeter itself. This requirement is therefore somewhat at odds
+with having a detector that has good $pT$ resolution for electrons, positrons
+and photons (muons go all the the way through the calorimeter anyway) due to the
+process by which $pT$ is measured becoming more precise with a longer
+``lever-arm'' distance $L$ as seen in figure~\ref{sig:sagitta} and equation ~\ref{eq:sagitta}.
+
 \subsubsection{Electromagnetic Calorimeter}
 The ECAL is primarily concerned with measuring the energy of electrons,
 positrons and photons. Theses particles primarily interact with the
@@ -419,12 +438,24 @@ causes ions produced in the EM shower to drift in such a way that the signal
 induced is proportional to the energy deposited by the incident particle.
 
 \subsubsection{Hadronic Calorimeter}
-The HCAL also has a LAr component which works in a similar way to that of the
-ECAL but with different optimizations for the HCAL's specialised design. The
-HCAL is specifically tasked with measuring the energy and stopping the
-trajectory of hadrons. The HCAL also contains a tile calorimeter which uses
-scintillation light produced in the tiles as a means to measure the deposited
-energy of hadrons.
+The HCAL end-caps use a LAr active material like the ECAL. The absorber is copper
+instead of lead and the dimensions are more suited to hadronic particle showers
+as opposed to electromagnetic. As noted before LAr is naturally radiation hard
+which is why it is used in the end-caps which see more radiation than the barrel
+regions due to almost all of the momentum of the colliding bunches of particles
+being in the axis of the beam-pipe. The barrel section of the hadronic
+calorimeter is made from scintilating tiles of active material interspersed with
+steel as an absorber. Scintilation is the process by
+which a scintilation medium produces light when energy particles travel through
+it. The amount of light produced is proportional to the energy of the incident
+particle that initiated the shower. In order to convert the light into a digital
+electrical signal photo-multiplier tubes (PMTs) are used. PMTs are
+able to measure very small amounts of light, even the incidence of a single
+photon. This is achieved by initially exploiting the photo-electric effect
+whereby the incident photon knocks an electron from a metallic part of the PMT.
+The current produced by this electron is then multiplied by a very large factor
+(up to $10^8$ for some PMTs) by a series of dynodes (electrodes in vacuum that
+produce secondary emission).
 
 \subsection{Muon Spectrometers}%
 \label{sec:muon}

@@ -36,13 +36,14 @@ INTRODUCTION  = -jobname=BUILD/introduction 01-introduction/introduction.tex
 THEORY        = -jobname=BUILD/theory 02-phys-theory/theory.tex
 DETECTOR      = -jobname=BUILD/detector 03-detector/detector.tex
 ML            = -jobname=BUILD/machine-learning 04-machine-learning/machine-learning.tex
-METHOD        = -jobname=BUILD/method 05-analysis-methodology/method.tex
-MODELLING     = -jobname=BUILD/modelling 06-background-modelling/modelling.tex
-RESULTS       = -jobname=BUILD/results 07-results/results.tex
-CONCLUSION    = -jobname=BUILD/conclusion 08-conclusion/conclusion.tex
+RECON         = -jobname=BUILD/recon 05-reconstruction-and-selection/reconstruction-and-selection.tex
+FIT           = -jobname=BUILD/fit 06-fit-models/fit-models.tex
+MODELLING     = -jobname=BUILD/modelling 07-background-modelling/modelling.tex
+RESULTS       = -jobname=BUILD/results 08-results/results.tex
+CONCLUSION    = -jobname=BUILD/conclusion 09-conclusion/conclusion.tex
 
 # TIDYING
-CLEAN     = -C thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf method.pdf modelling.pdf results.pdf conclusion.pdf
+CLEAN     = -C thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf recon.pdf fit.pdf  modelling.pdf results.pdf conclusion.pdf
 MKDIR = mkdir -p
 OUT_DIR = BUILD
 
@@ -71,16 +72,19 @@ detector.pdf: 03-detector/detector.tex directories
 machine-learning.pdf: 04-machine-learning/machine-learning.tex directories
 	$(LATEXMK) $(OPTIONS) $(ML) && mv BUILD/machine-learning.pdf .
 
-method.pdf: 05-analysis-methodology/method.tex directories
-	$(LATEXMK) $(OPTIONS) $(METHOD) && mv BUILD/method.pdf .
+method.pdf: 05-reconstruction-and-selection/reconstruction-and-selection.tex directories
+	$(LATEXMK) $(OPTIONS) $(RECON) && mv BUILD/recon.pdf .
 
-modelling.pdf: 06-background-modelling/modelling.tex directories
+method.pdf: 06-fit-models/fit-models.tex directories
+	$(LATEXMK) $(OPTIONS) $(FIT) && mv BUILD/fit.pdf .
+
+modelling.pdf: 07-background-modelling/modelling.tex directories
 	$(LATEXMK) $(OPTIONS) $(MODELLING) && mv BUILD/modelling.pdf .
 
-results.pdf: 07-results/results.tex directories
+results.pdf: 08-results/results.tex directories
 	$(LATEXMK) $(OPTIONS) $(RESULTS) && mv BUILD/results.pdf .
 
-conclusion.pdf: 08-conclusion/conclusion.tex directories
+conclusion.pdf: 09-conclusion/conclusion.tex directories
 	$(LATEXMK) $(OPTIONS) $(CONCLUSION) && mv BUILD/conclusion.pdf .
 
 clean:

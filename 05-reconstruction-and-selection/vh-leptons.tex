@@ -1,0 +1,25 @@
+\begin{table}
+  \centering
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{ l l l l l l l }
+    \toprule
+    \bfseries{Name} & \bfseries{$p_T$} & \bfseries{$\abs{\eta}$} & \bfseries{ID} & \bfseries{$d_0^{sig}$} & \bfseries{$\abs{\Delta z_0\sin{\theta}}$}
+    & \bfseries{Isolation}\\
+    \midrule
+    \multicolumn{7}{l}{\bfseries{electrons}}\\
+    VH-loose & > 7 GeV  & < 2.47 & LH Loose & < 5 & < 0.5 mm & FCLoose \\
+    ZH-signal & > 27 GeV & < 2.47 & LH Loose & < 5 & < 0.5 mm & FCLoose \\
+    WH-signal & > 27 GeV & < 2.47 & LH Tight & < 5 & < 0.5 mm & FixedCutHighPtCaloOnly \\
+    &&\\
+    \multicolumn{7}{l}{\bfseries{muons}}\\
+    VH-loose & > 7 GeV & < 2.7 & Loose quality & < 3 & < 0.5 mm & FixecdCutLoose \\
+    ZH-signal & > 27 GeV & < 2.5 & Loose quality & < 3 & < 0.5 mm & FixecdCutLoose \\
+ WH-signal & > 27 GeV & < 2.5 & Medium quality & < 3 & < 0.5 mm & FixedCutHighPtCaloOnly \\
+    \bottomrule
+  \end{tabular}
+  }
+  \caption{Definitions of the VH leptons used to define and select events for
+    the three analysis channels where $d_0^{sig}$ is the measured with respect to
+    the beam line. }
+  \label{tab:vh-leptons}
+\end{table}

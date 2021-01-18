@@ -1,0 +1,74 @@
+\begin{figure}[h]
+  \centering
+  %Define block styles
+  \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+  text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+  \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=12em, text
+  centered, rounded corners, minimum height=3em]
+  \tikzstyle{line} = [draw, -latex']
+  \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm, minimum
+  height=2em]
+  
+    
+  \begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (gen) {Generation};
+    
+    \node[below=0.75cm of gen] (gen-half) {};
+    \node[right=0.75cm of gen-half] (evnt) {EVNT};
+    
+    \node [block, below=1.5cm of gen] (sim) {Simulation};
+
+    \node[below=0.75cm of sim] (sim-half) {};
+    \node[right=0.75cm of sim-half] (hits) {HITS};
+    
+    \node [block, below=1.5cm of sim] (digi) {Digitisation};
+
+    \node[below=0.75cm of digi] (digi-half) {};
+    \node[right=0.75cm of digi-half] (rdo) {RDO};
+    
+    \node [block, below=1.5cm of digi] (mc-reco) {Reconstruction};
+
+    \node[below=0.75cm of mc-reco] (mc-reco-half) {};
+    \node[right=0.75cm of mc-reco-half] (xaod) {xAOD};
+    
+    \node [block, below=1.5cm of mc-reco] (mc-der) {Derivation};
+
+    \node[below=0.75cm of mc-der] (mc-der-half) {};
+    \node[right=0.75cm of mc-der-half] (dxaod) {DxAOD}; 
+    
+    \node [block, left=3cm of digi, fill=red!20] (trig) {Trigger};
+
+    \node[below=0.75cm of trig] (trig-half) {};
+    \node[left=0.75cm of trig-half] (dxaod) {RAW};
+    
+    \node [block, below=1.5cm of trig, fill=red!20] (data-reco) {Reconstruction};
+
+    \node[below=0.75cm of data-reco] (data-reco-half) {};
+    \node[left=0.75cm of data-reco-half] (xaod) {xAOD};
+    
+    \node [block, below=1.5cm of data-reco, fill=red!20] (data-der) {Derivation};
+
+    \node[below=0.75cm of data-der] (data-der-half) {};
+    \node[left=0.75cm of data-der-half] (dxaod) {DxAOD};
+
+    \node[left=1.5cm of mc-der] (ghost) {};
+    \node [block, below=1.5cm of ghost, fill=purple!40] (ana) {Analysis};
+    
+    % Draw edges
+    \path [line] (gen) -- (sim);
+    \path [line] (sim) -- (digi);o
+    \path [line] (digi) -- (mc-reco);
+    \path [line] (mc-reco) -- (mc-der);
+
+    \path [line] (trig) -- (data-reco);
+    \path [line] (data-reco) -- (data-der);
+
+    \path [line] (mc-der) -- (ana);
+    \path [line] (data-der) -- (ana);
+  \end{tikzpicture}
+  \caption{A flow chart showing the Athena data processing chain. Red nodes
+    indicate the presence of data recorded from collisions and blue nodes indicate the
+    presence of Monte-Carlo simulated events.}
+  \label{fig:data-flow}
+\end{figure}

@@ -1,8 +1,83 @@
 \chapter{Reconstruction and Selection}%
 \label{sec:method}
-\section{Channel Definitions and Selections}%
+\section{Triggers}
+\label{sec:triggers}
+
+\section{Athena and the CxAOD Framework}
+\label{sec:cxaod}
+Data recorded by the ATLAS detector is passed through the central collaboration
+software framework Athena before entering the analysis level data processing.
+\input{05-reconstruction-and-selection/data-flow-chart}
+Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
+be seen in the figure Athena processes both data recorded from collisions and
+Monte-Carlo simulated predictions. Steps up until and including reconstruction
+are required to transform the raw or simulated read-out of the detector into
+what are known as physics objects. These physics objects correspond to UV and IR
+safe descriptions particles and hadron showers e.g. leptons and jets. Given the
+initial transverse energy of the collisions (zero) any missing transverse energy
+($E^T_{miss}$) is also reconstructed based on the sum of the transverse energy
+of all objects in an event, this missing energy indicates the presence of
+particles in the event that cannot be detector by any of ATLAS subsystems. The
+only particles in the Standard Model for which this is expected are neutrinos.
+The files containing the reconstructed physics objects adhere to the ATLAS Event
+Data Model (EDM) and are referred to as Analysis Object Data (xAOD). After
+reconstruction a part of Athena called the derivation framework is used to
+produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The reduction
+of these files is carried out based on a loose selection criteria, the criteria
+used in the VH(bb) analysis are shown in table~\ref{tab:derivations}.
+
+DxAODs are the usual starting point for analysis level software, in the case of
+this analysis the CxAOD Framework. Of course xAODs can also be used as the
+starting point for analysis they are just larger.
+\input{05-reconstruction-and-selection/cxaod-flow}
+As in in figure~\ref{fig:cxaod-flow} The CxAOD Framework has two major
+components the Maker and the Reader. The job of the maker is to further slim the
+data by performing pre-selection cuts and also to apply calibrations which will
+be detailed below, the output of the Maker is called a Calibrated xAOD (CxAOD).
+The Reader takes a CxAOD as input and performs the analysis event selection, it
+can output histograms or nTuples.
+
+The Maker applies selections the selections of each of the three analysis
+channels, defined in section~\ref{sec:channels-and-selections}. CxAODs are
+produced separately for each of the three channels as the different background
+compositions and signal signatures require different optimisation. Pre-selection is
+performed on jets based on application of requirements on transverse momentum and
+pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
+jets resulting from pileup from events.
+
+
+
+\section{Channel Definitions and Lepton Selections}%
 \label{sec:channels-and-selections}
+
+The channels of the VH(bb) analysis are defined by the number of observed
+charged leptons ($e$ or $\mu$) in the decay of the vector boson. There is one
+channel for the study of WH(bb) decays where the leptonic decay $W \rightarrow
+\ell\nu$ yields a single charged lepton. There are two channels for the study of
+ZH(bb), the zero lepton channel, $Z \rightarrow \nu\nu$, and the two lepton
+channel, $Z \rightarrow \ell\ell$. 
+
+Two classifications of lepton are defined in order to categorise events into the
+individual channels of the analysis, these are called VH-loose and VH-signal
+electrons, channels are kept orthogonal by requiring different numbers of both
+lepton categories. These classifications are defined in
+table~\ref{tab:vh-leptons}.
+\input{05-reconstruction-and-selection/vh-leptons}
+
+\section{Triggers}
+\input{05-reconstruction-and-selection/met_triggers}
+\input{05-reconstruction-and-selection/electron_trigger}
+\input{05-reconstruction-and-selection/muon_trigger}
+
+\section{Jets}
+
+\section{Overlap Removal}
+
+\section{Missing Transverse Momentum}
+
+\section{Categorisation into Analysis Regions}
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
+
 \label{sec:topemucr}
 \subsection{\texorpdfstring{$\Delta R(b,b)$}{DRbb} Control Regions}%
 \label{sec:control-region-defintions}

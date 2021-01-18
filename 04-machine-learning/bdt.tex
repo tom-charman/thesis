@@ -1,8 +1,31 @@
 \begin{figure}[h]
   \centering
-  \begin{tikzpicture}
-    \draw [very thick] plot [smooth] coordinates {(-5,-3) (5,3)};
-    \draw [very thick] plot [smooth] coordinates {(-5, 3) (5,-3)};
+  \begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 5cm/#1,
+      level distance = 1.5cm}] 
+    \node [arn_n] {100 \%}
+    child{ node [arn_r] {60 \%} 
+      child{ node [arn_r] {39 \%} 
+        child{ node [arn_r] {30 \%} %edge from parent node[above left]
+        %  {$x$}
+        } %for a named pointer
+        child{ node [arn_b] {9 \%}}
+      }
+      child{ node [arn_b] {21 \%}
+        child{ node [arn_r] {4 \%}}
+        child{ node [arn_b] {17 \%}}
+      }                            
+    }
+    child{ node [arn_b] {40 \%}
+      child{ node [arn_r] {15 \%} 
+        child{ node [arn_r] {13 \%}}
+        child{ node [arn_b] {2 \%}}
+      }
+      child{ node [arn_b] {25 \%}
+        child{ node [arn_r] {3 \%}}
+        child{ node [arn_b] {22 \%}}
+      }
+		}
+    ; 
   \end{tikzpicture}
   \caption{The structure of a decision tree.}
   \label{fig:bdt}

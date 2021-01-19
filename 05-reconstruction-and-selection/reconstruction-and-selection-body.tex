@@ -1,7 +1,118 @@
 \chapter{Reconstruction and Selection}%
 \label{sec:method}
+
+At the top level events are required to have one Higgs boson candidate and one
+vector boson candidate. In all cases a Higgs boson candidate is comprised of two
+b-tagged jets. More on the jet collection and b-tagging strategy used in
+section~\ref{sec:jets}. Vector boson candidates are defined by a number of
+different decay products defined in section~\ref{sec:channels-and-selections},
+these decay products are triggered on, specific triggers used are discussed in
+section~\ref{sec:triggers}. Reconstruction of basic quantities as well as higher
+level algorithms such as overlap removal are handled by Athena and the CxAOD
+Framework, more on these in section~\ref{sec:cxaod}. Finally with all quantities
+reconstructed events are categorised in different analysis regions, these are
+described in section~\ref{sec:ana-regions}.
+
+\section{Channel Definitions and Lepton Selections}%
+\label{sec:channels-and-selections}
+
+The channels of the VH(bb) analysis are defined by the number of observed
+charged leptons ($e$ or $\mu$) in the decay of the vector boson. There is one
+channel for the study of WH(bb) decays where the leptonic decay $W \rightarrow
+\ell\nu$ yields a single charged lepton. There are two channels for the study of
+ZH(bb), the zero lepton channel, $Z \rightarrow \nu\nu$, and the two lepton
+channel, $Z \rightarrow \ell\ell$. 
+
+Two classifications of lepton are defined in order to categorise events into the
+individual channels of the analysis, these are called VH-loose and VH-signal
+leptons, channels are kept orthogonal by requiring different numbers of both
+lepton categories. These classifications are defined in
+table~\ref{tab:vh-leptons}. The characteristics of the fake lepton background
+from QCD multi-jet processes differs between the 1 and 2 lepton channels hence
+the reason for two different categorisations. In general to suppress this kind
+of background leptons are required to be isolated from other detector activity.
+\input{05-reconstruction-and-selection/vh-leptons}
+
+\subsection{Electrons}
+\label{subsec:electrons}
+
+As mentioned in chapter~\ref{sec:detector} electrons leave tracks in the ID and
+energy deposits in the ECAL. Reconstructing electrons requires clustering the
+energy deposits in the ECAL, this is achieved with a sliding window
+algorithm~\cite{slide}. Clusters must then be associated to tracks in the ID, a
+Gaussian Sum Filter~\cite{GSF} is used to account for energy loses due to
+bremsstrahlung radiation. The energy for electron candidates must be calibrated
+before it can be used in order to account for things such as non-uniformity in
+the detector response. Calibration is achieved by using simulated cluster
+activity from single particles to train a BDT regression model designed to
+regress the measured energy in the ECAL to the simulated energy. An in-situ data
+driven correction is applied to normalise the response between data and
+simulation~\cite{elec-calibration}.
+
+Reconstruction alone is not enough to find electrons, other particles may leave
+similar signatures in the ATLAS sub-detectors and therefore electron
+identification must also be performed. Identification is performed using a
+likelihood-based method. Variables which have power to discriminate between
+electrons and other particles are used in the likelihood such as shower
+profiles, track quality, how closely track and cluster positions match in $\eta$
+and $\phi$, and the presence of a high-threshold TRT hit. This is one of the
+main benefits of the TRT. Performance of this method is well
+studied~\cite{2likelihood-electron-id-notes}.
+
+\subsection{Muons}
+
+Finding muons in the detector requires consideration of the coverage of the
+different ATLAS sub-detectors, especially in general are not stopped in the
+detector. Muons leave charged tracks in the ID and the muon spectrometers which
+have coverages of $\lvert \eta \rvert < 2.7$ and $\lvert \eta \rvert < 2.5$
+respectively. For the region $\lvert \eta \rvert > 2.5$ a stand-alone algorithm
+which doesn't use ID tracks can be used. All muons within the coverage of the ID
+require good quality ID tracks~\cite{}. A combined algorithm is used in the
+majority of cases. For the region $\lvert  \eta  \rvert < 0.1$ two specialised
+algorithms SegmentTagged and CaloTagged are used which require only muon segment
+and calorimeter deposits respectively. All aforementioned algorithms are used
+together in what is known as a unified chain~\cite{muon-reco-id} to reconstruct and identify
+muons.
+
+\subsection{Taus}
+
+As mentioned the only charged leptons that are considered in the analysis are
+electrons and muons, leptonically decaying taus will have electrons and muons as
+the only visible decay products however hadronically decaying taus must be
+considered differently. Decays are considered as one or three pronged based on
+the number of charged decay products, pions, with neutrinos a
+nd neutral pions
+also present. These decays are reconstructed in the calorimeters like jets with
+the anti-$k_t$ algorithm with $\Delta R = 0.4$~\cite{tau-reco} but the $p_T$ of
+the tau is set to the total energy of the TopoClusters within $\Delta I goR < 0.2$,
+more on TopoClusters in section~\ref{sec:jets}. Tau candidates must have $p_T >
+20 GeV$, $\lvert  \eta \rvert < 2.5$ excluding $1.37 \lvert \eta \rvert < 1.52$,
+and either exactly 1 or 3 tracks. A BDT based method for tau identification is
+used to reject fakes. Medium quality taus are counted for each event~\cite{med-taus2}.
+
 \section{Triggers}
 \label{sec:triggers}
+
+As stated at the beginning of this chapter the decay products of the vector
+boson candidate are used to trigger the recording of events for this analysis.
+Therefore important triggers for the 0-lepton channel are $E_T^{miss}$ triggers,
+and for the 1-lepton and 2-lepton channels the single electron, or single muon
+triggers. Note that it is not necessary to trigger on both charged leptons
+coming from the Z boson in the 2-lepton channel, the presence of one lepton
+allows the triggering to occur and the requirement for 2-leptons can be imposed
+at a later stage. Some events will be missed by not using a di-lepton trigger,
+however these amount to approximately only 5\% of the total. The list of
+triggers used as they appear in the ATLAS trigger menu are shown in
+tables~\ref{tab:mettrig, tab:electrontrig, tab:muontrig}, for the $E_T^{miss}$,
+electron and muon triggers respectively.
+
+\input{05-reconstruction-and-selection/met_triggers}
+%\input{05-reconstruction-and-selection/electron_trigger}
+%\input{05-reconstruction-and-selection/muon_trigger}
+
+\section{Jets}
+\label{sec:jets}
+
 
 \section{Athena and the CxAOD Framework}
 \label{sec:cxaod}
@@ -45,37 +156,13 @@ performed on jets based on application of requirements on transverse momentum an
 pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
 jets resulting from pileup from events.
 
-
-
-\section{Channel Definitions and Lepton Selections}%
-\label{sec:channels-and-selections}
-
-The channels of the VH(bb) analysis are defined by the number of observed
-charged leptons ($e$ or $\mu$) in the decay of the vector boson. There is one
-channel for the study of WH(bb) decays where the leptonic decay $W \rightarrow
-\ell\nu$ yields a single charged lepton. There are two channels for the study of
-ZH(bb), the zero lepton channel, $Z \rightarrow \nu\nu$, and the two lepton
-channel, $Z \rightarrow \ell\ell$. 
-
-Two classifications of lepton are defined in order to categorise events into the
-individual channels of the analysis, these are called VH-loose and VH-signal
-electrons, channels are kept orthogonal by requiring different numbers of both
-lepton categories. These classifications are defined in
-table~\ref{tab:vh-leptons}.
-\input{05-reconstruction-and-selection/vh-leptons}
-
-\section{Triggers}
-\input{05-reconstruction-and-selection/met_triggers}
-\input{05-reconstruction-and-selection/electron_trigger}
-\input{05-reconstruction-and-selection/muon_trigger}
-
-\section{Jets}
-
 \section{Overlap Removal}
 
 \section{Missing Transverse Momentum}
 
 \section{Categorisation into Analysis Regions}
+\label{sec:ana-regions}
+
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 
 \label{sec:topemucr}

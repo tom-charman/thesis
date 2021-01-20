@@ -13,8 +13,8 @@ Framework, more on these in section~\ref{sec:cxaod}. Finally with all quantities
 reconstructed events are categorised in different analysis regions, these are
 described in section~\ref{sec:ana-regions}.
 
-\section{Channel Definitions and Lepton Selections}%
-\label{sec:channels-and-selections}
+\section{Leptons}%
+\label{sec:lepton}
 
 The channels of the VH(bb) analysis are defined by the number of observed
 charged leptons ($e$ or $\mu$) in the decay of the vector boson. There is one
@@ -107,12 +107,20 @@ tables~\ref{tab:mettrig, tab:electrontrig, tab:muontrig}, for the $E_T^{miss}$,
 electron and muon triggers respectively.
 
 \input{05-reconstruction-and-selection/trigger_table}
-%\input{05-reconstruction-and-selection/electron_trigger}
-%\input{05-reconstruction-and-selection/muon_trigger}
+
+\subsection{0-lepton channel triggers}
+
+\subsection{1/2-lepton channel triggers}
 
 \section{Jets}
 \label{sec:jets}
 
+Two categories of jets are considered, signal jets and forward jets, when the
+number of total jets is referred to it is equal to the sum of signal and forward
+jets.
+
+\section{Missing Transverse Momentum}
+\label{sec:met}
 
 \section{Athena and the CxAOD Framework}
 \label{sec:cxaod}
@@ -158,15 +166,103 @@ jets resulting from pileup from events.
 
 \section{Overlap Removal}
 
-\section{Missing Transverse Momentum}
+\section{Final Selection}
+\label{sec:selection}
 
-\section{Categorisation into Analysis Regions}
-\label{sec:ana-regions}
+The final analysis selection varies between lepton channels. There are however
+some common selections to all three channels as the Higgs candidate does not
+differ between channels, after all this is what we aim to measure. All events must
+have at least two signal jets. These signal jets must be b-tagged, the b-tagging
+algorithm used is the MV2c10 algorithm with the 70\% efficiency working point
+used, events with between 0 or 1 b-tags are considered for study and are not
+used in the final analysis, events with $\ge3$ b-tags are rejected entirely. The
+leading b-tagged jet my have $p_T > 45$ GeV. A key variable in the analysis, the
+di-jet mass, $m_{jj}$ is reconstructed from the two leading jets, in the case
+where both jets are b-tagged $m_{bb} \equiv m_{jj}$ and represent the mass of
+the Higgs candidate.
 
-\subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
+Reconstruction of the momentum of b-tagged jets can be enhanced with better
+resolution with respect to other jets. This is achieved with so-called
+muon-in-jet and $p_T$-reco corrections detailed in~\ref{app:b-tag-mom-res}.
+Corrections are applied after events pass the full analysis selection, but
+before other stages of the analysis. These corrections are not used in the
+calculation of any $E_T^{miss}$ related variables.
 
-\label{sec:topemucr}
-\subsection{\texorpdfstring{$\Delta R(b,b)$}{DRbb} Control Regions}%
-\label{sec:control-region-defintions}
+\subsection{0-lepton channel selection}
+\label{sec:0lep-selction} 
+
+The vector boson candidate in the 0-lepton channel is a Z boson decaying to two
+neutrinos. In order to select events for this candidate a large amount of
+$E_T^{miss}$ is required (> 150 GeV) and there must be exactly 0 VH-loose
+leptons in the event. Whilst events with lower $E_T^{miss}$ may come from the
+physical process we desire to measure the $E_T^{miss}$ trigger thresholds
+require setting the cut at it's value, the efficiency is ~90\% for events
+with $E_T^{miss} = 150$ GeV and efficiency plateaus at $E_T^{miss} \approx 180$
+GeV.
+
+There exists a non-trivial dependence of the trigger efficiency on activity of
+jets in detector. This arises due to the fact that the calculation of
+$E_T^{miss}$ is simply the total transverse energy of the event minus the
+transverse energy of all objects in the event. These effects are hard to model
+in certain phase spaces and so a requirement is put on $S_T$ such that it must
+be greater than 120 GeV for events with two total jets, and greater than 150 GeV
+for events with three total jets, where $S_T$ is defined as,
+\begin{equation}
+  S_T = \sum_i p_T^i, \text{for } i \text{ jets in the event.}
+\end{equation}
+
+Due to the lack of charged leptons in the $Z \rightarrow \nu\nu$ decay there is
+nothing to trigger on to suppress multi-jet background processes arising from
+QCD. This background is also enhanced due to limitations of the calorimeter
+performance. A set of so-called anti-QCD cuts are applied to deal with this
+multi-jet background, they are as follows:
+\begin{itemize}
+\item $\lvert \Delta \Phi ( E_T^{miss} , E_{t, trk}^{miss} ) \rvert <$ 90 $^\circ$
+\item $\lvert \Delta \Phi ( j_1 , j_2 ) \rvert <$ 140 $^\circ$
+\item $\lvert \Delta \Phi ( E_T^{miss} , h ) \rvert >$ 120 $^\circ$
+\item $\text{min} ( \lvert \Delta \Phi ( E_T^{miss} , \text{pre-sel. jets}) \rvert ) >$ 20 $^\circ$ for  2 jets, $>$ 30 $^\circ$ for 3 jets.
+\end{itemize}
+Where $E_{t, trk}^{miss}$ is defined as the missing transverse momentum
+calculated from the negative vector sum of the transverse momenta of tracks
+reconstructed in the inner detector and identified as originating from the
+primary vertex. The leading and sub-leading jets are denoted $j_1$ and $j_2$.
+These cuts reduce the multi-jet background to approximately 1\% of the total
+background in this channel.
 
 
+\subsection{1-lepton channel selection}
+\label{sec:1lep-selction} 
+
+The vector boson candidate in the 1-lepton channel is a W boson decaying to one
+charged lepton and one neutrino. In order to select for events of this signature
+exactly one WH-signal lepton is required. At low $p_T$ there is increased
+contribution from multi-jet processes, therefore the extra requirements of
+$p_T^{W} > 150$ GeV and $E_T^{miss} > 30$ GeV. The latter cut is only applied in
+the electron channel.  
+
+\subsection{2-lepton channel selection}
+\label{sec:2lep-selction} 
+
+The vector boson candidate in the 1-lepton channel is a W boson decaying to two
+charged leptons. Exactly two VH-loose leptons of the same lepton flavour are
+required, additionally one of the leptons must pass the ZH-signal requirements.
+For events with two muons, it is required that the muons are of opposite charge.
+Electron reconstruction suffers from a higher rate of charge misidentification
+and so this requirement is not applied to events with two electrons. The
+di-lepton invariant mass is confined to be around the Z boson mass peak, events
+require $81 < m_{ll} < 101$ GeV. These cuts reduce multi-jet backgrounds to
+negligible levels. 
+
+The presence of two visible leptons in this channel allows for the enhancement
+to b-tagged jets momentum resolution to be further improved. By inspection of
+the decay in the channel it is clear that the momentum of the Higgs and vector
+boson candidates ought to be balanced. The momentum resolution of the two
+charged leptons forming the Z boson candidate is higher than that of the
+b-tagged jets forming the Higgs candidate (even after corrections). The b-tagged
+jets momentum can therefore be corrected with a kinematic fit. The kinematic fit
+improves resolution by 20-30\% compared with the muon-in-jet corrected
+quantities. This correction is only applied to events with 2 or 3 total jets as
+the presence of more jets results in smearing of the effect over those
+additional jets.
+
+\input{05-reconstruction-and-selection/event-selection}

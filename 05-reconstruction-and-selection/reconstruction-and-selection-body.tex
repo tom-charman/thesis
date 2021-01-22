@@ -13,6 +13,48 @@ Framework, more on these in section~\ref{sec:cxaod}. Finally with all quantities
 reconstructed events are categorised in different analysis regions, these are
 described in section~\ref{sec:ana-regions}.
 
+\section{Athena and the CxAOD Framework}
+\label{sec:cxaod}
+Data recorded by the ATLAS detector is passed through the central collaboration
+software framework Athena before entering the analysis level data processing.
+\input{05-reconstruction-and-selection/data-flow-chart}
+Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
+be seen in the figure Athena processes both data recorded from collisions and
+Monte-Carlo simulated predictions. Steps up until and including reconstruction
+are required to transform the raw or simulated read-out of the detector into
+what are known as physics objects. These physics objects correspond to UV and IR
+safe descriptions particles and hadron showers e.g. leptons and jets. Given the
+initial transverse energy of the collisions (zero) any missing transverse energy
+($E^T_{miss}$) is also reconstructed based on the sum of the transverse energy
+of all objects in an event, this missing energy indicates the presence of
+particles in the event that cannot be detector by any of ATLAS subsystems. The
+only particles in the Standard Model for which this is expected are neutrinos.
+The files containing the reconstructed physics objects adhere to the ATLAS Event
+Data Model (EDM) and are referred to as Analysis Object Data (xAOD). After
+reconstruction a part of Athena called the derivation framework is used to
+produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The reduction
+of these files is carried out based on a loose selection criteria, the criteria
+used in the VH(bb) analysis are shown in table~\ref{tab:derivations}.
+
+DxAODs are the usual starting point for analysis level software, in the case of
+this analysis the CxAOD Framework. Of course xAODs can also be used as the
+starting point for analysis they are just larger.
+\input{05-reconstruction-and-selection/cxaod-flow}
+As in in figure~\ref{fig:cxaod-flow} The CxAOD Framework has two major
+components the Maker and the Reader. The job of the maker is to further slim the
+data by performing pre-selection cuts and also to apply calibrations which will
+be detailed below, the output of the Maker is called a Calibrated xAOD (CxAOD).
+The Reader takes a CxAOD as input and performs the analysis event selection, it
+can output histograms or nTuples.
+
+The Maker applies selections the selections of each of the three analysis
+channels, defined in section~\ref{sec:channels-and-selections}. CxAODs are
+produced separately for each of the three channels as the different background
+compositions and signal signatures require different optimisation. Pre-selection is
+performed on jets based on application of requirements on transverse momentum and
+pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
+jets resulting from pileup from events.
+
 \section{Leptons}%
 \label{sec:lepton}
 
@@ -115,54 +157,44 @@ electron and muon triggers respectively.
 \section{Jets}
 \label{sec:jets}
 
+As mentioned in chapter~\ref{sec:theory} jets are the roughly conical structure
+of detector activity resulting from the ultimate hadronisation of a QCD parton.
 Two categories of jets are considered, signal jets and forward jets, when the
 number of total jets is referred to it is equal to the sum of signal and forward
-jets.
+jets. As the Higgs candidate in every channel of the analysis is two b-tagged
+jets, both the reconstruction of jets and the b-tagging strategy have huge
+impacts on the final measurements. In this section the way jets are found and
+reconstructed will be introduced, b-tagging will be explained in general and
+then the specific tagging strategy of the analysis will be detailed.
+
+\subsection{Topological Calorimeter Cluster anti-$k_t$ jets}
+The jets that are found with a given algorithm are referred to as a jet
+collection. The jet collection relevant to this analysis uses topological
+calorimeter cell clusters to reconstruct jets~\cite{emtopo}. These cluster are
+then passed to the anti-$k_t$ jet finding algorithm~\cite{anti-kt}. This
+algorithm takes a radius parameter which governs the size of jets, in the ATLAS
+coordinates a radius parameter of $R=0.4$ is chosen.
+
+As mentioned in chapter~\ref{sec:detector} pileup can cause issues with
+reconstruction. In general there is a desire to suppress any jets which arise
+from pileup. The Jet Vertex Tagger (JVT) is a likelihood-based discriminant
+which is used to achieve this. The primary vertex location, jet $p_T$ and the
+
+$p_T$ of tracks associated to a given jet, serve as inputs to the JVT which
+outputs a 2-D likelihood that the jet arises from pileup. The likelihood is
+resilient to bias arising from the jet flavour. The tool is applied only to jets
+in region $\lvert  \eta \rvert < 2.5$ and $p_T > 120$ GeV. A cut of JVT = 0.59,
+is applied to all jets in the collection, this cut has an average efficiency of
+92~\%. The definitions of signal and forward jets can be found in table~\ref{tab:jet-cats}
+\input{05-reconstruction-and-selection/jet-categories}
+
+\subsection{b-tagging}
+\subsection{Pseudo-continuous b-tagging}
+\subsection{Truth tagging}
+\subsection{Hybrid tagging}
 
 \section{Missing Transverse Momentum}
 \label{sec:met}
-
-\section{Athena and the CxAOD Framework}
-\label{sec:cxaod}
-Data recorded by the ATLAS detector is passed through the central collaboration
-software framework Athena before entering the analysis level data processing.
-\input{05-reconstruction-and-selection/data-flow-chart}
-Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
-be seen in the figure Athena processes both data recorded from collisions and
-Monte-Carlo simulated predictions. Steps up until and including reconstruction
-are required to transform the raw or simulated read-out of the detector into
-what are known as physics objects. These physics objects correspond to UV and IR
-safe descriptions particles and hadron showers e.g. leptons and jets. Given the
-initial transverse energy of the collisions (zero) any missing transverse energy
-($E^T_{miss}$) is also reconstructed based on the sum of the transverse energy
-of all objects in an event, this missing energy indicates the presence of
-particles in the event that cannot be detector by any of ATLAS subsystems. The
-only particles in the Standard Model for which this is expected are neutrinos.
-The files containing the reconstructed physics objects adhere to the ATLAS Event
-Data Model (EDM) and are referred to as Analysis Object Data (xAOD). After
-reconstruction a part of Athena called the derivation framework is used to
-produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The reduction
-of these files is carried out based on a loose selection criteria, the criteria
-used in the VH(bb) analysis are shown in table~\ref{tab:derivations}.
-
-DxAODs are the usual starting point for analysis level software, in the case of
-this analysis the CxAOD Framework. Of course xAODs can also be used as the
-starting point for analysis they are just larger.
-\input{05-reconstruction-and-selection/cxaod-flow}
-As in in figure~\ref{fig:cxaod-flow} The CxAOD Framework has two major
-components the Maker and the Reader. The job of the maker is to further slim the
-data by performing pre-selection cuts and also to apply calibrations which will
-be detailed below, the output of the Maker is called a Calibrated xAOD (CxAOD).
-The Reader takes a CxAOD as input and performs the analysis event selection, it
-can output histograms or nTuples.
-
-The Maker applies selections the selections of each of the three analysis
-channels, defined in section~\ref{sec:channels-and-selections}. CxAODs are
-produced separately for each of the three channels as the different background
-compositions and signal signatures require different optimisation. Pre-selection is
-performed on jets based on application of requirements on transverse momentum and
-pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
-jets resulting from pileup from events.
 
 \section{Overlap Removal}
 
@@ -189,7 +221,7 @@ before other stages of the analysis. These corrections are not used in the
 calculation of any $E_T^{miss}$ related variables.
 
 \subsection{0-lepton channel selection}
-\label{sec:0lep-selction} 
+\label{sec:0lep-selection}
 
 The vector boson candidate in the 0-lepton channel is a Z boson decaying to two
 neutrinos. In order to select events for this candidate a large amount of
@@ -231,7 +263,7 @@ background in this channel.
 
 
 \subsection{1-lepton channel selection}
-\label{sec:1lep-selction} 
+\label{sec:1lep-selection}
 
 The vector boson candidate in the 1-lepton channel is a W boson decaying to one
 charged lepton and one neutrino. In order to select for events of this signature
@@ -241,7 +273,7 @@ $p_T^{W} > 150$ GeV and $E_T^{miss} > 30$ GeV. The latter cut is only applied in
 the electron channel.  
 
 \subsection{2-lepton channel selection}
-\label{sec:2lep-selction} 
+\label{sec:2lep-selection}
 
 The vector boson candidate in the 1-lepton channel is a W boson decaying to two
 charged leptons. Exactly two VH-loose leptons of the same lepton flavour are

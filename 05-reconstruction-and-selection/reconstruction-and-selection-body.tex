@@ -189,6 +189,29 @@ is applied to all jets in the collection, this cut has an average efficiency of
 \input{05-reconstruction-and-selection/jet-categories}
 
 \subsection{b-tagging}
+
+It is important to distinguish jets originating from b-quarks, which form our
+Higgs candidate, from c-jets and $\tau$-jets, as well as jets originating from
+quarks lighter than c-quark which are categorised together as light-jets. The
+calculation of a discriminant which ought to separate b-jets from other jets is
+known as b-tagging. In order to develop such a discriminant one must use
+simulation in order to be able to know truly which parton initiated a jet such
+that the performance of the discriminant can be validated. In simulation a jet
+and the parton that initiated that jet are distinctly separate objects and so a
+set of rules must be defined in order to decide which jet is b-jet and likewise
+for other types of jets. Those rules are as follows:
+\begin{enumerate}
+\item  If a weakly decaying $b$-hadron is found within $\Delta R<R_{\mathrm max}$ of the
+  jet axis, the jet is labeled a $b$-jet.
+\item  If a $b$-hadron isn't found, but a weakly decaying $c$-hadron is
+  found within $\Delta R<R_{\mathrm max}$ of the jet axis, then the jet is labeled as a $c$-jet.
+\item  Otherwise, if a $\tau$-lepton is found within
+  $\Delta R<R_{\mathrm max}$ of the jet axis, the jet is labeled a $\tau$-jet.
+\item If any one hadron or $\tau$-lepton matches more than one jet, the closest jet
+  is chosen as its parent.
+\item All unlabeled jets after steps 1 through 4 are labeled as light-jets.
+\end{enumerate}
+
 \subsection{Pseudo-continuous b-tagging}
 \subsection{Truth tagging}
 \subsection{Hybrid tagging}

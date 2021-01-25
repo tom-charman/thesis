@@ -1,0 +1,43 @@
+\subsubsection{Truth tagging for pseudo-continuous b-tagging}
+\label{app:truth-tag-pcbt}
+Truth tagging has been extended to work in the pseudo-continuous tagging
+strategy mentioned in section~\ref{sec:jets}. As was explained, truth tagging of
+the tagged and non-tagged jets are decided randomly a priori, and the assigned
+weight reflects the probability for the jets to be above the tagging threshold.
+However, by definition, in pseudo-continuous working point there is no a priori
+tagging threshold, which needs to be specified as an additional parameter.
+
+Furthermore, there is a fundamental difference between the definition of
+flavour-tagging efficiency in the cumulative and pseudo-continuous working
+points. In the first case the efficiency defines the probability for a jet to
+have a value \textit{above} the b-tagging requirement, while in the second case
+the efficiency quantifies the probability for a jet to fall \textit{in one
+  specific} bin of the pseudo-continuous distribution.
+
+ Thus, an additional step is needed to convert this definition of efficiency in
+ probability to \textit{pass} a cumulative tagging requirement.  In the
+ pseudo-continuous working point the efficiency maps are provided as 3-D maps in
+ ($p_T, \eta, \text{weight}$), where weight is the b-tagging information divided
+ in 5 bins. The probability for a jet to fall in a particular b-tagging
+ bin ($i_{op}$) is
+ \begin{equation}
+   \text{Eff}_{\text{bin}}^{i_{op}} = \text{MCeff}_{\text{bin}}^{i_{op}} \cdot \text{SF}_{\text{bin}}^{i_{op}},
+ \end{equation}
+ with $\text{MCeff}_{\text{bin}}^{i_{op}}$ the MC efficiency of that particular
+ bin, taken from the efficiency maps, and $\text{SF}_{\text{bin}}^{i_{op}}$ the
+ flavour tagging scale factor associated to the bin. In order to recover the
+ same definition of efficiency as the cumulative working point, the bins from 1
+ to $i_{op}$ needs to be summed together as
+ \begin{equation}
+   \text{Eff}_{cut}^{i_{op}} = \sum_1^{i_{op}} \text{Eff}_{\text{bin}}^{i_{op}}.
+ \end{equation}
+ For example, the probability for a jet to pass the 70\% operating point is
+ given by the sum of the efficiencies in the 70~--~60~\% and 60~--~0~\% bins,
+ each of them corrected for the scale factor of that particular bin taken from
+ the pseudo-continuous working point.
+ 
+ The scale factors are defined in a different way with respect to the cumulative
+ working point. In practice, they are a non-trivial extension of the efficiency
+ and inefficiency scale factors used for the regular calibrations, modified so
+ that the tag weight fractions (both in data and in MC) sum up to unity for each
+ kinematic bin.

@@ -246,11 +246,94 @@ table~\ref{tab:b-tag}.
 
 
 \subsection{Pseudo-continuous b-tagging}
-
+The working points defined in table~\ref{tab:b-tag} are used in a so-called
+pseudo-continuous mode. In this mode the MV2c10 distribution is binned with bin
+edges corresponding to the working points listed in the table, and as can be
+seen in figure~\ref{PCBT_quant}. This figure shows the discrimination between
+events with different jet flavours. 
 \input{05-reconstruction-and-selection/pcbt-fig}
+Events that fall in the bins with ranges 70~--~60~\% and 60~--~0~\% have their
+MV2c10 score stored for use in the analysis. Events in the other bins are not
+tagged as b-jets.
 
 \subsection{Truth tagging}
+
+Removing all events that fail the cut associated with the 70~\% working point
+results in loss of many events. This leaves us with low statistics samples for
+analysis where we would rather have high statistics samples, as many of the
+techniques used for categorising events have performance conditional on the
+available statistics. Instead of simply throwing these events away it is
+possible to keep all events that were simulated to have a b-hadron decay and
+instead weight distributions by a factor which represents the probability that
+an event would in fact be b-tagged and enter into the final distribution. This
+procedure is known as Truth-Tagging, since the information as to whether a
+b-hadron is truly in a simulated event is utilised, this does not use any
+information relating to the true nature of the data as this is unknowable. In
+order to draw easy comparisons, tagging directly with the MV2c10 algorithm is
+referred to as direct tagging.
+
+Given that our events contain more than on jet in all cases it is required to
+develop of way of generating Truth-Tag weights for events based on all the jets
+in the event. This weight is calculated as the product of the b-tagging
+efficiency for each b-tagged jet, multiplied by the complement of the b-tagging
+efficiency for each non b-tagged jet. In case the number of jets in a given
+event ($m$) exceeds the number of required tagged jets in the analysis ($n=2$)
+all possible combinations of jets which satisfy the analysis selection are
+considered.
+
+Given an event with $m$ jets and $n$ tagged jets required, the possible
+combinations of tagged and non-tagged jets are $\binom{m}{n}$. For a given
+tagged configuration, referred to as the $i^{th}$ combination and denoted as
+$\binom{m}{n}_i$, the total number of remaining configurations is
+$\overline{\binom{m}{n}} = \binom{m}{n} - \binom{m}{n}_i$. The efficiency and
+inefficiency products are
+\begin{align}                             
+  \varepsilon \Bigg( \binom{m}{n}_i, x, f \Bigg)  & = \prod_{j \in n} \epsilon_x^f(j) \\
+  \varepsilon_{in} \Bigg( \overline{\binom{m}{n}}_i, x, f \Bigg) & = \prod_{j \in m-n} (1 - \epsilon_x^f(j))
+\end{align}
+with $ \epsilon_x^f(j)$ the tagging efficiency of jet $j$ of flavour $f$ at an
+efficiency working point $x$, and where $j \in m-n $ refers to the pool of non tagged
+jets. The total event weight is
+\begin{equation}
+  w_{TT}(x) = \sum_i^{\lvert \binom{m}{n} \rvert} \varepsilon \Bigg(  \binom{m}{n}_i, x \Bigg)  \cdot \varepsilon_{in} \Bigg(  \overline{\binom{m}{n}}_i, x \Bigg),
+\end{equation}
+with a probability to choose a specific combination equal to
+\begin{equation}
+  P_{i}(x) = \frac{\varepsilon \big(  \binom{m}{n}_i, x \big) \cdot \varepsilon_{in} \big(  \overline{ \binom{m}{n}}_i, x \big) }{w_{TT}}.
+\end{equation}
+A single truth tagged combination can be selected based on this probability, and
+the event is then scaled by the factor $w_{\mathrm {TT}}$. In practice due to
+differences between the cumulative and pseudo-continuous b-tagging efficiency
+distributions a modified version of Truth-Tagging must be applied in the
+analysis, the modifications are described in appendix~\ref{app:truth-tag-pcbt}.
+
 \subsection{Hybrid tagging}
+There exists non-closure between direct-tagged and truth-tagged events which
+means that truth tagging cannot directly be applied to events in the analysis.
+This is because direct tagging is the only strategy which can be used on data
+and so we can only assume that direct-tagged distributions in simulation will
+describe the shape and normalisation of distributions in the data. This problem
+is solved by implementing so-called hybrid tagging. The hybrid tagging strategy
+involves the following steps:
+\begin{enumerate}
+\item Divide the jets of each event in two groups, depending on the truth tag
+  flavour: a group with only true b-jets and the other with non b-jets.
+  
+\item All b-jets in the first group are direct tagged.
+  
+\item  The remaining group of c- and light-jets is truth tagged imposing a
+  number of tagged jets proportional to the difference between the number of
+  required jets in the signal region and the number of true b-jets in the first
+  group passing the b-tag requirement.
+\end{enumerate}
+Distributions of $t\bar{t}$ and W + jets are shown in
+figures~\ref{fig:truth_tag_validation_tt}~and~\ref{fig:truth_tag_validation_wjets}.
+Which show direct, truth and hybrid-tagged distributions. It can be seen that
+the closure of hybrid-tagged events is much better than that of truth-tagged
+events with respect to that of the direct-tagged events. Hybrid tagging is
+therefore chosen as the analysis strategy.
+\input{05-reconstruction-and-selection/truth-vs-direct-fig}
+
 
 \section{Missing Transverse Momentum}
 \label{sec:met}

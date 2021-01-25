@@ -212,7 +212,43 @@ for other types of jets. Those rules are as follows:
 \item All unlabeled jets after steps 1 through 4 are labeled as light-jets.
 \end{enumerate}
 
+The algorithm used to tag b-jets is the MV2c10 algorithm, this is a BDT which is
+trained on kinematic and structural information about each jet. It is setup to
+categorise between b-jets (signal) and a mixture of light-jets and c-jets
+(background). The events in the training sample are simulated $t\bar{t}$ events
+that have at least one lepton coming from a leptonically decaying W boson, and
+hadronically decaying Z$^\prime$ events. The training sample has 5 million
+$t\bar{t}$ events and 3 million Z$^\prime$ events.
+
+The kinematic training variables that enter into the MV2c10 algorithm are simply
+the jet $p_T$ and $\eta$. The structural information is more complicated, IP2D
+and IP3D are two algorithms based on a log-likelihood ratio discriminant of
+impact parameters (see chapter~\ref{sec:detector}). IP3D is defined as
+\begin{align}
+  \text{IP3D} &=\sum_{i=1}^{N}\log{\frac{p_b}{p_u}} \\
+  \text{where}& \notag \\
+  p_b &= P\Big(\text{is b-jet} \Big\vert \frac{d_0}{\sigma_{d_0}}, \frac{z_0 \sin{\theta}}{\sigma_{z_0\sin{\theta}}}\Big),\\
+  p_u &= P\Big(\text{is light-jet} \Big\vert \frac{d_0}{\sigma_{d_0}}, \frac{z_0 \sin{\theta}}{\sigma_{z_0\sin{\theta}}}\Big),\\
+  \text{and} & \notag \\
+  N &= \text{the number of tracks for a given jet.} \notag
+\end{align}
+IP2D has the same definition but the probabilities $p_b$ and $p_u$ are
+conditional only on the transverse impact parameter $d_0$ and have no dependence
+on the longitudinal $z_0$. The output of two algorithms designed to find
+secondary vertices, SV1 and JetFitter, also enter into the MV2c10 training.
+
+A jet is defined b-tagged if its MV2c10 score exceeds a certain threshold. This
+threshold is defined as the cut that gives a pre-determined efficiency value for
+b-jets when applied to a $t\bar{t}$ sample. Calibrations are available for a
+number of these so-called working points, these working points are shown in
+table~\ref{tab:b-tag}.
+\input{05-reconstruction-and-selection/btag-wps}
+
+
 \subsection{Pseudo-continuous b-tagging}
+
+\input{05-reconstruction-and-selection/pcbt-fig}
+
 \subsection{Truth tagging}
 \subsection{Hybrid tagging}
 

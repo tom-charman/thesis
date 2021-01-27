@@ -145,14 +145,35 @@ allows the triggering to occur and the requirement for 2-leptons can be imposed
 at a later stage. Some events will be missed by not using a di-lepton trigger,
 however these amount to approximately only 5\% of the total. The list of
 triggers used as they appear in the ATLAS trigger menu are shown in
-tables~\ref{tab:mettrig, tab:electrontrig, tab:muontrig}, for the $E_T^{miss}$,
-electron and muon triggers respectively.
-
+table~\ref{tab:triggers}, for the $E_T^{miss}$, electron and muon triggers
+respectively.
 \input{05-reconstruction-and-selection/trigger_table}
 
 \subsection{0-lepton channel triggers}
+The events in the 0-lepton channel should have a $qq\nu\nu$ final state. We use
+the $E_T^{miss}$ triggers listed in table~\ref{tab:triggers} as the final state
+will manifest in the detector as $E_T^{miss}$ with the presence of jets. At the
+stage of triggering $E_T^{miss}$ is only calculated from energy measured in the
+calorimeters. As muons do not deposit much energy in the calorimeters the $W
+\rightarrow \mu \nu + \text{jets}$ process is used to study the trigger
+efficiency and derive an appropriate scale factor.
+
 
 \subsection{1/2-lepton channel triggers}
+The 1 and 2-lepton channels both contain charged leptons in the final state,
+their final states are specifically $qq\ell\nu$ and $qq\ell\ell$ respectively.
+As the two lepton channel is not expected to contain significant $E_T^{miss}$
+and inefficiencies in the muon trigger are mitigated by the presence of two
+muons in the events which wish to record the single lepton triggers listed in
+table~\ref{tab:triggers} are simply used without any $E_T^{miss}$ triggers.
+
+In the 1-lepton channel there is significant $E_T^{miss}$ expected due to the
+presence of the neutrino. Single lepton triggers are used for events with $75
+GeV < p_T^{V} < 150 GeV$ where the $E_T^{miss}$ triggers have yet to turn on
+fully, for events with $p_T^{V} > 150 GeV$ in order to mitigate inefficiencies
+in the single muon triggers similar $E_T^{miss}$ triggers to the 0-lepton
+triggers are used in conjunction with the single lepton triggers.
+
 
 \section{Jets}
 \label{sec:jets}
@@ -337,8 +358,64 @@ therefore chosen as the analysis strategy.
 
 \section{Missing Transverse Momentum}
 \label{sec:met}
+This section describes how $E_T^{miss}$ is calculated. The calculation is based
+on the assumption that partons entering into the hard scatter interaction have
+zero transverse momentum when they collide. This is not true due them having
+Fermi temperature, but the transverse momentum induced by this phenomenon is
+minimal and therefore is ignored. Given this assumption $E_T^{miss}$ is
+calculated as the negative vector sum of the $p_T$ of photons, electrons, muons,
+taus, and jets. There is also an additional soft term that enters into the sum
+which is made up of all good quality tracks that aren't associated with any of
+the aforementioned objects. These tracks must be associated with the primary
+vertex and therefore are robust against pileup. A second formulation of
+$E_T^{miss}$ called $E_{T, Trk}^{miss}$ is formulated just using inner detector
+tracks, it is even more robust to pileup but cannot account for neutral
+particles which do no leave tracks in the inner detector. One more variable
+known as $E_T^{miss}$--significance is also calculated as
+\begin{equation}
+  E_T^{miss}\text{--significance} = \frac{E_T{miss}}{\sqrt{\Sigma p_T^e + \Sigma p_T^\mu + \Sigma p_T^{jet}}},
+  \label{eq:metsig}
+\end{equation}
+where the denominator is clearly proportional to the $E_T^{miss}$ resolution and
+therefore making cuts on this variable simulates making harder cuts on
+$E_T^{miss}$ with better resolution and looser cuts on $E_T^{miss}$ with poorer
+resolution.
 
 \section{Overlap Removal}
+Given all of the reconstruction methods described so far for different physics
+objects there has yet been any mention of what happens if overlapping detector
+activity could be reconstructed into more than one physics object. The treatment
+of overlap depends on which physics objects are involved. Below is summary of
+how different pairs of overlapping objects which are relevant to the analysis
+are handled, in the summary a combined muon is one which has been reconstructed
+with the combined muon reconstruction algorithm, that is to say it has tracks in
+the ID and energy deposits in the ECAL.
+$\bullet$ \textbf{tau-electron:} If $\Delta R(\tau,e)<0.2$, the $\tau$ lepton is
+removed.
+%
+$\bullet$ \textbf{tau-muon:} If $\Delta R(\tau,\mu)<0.2$, the $\tau$ lepton is
+removed, unless the $\tau$ lepton has $p_T>50$ GeV and the muon is not a combined
+muon, then the $\tau$ lepton is not removed.
+%
+$\bullet$ \textbf{electron-muon:} If a combined muon shares an ID track with an
+electron, the electron is removed. If a calo-tagged muon shares an ID track with
+an electron, the muon is removed.
+%
+$\bullet$ \textbf{electron-jet:} If $\Delta R(\mathrm{jet},e)<0.2$ the jet is
+removed. For any remaining jets, if $\Delta R({\mathrm jet},e)<0.4$, the
+electron is removed.
+%
+$\bullet$ \textbf{muon-jet} If $\Delta R({\mathrm jet},\mu)<0.2$ or the muon ID
+track is ghost associated to the jet, then the jet is removed if the following
+also holds. The jet has less than three associated tracks with $p_T > 500$ MeV
+or the $p_T$ ratio of the muon and jet is larger than 0.5 and the ratio of the
+muon $p_T$ to the sum of $p_T$ of tracks with $p_T > 500$ MeV associated to the
+jet is larger than 0.7. For any remaining jets, if $\Delta
+R(\mathrm{jet},\mu)<\min(0.4, 0.04 + 10\ \mathrm{GeV} / p_T^{\mu})$, the muon is
+removed from the jet.
+%
+$\bullet$ \textbf{tau-jet:} If $\Delta R(\tau,\mathrm{jet})<0.2$, the jet is
+removed.
 
 \section{Final Selection}
 \label{sec:selection}

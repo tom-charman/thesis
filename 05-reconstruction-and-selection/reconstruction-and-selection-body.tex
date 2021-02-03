@@ -389,21 +389,21 @@ of overlap depends on which physics objects are involved. Below is summary of
 how different pairs of overlapping objects which are relevant to the analysis
 are handled, in the summary a combined muon is one which has been reconstructed
 with the combined muon reconstruction algorithm, that is to say it has tracks in
-the ID and energy deposits in the ECAL.
+the ID and energy deposits in the ECAL.\\
 $\bullet$ \textbf{tau-electron:} If $\Delta R(\tau,e)<0.2$, the $\tau$ lepton is
-removed.
+removed.\\
 %
 $\bullet$ \textbf{tau-muon:} If $\Delta R(\tau,\mu)<0.2$, the $\tau$ lepton is
 removed, unless the $\tau$ lepton has $p_T>50$ GeV and the muon is not a combined
-muon, then the $\tau$ lepton is not removed.
+muon, then the $\tau$ lepton is not removed.\\
 %
 $\bullet$ \textbf{electron-muon:} If a combined muon shares an ID track with an
 electron, the electron is removed. If a calo-tagged muon shares an ID track with
-an electron, the muon is removed.
+an electron, the muon is removed.\\
 %
 $\bullet$ \textbf{electron-jet:} If $\Delta R(\mathrm{jet},e)<0.2$ the jet is
 removed. For any remaining jets, if $\Delta R({\mathrm jet},e)<0.4$, the
-electron is removed.
+electron is removed.\\
 %
 $\bullet$ \textbf{muon-jet} If $\Delta R({\mathrm jet},\mu)<0.2$ or the muon ID
 track is ghost associated to the jet, then the jet is removed if the following
@@ -412,10 +412,11 @@ or the $p_T$ ratio of the muon and jet is larger than 0.5 and the ratio of the
 muon $p_T$ to the sum of $p_T$ of tracks with $p_T > 500$ MeV associated to the
 jet is larger than 0.7. For any remaining jets, if $\Delta
 R(\mathrm{jet},\mu)<\min(0.4, 0.04 + 10\ \mathrm{GeV} / p_T^{\mu})$, the muon is
-removed from the jet.
+removed from the jet.\\
 %
 $\bullet$ \textbf{tau-jet:} If $\Delta R(\tau,\mathrm{jet})<0.2$, the jet is
 removed.
+
 
 \section{Final Selection}
 \label{sec:selection}

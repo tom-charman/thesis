@@ -31,6 +31,23 @@ interpretation depends on the problem.
 \label{sec:bdts}
 Decision trees have a structure as in figure~\ref{fig:bdt}.
 \input{04-machine-learning/bdt}
+We will start by discussing a decision tree for a classification problem. Each
+circular node in the tree represents a cut on one of a number of variables
+provided as input to the algorithm. The tree is read top to bottom with each
+node being followed by two edges branching left and right that represent the
+path taken by examples which pass or fail the cut respectively. Square nodes
+represent that the termination criteria have been reached and that events in
+these nodes have been classified according to the colour of the node. The
+variable chosen at each node is optimised in order to maximise a criteria
+related to the separation of classes.  For a problem containing two classes a
+common separation criteria is the Gini index,
+\begin{equation}
+  G = p(1-p),
+  \label{eq:gini}
+\end{equation}
+where p is the purity of a chosen class that one wants to maximise.
+
+
 
 \section{Neural Networks}%
 \label{sec:neural-networks}
@@ -81,11 +98,11 @@ this is different from the perceptron which uses a non-differentiable step
 function. Considering a network with only a single hidden layer as in figure
 \ref{fig:basicnn}, there are further steps required to get from the hidden units
 to the predictions $y_k$. The complete network function as an argument of a
-vector of data points $\boldsymbol{x}$ and a matrix of adaptive parameters
-$\boldsymbol{w}$ should return predictions given by
+vector of data points $\vec{x}$ and a matrix of adaptive parameters
+$\vec{w}$ should return predictions given by
 
 \begin{equation}
-y_k(\boldsymbol{x},\boldsymbol{w}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
+y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
 \mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji}^{(1)} x_{i} + w_{j0}^{(1)} \Bigg) + w_{k0}^{(2)} \Bigg).
 \label{eq:basicnn}
 \end{equation}
@@ -101,7 +118,6 @@ order to reproduce the network in figure \ref{fig:basicnn} we sum up to $m$ the
 desired number of hidden units, which is referred to as the ``size'' of the
 hidden layer. A common choice of output function for binary classification
 problems is the logistic sigmoid function
-
 \begin{equation}
 \mathcal{O}(z) = \frac{1}{1 + exp(-z)}
 \label{eq:sigmoid}
@@ -109,12 +125,11 @@ problems is the logistic sigmoid function
 where in each of these $z$ merely denotes the argument of the output function.
 For multi-class problems where $K > 2$ a generalisation of the logistic sigmoid,
 the softmax function
-
 \begin{equation}
-\mathcal{O}(z)_k = p(k|\boldsymbol{x}) = \frac{exp(z_k)}{\sum_{i=1}^kexp(z_i)}
+\mathcal{O}(z)_k = p(k|\vec{x}) = \frac{exp(z_k)}{\sum_{i=1}^kexp(z_i)}
 \label{eq:softmax}
 \end{equation}
-gives the probability of being in class $k$ given the data $\boldsymbol{x}$ and
+gives the probability of being in class $k$ given the data $\vec{x}$ and
 where $i$ is summed all classes. The index $k$ appears on the output function as
 it must be calculated for each $k \in K$ the total number of classes. It is at
 this stage that the true meaning of the predictive units is solidified, each
@@ -123,9 +138,8 @@ data belonging to the corresponding class, and logically all predictive units
 should sum to one. For the sake of compactness we shall, as Bishop does,
 re-write \eqref{eq:basicnn} by introducing $x_{0} = 1$ in order to absorb the
 biases into the sums, yielding
-
 \begin{equation}
-y_k(\boldsymbol{x},\boldsymbol{w}) = \mathcal{O} \Bigg( \sum_{j=0}^{m} w_{kj}^{(2)}
+y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j=0}^{m} w_{kj}^{(2)}
 \mathcal{H} \Bigg( \sum_{i=0}^{d} w_{ji}^{(1)} x_{i} \Bigg) \Bigg).
 \label{eq:compactnn}
 \end{equation}
@@ -135,9 +149,8 @@ of arbitrary size and have an arbitrary activation function. For this purpose,
 networks will now be described in terms of the number of hidden layers, instead
 of the number of layers that contain adaptive parameters (hidden plus output) as
 before. We may start by writing a function for a network of two hidden layers
-
 \begin{equation}
-y_k(\boldsymbol{x},\boldsymbol{w}) = \mathcal{O} \Bigg( \sum_{j_{2}=0}^{m_{2}} w_{kj_{2}} \mathcal{H}_{2} 
+y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j_{2}=0}^{m_{2}} w_{kj_{2}} \mathcal{H}_{2} 
 \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} \mathcal{H}_{1} \Bigg( \sum_{i=0}^{d} w_{j_{1}i} x_{i} \Bigg) \Bigg) \Bigg).
 \label{eq:2layer}
 \end{equation}
@@ -147,9 +160,8 @@ two activation functions and hidden layer sizes denoted $m$. Clearly adding a
 layer to the network simply involves repeated application of this process and
 picking up the required number of additional parameters. A function for a
 network of $n$ hidden layers may therefore be written as
-
 \begin{equation}
-y_k(\boldsymbol{x},\boldsymbol{w}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
+y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
 \mathcal{H}_{n} \Bigg( \dots \mathcal{H}_2  \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} 
 \mathcal{H}_{1} \Bigg( \sum_{i=0}^{d} w_{j_{1}i} x_{i} \Bigg) \Bigg) \dots \Bigg) \Bigg)
 \label{eq:fullnn}
@@ -170,7 +182,7 @@ as described in equation \eqref{eq:fullnn} except that every hidden layer is
 depicted with the same size $m$.
 
 \input{04-machine-learning/nn}
-\par There are now a great deal of parameters that we have to keep track of. It
+There are now a great deal of parameters that we have to keep track of. It
 is therefore important to distinguish between adaptive parameters and the
 parameters which we must pick by hand, known as hyper-parameters. A relationship
 can be written between the number of hidden layers $n$, and the number of
@@ -197,14 +209,14 @@ supervised learning methods. A natural loss function one may use to describe the
 error of the model given a current set of adaptive parameters is sum-of-squares
 error
 \begin{equation}
-E(\boldsymbol{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\boldsymbol{x}_n, \boldsymbol{w}) - t_n)^2
+E(\vec{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\vec{x}_n, \vec{w}) - t_n)^2
 \label{eq:sumofsquares}
 \end{equation}
-where $t_n$ are the targets for the given data entries $\boldsymbol{x}_n$.
+where $t_n$ are the targets for the given data entries $\vec{x}_n$.
 Minimising this function with some algorithm does work in practice, however it
 has been shown that, using
 \begin{equation}
-E(\boldsymbol{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg)
+E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg)
 \label{eq:xentropy}
 \end{equation}
 known as cross-entropy, is faster and more generalised \cite{XEntropySimard}

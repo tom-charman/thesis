@@ -5,24 +5,13 @@ compile_pdf:
   artifacts:
     paths: 
       - thesis.pdf  # instruct GitLab to keep the main.pdf file
-      - introduction.pdf
-      - conclusion.pdf
-      - detector.pdf
-      - theory.pdf
-      - machine-learning.pdf
-      - results.pdf
 
 pages:
   stage: deploy
   script:
     - mkdir public  # create a folder called public
     - cp thesis.pdf public  # instruct GitLab to keep the main.pdf file
-    - cp introduction.pdf public
-    - cp conclusion.pdf public
-    - cp detector.pdf public
-    - cp theory.pdf public
-    - cp machine-learning.pdf public
-    - cp results.pdf public
+
   artifacts:
     paths: 
       - public  # instruct GitLab to keep the public folder

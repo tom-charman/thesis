@@ -27,12 +27,15 @@ classes which can be interpreted as a probability that a given example belongs
 to the given class, whereas regression outputs a single number per example whose
 interpretation depends on the problem.
 
+Describe training/testing set here.
+
 \section{Boosted Decision Trees}%
 \label{sec:bdts}
-Decision trees have a structure as in figure~\ref{fig:bdt}.
+We will start by discussing a decision tree for a classification problem.
+Decision trees have a structure as in figure~\ref{fig:bdt}, which shows a tree
+dividing examples into two classes, red and blue.
 \input{04-machine-learning/bdt}
-We will start by discussing a decision tree for a classification problem. Each
-circular node in the tree represents a cut on one of a number of variables
+Each circular node in the tree represents a cut on one of a number of variables
 provided as input to the algorithm. The tree is read top to bottom with each
 node being followed by two edges branching left and right that represent the
 path taken by examples which pass or fail the cut respectively. Square nodes
@@ -47,7 +50,27 @@ common separation criteria is the Gini index,
 \end{equation}
 where p is the purity of a chosen class that one wants to maximise.
 
+A decision tree by itself is able to separate examples into a number of classes,
+however a single tree is prone to over--training. Over--training is the term
+used to describe the phenomena where a classifier learns from statistical
+fluctuations in the data rather learning a generalised separation boundary
+between classes. The reason that decision trees are susceptible to this is that
+if two variables yield a similar separation criteria then a fluctuation in the
+training data may lead to the choice of one variable over another for a
+particular node, this choice will lead to a very different tree structure than
+if the fluctuation were not present.
 
+In order to mitigate the over--training tendencies of decision trees they are
+often used in an ensemble algorithm such as bagging~\cite{bagging}
+or~\cite{boosting}. Here only boosting will be discussed. Ensembles of decision
+trees are often referred to as random forests. Boosting works by training a
+sequence of trees, weighting misclassified events from a tree so that they have
+more influence over the structure of the next tree in the sequence. The final
+classification of any given example is a weighted average over all trees, this
+can be weighted by the overall accuracy of each tree, but in general can take
+any weighted average.
+
+Gradient boosting here.
 
 \section{Neural Networks}%
 \label{sec:neural-networks}

@@ -35,19 +35,36 @@ The study of this decay mode was carried out with the ATLAS detector, and made
 possible by the hard work of all members of the ATLAS collaboration. In
 Chapter~\ref{sec:detector} the detector is described in full.
 
-Paragraph describing my contributions:
-Derivation of Z + jets modelling uncertainties (shapes, extrapolation, flavour
-composition)
- - improvements include: changing the b-tagging, using top e mu control region
- data to subtract top backgrounds, removing signal contamination from PTV region
-Derivation of ttbar/single top flavour composition uncertainties
-Maintenance of CxAOD Framework, general fixes etc.
-Tested the BDT-reweighting code used for W+jets and ttbar backgrounds in 1
-lepton channel, wrote code that prepared reco samples for training (originally
-everyone was training on truth samples but I was looking at reco, everyone moved
-to reco and used my code to convert reco tuples to a readable format by the
-training code)
-Training the analysis MVA for the diboson cross-check
-Studying the analysis fit pre/post lots of different changes (b-tagging, using
-top e-mu control region data etc.) including running the final unblinded fit for
-the diboson cross-check.
+My contributions to the VHbb analysis published in 2021 have been numerous and
+spanned a number of different areas of the analysis.
+
+My largest contribution was the derivation of new estimates of background
+modelling uncertainties. This includes deriving new shape uncertainty estimates
+for the Z + jets background in the 0 and 2 lepton channels which use a method
+which includes a number of improvements over the previous analysis (explained in
+detail in chapter~\ref{sec:modelling}). I also calculated estimates of
+uncertainties arising due to differences in the flavour composition and yields
+in given analysis regions between simulation and data for the Z + jets and top
+backgrounds. I helped to develop and test code which performs a
+multi--dimensional re--weighting of one dataset to another. This technique has
+been used to estimate uncertainties of the top backgrounds and W + jets
+backgrounds in the 1 lepton channel.
+
+My next largest contribution was to studying the profile likelihood fit that
+outputs the final analysis results. During key milestones of the analysis it is
+often necessary to compare the blinded results of the fit to study the behaviour
+of nuisance parameters and how they are pulled, constrained and correlated with
+one another. I performed many of these comparisons paying close attention to the
+nuisance parameters relating to the aforementioned estimates on background
+modelling uncertainties. After approval was granted to unblind the analysis I
+was also responsible for running the final fit for the diboson measurement which
+serves as a cross-check of the all of the analysis methodology used for the
+Higgs measurement.
+
+Finally I have also made contributions to the general running of the analysis.
+These including training the classification algorithm which provides the final
+discriminating metric upon which the profile-likelihood fit is performed,
+helping to maintain the analysis framework (which is also used by many other
+ATLAS analyses) and participating in regular meetings with the analysis team
+where ideas are discussed and the general analysis direction is decided. 
+

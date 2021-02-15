@@ -12,9 +12,9 @@
     
   \begin{tikzpicture}[node distance = 2cm, auto]
     % Place nodes
-    \node [cloud] (xAOD)  {\includegraphics[width=.25\textwidth]{atlas_big}};;
+    \node [cloud] (xAOD)  {\includegraphics[width=.25\textwidth]{atlas_big}};
     
-    \node[cloud, left=3cm of xAOD] (DxAOD) {DxAOD};
+    \node[cloud, left=3cm of xAOD] (DxAOD) {\includegraphics[width=.25\textwidth]{hand_written_lagrangian}};
     \node[left=1.5cm of xAOD] (ghost) {};
 
     \node[block, below=1.5cm of ghost] (CxAODMaker) {CxAOD Maker};

@@ -1,19 +1,28 @@
 compile_pdf:
   stage: build
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
-  script: make thesis.pdf  # build the pdf just as you would on your computer
+  script: make clean all  # build the pdf just as you would on your computer
   artifacts:
     paths: 
       - thesis.pdf  # instruct GitLab to keep the main.pdf file
+      - conclusion.pdf
+      - detector.pdf
+      - fit.pdf
+      - introduction.pdf
+      - machine-learning.pdf
+      - modelling.pdf
+      - recon.pdf
+      - results.pdf
+      - theory.pdf
 
-pages:
-  stage: deploy
-  script:
-    - mkdir public  # create a folder called public
-    - cp thesis.pdf public  # instruct GitLab to keep the main.pdf file
+# pages:
+#   stage: deploy
+#   script:
+#     - mkdir public  # create a folder called public
+#     - cp thesis.pdf public  # instruct GitLab to keep the main.pdf file
 
-  artifacts:
-    paths: 
-      - public  # instruct GitLab to keep the public folder
-  only: 
-    - master  # deploy the pdf only for commits made to the master branch 
+#   artifacts:
+#     paths: 
+#       - public  # instruct GitLab to keep the public folder
+#   only: 
+#     - master  # deploy the pdf only for commits made to the master branch 

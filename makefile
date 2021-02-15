@@ -42,7 +42,7 @@ directories:
 thesis.pdf: thesis.tex directories
 	$(LATEXMK) $(OPTIONS) $(THESIS) && mv BUILD/thesis.pdf .
 
-introduction.pdf: 01-introduction/introduction.tex directories build
+introduction.pdf: 01-introduction/introduction.tex directories
 	$(LATEXMK) $(OPTIONS) $(INTRODUCTION) && mv BUILD/introduction.pdf .
 
 theory.pdf: 02-phys-theory/theory.tex directories

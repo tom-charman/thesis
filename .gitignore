@@ -1,4 +1,5 @@
 BUILD/
+*.pdf
 
 ## macOS image metadata
 .DS_Store

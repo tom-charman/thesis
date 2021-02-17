@@ -1,15 +1,11 @@
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 7cm/#1,
       level distance = 2cm}] 
     \node [arn_n] {100}
     child{ node [arn_r] {60} 
       child{ node [sq_r] {39} 
-        %child{ node [arn_r] {30} %edge from parent node[above left]
-        %  {$x$}
-        } %for a named pointer
-        %child{ node [arn_b] {9}}
-      %}
+        }
       child{ node [arn_b] {21}
         child{ node [sq_r] {4}}
         child{ node [sq_b] {17}}
@@ -17,15 +13,10 @@
     }
     child{ node [arn_b] {40}
       child{ node [sq_r] {15} 
-        %child{ node [arn_r] {13}}
-        %child{ node [arn_b] {2}}
       }
       child{ node [sq_b] {25}
-        %child{ node [arn_r] {3}}
-        %child{ node [arn_b] {22}}
       }
-		}
-    ; 
+		}; 
   \end{tikzpicture}
   \caption{The structure of a decision tree set up for a classification problem.
   This diagram serves as a summary of where 100 examples end up after being

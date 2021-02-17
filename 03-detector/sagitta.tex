@@ -1,4 +1,4 @@
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \tkzDefPoint(0,0){O}
@@ -9,7 +9,6 @@
     \tkzDefPointBy[rotation= center O angle 90](A)
     \tkzGetPoint{B}
     \tkzLabelPoint[above right](B){Last hit}
-    % \tkzDrawPoints(A, B)
    
     \tkzDefPointBy[rotation=center O angle -10](A)
     \tkzGetPoint{trackstart}
@@ -25,7 +24,6 @@
     \tkzGetPoint{E}
     \tkzDrawLines[add=0 and 0, color=red](D,E)
     \tkzLabelLine[above](D,E){$S$}
-    %\tkzDrawArc(O,B)(A)
     \tkzDrawLines[add = 0 and 0](O,A O,B)
     \tkzDefPointBy[rotation=center O angle 10](A)
     \tkzGetPoint{h1}
@@ -47,16 +45,13 @@
     \tkzDrawPoints[cross out](A,B,h1,h2,h3,h4,h5,h6,h7,h8)
     \tkzDrawPoints(trackstart)
     \tkzLabelPoint[left](trackstart){Interaction vertex}
-    %\tkzLabelPoints[below](O,A,B)
     \tkzDefTangent[at=A](O)
     \tkzGetPoint{h}
-    %\tkzDrawLine[add = 4 and 3](A,h)
     \tkzMarkRightAngle[size=0.2](O,A,h)
     \tkzDefTangent[at=B](O)
     \tkzGetPoint{h}
     \tkzDefPointOnLine[pos=-1](B,h)
     \tkzGetPoint{h}
-    %\tkzDrawLine[add = 4 and 3](B,h)
     \tkzMarkRightAngle[size=0.2](O,B,h)
   \end{tikzpicture}
   \caption{A diagram showing the geometric construction of the sagitta ($S$) of a

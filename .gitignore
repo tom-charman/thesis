@@ -1,5 +1,14 @@
 BUILD/
-*.pdf
+conclusion.pdf
+detector.pdf
+fit.pdf
+introduction.pdf
+machine-learning.pdf
+modelling.pdf
+recon.pdf
+results.pdf
+theory.pdf
+thesis.pdf
 
 ## macOS image metadata
 .DS_Store

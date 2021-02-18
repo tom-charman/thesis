@@ -18,10 +18,10 @@ experimental tests~\cite{EWtests, 1998-SMtests} concerning its own predictions
 but there are still parameters of the model that have not been measured. Given
 the theory's understood shortcomings, it is hoped that continued scrutiny of the
 models predictions will yield unexpected results, perhaps hinting at a new
-way forwards in terms of a theory that describes everything or simply exposing
-further gaps in our knowledge of the universe. For this reason it is more
-important than ever to study in detail the most recently discovered piece of the
-model, the Higgs boson.
+way forwards in terms of a theory that describes all matter and forces in the
+universe or simply exposing further gaps in our knowledge. For this reason it is
+more important than ever to study in detail the most recently discovered piece
+of the model, the Higgs boson.
 
 This work focuses on studying a specific production mechanism and decay mode of
 the Higgs boson, specifically a vector boson associated Higgs boson decaying to
@@ -31,12 +31,37 @@ observed~\cite{vhbb-obs}. A summary of the full spectrum of production
 mechanisms and decay modes of the Higgs will be given in
 Chapter~\ref{sec:theory}.
 
-The study of this decay mode was carried out with the ATLAS detector, and made
+The data used to study this decay mode was collected using the ATLAS detector by
+members of the ATLAS collaboration. The collection of this data is only made
+possible by their hard work and by the hard work of everyone working on the
+Large Hadron Collider at CERN.
 
-possible by the hard work of all members of the ATLAS collaboration. In
-Chapter~\ref{sec:detector} the detector is described in full.
-
+A rough blueprint of this analysis is shown in figure~\ref{fig:roadmap}.
 \input{01-introduction/analysis-roadmap}
+The blueprint starts with the theory of the Standard Model of Particle Physics,
+described in chapter~\ref{sec:theory}. The theory's predictions inform the
+design of the ATLAS detector which is detailed in chapter~\ref{sec:detector}. It
+further informs the choice of particles to collide, which events to analyse, and
+allows us to generate predictions of what should happen in the collisions.
+Events recorded by the detector and simulated events according to theoretical
+predictions are both passed through reconstruction algorithms and events which
+are pertinent to the study of $VHbb$ are selected for analysis. The
+reconstruction and selection process is described in chapter~\ref{sec:recon}. A
+choice is made of simulated events that well model the data, this modelling
+process is described in chapter~\ref{sec:modelling}. Considering the modelling,
+the theory and the shortcomings of the detector a set of systematic errors are
+estimated, these are detailed in~\ref{sec:systematics}. Events in data must be
+categorised into those that are signal-like and those that are background-like
+in order to extract the most signal sensitivity from the analysis. This is
+achieved with a number of strategies including a multi-variate algorithm which
+is trained on the simulations. This categorisation process is described in
+chapter~\ref{sec:categorisation}. With the events categorised and the systematic
+errors on the counts in category estimated, these counts serve as inputs to a
+profile-likelihood fit. Several fit models exist to serve a number of purposes,
+the fit models are described in chapter~\ref{sec:fit-models}. The results of the
+analysis are shown in chapter~\ref{sec:results} and conclusions are drawn in
+chapter~\ref{sec:conclusion}.
+
 
 My contributions to the VHbb analysis published in 2021 have been numerous and
 spanned a number of different areas of the analysis.

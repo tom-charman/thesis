@@ -6,25 +6,28 @@
   \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=12em, text
   centered, rounded corners, minimum height=3em]
   \tikzstyle{line} = [draw, -latex']
-  \tikzstyle{cloud} = [fill=none, node distance=3cm, minimum
+  \tikzstyle{cloud} = [fill=none, minimum
   height=2em]
   
     
   \begin{tikzpicture}[node distance = 2cm, auto]
     % Place nodes
-    \node[cloud] (theory) {\includegraphics[width=.25\textwidth]{hand_written_lagrangian-1}};
+    \node[cloud] (root) {};
+    \node[cloud, left =of root, align=left] (theory) {\includegraphics[width=.25\textwidth]{hand_written_lagrangian-1} \\Theory};
     
-    \node [cloud, right=of theory] (detector)  {\includegraphics[width=.25\textwidth]{atlas_big}};
+    \node [cloud, right=of root, align=left] (detector)  {\includegraphics[width=.25\textwidth]{atlas_big} \\Detector};
 
-    \node [cloud, below left=of detector] (recon)  {\includegraphics[width=.25\textwidth]{Event_Display_inv}};
+    \node [cloud, below=of root, align=left] (recon)  {\includegraphics[width=.25\textwidth]{Event_Display_inv} \\Reconstruction};
 
-    \node [cloud, below left=of recon] (modelling)  {\includegraphics[width=.25\textwidth]{generic_data_mc}};
+    \node [cloud, below=of recon] (ghost1) {};
+    
+    \node [cloud, left=of ghost1, align=left] (modelling)  {\includegraphics[width=.25\textwidth]{generic_data_mc} \\Modelling};
 
-    \node [cloud, below right=of recon] (mva)  {\includegraphics[width=.25\textwidth]{placeholder}};
+    \node [cloud, right=of ghost1, align=left] (mva)  {\includegraphics[width=.25\textwidth]{mini-bdt} \\Categorisation};
 
-    \node [cloud, below right=of modelling] (plf)  {\includegraphics[width=.45\textwidth]{plf_handwritten}};
+    \node [cloud, below=of ghost1, align=left] (plf)  {\includegraphics[width=.45\textwidth]{plf_handwritten} \\Profile-Likelihood Fit};
 
-    \node [cloud, below=of plf] (results)  {\includegraphics[width=.25\textwidth]{placeholder}};
+    \node [cloud, below=of plf, align=left] (results)  {\includegraphics[width=.25\textwidth]{placeholder} \\Results};
     
     % Draw edges 
     \path [line] (theory) -- (detector);
@@ -45,6 +48,6 @@
     
   \end{tikzpicture}
   \caption{A flow chart showing the roadmap of the VHbb analysis and of this thesis.}
-  \label{fig:cxaod-flow}
+  \label{fig:roadmap}
 \end{figure}
 

@@ -1,28 +1,70 @@
-compile_pdf:
-  stage: build
+compile_thesis:
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
-  script: make clean all  # build the pdf just as you would on your computer
+  script: make clean thesis.pdf  # build the pdf just as you would on your computer
   artifacts:
     paths: 
       - thesis.pdf  # instruct GitLab to keep the main.pdf file
-      - conclusion.pdf
-      - detector.pdf
-      - fit.pdf
-      - introduction.pdf
-      - machine-learning.pdf
-      - modelling.pdf
-      - recon.pdf
-      - results.pdf
-      - theory.pdf
 
-# pages:
-#   stage: deploy
-#   script:
-#     - mkdir public  # create a folder called public
-#     - cp thesis.pdf public  # instruct GitLab to keep the main.pdf file
+compile_intro:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean introduction.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - introduction.pdf  # instruct GitLab to keep the main.pdf file
 
-#   artifacts:
-#     paths: 
-#       - public  # instruct GitLab to keep the public folder
-#   only: 
-#     - master  # deploy the pdf only for commits made to the master branch 
+compile_theoy:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean theory.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - theory.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_detector:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean detector.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - detector.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_ml:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean machine-learning.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - machine-learning.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_reco:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean recon.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - recon.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_modelling:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean modelling.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - modelling.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_fit:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean fit.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - fit.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_results:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean results.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - results.pdf  # instruct GitLab to keep the main.pdf file
+
+compile_conclusion:
+  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: make clean conclusion.pdf  # build the pdf just as you would on your computer
+  artifacts:
+    paths: 
+      - conclusion.pdf  # instruct GitLab to keep the main.pdf file
+

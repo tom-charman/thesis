@@ -27,7 +27,26 @@ classes which can be interpreted as a probability that a given example belongs
 to the given class, whereas regression outputs a single number per example whose
 interpretation depends on the problem.
 
-Describe training/testing set here.
+Both algorithms can be written as a function of some inputs $\vec{x}$, some
+weights to be found during training $\vec{w}$, and a set of hyper-parameters
+$\vec{\theta}$ as follows
+\begin{equation}
+  F(\vec{x}, \vec{w}, \vecv{\theta}) = \vec{y},
+\end{equation}
+where $\vec{y}$ is a vector whose outputs correspond to each class in a
+classification problem. If the algorithm is set up for a regression problem then
+the output will just be one number. Training either algorithm involves an
+iterative process where at each iteration the function is evaluated for the
+current set of weights, the outputs are compared against some truth labels
+$\vec{t}$ via the computation of a loss function. Based on the value of the loss
+function the weights are then updated according to the given algorithm. It is
+therefore vital that firstly these truth labels are available for the data on
+which one wants to train (e.g. train on simulated predictions rather than real
+data) and secondly that the examples are split into a training and testing set
+so that the set which is used to iteratively update weights is not the same set
+that performance is evaluated on. This avoids over-fitting to any noise in a
+given set, though this problem is not circumvented entirely and over-fitting
+will be addressed for specific algorithms in the sections ahead.
 
 \section{Boosted Decision Trees}%
 \label{sec:bdts}
@@ -62,13 +81,13 @@ if the fluctuation were not present.
 
 In order to mitigate the over--training tendencies of decision trees they are
 often used in an ensemble algorithm such as bagging~\cite{bagging}
-or~\cite{boosting}. Here only boosting will be discussed. Ensembles of decision
-trees are often referred to as random forests. Boosting works by training a
-sequence of trees, weighting misclassified events from a tree so that they have
-more influence over the structure of the next tree in the sequence. The final
-classification of any given example is a weighted average over all trees, this
-can be weighted by the overall accuracy of each tree, but in general can take
-any weighted average.
+or boosting~\cite{boosting}. Here only boosting will be discussed. Ensembles of
+decision trees are often referred to as random forests. Boosting works by
+training a sequence of trees, weighting misclassified events from a tree so that
+they have more influence over the structure of the next tree in the sequence.
+The final classification of any given example is a weighted average over all
+trees, this can be weighted by the overall accuracy of each tree, but in general
+can take any weighted average.
 
 \subsection{Gradient Boosting}
 

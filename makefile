@@ -1,11 +1,11 @@
 # You want latexmk to *always* run, because make does not have all the info.
 # Also, include non-file targets in .PHONY so they are run regardless of any
 # file of the given name existing.
-.PHONY: thesis.pdf introduction.pdf phys-theory.pdf detector.pdf machine-learning.pdf modelling.pdf reconstruction.pdf fit.pdf results.pdf conclusion.pdf all clean directories
+.PHONY: thesis.pdf introduction.pdf phys-theory.pdf detector.pdf machine-learning.pdf modelling.pdf recon.pdf fit.pdf results.pdf conclusion.pdf all clean directories
 
 # The first rule in a Makefile is the one executed by default ("make"). It
 # should always be the "all" rule, so that "make" and "make all" are identical.
-all: thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf modelling.pdf  reconstruction.pdf fit.pdf results.pdf conclusion.pdf all clean directories
+all: thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf modelling.pdf  recon.pdf fit.pdf results.pdf conclusion.pdf all clean directories
 
 # OPTIONS
 
@@ -54,7 +54,7 @@ detector.pdf: 03-detector/detector.tex directories
 machine-learning.pdf: 04-machine-learning/machine-learning.tex directories
 	$(LATEXMK) $(OPTIONS) $(ML) && mv BUILD/machine-learning.pdf .
 
-reconstruction.pdf: 05-reconstruction-and-selection/reconstruction-and-selection.tex directories
+recon.pdf: 05-reconstruction-and-selection/reconstruction-and-selection.tex directories
 	$(LATEXMK) $(OPTIONS) $(RECON) && mv BUILD/recon.pdf .
 
 fit.pdf: 06-fit-models/fit-models.tex directories

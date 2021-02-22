@@ -32,21 +32,24 @@ weights to be found during training $\vec{w}$, and a set of hyper-parameters
 $\vec{\theta}$ as follows
 \begin{equation}
   F(\vec{x}, \vec{w}, \vecv{\theta}) = \vec{y},
+  \label{eq:ml-general}
 \end{equation}
 where $\vec{y}$ is a vector whose outputs correspond to each class in a
 classification problem. If the algorithm is set up for a regression problem then
-the output will just be one number. Training either algorithm involves an
-iterative process where at each iteration the function is evaluated for the
-current set of weights, the outputs are compared against some truth labels
-$\vec{t}$ via the computation of a loss function. Based on the value of the loss
-function the weights are then updated according to the given algorithm. It is
-therefore vital that firstly these truth labels are available for the data on
-which one wants to train (e.g. train on simulated predictions rather than real
-data) and secondly that the examples are split into a training and testing set
-so that the set which is used to iteratively update weights is not the same set
-that performance is evaluated on. This avoids over-fitting to any noise in a
-given set, though this problem is not circumvented entirely and over-fitting
-will be addressed for specific algorithms in the sections ahead.
+the output will just be one number. The hyper-parameters control the behaviour
+of the algorithm in question and are set by hand in advance of training.
+Training either algorithm involves an iterative process where at each iteration
+the function is evaluated for the current set of weights, the outputs are
+compared against some truth labels $\vec{t}$ via the computation of a loss
+function. Based on the value of the loss function the weights are then updated
+according to the given algorithm. It is therefore vital that firstly these truth
+labels are available for the data on which one wants to train (e.g. train on
+simulated predictions rather than real data) and secondly that the examples are
+split into a training and testing set so that the set which is used to
+iteratively update weights is not the same set that performance is evaluated on.
+This avoids over-fitting to any noise in a given set, though this problem is not
+circumvented entirely and over-fitting will be addressed for specific algorithms
+in the sections ahead.
 
 \section{Boosted Decision Trees}%
 \label{sec:bdts}

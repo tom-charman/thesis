@@ -1,70 +1,90 @@
+stages:
+  - compile
+  - collect
+
 compile_thesis:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean thesis.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - thesis.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- thesis.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_intro:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean introduction.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - introduction.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- introduction.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_theoy:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean theory.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - theory.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- theory.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_detector:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean detector.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - detector.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- detector.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_ml:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean machine-learning.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - machine-learning.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- machine-learning.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_reco:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean recon.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - recon.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- recon.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_modelling:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean modelling.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - modelling.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- modelling.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_fit:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean fit.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - fit.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- fit.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_results:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean results.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - results.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- results.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_conclusion:
+  stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean conclusion.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    paths: 
-      - conclusion.pdf  # instruct GitLab to keep the main.pdf file
+  #artifacts:
+    #paths: 
+      #- conclusion.pdf  # instruct GitLab to keep the main.pdf file
 
+collect_all:
+  stage: collect
+  script: mkdir pdfs && mv *.pdf pdfs
+  artifacts:
+    paths:
+      - pdfs

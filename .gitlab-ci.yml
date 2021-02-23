@@ -7,8 +7,8 @@ compile_thesis:
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean thesis.pdf  # build the pdf just as you would on your computer
   artifacts:
-    paths: 
-      - thesis.pdf  # instruct GitLab to keep the main.pdf file
+    #paths: 
+    #  - thesis.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_intro:
   stage: compile

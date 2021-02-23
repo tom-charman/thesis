@@ -7,9 +7,9 @@ compile_thesis:
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean thesis.pdf  # build the pdf just as you would on your computer
   artifacts:
-     paths: 
-       - thesis.pdf  # instruct GitLab to keep the main.pdf file
-       expire_in: 1
+    paths: 
+      - thesis.pdf  # instruct GitLab to keep the main.pdf file
+    expire_in: 1
 
 compile_intro:
   stage: compile
@@ -18,7 +18,7 @@ compile_intro:
   artifacts:
     paths: 
       - introduction.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_theoy:
   stage: compile
@@ -27,7 +27,7 @@ compile_theoy:
   artifacts:
     paths: 
       - theory.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_detector:
   stage: compile
@@ -36,7 +36,7 @@ compile_detector:
   artifacts:
     paths: 
       - detector.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_ml:
   stage: compile
@@ -45,7 +45,7 @@ compile_ml:
   artifacts:
     paths: 
       - machine-learning.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_reco:
   stage: compile
@@ -54,6 +54,7 @@ compile_reco:
   artifacts:
     paths: 
       - recon.pdf  # instruct GitLab to keep the main.pdf file
+    expire_in: 1
 
 compile_modelling:
   stage: compile
@@ -62,7 +63,7 @@ compile_modelling:
   artifacts:
     paths: 
       - modelling.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_fit:
   stage: compile
@@ -71,7 +72,7 @@ compile_fit:
   artifacts:
     paths: 
       - fit.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_results:
   stage: compile
@@ -80,7 +81,7 @@ compile_results:
   artifacts:
     paths: 
       - results.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
+    expire_in: 1
 
 compile_conclusion:
   stage: compile
@@ -89,8 +90,8 @@ compile_conclusion:
   artifacts:
     paths: 
       - conclusion.pdf  # instruct GitLab to keep the main.pdf file
-      expire_in: 1
-      
+    expire_in: 1
+
 collect_all:
   stage: collect
   script: mkdir pdfs && mv *.pdf pdfs

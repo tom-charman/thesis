@@ -6,15 +6,15 @@ compile_thesis:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean thesis.pdf  # build the pdf just as you would on your computer
-  artifacts:
-    #paths: 
-    #  - thesis.pdf  # instruct GitLab to keep the main.pdf file
+  cache:
+     paths: 
+       - thesis.pdf  # instruct GitLab to keep the main.pdf file
 
 compile_intro:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean introduction.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - introduction.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -22,7 +22,7 @@ compile_theoy:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean theory.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - theory.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -30,7 +30,7 @@ compile_detector:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean detector.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - detector.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -38,7 +38,7 @@ compile_ml:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean machine-learning.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - machine-learning.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -46,7 +46,7 @@ compile_reco:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean recon.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - recon.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -54,7 +54,7 @@ compile_modelling:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean modelling.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - modelling.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -62,7 +62,7 @@ compile_fit:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean fit.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - fit.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -70,7 +70,7 @@ compile_results:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean results.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - results.pdf  # instruct GitLab to keep the main.pdf file
 
@@ -78,7 +78,7 @@ compile_conclusion:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean conclusion.pdf  # build the pdf just as you would on your computer
-  artifacts:
+  cache:
     paths: 
       - conclusion.pdf  # instruct GitLab to keep the main.pdf file
 

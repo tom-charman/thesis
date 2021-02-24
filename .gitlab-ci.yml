@@ -20,7 +20,7 @@ compile_intro:
       - introduction.pdf  # instruct GitLab to keep the main.pdf file
     expire_in: 5 minutes
 
-compile_theoy:
+compile_theory:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
   script: make clean theory.pdf  # build the pdf just as you would on your computer

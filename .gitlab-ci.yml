@@ -98,3 +98,4 @@ collect_all:
   artifacts:
     paths:
       - pdfs
+  needs: ['compile']

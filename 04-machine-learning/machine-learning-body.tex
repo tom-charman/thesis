@@ -99,6 +99,40 @@ concept of boosting and combines it with the gradient descent algorithm. A
 pictographic representation of gradient descent for a regression problem can be
 seen in figure~\ref{fig:grad-desc.}
 \input{04-machine-learning/grad-desc}
+The basic principle of gradient descent is to find the minimum of some
+multi-variable function by taking the derivative of the function around some
+starting point in the space and moving in the direction of the negative
+gradient. This process is repeated iteratively until some termination criteria
+is reached. In machine learning gradient descent is most often applied to the
+loss function which describes the discrepancy between the predictions of a model
+$\vec{y}$ and the truth labels $\vec{t}$. For a loss written as
+\begin{equation}
+  \mathcal{L}(\vec{y}, \vec{t}),
+\end{equation}
+the predictions and the labels define a point in the space around which the
+function must be locally differentiable, it is hard to determine where these
+points will be before training an algorithm on a given dataset and so in general
+a loss is chosen that is differentiable everywhere.
+
+Considering now a boosted decision tree that has a number of iterations for each
+of which a decision tree is constructed using the Gini index. The model can be
+written as
+\begin{equation}
+  F_i(\vec{x}),
+\end{equation}
+at a given iteration and is evolved by the addition of a single decision tree as
+\begin{equation}
+  F_i({\vec{x}}) + d{\vec{x}} = F_{i+1}(\vec{x}),
+\end{equation}
+the decision tree which is added is found by taking the negative gradient of the
+loss computed at the previous iteration
+\begin{equation}
+  d{\vec{x}} = - \frac{\partial \mathcal{L(F_i, \vec{t})}}{\partial F}.
+\end{equation}
+This is process is known as gradient boosting. Each decision tree is known as a
+weak learner, by evolving the overall model by stepping in the direction of the
+negative gradient of the loss calculated on the predictions of the model at the
+current stage the algorithm aims to correct for past mistakes.
 
 \section{Neural Networks}%
 \label{sec:neural-networks}

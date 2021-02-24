@@ -98,4 +98,15 @@ collect_all:
   artifacts:
     paths:
       - pdfs
-  needs: ['compile']
+  needs:
+    - job: compile_thesis
+    - job: compile_intro
+    - job: compile_theory
+    - job: compile_detector
+    - job: compile_ml
+    - job: compile_reco
+    - job: compile_modelling
+    - job: compile_fit
+    - job: compile_results
+    - job: compile_conclusion
+      artifacts: true

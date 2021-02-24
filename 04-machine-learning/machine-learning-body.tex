@@ -134,42 +134,30 @@ weak learner, by evolving the overall model by stepping in the direction of the
 negative gradient of the loss calculated on the predictions of the model at the
 current stage the algorithm aims to correct for past mistakes.
 
+BDT Hyper-parameters.
+
 \section{Neural Networks}%
+
 \label{sec:neural-networks}
-Neural networks have a structure as in figure~\ref{fig:nn}.
 
-This section outlines some of the mathematical formalism surrounding NNs
-that act as classifiers. These kinds of NNs can be used to solve binary
-classification or multi-class problems, where the probability that each data
-candidate belongs to any of the classes is mutually exclusive. Many other types
-of NN exist, however their details will not be discussed in this work. In simple
-terms a NN is comprised of connected layers of nodes as in figure
-\ref{fig:basicnn}. Nodes fall into three types input, output and hidden, with
-layers being homogeneous with regard to node type and therefore inheriting their
-name. The input layer is comprised of one input node per dimension of a single
-entry in the dataset that one wishes to pass into the NN for classification.
-Each output node is a predictive unit corresponding to one of $K$ classes and it
-is the goal of the intermediate hidden layers (full of hidden units) to provide
-a relationship between the inputs and outputs such that the predictive unit with
-the highest value corresponds to the correct class for the given data. The
-output layer should therefore be comprised of $K$ nodes. In order to delve
-further into the details, a good mathematical representation of the hidden
-layers is required. One such representation is given by Bishop in Pattern
-Recognition and Machine Learning \cite{PRML}. In this section the nomenclature
-used by Bishop will be outlined and then adapted for our specific use.
-
-\input{04-machine-learning/nn}
-The building blocks of the NN, called activations, resemble Fisher
-discriminants \cite{Fisher} and take the form
-
+Like boosted decision trees neural networks can be described as a function of
+input data, weights and hyper-parameters $F(\vec{x}, \vec{w}, \vec{\theta})$.
+Unlike BDTs neural networks can vary a lot more in their structure, the
+hyper-parameters of these algorithms allow for much finer control over the
+behaviour of the function as an estimator. The basic structure of a neural
+network is shown in figure~\ref{fig:nn}.  The building blocks of the NN, called
+activations, resemble Fisher discriminants~\cite{Fisher} and take the form
 \begin{equation}
-a_j = \sum_{i=1}^{d} w_{ji}x_{i} + w_{j0}
+a_j = \sum_{i=1}^{d} w_{ji}x_{i} + w_{j0},
 \label{eq:fisher}
 \end{equation}
-where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases.
-Collectively the weights and biases shall be referred to as adaptive parameters,
-due to the fact that (as shall be made clear later) they are to be adapted by a
-training algorithm. In order to take the activations and turn them into
+where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases. It
+would be remiss of me to cite the works of Fisher without condemning his
+participation in the field of eugenics, but I leave the citation here as a
+reminder that as scientists we have a responsibility to society to pursue causes
+for good.
+
+In order to take the activations and turn them into
 something closer to a perceptron \cite{Rosenblatt} they must be passed through
 an activation function denoted $\mathcal{H}$,
 

@@ -145,35 +145,35 @@ input data, weights and hyper-parameters $F(\vec{x}, \vec{w}, \vec{\theta})$.
 Unlike BDTs neural networks can vary a lot more in their structure, the
 hyper-parameters of these algorithms allow for much finer control over the
 behaviour of the function as an estimator. The basic structure of a neural
-network is shown in figure~\ref{fig:nn}.  The building blocks of the NN, called
-activations, resemble Fisher discriminants~\cite{Fisher} and take the form
+network is shown in figure~\ref{fig:nn}.  The building blocks of the NN resemble
+Fisher discriminants~\cite{Fisher} and take the form
 \begin{equation}
 a_j = \sum_{i=1}^{d} w_{ji}x_{i} + w_{j0},
 \label{eq:fisher}
 \end{equation}
-where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases. It
-would be remiss of me to cite the works of Fisher without condemning his
-participation in the field of eugenics, but I leave the citation here as a
-reminder that as scientists we have a responsibility to society to pursue causes
-for good.
-
-In order to take the activations and turn them into
-something closer to a perceptron \cite{Rosenblatt} they must be passed through
-an activation function denoted $\mathcal{H}$,
-
+where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases, these
+constructions are called activations. It would be remiss of me to cite the works
+of Fisher without condemning his participation in the field of eugenics, but I
+leave the citation here as a reminder that as scientists we have a
+responsibility to society to pursue causes for good. Neural network models are
+inspired by neurons in the brain, who fire when some threshold of
+neuro--transmitting chemical is reached~\cite{biology} and are linked up in
+intricate ways to manifest complex behaviours. In order to take activations and
+give them a behaviour similar to neurons they must be passed through an
+activation function, denoted $\mathcal{H}$, which gives the threshold effect
 \begin{equation}
-h_j = \mathcal{H}(a_j)
+h_j = \mathcal{H}(a_j).
 \label{eq:hiddenunit}
 \end{equation}
-becoming what are known as hidden units. These activation functions may be
-non-linear and have the restriction that they must be differentiable, crucially
-this is different from the perceptron which uses a non-differentiable step
-function. Considering a network with only a single hidden layer as in figure
+These are similar to Rosenblatt's original perceptron~\cite{Rosenblatt} with the
+difference that $\mathcal{H}$ must be differentiable whereas the perceptron used
+a step function.
+
+Considering a network with only a single hidden layer as in figure
 \ref{fig:basicnn}, there are further steps required to get from the hidden units
 to the predictions $y_k$. The complete network function as an argument of a
 vector of data points $\vec{x}$ and a matrix of adaptive parameters
 $\vec{w}$ should return predictions given by
-
 \begin{equation}
 y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
 \mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji}^{(1)} x_{i} + w_{j0}^{(1)} \Bigg) + w_{k0}^{(2)} \Bigg).

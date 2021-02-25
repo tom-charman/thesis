@@ -31,7 +31,7 @@ Both algorithms can be written as a function of some inputs $\vec{x}$, some
 weights to be found during training $\vec{w}$, and a set of hyper-parameters
 $\vec{\theta}$ as follows
 \begin{equation}
-  F(\vec{x}, \vec{w}, \vec{\theta}) = \vec{y},
+  F(\vec{x}, \vec{w}, \vec{\theta} \,) = \vec{y},
   \label{eq:ml-general}
 \end{equation}
 where $\vec{y}$ is a vector whose outputs correspond to each class in a
@@ -107,7 +107,7 @@ is reached. In machine learning gradient descent is most often applied to the
 loss function which describes the discrepancy between the predictions of a model
 $\vec{y}$ and the truth labels $\vec{t}$. For a loss written as
 \begin{equation}
-  \mathcal{L}(\vec{y}, \vec{t}),
+  \mathcal{L}(\vec{y}, \vec{t} \,),
 \end{equation}
 the predictions and the labels define a point in the space around which the
 function must be locally differentiable, it is hard to determine where these
@@ -141,7 +141,7 @@ BDT Hyper-parameters.
 \label{sec:neural-networks}
 
 Like boosted decision trees neural networks can be described as a function of
-input data, weights and hyper-parameters $F(\vec{x}, \vec{w}, \vec{\theta})$.
+input data, weights and hyper-parameters $F(\vec{x}, \vec{w}, \vec{\theta} \,)$.
 Unlike BDTs neural networks can vary a lot more in their structure, the
 hyper-parameters of these algorithms allow for much finer control over the
 behaviour of the function as an estimator. The basic structure of a neural

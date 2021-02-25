@@ -169,53 +169,32 @@ These are similar to Rosenblatt's original perceptron~\cite{Rosenblatt} with the
 difference that $\mathcal{H}$ must be differentiable whereas the perceptron used
 a step function.
 
-Considering a network with only a single hidden layer as in figure
-\ref{fig:basicnn}, there are further steps required to get from the hidden units
-to the predictions $y_k$. The complete network function as an argument of a
-vector of data points $\vec{x}$ and a matrix of adaptive parameters
-$\vec{w}$ should return predictions given by
+All neural networks are made of layers, and have an input layer which is a
+vector of input data and an output layer, a vector whose size relates to the
+predictions being made. Layers inbetween these two are called hidden layers and
+are made of the units $h_j$ (known as hidden units). The most simple neural
+network has a single hidden layer. This model can be written as
 \begin{equation}
-y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
+F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
 \mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji}^{(1)} x_{i} + w_{j0}^{(1)} \Bigg) + w_{k0}^{(2)} \Bigg).
 \label{eq:basicnn}
 \end{equation}
-where now, as in Bishop's representation, the superscript number in brackets
-labels the layer to which adaptive parameters belong, not counting the input
-layer (as it does not contain them). The network function \eqref{eq:basicnn} is
-comprised by performing the same construction on the hidden unit
-\eqref{eq:hiddenunit} as was performed on the original data point $x_i$ in
-\eqref{eq:fisher}, with a special type of activation function an output function
-$\mathcal{O}$. Notably the hidden units must be summed over in the same way that
-data points are, however instead of summing over the dimensions of the data, in
-order to reproduce the network in figure \ref{fig:basicnn} we sum up to $m$ the
-desired number of hidden units, which is referred to as the ``size'' of the
-hidden layer. A common choice of output function for binary classification
-problems is the logistic sigmoid function
+where the superscript number in brackets labels the layer to which parameters
+belong. The hyper-parameters $\vec{theta}$ here are the choice of activation
+function $\mathcal{H}$, output function $\mathcal{O}$, number of hidden units
+$m$ and the number of hidden layers (just one here).
+
+The output function $\mathcal{O}$ must have properties that allow us to
+interpret the outputs of the network as probabilistic. A common choice of output
+function for classification problems is the softmax function
 \begin{equation}
-\mathcal{O}(z) = \frac{1}{1 + exp(-z)}
-\label{eq:sigmoid}
+  \mathcal{O}(z)_k = p(k|\vec{x}) = \frac{exp(z_k)}{\sum_{i=1}^kexp(z_i)}
+  \label{eq:softmax}
 \end{equation}
-where in each of these $z$ merely denotes the argument of the output function.
-For multi-class problems where $K > 2$ a generalisation of the logistic sigmoid,
-the softmax function
-\begin{equation}
-\mathcal{O}(z)_k = p(k|\vec{x}) = \frac{exp(z_k)}{\sum_{i=1}^kexp(z_i)}
-\label{eq:softmax}
-\end{equation}
-gives the probability of being in class $k$ given the data $\vec{x}$ and
-where $i$ is summed all classes. The index $k$ appears on the output function as
-it must be calculated for each $k \in K$ the total number of classes. It is at
-this stage that the true meaning of the predictive units is solidified, each
-should give a number between zero and one that represents the probability of
-data belonging to the corresponding class, and logically all predictive units
-should sum to one. For the sake of compactness we shall, as Bishop does,
-re-write \eqref{eq:basicnn} by introducing $x_{0} = 1$ in order to absorb the
-biases into the sums, yielding
-\begin{equation}
-y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j=0}^{m} w_{kj}^{(2)}
-\mathcal{H} \Bigg( \sum_{i=0}^{d} w_{ji}^{(1)} x_{i} \Bigg) \Bigg).
-\label{eq:compactnn}
-\end{equation}
+where $z$ merely denotes the argument of the output function. This function
+gives the probability of being an example belonging to class $k$ given the data
+$\vec{x}$ where there are $k$ possible classes.
+
 \par Now it is our goal to generalise this network function to one not only of
 an arbitrary number of hidden layers but also such that each hidden layer can be
 of arbitrary size and have an arbitrary activation function. For this purpose,

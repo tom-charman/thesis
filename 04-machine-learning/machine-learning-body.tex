@@ -122,12 +122,12 @@ written as
 \end{equation}
 at a given iteration and is evolved by the addition of a single decision tree as
 \begin{equation}
-  F_i({\vec{x}}) + d{\vec{x}} = F_{i+1}(\vec{x}),
+  F_i({\vec{x}}) + d(\vec{x}) = F_{i+1}(\vec{x}),
 \end{equation}
 the decision tree which is added is found by taking the negative gradient of the
 loss computed at the previous iteration
 \begin{equation}
-  d{\vec{x}} = - \frac{\partial \mathcal{L}(F_i, \vec{t})}{\partial F}.
+  d{\vec{x}} = - \frac{\partial \mathcal{L}(F_i, \vec{t} \,)}{\partial F}.
 \end{equation}
 This is process is known as gradient boosting. Each decision tree is known as a
 weak learner, by evolving the overall model by stepping in the direction of the

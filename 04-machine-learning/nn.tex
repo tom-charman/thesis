@@ -1,3 +1,17 @@
+\tikzset{%
+  every neuron/.style={
+    circle,
+    minimum size=22pt,
+    draw
+  },
+  neuron missing/.style={
+    draw=none, 
+    scale=3,
+    text height=0.3cm,
+    execute at end node=\color{black}\tiny{$\vdots$}
+  },
+}
+
 \begin{figure}[hbtp]
 \begin{center}
 \begin{tikzpicture}[x=1.5cm, y=1.25cm, >=stealth]

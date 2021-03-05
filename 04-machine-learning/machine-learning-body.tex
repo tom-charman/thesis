@@ -134,7 +134,13 @@ weak learner, by evolving the overall model by stepping in the direction of the
 negative gradient of the loss calculated on the predictions of the model at the
 current stage the algorithm aims to correct for past mistakes.
 
-BDT Hyper-parameters.
+The aforementioned hyper-parameters that control the properties of the model
+come in a few forms for the BDT. They include but are not limited to, the
+maximum tree depth and the number of weak learners to train. These hyper
+parameters change the structure of the model in a way that would be obvious when
+drawing a visual representation. The choice of boosting algorithm can also be
+considered a hyper-parameter, in this work gradient boosting is chosen in
+general which is a change from the previously popular AdaBoost~\cite{AdaBoost}. 
 
 \section{Neural Networks}%
 
@@ -180,9 +186,11 @@ F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)
 \label{eq:basicnn}
 \end{equation}
 where the superscript number in brackets labels the layer to which parameters
-belong. The hyper-parameters $\vec{theta}$ here are the choice of activation
+belong. The hyper-parameters $\vec{\theta}$ here are the choice of activation
 function $\mathcal{H}$, output function $\mathcal{O}$, number of hidden units
-$m$ and the number of hidden layers (just one here).
+$m$ and the number of hidden layers (just one here). A depiction of a single
+layered NN can is shown in figure~\ref{fig:single-nn}.
+\input{04-machine-learning/nn}
 
 The output function $\mathcal{O}$ must have properties that allow us to
 interpret the outputs of the network as probabilistic. A common choice of output
@@ -195,71 +203,26 @@ where $z$ merely denotes the argument of the output function. This function
 gives the probability of being an example belonging to class $k$ given the data
 $\vec{x}$ where there are $k$ possible classes.
 
-\par Now it is our goal to generalise this network function to one not only of
-an arbitrary number of hidden layers but also such that each hidden layer can be
-of arbitrary size and have an arbitrary activation function. For this purpose,
-networks will now be described in terms of the number of hidden layers, instead
-of the number of layers that contain adaptive parameters (hidden plus output) as
-before. We may start by writing a function for a network of two hidden layers
+By controlling the hyper-parameters a network of any size and shape can be
+built, in the network function can be written in general as the cumbersome
 \begin{equation}
-y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j_{2}=0}^{m_{2}} w_{kj_{2}} \mathcal{H}_{2} 
-\Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} \mathcal{H}_{1} \Bigg( \sum_{i=0}^{d} w_{j_{1}i} x_{i} \Bigg) \Bigg) \Bigg).
-\label{eq:2layer}
+  F(\vec{x}, \vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
+  \mathcal{H}_{n} \Bigg( \dots \mathcal{H}_2  \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} 
+  \mathcal{H}_{1} \Bigg( \sum_{i=0}^{d} w_{j_{1}i} x_{i} \Bigg) \Bigg) \dots \Bigg) \Bigg).
+  \label{eq:fullnn}
 \end{equation}
-In order to arive at the two layer function \eqref{eq:2layer} the same process
-was used as for the original network function \eqref{eq:basicnn}. Now there are
-two activation functions and hidden layer sizes denoted $m$. Clearly adding a
-layer to the network simply involves repeated application of this process and
-picking up the required number of additional parameters. A function for a
-network of $n$ hidden layers may therefore be written as
-\begin{equation}
-y_k(\vec{x},\vec{w}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
-\mathcal{H}_{n} \Bigg( \dots \mathcal{H}_2  \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} 
-\mathcal{H}_{1} \Bigg( \sum_{i=0}^{d} w_{j_{1}i} x_{i} \Bigg) \Bigg) \dots \Bigg) \Bigg)
-\label{eq:fullnn}
-\end{equation}
-where there are $n$ different versions of the activation function and hidden
-layer size. Our new hidden units obey the following notation
-\begin{equation}
-h_{nj} = \mathcal{H}_n(a_j)
-\label{eq:newhiddenunits}
-\end{equation}
-eliminating the need for the superscript labelling of layer. The new labelling
-identifies hidden layer by the left-hand index of the hidden unit or the
-right-hand hidden layer of the weights and biases. In equation \eqref{eq:fullnn}
-the hidden units are shown in their expanded form and distinguished by the fact
-that their $j$ indices take on the subscript of $n$ corresponding to the layer
-they belong to. Figure \ref{fig:fullnn} depicts a network of $n$ hidden layers,
-as described in equation \eqref{eq:fullnn} except that every hidden layer is
-depicted with the same size $m$.
-
+This behaves in a similar way to the network with one hidden layer but now each
+layer's width and activation must be chosen individually, though often they are
+set to the same values. A diagram of an arbitrary sized neural network is shown
+in figure~\ref{fig:full-nn}.
 \input{04-machine-learning/nn}
-There are now a great deal of parameters that we have to keep track of. It
-is therefore important to distinguish between adaptive parameters and the
-parameters which we must pick by hand, known as hyper-parameters. A relationship
-can be written between the number of hidden layers $n$, and the number of
-hyper-parameters, as follows
-\begin{equation}
-\text{\# of hyper-parameters} = 2n + 1.
-\label{eq:hyper}
-\end{equation}
-As previously stated there are simply $n$ lots of activation functions and $n$
-hidden layers to determine a size for. Often it is sufficient to set all
-activation functions to the same function, and in this work all hidden layers
-share the same size for simplicity. The adaptive parameters are far more
-numerous, and will be optimised by means of a training algorithm. In TensorFlow
-the variable object is choice for implementing the adaptive parameters as
-training algorithms in the software will update them by default. The adaptive
-parameters are initialised randomly from a Gaussian distribution resulting in
-poor predictive power to begin with. In order to improve this some figure of
-merit, known as a loss function, must be used in order for the training
-algorithm to measure quantitatively the performance of the NN. We also must
-provide the algorithm with a dataset to train on, complete with a set of targets
-or labels that, for the training set, reveal the correct classification for each
-entry. Due to the this requirement, methods such as these are referred to as
-supervised learning methods. A natural loss function one may use to describe the
-error of the model given a current set of adaptive parameters is sum-of-squares
-error
+It is clear that the number of parameters that need to be learned $\vec{w}$ and
+the number that need to be set by hand to tune the model to a given problem
+$\vec{theta}$ are much larger than in the BDT algorithm. For this reason
+adoption of neural networks is sometimes hampered by lack of data or sufficient
+time to tune the hyper-parameters to achieve satisfactory performance.
+
+Loss functions:
 \begin{equation}
 E(\vec{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\vec{x}_n, \vec{w}) - t_n)^2
 \label{eq:sumofsquares}
@@ -274,16 +237,12 @@ E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg)
 known as cross-entropy, is faster and more generalised \cite{XEntropySimard}
 (further discussion on generalisation in section \ref{sec:generalisation}). The
 particular training algorithm that will be used to update parameters in this
+
+Optimisers:
 report is known as adaptive moment estimation or ADAM \cite{ADAMOpt}. ADAM is a
 variant of the gradient descent algorithm, which is widely used and has spawned
 many other variants \cite{GDOverview}. The reasons for picking between ADAM and
 vanilla gradient descent are given in chapter \ref{ch:netarch}.
 
-\input{04-machine-learning/nn}
-\section{Parametrised Neural Networks}%
-\label{sec:param-neural-nets}
-Parametrised neural networks take extra inputs equal to the number of relevant
-parameters, as seen in figure~\ref{fig:pnn}.
-\input{04-machine-learning/pnn}
 
 

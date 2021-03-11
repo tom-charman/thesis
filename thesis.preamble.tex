@@ -13,7 +13,6 @@
 \usepackage{verbatim}
 \usepackage{hhline}
 \usepackage{booktabs}
-% \usepackage{colortbl}
 \DisemulatePackage{setspace}
 \usepackage{setspace}
 \usepackage[sort&compress, numbers, comma]{natbib}
@@ -28,16 +27,11 @@
 \usepackage{contour}
 \usepackage{pgfplots}
 \usepackage{tkz-euclide}
-%\usetkzobj{all}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 \usepackage{etoolbox}
 \usepackage{bigdelim}
 \usepackage{rotating}
-%\usepackage{xpatch}
-%\makeatletter
-%\xpatchcmd\@memb@bchap{\phantomsection}{}{}{\fail}
-%\makeatother
-\listfiles
+%\listfiles
 \usetikzlibrary{calc,positioning,shadows.blur,decorations.pathreplacing,arrows,trees,decorations.pathmorphing,decorations.markings}
 \usepackage{mathtools}
 
@@ -61,79 +55,12 @@
 
 \DeclareMathOperator{\Tr}{Tr}
 
-%\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\bf}
-%\titleformat{\section}{\normalfont\Large}{\thesection.}{16pt}{\Large\it\bf}
-%\titleformat{\subsection}{\normalfont\large}{\thesubsection.}{14pt}{\large\it\bf}
-%\titleformat{\subsection}{\normalfont\large}{\thesubsection.}{12pt}{\large\bf}
-
 \hypersetup{
     colorlinks,
     linkcolor={red!50!black},
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
   }
-
-  % \tikzset{%
-%         brace/.style = { decorate, decoration={brace, amplitude=5pt} },
-%        mbrace/.style = { decorate, decoration={brace, amplitude=5pt, mirror} },
-%         label/.style = { black, midway, scale=0.5, align=center },
-%      toplabel/.style = { label, above=.5em, anchor=south },
-%     leftlabel/.style = { label,rotate=-90,left=.5em,anchor=north },   
-%   bottomlabel/.style = { label, below=.5em, anchor=north },
-%         force/.style = { rotate=-90,scale=0.4 },
-%         round/.style = { rounded corners=2mm },
-%        legend/.style = { right,scale=0.4 },
-%         nosep/.style = { inner sep=0pt },
-%    generation/.style = { anchor=base }
-% }
-
-
-% \newcommand\particle[7][white]{%
-%   \begin{tikzpicture}[x=1cm, y=1cm]
-%     \path[fill=#1,blur shadow={shadow blur steps=5}] (0.1,0) -- (0.9,0)
-%         arc (90:0:1mm) -- (1.0,-0.9) arc (0:-90:1mm) -- (0.1,-1.0)
-%         arc (-90:-180:1mm) -- (0,-0.1) arc(180:90:1mm) -- cycle;
-%     \ifstrempty{#7}{}{\path[fill=purple!50!white]
-%         (0.6,0) --(0.7,0) -- (1.0,-0.3) -- (1.0,-0.4);}
-%     \ifstrempty{#6}{}{\path[fill=green!50!black!50] (0.7,0) -- (0.9,0)
-%         arc (90:0:1mm) -- (1.0,-0.3);}
-%     \ifstrempty{#5}{}{\path[fill=orange!50!white] (1.0,-0.7) -- (1.0,-0.9)
-%         arc (0:-90:1mm) -- (0.7,-1.0);}
-%     \draw[\ifstrempty{#2}{dashed}{black}] (0.1,0) -- (0.9,0)
-%         arc (90:0:1mm) -- (1.0,-0.9) arc (0:-90:1mm) -- (0.1,-1.0)
-%         arc (-90:-180:1mm) -- (0,-0.1) arc(180:90:1mm) -- cycle;
-%     \ifstrempty{#7}{}{\node at(0.825,-0.175) [rotate=-45,scale=0.2] {#7};}
-%     \ifstrempty{#6}{}{\node at(0.9,-0.1)  [nosep,scale=0.17] {#6};}
-%     \ifstrempty{#5}{}{\node at(0.9,-0.9)  [nosep,scale=0.2] {#5};}
-%     \ifstrempty{#4}{}{\node at(0.1,-0.1)  [nosep,anchor=west,scale=0.25]{#4};}
-%     \ifstrempty{#3}{}{\node at(0.1,-0.85) [nosep,anchor=west,scale=0.3] {#3};}
-%     \ifstrempty{#2}{}{\node at(0.1,-0.5)  [nosep,anchor=west,scale=1.5] {#2};}
-%   \end{tikzpicture}
-% }
-
-%\tikzset{/tikzfeynman/warn luatex=false, /tikzfeynman/warn all=false}
-
-%\tikzset{%
-%  every neuron/.style={
-%    circle,
-%    minimum size=22pt,
-%    draw
-%  },
-%  neuron missing/.style={
-%    draw=none, 
-%    scale=3,
-%    text height=0.3cm,
-%    execute at end node=\color{black}\tiny{$\vdots$}
-%  },
-%}
-
-%\tikzset{
-%  photon/.style={decorate, decoration={snake}, draw=black},
-%  higgs/.style={draw=black, style=dashed},
-%  fermion/.style={draw=black, postaction={decorate},
-%    decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
-%  anti-fermion/.style={draw=black, postaction={decorate},
-%    decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}}}
 
 \pgfplotsset{compat=1.14}
 
@@ -170,9 +97,6 @@ dup
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-%\input{template/blocked.sty}
-%\input{template/uhead.sty}
-%\input{template/boxit.sty}
 \input{template/tctemplate.sty}
 
 %\newcommand{\ipc}{{\sf ipc}}

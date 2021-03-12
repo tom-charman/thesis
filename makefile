@@ -23,8 +23,8 @@ THEORY        = -jobname=BUILD/theory 02-phys-theory/theory.tex
 DETECTOR      = -jobname=BUILD/detector 03-detector/detector.tex
 ML            = -jobname=BUILD/machine-learning 04-machine-learning/machine-learning.tex
 RECON         = -jobname=BUILD/recon 05-reconstruction-and-selection/reconstruction-and-selection.tex
-STRATEGY      = -jobname=BUILD/recon 06-analysis-strategy/strategy.tex
-MODELLING     = -jobname=BUILD/modelling 07-systematic-errors/systematic.tex
+STRATEGY      = -jobname=BUILD/strategy 06-analysis-strategy/strategy.tex
+MODELLING     = -jobname=BUILD/systematics 07-systematic-errors/systematics.tex
 FIT           = -jobname=BUILD/fit 08-fit-models/fit-models.tex
 RESULTS       = -jobname=BUILD/results 09-results/results.tex
 CONCLUSION    = -jobname=BUILD/conclusion 10-conclusion/conclusion.tex

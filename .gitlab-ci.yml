@@ -115,7 +115,7 @@ collect_all:
     - job: compile_ml
     - job: compile_reco
     - job: compile_strategy
-    - job: compile_modelling
+    - job: compile_systematics
     - job: compile_fit
     - job: compile_results
     - job: compile_conclusion

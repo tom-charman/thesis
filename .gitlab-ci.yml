@@ -56,13 +56,22 @@ compile_reco:
       - recon.pdf  # instruct GitLab to keep the main.pdf file
     expire_in: 5 minutes
 
-compile_modelling:
+compile_strategy:
+  stage: compile
+  image: texlive/texlive
+  script: make clean strategy.pdf
+  artifacts:
+    paths:
+      - strategy.pdf
+    expire_in: 5 minutes
+
+compile_systematics:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
-  script: make clean modelling.pdf  # build the pdf just as you would on your computer
+  script: make clean systematics.pdf  # build the pdf just as you would on your computer
   artifacts:
     paths: 
-      - modelling.pdf  # instruct GitLab to keep the main.pdf file
+      - systematics.pdf  # instruct GitLab to keep the main.pdf file
     expire_in: 5 minutes
 
 compile_fit:
@@ -105,6 +114,7 @@ collect_all:
     - job: compile_detector
     - job: compile_ml
     - job: compile_reco
+    - job: compile_strategy
     - job: compile_modelling
     - job: compile_fit
     - job: compile_results

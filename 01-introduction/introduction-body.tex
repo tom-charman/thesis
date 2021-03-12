@@ -39,28 +39,29 @@ Large Hadron Collider at CERN.
 A rough blueprint of this analysis is shown in figure~\ref{fig:roadmap}.
 \input{01-introduction/analysis-roadmap}
 The blueprint starts with the theory of the Standard Model of Particle Physics,
-described in chapter~\ref{sec:theory}. The theory's predictions inform the
-design of the ATLAS detector which is detailed in chapter~\ref{sec:detector}. It
-further informs the choice of particles to collide, which events to analyse, and
-allows us to generate predictions of what should happen in the collisions.
-Events recorded by the detector and simulated events according to theoretical
-predictions are both passed through reconstruction algorithms and events which
-are pertinent to the study of $VHbb$ are selected for analysis. The
-reconstruction and selection process is described in chapter~\ref{sec:recon}. A
-choice is made of simulated events that well model the data, this modelling
-process is described in chapter~\ref{sec:modelling}. Considering the modelling,
-the theory and the shortcomings of the detector a set of systematic errors are
-estimated, these are detailed in~\ref{sec:systematics}. Events in data must be
-categorised into those that are signal-like and those that are background-like
-in order to extract the most signal sensitivity from the analysis. This is
-achieved with a number of strategies including a multi-variate algorithm which
-is trained on the simulations. This categorisation process is described in
-chapter~\ref{sec:categorisation}. With the events categorised and the systematic
-errors on the counts in category estimated, these counts serve as inputs to a
-profile-likelihood fit. Several fit models exist to serve a number of purposes,
-the fit models are described in chapter~\ref{sec:fit-models}. The results of the
-analysis are shown in chapter~\ref{sec:results} and conclusions are drawn in
-chapter~\ref{sec:conclusion}.
+described in chapter~\ref{ch:theory}. The theory's predictions inform the
+design of the ATLAS detector which is detailed in chapter~\ref{ch:detector}.
+Furthermore, the theory aids the choice of particles to collide, which events to
+analyse, and allows us to generate predictions of what should happen in the
+collisions. Chapter~\ref{ch:ml} gives an overview of two machine learning
+algorithms that are used throughout the analysis. Events must be reconstructed
+before they can be analysed, a selection process is used on the reconstructed
+objects to filter events not relevant to the analysis. The reconstruction and
+selection process is described in chapter~\ref{sec:recon}. Events in data must
+be categorised into those that are signal-like and those that are
+background-like in order to extract the most signal sensitivity from the
+analysis. This is achieved with a number of strategies including a multi-variate
+algorithm which is trained on the simulations. This categorisation process is
+described in chapter~\ref{ch:strategy}, along with the overall analysis
+strategy. A choice is made of simulated events that well model the data.
+Considering the modelling, the theory and the shortcomings of the detector a set
+of systematic errors are estimated, these are detailed in~\ref{ch:systematics}.
+With the events categorised and the systematic errors on the counts in category
+estimated, these counts serve as inputs to a profile-likelihood fit. Several fit
+models exist to serve a number of purposes, the fit models are described in
+chapter~\ref{ch:fit-models}. The results of the analysis are shown in
+chapter~\ref{ch:results} and conclusions are drawn in
+chapter~\ref{ch:conclusion}.
 
 
 My contributions to the VHbb analysis published in 2021 have been numerous and

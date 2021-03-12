@@ -24,7 +24,7 @@ DETECTOR      = -jobname=BUILD/detector 03-detector/detector.tex
 ML            = -jobname=BUILD/machine-learning 04-machine-learning/machine-learning.tex
 RECON         = -jobname=BUILD/recon 05-reconstruction-and-selection/reconstruction-and-selection.tex
 STRATEGY      = -jobname=BUILD/strategy 06-analysis-strategy/strategy.tex
-MODELLING     = -jobname=BUILD/systematics 07-systematic-errors/systematics.tex
+SYSTEMATICS     = -jobname=BUILD/systematics 07-systematic-errors/systematics.tex
 FIT           = -jobname=BUILD/fit 08-fit-models/fit-models.tex
 RESULTS       = -jobname=BUILD/results 09-results/results.tex
 CONCLUSION    = -jobname=BUILD/conclusion 10-conclusion/conclusion.tex
@@ -62,7 +62,7 @@ strategy.pdf: 06-analysis-strategy/strategy.tex directories
 	$(LATEXMK) $(OPTIONS) $(STRATEGY) && mv BUILD/strategy.pdf .
 
 systematics.pdf: 07-systematic-errors/systematics.tex directories
-	$(LATEXMK) $(OPTIONS) $(MODELLING) && mv BUILD/modelling.pdf .
+	$(LATEXMK) $(OPTIONS) $(SYSTEMATICS) && mv BUILD/systematics.pdf .
 
 fit.pdf: 08-fit-models/fit-models.tex directories
 	$(LATEXMK) $(OPTIONS) $(FIT) && mv BUILD/fit.pdf .

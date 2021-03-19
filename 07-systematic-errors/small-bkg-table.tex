@@ -1,0 +1,73 @@
+\begin{table}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l|llcc}
+\hline\hline 
+Nuisance Parameter & Description & Categories & Value & Effect  \\
+\hline
+\hline
+\texttt{SysMJNorm\_2J\_El}    & multi-jet normalization 	&  1-lepton channel, 2-jet, $e$ 	& +200\% - 100\% 	&Normalization\\
+\texttt{SysMJNorm\_3J\_El}    & multi-jet normalization 	&  1-lepton channel, 3-jet, $e$ 	& +100\% - 100\% 	&Normalization\\
+\texttt{SysMJNorm\_2J\_Mu}    & multi-jet normalization 	&  1-lepton channel, 2-jet, $\mu$       & +47\% -  29\% 	&Normalization\\
+\texttt{SysMJNorm\_3J\_Mu}    & multi-jet normalization 	&  1-lepton channel, 3-jet, $\mu$       & +100\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_2J\_El}    & multi-jet normalization 	&  1-lepton channel, 2-jet, $e$, $\pTV>150~\GeV$		& +200\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_2J\_El\_BMin75}   & multi-jet normalization 	&  1-lepton channel, 2-jet, $e$, $\pTV\in[75,150]~\GeV$		& +200\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_3J\_El}    & multi-jet normalization 	&  1-lepton channel, 3-jet, $e$, $\pTV>150~\GeV$		& +100\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_3J\_El\_BMin75}   & multi-jet normalization 	&  1-lepton channel, 3-jet, $e$, $\pTV\in[75,150]~\GeV$		& +100\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_2J\_Mu}    & multi-jet normalization 	&  1-lepton channel, 2-jet, $\mu$, $\pTV>150~\GeV$	        & +47\% -  29\% 	&Normalization\\
+%% \texttt{SysMJNorm\_2J\_Mu\_BMin75}   & multi-jet normalization 	&  1-lepton channel, 2-jet, $\mu$, $\pTV\in[75,150]~\GeV$	& +47\% -  29\% 	&Normalization\\
+%% \texttt{SysMJNorm\_3J\_Mu}    & multi-jet normalization 	&  1-lepton channel, 3-jet, $\mu$, $\pTV>150~\GeV$	        & +100\% - 100\% 	&Normalization\\
+%% \texttt{SysMJNorm\_3J\_Mu\_BMin75}  & multi-jet normalization 	&  1-lepton channel, 3-jet, $\mu$, $\pTV\in[75,150]~\GeV$	& +100\% - 100\% 	&Normalization\\
+\hline
+% \texttt{SysMJTrigger} & multi-jet shape & 1-lepton, electron channel & - & Shape \\
+\texttt{SysMJReduced} & multi-jet shape change with isolation criteria & 1-lepton, $e$ and $\mu$ channel & - & Shape \\
+\texttt{SysMJSFsCR} & multi-jet shape change with $\Wboson +$HF/Top scaling & 1-lepton, $e$ and $\mu$ channel & - & Shape \\
+%% \texttt{SysMJReduced} & multi-jet shape change with isolation criteria & 1-lepton, $e$ and $\mu$ channel, $\pTV>150~\GeV$ & - & Shape \\
+%% \texttt{SysMJReduced\_BMin75} & multi-jet shape change with isolation criteria & 1-lepton, $e$ and $\mu$ channel, $\pTV\in[75,150]~\GeV$ & - & Shape \\
+%% \texttt{SysMJSFsCR} & multi-jet shape change with $\Wboson +$HF/Top scaling & 1-lepton, $e$ and $\mu$ channel, $\pTV>150~\GeV$ & - & Shape \\
+%% \texttt{SysMJSFsCR\_BMin75} & multi-jet shape change with isolation criteria & 1-lepton, $e$ and $\mu$ channel, $\pTV\in[75,150]~\GeV$ & - & Shape \\
+\hline
+\hline
+\multicolumn{5}{c}{Single top}\\
+\hline
+\texttt{stopsNorm}    & single-top ($s$-channel) normalization 	&  all regions	& 4.6\%	&Normalization\\
+\texttt{stoptNorm}    & single-top ($t$-channel) normalization 	&  all regions	& 4.4\%	&Normalization\\
+\texttt{stopWtNorm}   & single-top ($Wt$-channel) normalization &  all regions	& 6.2\%	&Normalization\\
+\texttt{stoptAcc}     & single-top ($t$-channel) acceptance 	&  all regions & 17\% (2jets), 20\% (3jets)	&Normalization\\
+\texttt{StopWtbbAcc} 	& single-top ($Wt$ channel $Wt\rightarrow b\bar{b}$) acceptance &  all regions	& 54.9\% (2jets), 50.7\% (3jets)	&Normalization\\
+\texttt{StopWtothAcc} 	& single-top ($Wt$ channel $Wt\rightarrow oth.$) acceptance &  all regions	& 24.1\% (2jets), 21.2\% (3jets)	&Normalization\\
+\hline
+\texttt{StoptPTV} & single-top ($t$-channel) \ptx{V}\ shape & all regions & - & Migration+Shape\\
+\texttt{StoptMBB} & single-top ($t$-channel) \mbb\ shape & all regions & - & Migration+Shape\\
+\texttt{StopWtPTV} & single-top ($Wt$-channel) \ptx{V}\ shape & all regions & - & Migration+Shape\\
+\texttt{StopWtMBB} & single-top ($Wt$-channel) \mbb\ shape & all regions & - & Migration+Shape\\
+\hline
+\hline
+\multicolumn{5}{c}{Diboson}\\
+\hline
+\texttt{SysZZNorm}    & $ZZ$ normalization 	&  all regions  & 20\%	&Normalization\\
+\texttt{SysWZNorm}    & $WZ$ normalization 	&  all regions	& 26\%	&Normalization\\
+\texttt{SysWWNorm}    & $WW$ normalization 	&  all regions	& 25\%	&Normalization\\
+\hline
+\texttt{SysVZUEPSAcc} & UEPS acceptance: overall variation &  all regions & $WZ\ell\nu\bbbar$: 3.9\%, $ZZ\ell\ell\bbbar$: 5.8\%, $ZZ\nu\nu\bbbar$: 5.6\% & Normalization\\
+\texttt{SysVZUEPS\_J3} & UEPS acceptance: $2$- to $3$(+)-jet ratio & 3(+)jet regions & $WZ\ell\nu\bbbar$: 10.8\%, $ZZ\ell\ell\bbbar$: 3.1\%, $ZZ\nu\nu\bbbar$: 7.3\% & Normalization\\
+\texttt{SysWZUEPSResid\_L0} & $WZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 11.0\% & Normalization\\
+\texttt{SysZZUEPSResid\_L0} & $ZZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 6.0\% & Normalization\\
+\texttt{SysVZQCDscale\_J2} & $2$-jet QCD scale acceptance variation & 2-jet regions & $WZ\ell\nu\bbbar$: 12.7\%, $ZZ\ell\ell\bbbar$: 11.9\%, $ZZ\nu\nu\bbbar$: 10.3\% & Normalization\\
+\texttt{SysVZQCDscale\_J3}
+            & $2$- to $3$(+) jet QCD scale acceptance ratio & 2-jet regions   & $WZ\ell\nu\bbbar$: -17.7\%, $ZZ\ell\ell\bbbar$: -16.4\%, $ZZ\nu\nu\bbbar$: -15.2\% & Normalization\\
+                                                         &  & 3(+)-jet regions & $WZ\ell\nu\bbbar$: 21.2\%, $ZZ\ell\ell\bbbar$: 10.1\%, $ZZ\nu\nu\bbbar$: 17.4\% & Normalization\\
+\texttt{SysVZQCDscale\_JVeto} & $4^{\text{th}}$-jet veto QCD scale acceptance variation & 3-jet, 0- and 1-lepton & $WZ\ell\nu\bbbar$: 19.0\%, $ZZ\nu\nu\bbbar$: 18.2\% & Normalization\\
+\texttt{SysggZZQCDscale} & $gg\to ZZ$ QCD scale acceptance variation & all regions & 59\% & Normalization\\
+\hline
+\texttt{SysVVPTVME} & di-boson \ptx{V}\ shape & all regions & - & Migration+Shape \\ 
+\texttt{SysVVMbbME} & di-boson \mbb\ shape & all regions & - & Migration+Shape \\ 
+\texttt{SysVVPTVUEPS} & di-boson \ptx{V}\ shape variation & all regions & - & Migration+Shape \\
+\texttt{SysVVMbbUEPS} & di-boson \mbb\ shape variation & all regions & - & Migration+Shape\\
+\hline\hline
+\end{tabular}
+}
+\caption[Summary of specific nuisance parameters.]{Summary of the systematic uncertainties for single-top, di-boson : the first column quotes the name of the nuisance parameter implemented in the
+fit referring to a specific systematic uncertainty, the second column the source of the uncertainty, the third the categories and sample on which it is applied, the fourth column the value of  the Gaussian prior on
+the NP (if applicable) and the fifth column the effect of the systematic uncertainty. The listed systematic uncertainties are separated in normalization effects, acceptance variations  and shape systematic uncertainties.}
+{\label{tab:other_systematics}}
+\end{table}

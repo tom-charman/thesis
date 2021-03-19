@@ -2,6 +2,71 @@
 \label{ch:fit-models}
 \section{Profile Likelihood Fits}%
 \label{sec:plf}
+\subsection{Likelihood function definition}
+\label{sec:lhoodDef}
+The statistical analysis of the data uses a binned likelihood function which
+maximum correspond to the best description of data. It is defined as the product
+over all bins of the Poisson probability to observe $N^{\text{obs}}_b$ data
+events given a prediction of
+$N^{\text{exp}}_b(\mu,\mathbf{k},{\boldsymbol\theta})$ events in a certain bin
+$i$:
+
+\begin{equation}
+  L(\mu,{\boldsymbol{k},\boldsymbol{\theta}}) = \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\boldsymbol{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!} \cdot e^{-N_{i}^{\text{exp}}(\mu,{\boldsymbol{k,\theta}})}
+  
+\end{equation}
+
+In this likelihood, the number of predicted events is made dependent on three
+sets of parameters: the signal strength $\mu$, the scale factors
+$\mathbf{k}=\left\{k_1, ...,k_j\right\}$, and the nuisance parameters
+$\boldsymbol{\theta} = \left\{\theta_1,...,\theta_l\right\}$, as follows
+
+\begin{equation}
+  N_{i}^{\text{exp}}(\mu,\mathbf{k},\boldsymbol{\theta}) = \mu \cdot N_{i,\text{sig}}^{\text{exp}}(\boldsymbol{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{exp}}(\boldsymbol{\theta})
+  
+\end{equation}
+The parameter of interest $\mu=\sigma/\sigma_{\text{SM}}$ is common to all
+channels and category and is the ratio between the measured and the expected
+signal cross-sections.
+
+As each scale factor does for it associated background component, the signal
+strength scales the amount of signal linearly without any prior constraint, or
+penalty in the likelihood function.
+
+
+The nuisance parameters (NP) $\theta_i$ encode the dependence of the prediction
+on systematic uncertainties into continuous parameters in the likelihood.
+
+The prior knowledge on these parameters is reflected by a Gaussian penalty term
+$\text{Gauss}(0\,|\,\theta_i,1)$ added to the likelihood for each NP, rending
+displacement of these parameters depreciated.
+
+The parameters $\theta_i$ are therefore expressed in standard deviation in the
+following.
+
+It results in a log-normal (normal) dependence of the predicted rates (shapes)
+on the displayed parameter values.
+
+
+The nominal fit result in terms of $\mu$ and $\sigma_{\mu}$ is obtained by
+maximizing the likelihood function with respect to all parameters.  This is
+referred to as the maximized log-likelihood value, MLL. The profile likelihood
+ratio test statistic, $q_\mu$, is then constructed as follows:
+
+\begin{equation}
+  q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}}, \hat{\hat{\boldsymbol\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu}, \hat{\mathbf{k}}, \hat{\boldsymbol\theta}) \right]
+  
+\end{equation}
+where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
+likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
+$\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
+likelihood for a given $\mu$. This test statistic is used to measure the
+compatibility of the background-only model with the observed data, extracting
+the local $p_0$ value, and, if no hint of a signal is found in this procedure,
+for the derivation of exclusion intervals using the $CL_s$
+method~\cite{Cowan:2010js,Read:2002hq}.
+
+\input{08-fit-models/fit-regions}
 %\section{Fit Models}%
 %\label{sec:fit-models}
 \section{VH(b,b) multi-variate discriminant fit}%

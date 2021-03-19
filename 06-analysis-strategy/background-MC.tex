@@ -8,7 +8,7 @@
     \multicolumn{2}{l}{\bfseries{Vector boson + jets}} & & & & & \\
     \multicolumn{2}{l}{$Z \to \nu\nu$} & \textsc{Sherpa} $2.2.1$ & $56280\times0.200$ & 150M & 160M & 140M \\
     \multicolumn{2}{l}{$W \to \ell\nu$} & \textsc{Sherpa} $2.2.1$ & $183600\times0.325$ & 340M & 400M & 540M \\
-    \multicolumn{2}{l}{$Z/\gamma^{*} \to \ell\ell$} & \textsc{Sherpa} $2.2.1$ & $61940\times0.101$ ($m_{\ell\ell}>40$~GeV) & 120M & 160M & 210M \\
+    \multicolumn{2}{l}{$Z/\gamma^{*} \to \ell\ell$} & \textsc{Sherpa} $2.2.1$ & $61940\times0.101$ & 120M & 160M & 210M \\
     \multicolumn{2}{l}{\bfseries{Top-quark}} & & & & & \\
     $t\bar{t}$ & non-full-had (plus MET/pTW extensions) & \textsc{Powheg} + \textsc{Pythia 8} & $831.76\times0.543$ & 120M(55M) & 150M(55M) & 200M(61M) \\
                                             & di-leptonic & \textsc{Powheg} + \textsc{Pythia 8} & $831.76\times0.105$ & $-$ & 45M & 100M \\
@@ -27,9 +27,13 @@
     \bottomrule
   \end{tabular}
 }
-\caption{Monte Carlo samples used for the background processes and the cross section times branching ratio (BR) used to normalise the different 
-processes at $\sqrt{s}=13$ TeV. The last column shows the number of simulated events for the {mc16a+d+e} production.
-Branching ratios correspond to the decays shown.  In this table $\ell$ is inclusive of $e$, $\mu$, $\tau$ leptons.
+\caption{Monte Carlo samples used for the background processes and the cross
+  section times branching ratio (BR) used to normalise the different processes
+  at $\sqrt{s}=13$ TeV. The last column shows the number of simulated events for
+  the {mc16a+d+e} production. Branching ratios correspond to the decays shown.
+  In this table $\ell$ is inclusive of $e$, $\mu$, $\tau$ leptons. For
+  $Z/\gamma^{*} \to \ell\ell$ events the requirement of $m_{\ell\ell}>40$~GeV
+  was imposed.
 %For the samples $WZ$ and $ZZ$ the number in brackets shows the number of additional events generated with the decay $Z \rightarrow b\bar{b}$.
 }
 \label{tbl:bkgMC}

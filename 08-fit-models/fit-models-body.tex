@@ -12,8 +12,9 @@ $N^{\text{exp}}_b(\mu,\mathbf{k},{\bm\theta})$ events in a certain bin
 $i$:
 
 \begin{equation}
-  L(\mu,{\bm{k},\bm{\theta}}) = \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!} \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
-  
+  L(\mu,{\bm{k},\bm{\theta}}) =
+  \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!}
+  \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
 \end{equation}
 
 In this likelihood, the number of predicted events is made dependent on three
@@ -23,7 +24,6 @@ $\bm{\theta} = \left\{\theta_1,...,\theta_l\right\}$, as follows
 
 \begin{equation}
   N_{i}^{\text{exp}}(\mu,\mathbf{k},\bm{\theta}) = \mu \cdot N_{i,\text{sig}}^{\text{exp}}(\bm{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{exp}}(\bm{\theta})
-  
 \end{equation}
 The parameter of interest $\mu=\sigma/\sigma_{\text{SM}}$ is common to all
 channels and category and is the ratio between the measured and the expected
@@ -55,7 +55,6 @@ ratio test statistic, $q_\mu$, is then constructed as follows:
 
 \begin{equation}
   q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}}, \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu}, \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
-  
 \end{equation}
 where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
 likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and

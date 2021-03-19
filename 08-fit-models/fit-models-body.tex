@@ -8,21 +8,21 @@ The statistical analysis of the data uses a binned likelihood function which
 maximum correspond to the best description of data. It is defined as the product
 over all bins of the Poisson probability to observe $N^{\text{obs}}_b$ data
 events given a prediction of
-$N^{\text{exp}}_b(\mu,\mathbf{k},{\boldsymbol\theta})$ events in a certain bin
+$N^{\text{exp}}_b(\mu,\mathbf{k},{\bm\theta})$ events in a certain bin
 $i$:
 
 \begin{equation}
-  L(\mu,{\boldsymbol{k},\boldsymbol{\theta}}) = \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\boldsymbol{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!} \cdot e^{-N_{i}^{\text{exp}}(\mu,{\boldsymbol{k,\theta}})}
+  L(\mu,{\bm{k},\bm{\theta}}) = \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!} \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
   
 \end{equation}
 
 In this likelihood, the number of predicted events is made dependent on three
 sets of parameters: the signal strength $\mu$, the scale factors
 $\mathbf{k}=\left\{k_1, ...,k_j\right\}$, and the nuisance parameters
-$\boldsymbol{\theta} = \left\{\theta_1,...,\theta_l\right\}$, as follows
+$\bm{\theta} = \left\{\theta_1,...,\theta_l\right\}$, as follows
 
 \begin{equation}
-  N_{i}^{\text{exp}}(\mu,\mathbf{k},\boldsymbol{\theta}) = \mu \cdot N_{i,\text{sig}}^{\text{exp}}(\boldsymbol{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{exp}}(\boldsymbol{\theta})
+  N_{i}^{\text{exp}}(\mu,\mathbf{k},\bm{\theta}) = \mu \cdot N_{i,\text{sig}}^{\text{exp}}(\bm{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{exp}}(\bm{\theta})
   
 \end{equation}
 The parameter of interest $\mu=\sigma/\sigma_{\text{SM}}$ is common to all
@@ -54,7 +54,7 @@ referred to as the maximized log-likelihood value, MLL. The profile likelihood
 ratio test statistic, $q_\mu$, is then constructed as follows:
 
 \begin{equation}
-  q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}}, \hat{\hat{\boldsymbol\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu}, \hat{\mathbf{k}}, \hat{\boldsymbol\theta}) \right]
+  q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}}, \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu}, \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
   
 \end{equation}
 where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the

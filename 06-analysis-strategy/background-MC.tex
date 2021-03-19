@@ -1,0 +1,36 @@
+\begin{table}[tbph]
+\centering
+\resizebox{\textwidth}{!}{
+  \begin{tabular}{lllrrrr}
+    \toprule
+    \multicolumn{2}{l}{{\bfseries Process}} & {\bfseries Generator} & \bfseries{$\bm{\sigma \times BR}$ [pb]} & \bfseries{$\bm{N_{\text{events}}}$ (mc16a)} & \bfseries{$\bm{N_{\text{events}}}$ (mc16d)} & \bfseries{$\bm{N_{\text{events}}}$ (mc16e)}\\
+    \midrule
+    \multicolumn{2}{l}{\bfseries{Vector boson + jets}} & & & & & \\
+    \multicolumn{2}{l}{$Z \to \nu\nu$} & \textsc{Sherpa} $2.2.1$ & $56280\times0.200$ & 150M & 160M & 140M \\
+    \multicolumn{2}{l}{$W \to \ell\nu$} & \textsc{Sherpa} $2.2.1$ & $183600\times0.325$ & 340M & 400M & 540M \\
+    \multicolumn{2}{l}{$Z/\gamma^{*} \to \ell\ell$} & \textsc{Sherpa} $2.2.1$ & $61940\times0.101$ ($m_{\ell\ell}>40$~GeV) & 120M & 160M & 210M \\
+    \multicolumn{2}{l}{\bfseries{Top-quark}} & & & & & \\
+    $t\bar{t}$ & non-full-had (plus MET/pTW extensions) & \textsc{Powheg} + \textsc{Pythia 8} & $831.76\times0.543$ & 120M(55M) & 150M(55M) & 200M(61M) \\
+                                            & di-leptonic & \textsc{Powheg} + \textsc{Pythia 8} & $831.76\times0.105$ & $-$ & 45M & 100M \\
+    Single-top & $s$~-~channel (leptonic-top) & \textsc{Powheg} + \textsc{Pythia 8} & $10.32\times0.325$ & 4M & 5M & 7M \\
+                                            & $t$~-~channel (leptonic-top) & \textsc{Powheg} + \textsc{Pythia 8} & $216.96\times0.325$ & 10M & 12M & 17M \\
+                                            & $Wt$~-~channel (plus di-lepton extension)& \textsc{Powheg} + \textsc{Pythia 8} & $71.7\times1$ & 20M & 24M(24M) & 33M(33M) \\
+    \multicolumn{2}{l}{\bfseries{Diboson}} & & & & & \\
+    $qq\rightarrow WW$ & $\rightarrow qqlv$ & \textsc{Sherpa 2.2.1} & $112.6\times0.439$ & 14M & 50M & 24M \\
+    $qq\rightarrow WZ$ & $\rightarrow lvqq$ (with $Z\rightarrow b\bar{b}$ extension) & \textsc{Sherpa 2.2.1} & $50.3\times0.227$ & 7M(6M) & 36M(7M) & 12M(10M) \\
+                                            & $\rightarrow qqvv$ & \textsc{Sherpa 2.2.1} & $50.3\times0.135$ & 6M & 6M & 10M \\
+                                            & $\rightarrow qqll$ & \textsc{Sherpa 2.2.1} & $50.3\times0.0683$ & 5M & 27M & 9M \\
+    $qq\rightarrow ZZ$ & $\rightarrow qqll$ (with $Z\rightarrow b\bar{b}$ extension) & \textsc{Sherpa 2.2.1} & $15.57\times0.140$ & 5M(5M)  & 5M(6M) & 9M(4M) \\
+                                            & $\rightarrow qqvv$ (with $Z\rightarrow b\bar{b}$ extension) & \textsc{Sherpa 2.2.1} & $15.57\times0.280$ & 5M(5M)  & 5M(6M) & 9M(8M) \\ \hline
+    \multicolumn{2}{l}{$gg\rightarrow WW \rightarrow qqlv$} & \textsc{Sherpa 2.2.2} & $4.8\times0.439$ & 0.8M & 0.9M & 1.1M \\
+    \multicolumn{2}{l}{$gg\rightarrow ZZ \rightarrow qqll$ or $qqvv$} & \textsc{Sherpa 2.2.2} & $1.57\times0.420$ & 4M & 6M & 8M \\ \hline
+    \bottomrule
+  \end{tabular}
+}
+\caption{Monte Carlo samples used for the background processes and the cross section times branching ratio (BR) used to normalise the different 
+processes at $\sqrt{s}=13$ TeV. The last column shows the number of simulated events for the {mc16a+d+e} production.
+Branching ratios correspond to the decays shown.  In this table $\ell$ is inclusive of $e$, $\mu$, $\tau$ leptons.
+%For the samples $WZ$ and $ZZ$ the number in brackets shows the number of additional events generated with the decay $Z \rightarrow b\bar{b}$.
+}
+\label{tbl:bkgMC}
+\end{table}

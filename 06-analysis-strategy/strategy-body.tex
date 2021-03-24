@@ -5,14 +5,22 @@
 Choice of pTV and nJets per channel.
 Which backgrounds are present in which channels.
 Which samples are used to simulate which backgrounds.
+\subsection{Analysis Cross-checks}
+Mention VZ and cut-based cross checks so I can refer to them in the systematics
+chapter.
 \input{06-analysis-strategy/signal-MC}
 \input{06-analysis-strategy/background-MC}
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
 Plots of top e-mu control region
+Rationale behind usage
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
 Explaintation of algorithm, refer to ML chapter
+- Classifier signal (VH) vs background (all other backgrounds)
+- What regions is it trained on?
+- What is the performance like?
+- Transformation
 \input{06-analysis-strategy/MVA-inputs}
 \input{06-analysis-strategy/bdt-hps}
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
@@ -20,6 +28,7 @@ Explaintation of algorithm, refer to ML chapter
 \label{sec:control-region-defintions}
 \input{06-analysis-strategy/drbb-cuts}
 \subsection{Pre-fit plots}
+Summary of everything
 \input{06-analysis-strategy/0lep-2jet-prefit}
 \input{06-analysis-strategy/0lep-3jet-prefit}
 \input{06-analysis-strategy/1lep-2jet-prefit}

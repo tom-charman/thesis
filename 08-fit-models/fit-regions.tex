@@ -1,34 +1,38 @@
 \begin{table}[h!tbp]
   \setlength{\extrarowheight}{2pt} 
-  \centering
-    \resizebox{\textwidth}{!}{
-      \begin{tabular}{| l | l | C{1.7cm} | C{1.7cm} | C{1.9cm} | C{1.9cm} | C{1.3cm} | C{1.3cm} |}
+  \begin{center}
+\resizebox{\textwidth}{!}{
+    \begin{tabular}{| l | l | C{1.7cm} | C{1.7cm} | C{1.9cm} | C{1.9cm} | C{1.3cm} | C{1.3cm} |}
 
-        \toprule
-        \multirow{3}{*}{\bfseries Channel} & \multirow{3}{*}{\bfseries Region} & \multicolumn{6}{c|}{\bfseries Categories} \\
-        \cline{3-8}
-                                           && \multicolumnn{2}{c|}{$75$~GeV$ < p_{\text{T}}^V < 150$~GeV} & \multicolumn{2}{c|}{$150$~GeV$ < p_{\text{T}}^V < 250$~GeV} & \multicolumn{2}{c|}{$p_{\text{T}}^V > 250$~GeV} \\
-        \cline{3-8}
-                                           &                         & $2$-jets & $3$-jets & $2$-jets & $3$-jets & $2$-jets & $3$-jets \\
-        \midrule
-        $0$-lepton                 & CRLow        & $-$      & $-$      & yields    & yields    & yields    & yields      \\
-                                           & SR           & $-$      & $-$      & BDT       & BDT       & BDT       & BDT      \\
-                                           & CRHigh       & $-$      & $-$      & yields    & yields    & yields    & yields      \\
-        \midrule
-        $1$-lepton                 & CRLow        & $-$     & $-$     & yields    & yields    & yields    & yields      \\
-                                           & SR           & $-$     & $-$     & BDT       & BDT       & BDT       & BDT      \\
-                                           & CRHigh       & $-$     & $-$     & yields    & yields    & yields    & yields      \\
-        \midrule
-        $2$-lepton                 & CRLow        & yields   & yields   & yields    & yields    & yields    & yields      \\
-                                           & SR           & BDT      & BDT      & BDT       & BDT       & BDT       & BDT      \\
-                                           & CRHigh       & yields   & yields   & yields    & yields    & yields    & yields      \\
-
-                                           % \multicolumn{8}{|l|}{* previously considered, removed from main result} \\
-        \bottomrule
+\hline
+\hline
+\multirow{3}{*}{Channel}   & \multirow{3}{*}{SR/CR}  & \multicolumn{6}{c|}{Categories}   \\
+\cline{3-8}
+                           &                         & \multicolumn{2}{c|}{$75$~GeV$ < p_{\text{T}}^V < 150$~GeV} & \multicolumn{2}{c|}{$150$~GeV$ < p_{\text{T}}^V < 250$~GeV} & \multicolumn{2}{c|}{$p_{\text{T}}^V > 250$~GeV} \\
+\cline{3-8}
+                           &                         & $2$-jets & $3$-jets & $2$-jets & $3$-jets & $2$-jets & $3$-jets \\
+\hline
+\hline
+$0$-lepton                 & CRLow        & $-$      & $-$      & yields    & yields    & yields    & yields      \\
+                           & SR           & $-$      & $-$      & BDT       & BDT       & BDT       & BDT      \\
+                           & CRHigh       & $-$      & $-$      & yields    & yields    & yields    & yields      \\
+\hline
+$1$-lepton                 & CRLow        & $-$ *    & $-$ *    & yields    & yields    & yields    & yields      \\
+                           & SR           & $-$ *    & $-$ *    & BDT       & BDT       & BDT       & BDT      \\
+                           & CRHigh       & $-$ *    & $-$ *    & yields    & yields    & yields    & yields      \\
+\hline
+$2$-lepton                 & CRLow        & yields   & yields   & yields    & yields    & yields    & yields      \\
+                           & SR           & BDT      & BDT      & BDT       & BDT       & BDT       & BDT      \\
+                           & CRHigh       & yields   & yields   & yields    & yields    & yields    & yields      \\
+\hline
+\multicolumn{8}{|l|}{* previously considered, removed from main result} \\
+\hline
+\hline
 
     \end{tabular}
 }
+  \end{center}
 \caption{Event categories and discriminants fitted to data in the 0-, 1- and
   2-lepton channels.}
-\label{tab:fit-regions}
+\label{tabular:FitRegions}
 \end{table}

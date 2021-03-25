@@ -14,21 +14,35 @@ cross-checks which are used to validate the methods of the analysis will be
 explained.
 
 The author's contributions include studying the behaviour of the
-profile-likelihood fit with the inclusion of these new regions (and making
-comparisons between the 80~\invfb and 140~\invfb datasets). The 
+profile-likelihood fit with the inclusion of these regions, which are new in
+this round of the analysis and making comparisons between the 80~\invfb and
+140~\invfb datasets). Contributions also include the training of the
+multi-variate classification algorithm with the inclusion of new input variables
+with respect to the previous version of the algorithm.
 
 \section{Categorisation into Analysis Regions}
 \label{sec:ana-regions}
+
+Events which pass the selection detailed in table~\ref{tab:event-selection} are
+categorised into several regions for analysis. Firstly they are split into what
+are known as medium ($75 - 150 \GeV$), high ($150 - 250 \GeV$) and extreme ($ >
+250 \GeV$) $p_T^{V}$.
+
+
 Choice of pTV and nJets per channel.
 Which backgrounds are present in which channels.
 Which samples are used to simulate which backgrounds.
-\input{06-analysis-strategy/signal-MC}
-\input{06-analysis-strategy/background-MC}
+\input{06-analysis-strategy/drbb-cuts}
+
+
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
 Plots of top e-mu control region
 Rationale behind usage
 
+\section{Composition of Analysis Regions}
+\input{06-analysis-strategy/signal-MC}
+\input{06-analysis-strategy/background-MC}
 
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
@@ -40,9 +54,8 @@ Explaintation of algorithm, refer to ML chapter
 \input{06-analysis-strategy/MVA-inputs}
 \input{06-analysis-strategy/bdt-hps}
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
-\subsection{\texorpdfstring{$\Delta R(b,b)$}{DRbb} Control Regions}%
-\label{sec:control-region-defintions}
-\input{06-analysis-strategy/drbb-cuts}
+
+
 \subsection{Pre-fit plots}
 Summary of everything
 \input{06-analysis-strategy/0lep-2jet-prefit}

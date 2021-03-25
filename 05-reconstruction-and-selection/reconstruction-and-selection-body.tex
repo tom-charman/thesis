@@ -128,7 +128,7 @@ also present. These decays are reconstructed in the calorimeters like jets with
 the anti-$k_t$ algorithm with $\Delta R = 0.4$~\cite{tau-reco} but the $p_T$ of
 the tau is set to the total energy of the TopoClusters within $\Delta I goR < 0.2$,
 more on TopoClusters in section~\ref{sec:jets}. Tau candidates must have $p_T >
-20 GeV$, $\lvert  \eta \rvert < 2.5$ excluding $1.37 \lvert \eta \rvert < 1.52$,
+20 \GeV$, $\lvert  \eta \rvert < 2.5$ excluding $1.37 \lvert \eta \rvert < 1.52$,
 and either exactly 1 or 3 tracks. A BDT based method for tau identification is
 used to reject fakes. Medium quality taus are counted for each event~\cite{med-taus2}.
 
@@ -169,8 +169,8 @@ table~\ref{tab:triggers} are simply used without any $E_T^{miss}$ triggers.
 
 In the 1-lepton channel there is significant $E_T^{miss}$ expected due to the
 presence of the neutrino. Single lepton triggers are used for events with $75
-GeV < p_T^{V} < 150 GeV$ where the $E_T^{miss}$ triggers have yet to turn on
-fully, for events with $p_T^{V} > 150 GeV$ in order to mitigate inefficiencies
+\GeV < p_T^{V} < 150 \GeV$ where the $E_T^{miss}$ triggers have yet to turn on
+fully, for events with $p_T^{V} > 150 \GeV$ in order to mitigate inefficiencies
 in the single muon triggers similar $E_T^{miss}$ triggers to the 0-lepton
 triggers are used in conjunction with the single lepton triggers.
 
@@ -204,7 +204,7 @@ which is used to achieve this. The primary vertex location, jet $p_T$ and the
 $p_T$ of tracks associated to a given jet, serve as inputs to the JVT which
 outputs a 2-D likelihood that the jet arises from pileup. The likelihood is
 resilient to bias arising from the jet flavour. The tool is applied only to jets
-in region $\lvert  \eta \rvert < 2.5$ and $p_T > 120$ GeV. A cut of JVT = 0.59,
+in region $\lvert  \eta \rvert < 2.5$ and $p_T > 120$ \GeV. A cut of JVT = 0.59,
 is applied to all jets in the collection, this cut has an average efficiency of
 92~\%. The definitions of signal and forward jets can be found in table~\ref{tab:jet-cats}
 \input{05-reconstruction-and-selection/jet-categories}
@@ -394,7 +394,7 @@ $\bullet$ \textbf{tau-electron:} If $\Delta R(\tau,e)<0.2$, the $\tau$ lepton is
 removed.\\
 %
 $\bullet$ \textbf{tau-muon:} If $\Delta R(\tau,\mu)<0.2$, the $\tau$ lepton is
-removed, unless the $\tau$ lepton has $p_T>50$ GeV and the muon is not a combined
+removed, unless the $\tau$ lepton has $p_T>50$ \GeV and the muon is not a combined
 muon, then the $\tau$ lepton is not removed.\\
 %
 $\bullet$ \textbf{electron-muon:} If a combined muon shares an ID track with an
@@ -411,7 +411,7 @@ also holds. The jet has less than three associated tracks with $p_T > 500$ MeV
 or the $p_T$ ratio of the muon and jet is larger than 0.5 and the ratio of the
 muon $p_T$ to the sum of $p_T$ of tracks with $p_T > 500$ MeV associated to the
 jet is larger than 0.7. For any remaining jets, if $\Delta
-R(\mathrm{jet},\mu)<\min(0.4, 0.04 + 10\ \mathrm{GeV} / p_T^{\mu})$, the muon is
+R(\mathrm{jet},\mu)<\min(0.4, 0.04 + 10\ \mathrm{\GeV} / p_T^{\mu})$, the muon is
 removed from the jet.\\
 %
 $\bullet$ \textbf{tau-jet:} If $\Delta R(\tau,\mathrm{jet})<0.2$, the jet is
@@ -428,7 +428,7 @@ have at least two signal jets. These signal jets must be b-tagged, the b-tagging
 algorithm used is the MV2c10 algorithm with the 70\% efficiency working point
 used, events with between 0 or 1 b-tags are considered for study and are not
 used in the final analysis, events with $\ge3$ b-tags are rejected entirely. The
-leading b-tagged jet my have $p_T > 45$ GeV. A key variable in the analysis, the
+leading b-tagged jet my have $p_T > 45$ \GeV. A key variable in the analysis, the
 di-jet mass, $m_{jj}$ is reconstructed from the two leading jets, in the case
 where both jets are b-tagged $m_{bb} \equiv m_{jj}$ and represent the mass of
 the Higgs candidate.
@@ -445,19 +445,19 @@ calculation of any $E_T^{miss}$ related variables.
 
 The vector boson candidate in the 0-lepton channel is a Z boson decaying to two
 neutrinos. In order to select events for this candidate a large amount of
-$E_T^{miss}$ is required (> 150 GeV) and there must be exactly 0 VH-loose
+$E_T^{miss}$ is required (> 150 \GeV) and there must be exactly 0 VH-loose
 leptons in the event. Whilst events with lower $E_T^{miss}$ may come from the
 physical process we desire to measure the $E_T^{miss}$ trigger thresholds
 require setting the cut at it's value, the efficiency is ~90\% for events
-with $E_T^{miss} = 150$ GeV and efficiency plateaus at $E_T^{miss} \approx 180$
-GeV.
+with $E_T^{miss} = 150$ \GeV and efficiency plateaus at $E_T^{miss} \approx 180$
+\GeV.
 
 There exists a non-trivial dependence of the trigger efficiency on activity of
 jets in detector. This arises due to the fact that the calculation of
 $E_T^{miss}$ is simply the total transverse energy of the event minus the
 transverse energy of all objects in the event. These effects are hard to model
 in certain phase spaces and so a requirement is put on $S_T$ such that it must
-be greater than 120 GeV for events with two total jets, and greater than 150 GeV
+be greater than 120 \GeV for events with two total jets, and greater than 150 \GeV
 for events with three total jets, where $S_T$ is defined as,
 \begin{equation}
   S_T = \sum_i p_T^i, \text{for } i \text{ jets in the event.}
@@ -489,7 +489,7 @@ The vector boson candidate in the 1-lepton channel is a W boson decaying to one
 charged lepton and one neutrino. In order to select for events of this signature
 exactly one WH-signal lepton is required. At low $p_T$ there is increased
 contribution from multi-jet processes, therefore the extra requirements of
-$p_T^{W} > 150$ GeV and $E_T^{miss} > 30$ GeV. The latter cut is only applied in
+$p_T^{W} > 150$ \GeV and $E_T^{miss} > 30$ \GeV. The latter cut is only applied in
 the electron channel.  
 
 \subsection{2-lepton channel selection}
@@ -502,7 +502,7 @@ For events with two muons, it is required that the muons are of opposite charge.
 Electron reconstruction suffers from a higher rate of charge misidentification
 and so this requirement is not applied to events with two electrons. The
 di-lepton invariant mass is confined to be around the Z boson mass peak, events
-require $81 < m_{ll} < 101$ GeV. These cuts reduce multi-jet backgrounds to
+require $81 < m_{ll} < 101$ \GeV. These cuts reduce multi-jet backgrounds to
 negligible levels. 
 
 The presence of two visible leptons in this channel allows for the enhancement

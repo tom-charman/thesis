@@ -1,19 +1,35 @@
 \chapter{Analysis Strategy}%
 \label{ch:strategy}
+In the previous chapter the process of reconstruction and selection was
+described. With the objects required for this analysis reconstructed and an
+event selection in place an analysis strategy is formed in order to maximise the
+signal strength of the VH(bb) process and yield a robust result that is well
+understood in terms of modelling and systematic errors. In this chapter that
+strategy will be detailed, first the categorisation into analysis regions will
+be defined, next the multi-variate algorithm that is used to generate some of
+the distributions entering into the profile-likelihood fit will be explained.
+Plots of the data versus Monte-Carlo prediction will then be shown in order to
+build a picture of the pre-fit status of the agreement. Finally a series of
+cross-checks which are used to validate the methods of the analysis will be
+explained.
+
+The author's contributions include studying the behaviour of the
+profile-likelihood fit with the inclusion of these new regions (and making
+comparisons between the 80 fb-1 and 140 fb-1 datasets). The 
+
 \section{Categorisation into Analysis Regions}
 \label{sec:ana-regions}
 Choice of pTV and nJets per channel.
 Which backgrounds are present in which channels.
 Which samples are used to simulate which backgrounds.
-\subsection{Analysis Cross-checks}
-Mention VZ and cut-based cross checks so I can refer to them in the systematics
-chapter.
 \input{06-analysis-strategy/signal-MC}
 \input{06-analysis-strategy/background-MC}
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
 Plots of top e-mu control region
 Rationale behind usage
+
+
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
 Explaintation of algorithm, refer to ML chapter
@@ -35,6 +51,9 @@ Summary of everything
 \input{06-analysis-strategy/1lep-3jet-prefit}
 \input{06-analysis-strategy/2lep-2jet-prefit}
 \input{06-analysis-strategy/2lep-3pjet-prefit}
+\section{Analysis Cross-checks}
+Mention VZ and cut-based cross checks so I can refer to them in the systematics
+chapter.
 
 
 

@@ -26,31 +26,54 @@ with respect to the previous version of the algorithm.
 Events which pass the selection detailed in table~\ref{tab:event-selection} are
 categorised into several regions for analysis. Firstly they are split into what
 are known as medium ($75 - 150 \GeV$), high ($150 - 250 \GeV$) and extreme ($ >
-250 \GeV$) $p_T^{V}$.
+250 \GeV$) $p_T^{V}$. Events are further categorised by jet multiplicity, all
+jets are required by the selection to have at least two jets, categories are
+defined for events with exactly two, or exactly three jets. In the 2-lepton
+channel there is a requirement of three or more jets but when referring to all
+three channels at once categorisation is referred to as simply 3-jet or 2-jet.
 
-
-Choice of pTV and nJets per channel.
-Which backgrounds are present in which channels.
-Which samples are used to simulate which backgrounds.
+Furthermore events are categorised into a so-called signal region which is
+straddled either side by two control regions. This categorisation is achieved
+via continuous cuts defined in the $\Delta R(b, \bar{b})$~---~$p_T^{V}$ plane,
+they are chosen to maximise the signal purity in the signal region and are shown
+for the 1-lepton channel in figure~\ref{fig:drbb-crs}.
 \input{06-analysis-strategy/drbb-cuts}
+The control regions either side of the signal region are known as the
+high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ regions, shortened to
+CRHigh and CRLow respectively.
 
+A 3D representation of the regions defined when combining these three
+categorisations can be seen in figure~\ref{fig:analysis-categories}.
+\input{06-analysis-strategy/analysis-cube}
 
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
+
 Plots of top e-mu control region
+
 Rationale behind usage
 
 \section{Composition of Analysis Regions}
+
+Which backgrounds are present in which channels.
+
+Which samples are used to simulate which backgrounds.
+
 \input{06-analysis-strategy/signal-MC}
 \input{06-analysis-strategy/background-MC}
 
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
 Explaintation of algorithm, refer to ML chapter
+
 - Classifier signal (VH) vs background (all other backgrounds)
+
 - What regions is it trained on?
+
 - What is the performance like?
+
 - Transformation
+
 \input{06-analysis-strategy/MVA-inputs}
 \input{06-analysis-strategy/bdt-hps}
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
@@ -67,6 +90,7 @@ Summary of everything
 \section{Analysis Cross-checks}
 Mention VZ and cut-based cross checks so I can refer to them in the systematics
 chapter.
+
 
 
 

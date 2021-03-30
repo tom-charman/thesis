@@ -45,22 +45,65 @@ CRHigh and CRLow respectively.
 A 3D representation of the regions defined when combining these three
 categorisations can be seen in figure~\ref{fig:analysis-categories}.
 \input{06-analysis-strategy/analysis-cube}
+Note that not all regions of the cube are populated with events in every channel, the medium
+$p_T^V$ region is only filled for the 2-lepton channel.
 
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
 
-Plots of top e-mu control region
+One more region exists only in the 2-lepton channel, it is obtained by inverting the
+requirement of two same flavour leptons, requiring two opposite flavour leptons
+instead, and keeping all other selection criteria the same. This region contains
+almost all $t\bar{t}$ and single top processes (whose Feynman diagrams belong to
+the same sum) matching very closely the number of expected events of each of
+these backgrounds in the 2-lepton channel. This region is therefore called the
+top $e \mu$ control region. The data from this control region can be used as a
+prediction for the number of top process events in the 2-lepton channel once
+multiplied by a scale factor which accounts for differences in normalisation.
+Since data are used as the prediction for these events modelling of shape or
+migration between control regions becomes unnecessary.
 
-Rationale behind usage
+Plots of top e-mu control region
 
 \section{Composition of Analysis Regions}
 
-Which backgrounds are present in which channels.
-
-Which samples are used to simulate which backgrounds.
-
+This section will detail the composition of each analysis region in terms of
+background and signal processes. For all regions the signal process is
+$VH~\rightarrow~b\bar{b}$, the prediction for which comes from events generated
+using \textsc{Powheg MiNLO}~+~\textsc{Pythia~8} for quark initiated processes
+and \textsc{Powheg}~+~\textsc{Pythia~8} for gluon initiated processes as can be
+seen in table~\ref{tab:sigMC}.
+ 
 \input{06-analysis-strategy/signal-MC}
+
+The 0-lepton channel contains the  Z+ jets, W + jets, top quark and diboson
+backgrounds. The Z + jets background dominates the mixture in the 2-jet category
+across signal and control regions. In the 3-jet category the top-quark processes
+dominate apart from in the low $\Delta R(b, \bar{b})$ region. There is very
+little signal contamination in the control regions. As can be seen in
+table~\ref{tab:bkgMC} V + jets events are generated using \textsc{Sherpa~2.2.1},
+top quark events are generated using \textsc{Powheg}~+~\textsc{Pythia~8} and
+diboson events are generated also using \textsc{Sherpa~2.2.1}, this is true for
+these backgrounds across all channels where a Monte-Carlo prediction is used.
+
 \input{06-analysis-strategy/background-MC}
+
+The 1-lepton channel contains the W + jets, Z+ jets, top quark, diboson and multijet
+backgrounds where multijet is the name given to backgrounds arising from QCD
+processes. The channel is dominated by a mixture of W + jets and top quark
+processes, the high $\Delta R(b, \bar{b})$ control region has a higher purity of
+top quark processes whereas the low $\Delta R(b, \bar{b})$ control region has a
+high purity of W + jets background. Contribution from multijet and Z + jets is
+small across all regions, and similarly to in the 0-lepton channel the diboson
+background is almost all contained in the signal region.
+
+The 2-lepton channel contains the Z + jets, top quark and diboson backgrounds.
+The Z + jets background dominates across all regions particularly in both
+$\Delta R(b, \bar{b})$ control regions. Predictions for the top quark processes
+are taken from the top $e \mu$ control region described in
+section~\ref{sec:topemucr}. Given that these predictions come from data, the
+importance of a good understanding of the remaining large background, Z + jets,
+is crucial to the performance of the analysis.
 
 \section{Multi-variate Event Classification}%
 \label{sec:mva}

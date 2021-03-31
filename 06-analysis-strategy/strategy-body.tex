@@ -115,24 +115,24 @@ $VH~\rightarrow~b\bar{b}$ from events coming from any other source.
 Table~\ref{tab:MVAinputs} shows which variables are used as inputs to algorithm
 in each analysis channel and table~\ref{tab:BDTSetup} shows the choice of
 hyper-parameters for the algorithm as described in \textsc{tmva}~\cite{TMVA} the
-toolkit for multi-variate analysis which is built into \textsc{ROOT}, and was
-used for training this algorithm.
+toolkit for multi-variate analysis which is built into
+\textsc{ROOT}~\cite{ROOT}, and was used for training this algorithm.
 \input{06-analysis-strategy/MVA-inputs}
 \input{06-analysis-strategy/bdt-hps}
 Distributions of the inputs to the BDT in 2-jet, high $p_T^V$ region
 are shown in
 figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
-for the 0--, 1-- and 2--lepton channels respectively.
+for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
+seen that a high level separation power in one dimension can be obtained from
+the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ distributions which are
+correlated. In the 0--lepton channel a moderate level of separation can be
+obtained from the $\Delta \eta(b, \bar{b})$, $E_T^{miss}$ and $p_T(b_2)$ also.
+In the 1--lepton channel $\min(\Delta\phi(\ell,jet))$, $m_{\text{top}}$ and
+$p_T(b_2)$ provide the next best one dimensional separation. In the 2--lepton
+channel it is the $\cos{\theta(\ell^-,Z)}$, $E_T^{miss}\text{--significance}$,
+$\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
-In all channels it can be seen that a high level separation power in one
-dimension can be obtained from the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$
-distributions which are correlated. In the 0--lepton channel a moderate level of
-separation can be obtained from the $\Delta \eta(b, \bar{b})$, $E_T^{miss}$ and
-$p_T(b_2)$ also. In the 1--lepton channel $\min(\Delta\phi(\ell,jet))$,
-$m_{\text{top}}$ and $p_T(b_2)$ provide the next best one dimensional
-separation. In the 2--lepton channel it is the $\cos{\theta(\ell^-,Z)}$,
-$E_T^{miss}\text{--significance}$, $\Delta \eta(V, H)$ and $p_T(b_2)$ that
-provide next best separation.
+
   
 - What regions is it trained on?
 

@@ -28,7 +28,7 @@ categorised into several regions for analysis. Firstly they are split into what
 are known as medium ($75 - 150 \GeV$), high ($150 - 250 \GeV$) and extreme ($ >
 250 \GeV$) $p_T^{V}$. Events are further categorised by jet multiplicity, all
 jets are required by the selection to have at least two jets, categories are
-defined for events with exactly two, or exactly three jets. In the $2-$lepton
+defined for events with exactly two, or exactly three jets. In the 2--lepton
 channel there is a requirement of three or more jets but when referring to all
 three channels at once categorisation is referred to as simply 3-jet or 2-jet.
 
@@ -36,7 +36,7 @@ Furthermore events are categorised into a so-called signal region which is
 straddled either side by two control regions. This categorisation is achieved
 via continuous cuts defined in the $\Delta R(b, \bar{b})$~---~$p_T^{V}$ plane,
 they are chosen to maximise the signal purity in the signal region and are shown
-for the $1-$lepton channel in figure~\ref{fig:drbb-crs}.
+for the 1--lepton channel in figure~\ref{fig:drbb-crs}.
 \input{06-analysis-strategy/drbb-cuts}
 The control regions either side of the signal region are known as the
 high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ regions, shortened to
@@ -46,19 +46,19 @@ A 3D representation of the regions defined when combining these three
 categorisations can be seen in figure~\ref{fig:analysis-categories}.
 \input{06-analysis-strategy/analysis-cube}
 Note that not all regions of the cube are populated with events in every channel, the medium
-$p_T^V$ region is only filled for the $2-$lepton channel.
+$p_T^V$ region is only filled for the 2--lepton channel.
 
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} control region}%
 \label{sec:topemucr}
 
-One more region exists only in the $2-$lepton channel, it is obtained by inverting the
+One more region exists only in the 2--lepton channel, it is obtained by inverting the
 requirement of two same flavour leptons, requiring two opposite flavour leptons
 instead, and keeping all other selection criteria the same. This region contains
 almost all $t\bar{t}$ and single top processes (whose Feynman diagrams belong to
 the same sum) matching very closely the number of expected events of each of
-these backgrounds in the $2-$lepton channel. This region is therefore called the
+these backgrounds in the 2--lepton channel. This region is therefore called the
 top $e \mu$ control region. The data from this control region can be used as a
-prediction for the number of top process events in the $2-$lepton channel once
+prediction for the number of top process events in the 2--lepton channel once
 multiplied by a scale factor which accounts for differences in normalisation.
 Since data are used as the prediction for these events modelling of shape or
 migration between control regions becomes unnecessary.
@@ -76,7 +76,7 @@ seen in table~\ref{tab:sigMC}.
  
 \input{06-analysis-strategy/signal-MC}
 
-The $0-$lepton channel contains the  Z+ jets, W + jets, top quark and diboson
+The 0--lepton channel contains the  Z+ jets, W + jets, top quark and diboson
 backgrounds. The Z + jets background dominates the mixture in the 2-jet category
 across signal and control regions. In the 3-jet category the top-quark processes
 dominate apart from in the low $\Delta R(b, \bar{b})$ region. There is very
@@ -88,16 +88,16 @@ these backgrounds across all channels where a Monte-Carlo prediction is used.
 
 \input{06-analysis-strategy/background-MC}
 
-The $1-$lepton channel contains the W + jets, Z+ jets, top quark, diboson and multijet
+The 1--lepton channel contains the W + jets, Z+ jets, top quark, diboson and multijet
 backgrounds where multijet is the name given to backgrounds arising from QCD
 processes. The channel is dominated by a mixture of W + jets and top quark
 processes, the high $\Delta R(b, \bar{b})$ control region has a higher purity of
 top quark processes whereas the low $\Delta R(b, \bar{b})$ control region has a
 high purity of W + jets background. Contribution from multijet and Z + jets is
-small across all regions, and similarly to in the $0-$lepton channel the diboson
+small across all regions, and similarly to in the 0--lepton channel the diboson
 background is almost all contained in the signal region.
 
-The $2-$lepton channel contains the Z + jets, top quark and diboson backgrounds.
+The 2--lepton channel contains the Z + jets, top quark and diboson backgrounds.
 The Z + jets background dominates across all regions particularly in both
 $\Delta R(b, \bar{b})$ control regions. Predictions for the top quark processes
 are taken from the top $e \mu$ control region described in
@@ -118,7 +118,7 @@ BDT scores, the BDT itself is trained on the combination of all $\Delta R(b,
 $p_T^V$. Apart from this all of the analysis selection criteria defined in
 section~\ref{sec:selection} are applied before training. Training is carried out
 separately for each lepton channel and jet multiplicity, a single split at
-$150~\GeV$ is used in the $2-$lepton channel resulting in eight separate regions
+$150~\GeV$ is used in the 2--lepton channel resulting in eight separate regions
 for training as in table~\ref{tab:training-regions}.
 \input{06-analysis-strategy/training-regions}
 Training regions do not match the signal regions in terms of selection in order
@@ -142,13 +142,13 @@ toolkit for multi-variate analysis which is built into
 Distributions of the inputs to the BDT in 2-jet, high $p_T^V$ region
 are shown in
 figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
-for the 0--, 1-- and $2-$lepton channels respectively. In all channels it can be
+for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
 seen that a high level separation power in one dimension can be obtained from
 the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ distributions which are
-correlated. In the $0-$lepton channel a moderate level of separation can be
+correlated. In the 0--lepton channel a moderate level of separation can be
 obtained from the $\Delta \eta(b, \bar{b})$, $E_T^{miss}$ and $p_T(b_2)$ also.
-In the $1-$lepton channel $\min(\Delta\phi(\ell,jet))$, $m_{\text{top}}$ and
-$p_T(b_2)$ provide the next best one dimensional separation. In the $2-$lepton
+In the 1--lepton channel $\min(\Delta\phi(\ell,jet))$, $m_{\text{top}}$ and
+$p_T(b_2)$ provide the next best one dimensional separation. In the 2--lepton
 channel it is the $\cos{\theta(\ell^-,Z)}$, $E_T^{miss}\text{--significance}$,
 $\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
@@ -163,11 +163,11 @@ $\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
 This section shows the pre-fit distributions of the Monte-Carlo prediction
 versus the data in every analysis region that enters into the profile-likelihood
 fit. Figures~\ref{fig:0lep-2jet-prefit},~\ref{fig:0lep-3jet-prefit} show the
-distributions in the $0-$lepton channel in the 2--jet and 3--jet regions
+distributions in the 0--lepton channel in the 2--jet and 3--jet regions
 respectively. Figures~\ref{fig:1lep-2jet-prefit},~\ref{fig:1lep-3jet-prefit} show the
-distributions in the $1-$lepton channel in the 2--jet and 3--jet regions
+distributions in the 1--lepton channel in the 2--jet and 3--jet regions
 respectively. Figures~\ref{fig:2lep-2jet-prefit},~\ref{fig:2lep-3pjet-prefit} show the
-distributions in the $2-$lepton channel in the 2--jet and 3+--jet regions
+distributions in the 2--lepton channel in the 2--jet and 3+--jet regions
 respectively.
 \input{06-analysis-strategy/0lep-2jet-prefit}
 \input{06-analysis-strategy/0lep-3jet-prefit}

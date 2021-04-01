@@ -38,9 +38,9 @@ via continuous cuts defined in the $\Delta R(b, \bar{b})$~---~$p_T^{V}$ plane,
 they are chosen to maximise the signal purity in the signal region and are shown
 for the 1--lepton channel in figure~\ref{fig:drbb-crs}.
 \input{06-analysis-strategy/drbb-cuts}
-The control regions either side of the signal region are known as the
-high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ regions, shortened to
-CRHigh and CRLow respectively.
+The regions either side of the signal region are known as the
+high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ control regions,
+shortened to CRHigh and CRLow respectively.
 
 A 3D representation of the regions defined when combining these three
 categorisations can be seen in figure~\ref{fig:analysis-categories}.
@@ -73,26 +73,23 @@ $VH~\rightarrow~b\bar{b}$, the prediction for which comes from events generated
 using \textsc{Powheg MiNLO}~+~\textsc{Pythia~8} for quark initiated processes
 and \textsc{Powheg}~+~\textsc{Pythia~8} for gluon initiated processes as can be
 seen in table~\ref{tab:sigMC}.
- 
 \input{06-analysis-strategy/signal-MC}
 
 The 0--lepton channel contains the  Z+ jets, W + jets, top quark and diboson
 backgrounds. The Z + jets background dominates the mixture in the 2-jet category
 across signal and control regions. In the 3-jet category the top-quark processes
-dominate apart from in the low $\Delta R(b, \bar{b})$ region. There is very
-little signal contamination in the control regions. As can be seen in
-table~\ref{tab:bkgMC} V + jets events are generated using \textsc{Sherpa~2.2.1},
-top quark events are generated using \textsc{Powheg}~+~\textsc{Pythia~8} and
-diboson events are generated also using \textsc{Sherpa~2.2.1}, this is true for
-these backgrounds across all channels where a Monte-Carlo prediction is used.
-
+dominate apart from in CRLow. There is very little signal contamination in the
+control regions. As can be seen in table~\ref{tab:bkgMC} V + jets events are
+generated using \textsc{Sherpa~2.2.1}, top quark events are generated using
+\textsc{Powheg}~+~\textsc{Pythia~8} and diboson events are generated also using
+\textsc{Sherpa~2.2.1}, this is true for these backgrounds across all channels
+where a Monte-Carlo prediction is used.
 \input{06-analysis-strategy/background-MC}
 
 The 1--lepton channel contains the W + jets, Z+ jets, top quark, diboson and multijet
 backgrounds where multijet is the name given to backgrounds arising from QCD
 processes. The channel is dominated by a mixture of W + jets and top quark
-processes, the high $\Delta R(b, \bar{b})$ control region has a higher purity of
-top quark processes whereas the low $\Delta R(b, \bar{b})$ control region has a
+processes, CRHigh has a higher purity of top quark processes whereas CRLow has a
 high purity of W + jets background. Contribution from multijet and Z + jets is
 small across all regions, and similarly to in the 0--lepton channel the diboson
 background is almost all contained in the signal region.
@@ -119,7 +116,12 @@ $p_T^V$. Apart from this all of the analysis selection criteria defined in
 section~\ref{sec:selection} are applied before training. Training is carried out
 separately for each lepton channel and jet multiplicity, a single split at
 $150~\GeV$ is used in the 2--lepton channel resulting in eight separate regions
-for training as in table~\ref{tab:training-regions}.
+for training as in table~\ref{tab:training-regions}. Trainings were tested with
+$p_T^V$ splitting that matched that of the analysis regions, however performance
+was not shown to differ between the full splitting and the partial splitting
+shown here, additionally in the $p_T^V > 250$~\GeV region a low number events
+results in poor statistical power and so that region alone is prone to
+over-training.
 \input{06-analysis-strategy/training-regions}
 Training regions do not match the signal regions in terms of selection in order
 to ensure that the training is as robust as possible to statistical
@@ -127,20 +129,49 @@ fluctuations. In tests it has been shown that there is significant evidence of
 over-training when training is performed on the signal region (see
 appendix~\ref{app:over-training}).
 
+The BDT is trained on all of the samples listed in tables~\ref{tab:sigMC}
+and~\ref{tab:bkgMC}, this includes the $t\bar{t}$ and single top Monte-Carlo
+predictions that are not used in the final fit in the 2--lepton channel as
+previously discussed. The event numbers are used to split the background and
+signal inputs into two different datasets, the splitting is done based on
+whether or not the event number is even or odd (ensuring no overlap between
+datasets). The model trained on the odd numbered events is evaluated on the even
+numbered evens and vice versa, to ensure that training and evaluation take place
+on statistically independent datasets but to also ensure that we have as many
+events to train on as possible. The final discriminant is constructed by summing
+the results from the even and odd trainings.
 
+The BDT inputs differ from the final analysis distributions further in that the
+b-tagging which is applied is not the hybrid tagging discussed in
+section~\ref{subsec:hybrid-tagging} but rather just the truth tagging described
+in section~\ref{subsec:truth-tagging}. This gives the highest number of events
+possible given all of the tagging strategies available and thus gives the most
+statistically robust training. The differences between hybrid-tagged and
+truth-tagged distributions is small when considering only the sum of all
+backgrounds and thus training on truth tagged events is not expected to impact
+the physics (studies available).
 
-Table~\ref{tab:MVAinputs} shows which variables are used as inputs to algorithm
-in each analysis channel. Inputs are carefully chosen in order to maximise the
-performance of the algorithm. 
+The nature of BDT algorithms mean that only fairly coarse cuts on the input
+variables, therefore it is necessary to deal with distributions that have very
+long tails so that cuts are not place in those tails. To combat this problem an
+artificial limit is out on the maximum value of each input distribution that
+corresponds to the remaining distribution containing 99~\% of signal events.
+This increases the reproducibility of the training as fewer cuts are wasted by
+being place in long tails, bearing in mind that the number of total cuts is
+constrained by the parameter maximum tree depth.
 
-and table~\ref{tab:BDTSetup} shows the choice of
-hyper-parameters for the algorithm as described in \textsc{tmva}~\cite{TMVA} the
-toolkit for multi-variate analysis which is built into
-\textsc{ROOT}~\cite{ROOT}, and was used for training this algorithm.
+Table~\ref{tab:MVAinputs} shows the choices of variables used as inputs to the
+algorithm in each analysis channel. Inputs are carefully chosen in order to
+maximise the performance of the algorithm.
 \input{06-analysis-strategy/MVA-inputs}
+Table~\ref{tab:BDTSetup} shows the choice of hyper-parameters for the algorithm
+as described in terms of \textsc{tmva}~\cite{TMVA} the toolkit for multi-variate
+analysis which is built into \textsc{ROOT}~\cite{ROOT}, and was used for
+training this algorithm.
 \input{06-analysis-strategy/bdt-hps}
-Distributions of the inputs to the BDT in 2-jet, high $p_T^V$ region
-are shown in
+
+Distributions of the inputs to the BDT in 2-jet, high $p_T^V$ region are shown
+in
 figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
 for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
 seen that a high level separation power in one dimension can be obtained from
@@ -153,9 +184,59 @@ channel it is the $\cos{\theta(\ell^-,Z)}$, $E_T^{miss}\text{--significance}$,
 $\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
 
-- What is the performance like?
+The BDT is designed to maximise the separation between the two classes of inputs
+it is provided with, in this case signal and background Monte-Carlo predictions.
+This does not take into account the statistical error on the quantities of each
+bin in the discriminant distribution. To mitigate this issue a transformation is
+applied according to the following.
 
-- Transformation
+Consider the function:
+\begin{equation}
+  Z = z_{s}\frac{n_{s}}{N_{s}} + z_{b}\frac{n_{b}}{N_{b}}.
+\end{equation}
+where
+\begin{itemize}
+\item $I[k,l]$ is an interval of the histograms, containing the bins between bin
+  $k$ and bin $l$;
+\item $N_{s}$ is the total number of signal events in the histogram;
+\item $N_{b}$ is the total number of background events in the histogram;
+\item $n_{s}(I[k,l])$ is the total number of signal events in the interval
+  $I[k,l]$;
+\item $n_{b}(I[k,l])$ is the total number of background events in the interval
+  $I[k,l]$;
+\item $z_{s}$ and $z_{b}$ are parameters used to tune the algorithm.
+\end{itemize}
+The values for $z_{b}$ and $z_{s}$ are chosen such that the total number of bins
+in the signal regions with $p_{\text{T}}^V<$\SI{250}{\GeV} is 15 ($z_{s}=10$,
+$z_{b}=5$) and 8 ($z_{s}=5$, $z_{b}=3$) in signal regions with
+$p_{\text{T}}^V>$\SI{250}{\GeV}. The values are chosen such that $z_{s} > Z_{b}$
+to achieve a finer binning in the high BDT output score region which has, as
+expected, the best signal to background ratio with respect to the rest of the
+distribution.
+
+% While for the $VZ$ BDT, due to the limited statistics of the diboson samples,
+% the chosen value of $z_{b}$ and $z_{s}$ are both 5 in signal region with
+% $p_{\text{T}}^V<$\SI{250}{\GeV} (total bin number is 10) and are 3 and 2 in
+% signal region with $p_{\text{T}}^V>$\SI{250}{\GeV} (total bin number is 5),
+% respectively.
+
+The pre-transformation BDT score distribution has 500 equidistant bins between
+-1 and 1. The re-binning is then conducted using the following procedure:
+\begin{enumerate}
+\item Starting from the last bin on the right of the original histogram,
+  increase the range of the interval $I(k, last)$ by adding, one after the other,
+  the bins from the right to the left;
+\item Calculate the value of Z at each step;
+\item Once $Z(I[k_{0}, last]) > 1$, rebin all the bins in the interval $I(k_{0},
+  last)$ into a single bin;
+\item Repeat steps 1-3, starting this time from the last bin on the right, not
+  included in the previous remap (the new last is $k_{0}-1$), until $k_{0}$ in
+  the first bin.
+\end{enumerate}
+If the statistical uncertainty of the newly formed bin is larger than 20~\% step
+2 is extended until the statistical uncertainty is below 20~\%.
+
+- What is the performance like?
 
 \section{Pre-fit plots}
 \label{sec:prefit}

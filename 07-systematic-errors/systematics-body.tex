@@ -21,22 +21,54 @@ errors, determination of systematic errors relating to the flavour composition
 of simulated top process events, and development and testing of the Boosted
 Decision Tree Re-weighting method.
 
-General introduction on systematics
 \section{The Boosted Decision Tree Re-weighting Method}
 \label{sec:bdtr}
 Explaination of BDTr method
+
 \section{Experimental Systematics}
 \input{07-systematic-errors/experimental-table.tex}
+
 \section{V + jets systematics}
 \label{sec:zjets-shapes}
+Whilst the physics of the W and Z + jets processes leads to them being in
+different channels and needing to be treated differently in the analysis, the
+underlying theory means that simulation of these processes is coupled,
+particularly as they are simulated with the same software.
+
+The V + jets processes are simulated with
+\textsc{Sherpa}~2.2.1~\cite{1126-6708-2009-02-007} as mentioned in
+section~\ref{sec:composition}, which is interfaced with the
+NNPDFs~\cite{Ball:2012cx} for both the matrix element calculation and the parton shower
+tuning. Events with many additional jets produced in association with the vector
+boson largely contribute to the background in this analysis, therefore a feature
+of \textsc{Sherpa}~2.2.1 is used in which it provides a combination of matrix
+elements with different parton multiplicities. Up to 2 extra partons are
+included in the next-to-leading order matrix element, and 3 or 4 extra partons
+are included at leading order in QCD. In order to combine different patron
+multiplicities a matching scheme based on the CKKW-L~\cite{Lonnblad:2001iq,
+  Lavesson:2005xu} merging technique is used, with a merging scale of $Q_{cut} =
+20$~\GeV. Simulation of events with more than 4 extra partons relies on the
+parton shower algorithm of \textsc{Sherpa}. The parton shower and underlying
+events models are included in \textsc{Sherpa} whose generator adopts a full
+5--flavour scheme with b- and c-quarks being treated as massless in the matrix
+element, in the version used. Massive quarks can be produced in the parton
+shower and heavy flavours (quarks as heavy or heavier than a c-quark) can be
+produced directly in the scattering process of the underlying event.
+
+
 \subsection{W + jets systematics}
 \input{07-systematic-errors/wjets-table.tex}
+
 \subsection{Z + jets systematics}
+
 \input{07-systematic-errors/zjets-table.tex}
+
 \section{Top Quark Systematics}
 \input{07-systematic-errors/ttbar-table.tex}
+
 \section{Small background systematics}
 \input{07-systematic-errors/small-bkg-table.tex}
+
 \section{Signal Systematics}
 \input{07-systematic-errors/signal-table.tex}
 

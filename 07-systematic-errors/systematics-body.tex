@@ -55,9 +55,26 @@ element, in the version used. Massive quarks can be produced in the parton
 shower and heavy flavours (quarks as heavy or heavier than a c-quark) can be
 produced directly in the scattering process of the underlying event.
 
+The analysis gains a lot of sensitivity from high $p_T^V$ regions of phase
+space, and also has the requirement of two b-tagged jets in the event selection
+as mentioned in section~\ref{sec:selection}. It is therefore important to ensure
+that a large statistical sample in these regions is available such that
+fluctuations are smaller than those that would be found in the data. In order to
+achieve this two methods are used, firstly samples are simulated in specific
+slices of the larger of the $p_T$ of the vector boson or the $H_T$ of the event.
+Events are simulated in the following slices
+\begin{equation}
+  max(p_T^V, H_T) = [\numrange{0}{70}, \numrange{70}{140}, \numrage{140}{280}, \numrange{280}{500}, \numrange{500}{1000}, >1000] \GeV.
+\end{equation}
+The dedicated slices at high $max(p_T^V, H_T)$ ensure a large number of events
+are simulated in the high $p_T^V$ region of phase space.
 
 \subsection{W + jets systematics}
 \input{07-systematic-errors/wjets-table.tex}
+
+\subsubsection{Normalisation and Acceptance Errors}
+
+\subsubsection{Shape Errors}
 
 \subsection{Z + jets systematics}
 
@@ -66,11 +83,23 @@ produced directly in the scattering process of the underlying event.
 \section{Top Quark Systematics}
 \input{07-systematic-errors/ttbar-table.tex}
 
+\subsubsection{Normalisation and Acceptance Errors}
+
+\subsubsection{Shape Errors}
+
 \section{Small background systematics}
 \input{07-systematic-errors/small-bkg-table.tex}
 
+\subsubsection{Normalisation and Acceptance Errors}
+
+\subsubsection{Shape Errors}
+
 \section{Signal Systematics}
 \input{07-systematic-errors/signal-table.tex}
+
+\subsubsection{Normalisation and Acceptance Errors}
+
+\subsubsection{Shape Errors}
 
 % \paragraph{Shape systematic Uncertainties post-processing} 
 

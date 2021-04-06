@@ -67,7 +67,31 @@ Events are simulated in the following slices
   \text{max}(p_T^V, H_T) = [0\text{--}70, 70\text{--}140, 140\text{--}280, 280\text{--}500, 500\text{--}1000, >1000]~\GeV.
 \end{equation}
 The dedicated slices at high $\text{max}(p_T^V, H_T)$ ensure a large number of
-events are simulated in the high $p_T^V$ region of phase space.
+events are simulated in the high $p_T^V$ region of phase space. Secondly filters
+are applied on the flavour of the jets that produced in association with the
+vector boson.  The filters used for these samples are shown in
+table~\ref{tab:bc-filters}.
+\input{07-systematic-errors/bc-filters}
+The filters are not applied to the highest slices in $\text{max}(p_T^V, H_T)$.
+The filtering strategy for $Z\nu\nu$ samples differs in the mc16e campaign using
+a combination of $p_T^Z$ and $m_{jj}$ to better populate the region above the
+MET trigger thresholds, and VBF phase spaces with high $m_{jj}$. These samples
+also use a tighter b-filter compared to their mc16a/d counterpart which is also
+described in table~\ref{tab:bc-filters}.
+
+% For Sherpa 2.2 the same filter was used for W and Z
+%The charm filter for the $W$+jets samples is tighter than the equivalent for the $Z$+jets samples because of the large 
+%contribution to the total $W$+jets cross section of $W$+$c$ events. Note that the $|\eta|$ range is looser for the CFilter $W$ samples because an additional jet requirement is applied at generation level in order to reduce the larger $W$+$c$ jet cross section.
+
+
+
+
+All $V$+jets samples with the corresponding max($H_T$,$p_T^V$) slices and
+heavy-flavour filters are listed in Tables~\ref{tabular:mc_samples_Wjets}
+\ref{tabular:mc_samples_Zlljets}, and \ref{tabular:mc_samples_Zvvjets}.
+
+
+
 
 \subsection{W + jets systematics}
 \input{07-systematic-errors/wjets-table.tex}

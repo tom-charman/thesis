@@ -1,0 +1,22 @@
+\begin{table}[!htb]
+  \centering
+  \resizebox{0.95\textwidth}{!}{
+    \begin{tabular}{lll}
+      \toprule
+      {\bfseries Filter} & {\bfseries Description} \\
+      \midrule
+      BFilter & at least 1 b-hadron with $p_T >$0~GeV and $|\eta|<$4 \\
+                         & at least 1 b-hadron with $p_T >$5~GeV and $|\eta|<$2.9 \\
+      CFilterBVeto & at least 1 c-hadron with $p_T>$4~GeV and $|\eta|<$3   \\
+                         & veto events which pass the BFilter  \\
+                         % CFilterBVeto(W) & at least 1 c-hadron with $p_T>$4~GeV and $|\eta|<$4 matched  by $\Delta R$<0.5  \\
+                         % & to a truth jet ({\em AntiKt4TruthJets}) with $p_T>$15~GeV and $|\eta|<3$  \\
+                         % & veto events which pass the BFilter  \\
+                         % \hline
+      CVetoBVeto & veto events which pass the BFilter or the CFilterBVeto  \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Heavy flavour filters used for $V$+jets.}%, along with a simple description of their application and the corresponding filter efficiency.}
+  \label{tab:bc-filters}
+\end{table}

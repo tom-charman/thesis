@@ -3,12 +3,10 @@
 \begin{table}[!htb]
   \centering
   \resizebox{\textwidth}{!}{
-  \begin{tabular}{|c|l|c|c|c|c|r|}
-    \hline
-    \hline
+  \begin{tabular}{llllllr}
+    \toprule
     DS ID & Process & Generator & $\sigma\times\text{BR}$ [pb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events \\
-    \hline
-    \hline
+    \midrule
     364142 & $Z \nu\nu $, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ GeV, $C$ veto \& $B$ veto & \textsc{Sherpa}~2.2.1 &     10700.0  & 0.9728& 0.8216 	 & 10000000 \\
     364143 & $Z \nu\nu $, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ GeV, $C$ filter \& $B$ Veto & \textsc{Sherpa}~2.2.1 &   10702.0  & 0.9728& 0.11123  &  8000000 \\
     364144 & $Z \nu\nu $, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ GeV, $B$ filter & \textsc{Sherpa}~2.2.1 &               10709.0  & 0.9728& 0.066175 &  8000000 \\
@@ -23,7 +21,6 @@
     364153 & $Z \nu\nu $, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ GeV, $B$ filter & \textsc{Sherpa}~2.2.1 &            47.476   & 0.9728& 0.17514  &  8996350 \\
     364154 & $Z \nu\nu $, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ GeV                      & \textsc{Sherpa}~2.2.1 &  9.9099   & 0.9728& 1.0 	 & 10000000 \\
     364155 & $Z \nu\nu $, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ GeV                      & \textsc{Sherpa}~2.2.1 &0.81809  & 0.9728& 1.0 	 &  5000000 \\
-    \hline
     366010 & $Z \nu\nu $, $70<p_{\text{T}}^Z<100$ GeV, $B$ filter & \textsc{Sherpa}~2.2.1 & 275.19 & 0.9728 & 0.0755 & 26782000\\
     366011 & $Z \nu\nu $, $100<p_{\text{T}}^Z<140$ GeV $0<M_{jj}<500$ , $B$ filter & \textsc{Sherpa}~2.2.1 & 109.1 & 0.9728 & 0.0914 & 18469000\\
     366012 & $Z \nu\nu $, $100<p_{\text{T}}^Z<140$ GeV $500<M_{jj}<1000$ , $B$ filter &  \textsc{Sherpa}~2.2.1 & 4.5528 & 0.9728 & 0.1247 & 1037000\\
@@ -32,8 +29,7 @@
     366015 & $Z \nu\nu $, $140<p_{\text{T}}^Z<280$ GeV $500<M_{jj}<1000$ , $B$ filter &  \textsc{Sherpa}~2.2.1 & 4.4687 & 0.9728 & 0.1288 & 1468273\\
     366016 & $Z \nu\nu $, $140<p_{\text{T}}^Z<280$ GeV $M_{jj}>1000$ , $B$ filter &  \textsc{Sherpa}~2.2.1 & 1.3760 & 0.9728 & 0.1196 & 473363\\
     366017 & $Z \nu\nu $, $280<p_{\text{T}}^Z<500$ GeV, $B$ filter &  \textsc{Sherpa}~2.2.1 & 4.2468 & 0.9728 & 0.1139 & 1951000\\
-    \hline
-    \hline
+    \bottomrule
   \end{tabular}
   \caption{$Z(\nu\nu)$ samples used in the analysis. The dataset ID, MC generator, production cross-section,
 $k$-factor, filter efficiency and total number of generated events are shown.}

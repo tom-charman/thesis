@@ -116,6 +116,35 @@ in each direction is taken as the uncertainty rather than comparing to the
 central value of the \textsc{Sherpa}~2.2.1 prediction.}.
 \input{07-systematic-errors/vjets-sherpa-vars.tex}
 
+\subsubsection{V + jets cross-section}
+The V + jets cross sections are known at NNLO (QCD)~\cite{Butterworth:1287902},
+the higher order cross sections are used to normalise the V+jets samples in the
+analysis. For the W + jets samples the total cross section from \textsc{Sherpa} or
+from \textsc{MadGraph}, averaged across all 3 lepton flavours taking into account the
+different hadron filter efficiencies, is scaled to the NNLO prediction obtaining
+scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
+
+For Z + jets some subtleties must be considered. For $Z \to \ell\ell$ + jets the
+cut at generator level, $m_{\ell\ell}>40$ \GeV, must be taken into account. The
+NNLO calculation uses a cut of $66<m_{\ell\ell}<116$ \GeV, which can be applied
+at truth level to the samples of this analysis in order to get the scaling
+correct as follows:
+\begin{equation}
+  k_{\text{NNLO}}^{\text{QCD}} = \frac{\sigma_{\text{NNLO}}(66<m_{\ell\ell}<116\,{\GeV})}{\sigma_{\textsc{Sherpa},\textsc{MadGraph}}(66<m_{\ell\ell}<116\,{\GeV})},
+  \label{eq:nnlo-vjets-k}
+\end{equation}
+hence the scaling factor is found to be $0.9751$. For $Z \to \nu\nu$ +jets the
+NNLO no theoretical cross section is available. Values from the
+Particle Data Group (PDG)~\cite{PDG} are used to correct for the difference
+between the BR($Z \to \nu\nu$) and BR($Z \to \ell\ell$), and the NNLO cross
+section is used without any mass cuts and with the $Z/\gamma^*$ interference
+removed. The scaling factor is therefore calculated to be $0.9728$. It is not
+necessarily expected that the scaling factors should be different for $Z \to
+\ell \ell$ and $Z \to \nu \nu$ events but this can be explained as both
+\textsc{Sherpa} and \textsc{MadGraph} used different branching ratios for these
+two processes in their generators compared with those used by the higher order
+theoretical calculations.
+
 \subsection{W + jets systematics}
 \input{07-systematic-errors/wjets-table.tex}
 

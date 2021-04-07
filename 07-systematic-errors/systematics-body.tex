@@ -82,9 +82,39 @@ corresponding max($H_T$,$p_T^V$) slices and flavour filters are listed in
 tables~\ref{tabular:mc_samples_Wjets} \ref{tabular:mc_samples_Zlljets}, and
 \ref{tabular:mc_samples_Zvvjets} in the appendices.
 
+A set of alternative predictions are used for a number of purposes in the
+analysis, one such purpose is to investigate any discrepancies that may arise
+between data and the nominal prediction. If the same discrepancy is present when
+comparing he alternative prediction to data then the discrepancy may arise from
+experimental error rather than weaknesses in the modelling. One kind of
+modelling uncertainty also relies on the comparison of two predictions, for
+example the nominal versus the alternative.
 
+The alternative samples are generated using
+\textsc{MadGraph}~5~\cite{MADGRAPH5_aMC@NLO} interfaced to \textsc{Pythia}~8 for
+the modelling of the parton shower and the underlying event. The
+\textsc{MadGraph}~5 v2 generator provides a LO (QCD) description of these
+processes, merging together matrix-element calculations with different parton
+multiplicities, up to 4 additional jets, higher jet multiplicities are modelled
+by the parton shower algorithm. The merging scheme applied to combine different
+parton multiplicities is the same as for the nominal samples, the CKKW-L scheme,
+but has a merging scale of $Q_{cut} = 30$~\GeV. For the LO ME calculation the
+NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.  Similarly to
+\textsc{Sherpa}~2.2.1, also \textsc{MadGraph}~adopts a full 5-flavour scheme
+with massless quarks in the ME calculation, while massive quarks can be produced
+by the parton shower. All alternative V + jets samples are listed in
+tables~\ref{tabular:zjetsAlternativeSamples} and
+\ref{tabular:wjetsAlternativeSamples} in the appendices.
 
-
+As well as using an alternative Monte-Carlo generator the nominal generator,
+\textsc{Sherpa}, includes systematic variations internally. Every
+\textsc{Sherpa}~2.2.1 V + jets sample has an event weight corresponding to each
+of the variations detailed in table~\ref{tab:sherpa-variations}\footnote{Some of
+the variations cannot be produced by \textsc{Sherpa}~2.2.1 and so
+\textsc{Sherpa}~2.1 is used instead. For these variations half of the variation
+in each direction is taken as the uncertainty rather than comparing to the
+central value of the \textsc{Sherpa}~2.2.1 prediction.}.
+\input{07-systematic-errors/vjets-sherpa-vars.tex}
 
 \subsection{W + jets systematics}
 \input{07-systematic-errors/wjets-table.tex}

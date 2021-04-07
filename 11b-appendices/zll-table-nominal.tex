@@ -5,58 +5,59 @@
 \begin{table}[!htb]
   \centering
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{lllrrrr}
+    \begin{tabular}{llrrrr}
       \toprule
-      DS ID & Process & Generator & $\sigma\times\text{BR}$ [pb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events \\
+      DS ID & Process & $\sigma\times\text{BR}$ [pb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events \\
       \midrule
       $\bm{Z \to \tau \tau}$ &&&&&&\\
-      364128 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &     1981.6       &0.9751 & 0.82142  &   7996000\\       
-      364129 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &   1978.8       &0.9751 & 0.11314  &   4999000\\       
-      364130 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &               1981.8       &0.9751 & 0.064453 &   7995800\\       
-      364131 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &   110.37       &0.9751 & 0.68883  &   5998500\\       
-      364132 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 & 110.51       &0.9751 & 0.1829   &   1999200\\       
-      364133 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &             110.87       &0.9751 & 0.110886 &   5999550\\       
-      364134 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &  40.781       &0.9751 & 0.60821  &   5000000\\       
-      364135 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &40.74        &0.9751 & 0.22897  &  3000000 \\       
-      364136 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &            40.761       &0.9751 & 0.13442  &   4999950\\       
-      364137 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &  8.5502       &0.9751 & 0.56036  &   2000000\\       
-      364138 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &8.6707       &0.9751 & 0.26245  &  1000000 \\       
-      364139 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &            8.6804       &0.9751 & 0.17313  &   1999950\\       
-      364140 & $Z \to \tau \tau$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      & \textsc{Sherpa}~2.2.1 &  1.8096       &0.9751 & 1.0 	   &   2999800\\ 
-      364141 & $Z \to \tau \tau$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                    & \textsc{Sherpa}~2.2.1 &  0.14834      &0.9751 & 1.0 	   &   1000000\\
+      364128 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto &      1981.6       &0.9751 & 0.82142  &   7996000\\       
+      364129 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto &    1978.8       &0.9751 & 0.11314  &   4999000\\       
+      364130 & $Z \to \tau \tau$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter &                1981.8       &0.9751 & 0.064453 &   7995800\\       
+      364131 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto &    110.37       &0.9751 & 0.68883  &   5998500\\       
+      364132 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto &  110.51       &0.9751 & 0.1829   &   1999200\\       
+      364133 & $Z \to \tau \tau$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter &              110.87       &0.9751 & 0.110886 &   5999550\\       
+      364134 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto &   40.781       &0.9751 & 0.60821  &   5000000\\       
+      364135 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto & 40.74        &0.9751 & 0.22897  &  3000000 \\       
+      364136 & $Z \to \tau \tau$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter &             40.761       &0.9751 & 0.13442  &   4999950\\       
+      364137 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto &   8.5502       &0.9751 & 0.56036  &   2000000\\       
+      364138 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto & 8.6707       &0.9751 & 0.26245  &  1000000 \\       
+      364139 & $Z \to \tau \tau$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter &             8.6804       &0.9751 & 0.17313  &   1999950\\       
+      364140 & $Z \to \tau \tau$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      &   1.8096       &0.9751 & 1.0 	   &   2999800\\ 
+      364141 & $Z \to \tau \tau$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                    &   0.14834      &0.9751 & 1.0 	   &   1000000\\
       $\bm{Z \to \mu \mu}$ &&&&&&\\
-      364100 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &       1983.0      & 0.9751& 0.8221  &  7982000\\
-      364101 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &     1978.4      & 0.9751& 0.11308 &  4983000\\
-      364102 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &                 1982.2      & 0.9751& 0.064161&  7984000\\
-      364103 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &     108.92      & 0.9751& 0.68873 &  5983000\\
-      364104 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &   109.42      & 0.9751& 0.18596 &  1996800\\
-      364105 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &               108.91      & 0.9751& 0.11375 &  5981600\\
-      364106 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &    39.878      & 0.9751& 0.60899 &  5000000\\
-      364107 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &  39.795      & 0.9751& 0.23308 &  3000000\\
-      364108 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &              39.908      & 0.9751& 0.14618 & 12499900\\
-      364109 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &    8.5375      & 0.9751& 0.55906 &  2000000\\
-      364110 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &  8.5403      & 0.9751& 0.26528 &   999600\\
-      364111 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &              8.4932      & 0.9751& 0.17559 &  1999400\\
-      364112 & $Z \to \mu \mu$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      & \textsc{Sherpa}~2.2.1 &    1.7881      & 0.9751& 1.0     &  2996500\\
-      364113 & $Z \to \mu \mu$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                      & \textsc{Sherpa}~2.2.1 &  0.14769     & 0.9751& 1.0     &  1000000\\
+      364100 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto &        1983.0      & 0.9751& 0.8221  &  7982000\\
+      364101 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto &      1978.4      & 0.9751& 0.11308 &  4983000\\
+      364102 & $Z \to \mu \mu$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter &                  1982.2      & 0.9751& 0.064161&  7984000\\
+      364103 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto &      108.92      & 0.9751& 0.68873 &  5983000\\
+      364104 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto &    109.42      & 0.9751& 0.18596 &  1996800\\
+      364105 & $Z \to \mu \mu$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter &                108.91      & 0.9751& 0.11375 &  5981600\\
+      364106 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto &     39.878      & 0.9751& 0.60899 &  5000000\\
+      364107 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto &   39.795      & 0.9751& 0.23308 &  3000000\\
+      364108 & $Z \to \mu \mu$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter &               39.908      & 0.9751& 0.14618 & 12499900\\
+      364109 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto &     8.5375      & 0.9751& 0.55906 &  2000000\\
+      364110 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto &   8.5403      & 0.9751& 0.26528 &   999600\\
+      364111 & $Z \to \mu \mu$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter &               8.4932      & 0.9751& 0.17559 &  1999400\\
+      364112 & $Z \to \mu \mu$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      &     1.7881      & 0.9751& 1.0     &  2996500\\
+      364113 & $Z \to \mu \mu$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                      &   0.14769     & 0.9751& 1.0     &  1000000\\
       $\bm{Z \to e e}$ &&&&&&\\
-      364114 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &        1981.8            & 0.9751& 0.82106 &    8000000\\
-      364115 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &      1980.8            & 0.9751& 0.11295 &    4999000\\
-      364116 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &                  1981.7            & 0.9751& 0.063809&    7995600\\
-      364117 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &      110.5             & 0.9751& 0.69043 &    5997000\\
-      364118 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &    110.63            & 0.9751& 0.18382 &    1999200\\
-      364119 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &                110.31            & 0.9751& 0.11443 &    5970000\\
-      364120 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &     40.731            & 0.9751& 0.61452 &    5000000\\
-      364121 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &   40.67             & 0.9751& 0.23044 &    3000000\\
-      364122 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &               40.694            & 0.9751& 0.14927 &   12499600\\
-      364123 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto & \textsc{Sherpa}~2.2.1 &     8.6743            & 0.9751& 0.56134 &    1999800\\
-      364124 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto & \textsc{Sherpa}~2.2.1 &   8.6711            & 0.9751& 0.26294 &    999900 \\
-      364125 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter & \textsc{Sherpa}~2.2.1 &               8.6766            & 0.9751& 0.17223 &   1999850 \\
-      364126 & $Z \to e e$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      & \textsc{Sherpa}~2.2.1 &     1.8081            & 0.9751& 1.0 	&   3000000 \\
-      364127 & $Z \to e e$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                      & \textsc{Sherpa}~2.2.1 &   0.14857           & 0.9751& 1.0 	&   1000000 \\
+      364114 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-veto-b-veto &         1981.8            & 0.9751& 0.82106 &    8000000\\
+      364115 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, c-filter-b-veto &       1980.8            & 0.9751& 0.11295 &    4999000\\
+      364116 & $Z \to e e$, $0<\text{max}(H_T,p_{\text{T}}^Z)<70$ \GeV, b-filter &                   1981.7            & 0.9751& 0.063809&    7995600\\
+      364117 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-veto-b-veto &       110.5             & 0.9751& 0.69043 &    5997000\\
+      364118 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, c-filter-b-veto &     110.63            & 0.9751& 0.18382 &    1999200\\
+      364119 & $Z \to e e$, $70<\text{max}(H_T,p_{\text{T}}^Z)<140$ \GeV, b-filter &                 110.31            & 0.9751& 0.11443 &    5970000\\
+      364120 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-veto-b-veto &      40.731            & 0.9751& 0.61452 &    5000000\\
+      364121 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, c-filter-b-veto &    40.67             & 0.9751& 0.23044 &    3000000\\
+      364122 & $Z \to e e$, $140<\text{max}(H_T,p_{\text{T}}^Z)<280$ \GeV, b-filter &                40.694            & 0.9751& 0.14927 &   12499600\\
+      364123 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-veto-b-veto &      8.6743            & 0.9751& 0.56134 &    1999800\\
+      364124 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, c-filter-b-veto &    8.6711            & 0.9751& 0.26294 &    999900 \\
+      364125 & $Z \to e e$, $280<\text{max}(H_T,p_{\text{T}}^Z)<500$ \GeV, b-filter &                8.6766            & 0.9751& 0.17223 &   1999850 \\
+      364126 & $Z \to e e$, $500<\text{max}(H_T,p_{\text{T}}^Z)<1000$ \GeV                      &      1.8081            & 0.9751& 1.0 	&   3000000 \\
+      364127 & $Z \to e e$, $1000<\text{max}(H_T,p_{\text{T}}^Z)<13000$ \GeV                      &    0.14857           & 0.9751& 1.0 	&   1000000 \\
       \bottomrule
     \end{tabular}
   }
-  \caption{$Z \to \ell\ell$ samples used in the analysis.}
+  \caption{$Z \to \ell\ell$ samples used in the analysis, which are all
+    generated using \textsc{Sherpa}~2.2.1.}
   \label{tabular:mc_samples_Zlljets}
 \end{table}

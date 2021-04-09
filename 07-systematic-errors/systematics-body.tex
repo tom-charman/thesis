@@ -21,9 +21,426 @@ errors, determination of systematic errors relating to the flavour composition
 of simulated top process events, and development and testing of the Boosted
 Decision Tree Re-weighting method.
 
-\section{The Boosted Decision Tree Re-weighting Method}
-\label{sec:bdtr}
-Explaination of BDTr method
+\section{Parametrising variance due to Shape Uncertainties}
+\label{sec:re-weighting}
+
+The predictions entering into the profile-likelihood fit of the analysis can be
+written as a probability density $p(\bm{x}|\vec{\theta})$, where $\bm{x} =
+[x_{1},..., x_{i}]$ is a vector of observable quantities, with $N$ elements and
+$\vec{\theta}$ represents the theoretical parameters of the model. The
+parameters may come from the Standard Model theory or phenomenological
+considerations that must be taken into account to turn that theory into a usable
+prediction.
+
+As described above, shape effects may impact the prediction of a given
+Monte-Carlo generator that has a particular set of parameters. The choice of
+generator will change the prediction due to different choices made by the
+generator creators, including but not limited to, the parton shower model,
+hadronisation model and non-perturbative processes. One way to get a handle on
+the variance of a particular generator is therefore to literally vary these
+choices by picking an alternative generator and drawing a comparison to the
+alternative prediction. This method is flawed in ways which will be discussed
+but is nonetheless fairly common and often one of the few choices available to
+analysers when they are trying to get an idea of what the systematic errors on
+the modelling of complex physics processes are. Two such methods of comparison
+will be detailed here as they are used in this analysis, they the single
+dimension parameterisation described in section~\ref{sec:1D-reweight} and a
+multi-dimensional parameterisation described in section~\ref{sec:ND-reweight}.
+Following this a hybrid approach which uses both methods will be described in
+section~\ref{sec:hybrid-reweight}. 
+
+\subsection{Single Dimension Parameterisation}
+\label{sec:1D-reweight}
+
+The single dimension parameterisation uses the ratio of probability densities
+\begin{equation}
+  r(\bm{x}) = \frac{p(\bm{x}|\vec{\theta}_{1})}{p(\bm{x}|\vec{\theta}_{0})},
+  \label{eq:DensityRatio}
+\end{equation}
+where the subscripts on $\vec{theta}$ number different choices of the parameters
+which govern the model, for example due to different choice of generator. Here
+the subscript 0 denotes the nominal prediction and 1 denotes an alternative. In
+order to map the nominal to the alternative it is clear that the one can
+multiply $p(\bm{x}|\vec{\theta}_{0})$ by the ratio.
+
+The only way that this calculation is tractable is to consider a single
+dimension of the probability density function, specifically a single observable
+chosen from the vector $\bm{x}$. The ratio then becomes
+\begin{equation}
+  r(x_{i}) = \frac{p(x_{i}|\vec{\theta}_{1})}{p(x_{i}|\vec{\theta}_{0})},
+  \label{eq:1D-ratio}
+\end{equation}
+which can in turn be calculated for as many or as few as the elements of
+$\bm{x}$ as is desired. It should be noted that when the ratio is calculated
+using only a single variable it can still be used to map the $N$ dimensional
+nominal prediction to the alternative, however the mapping is only guaranteed to
+be successful in the dimension chosen to calculate the ratio and in general
+agreement between the two predictions in the other variables can not be relied
+upon.
+
+Figure~\ref{fig:IllustKinUncert} shows a graphical illustration of how this
+single dimensional ratio is calculated. In practice the ratio is used to derive
+a systematic shape uncertainty by weighting each event in the nominal
+prediction as a function of the variable $x_{i}$ whose distribution was used to
+calculate the ratio. Limitations on the sample size of each prediction mean that
+in practice it is better to smooth the ratio via the use of a parametric fit in
+order to mitigate any large statistical fluctuations in a single bin of the
+ratio (arising from a large fluctuation in one of the predictions in that bin).
+In figure~\ref{fig:IllustKinUncert} the parametric fit is represented by the
+solid line in the ratio.
+\input{07-systematic-errors/re-weighting-illustration}
+
+% For the ICHEP Style technique the following procedure is implemented:
+% \begin{enumerate}
+% \item \textbf{Kinematic Observerable Evaluation:} Project MC model phase space
+%   onto the $\mathcal{O}_{i}$ dimension for both the nominal, $\theta_{0}$, and
+%   alternative, $\theta_{1}$, models
+% \item \textbf{Density Ratio Eval.:} Obtain binned or analytically parameterised
+%   estimate of density ratio $r(\mathcal{O}_{i})$
+% \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
+%   function $p(\mathcal{O}_{i}| \vec{\theta}_{0})$ via the density ratio
+%   $r(\mathcal{O}_{i})$ as a function of $\mathcal{O}_{i}$
+% \end{enumerate}
+
+\subsection{$N$-dimensional parameterisation}
+\label{sec:ND-reweight}
+
+As already alluded to 
+
+% One criticism of the \textit{ICHEP Style 1-dimensional} procedure is its
+% inability to capture the correlations of the input space dimensions. This
+% information is lost during the $\mathbb{R}^{p} \rightarrow \mathbb{R}$
+% dimensional reduction ($p$-dimensions to $p=1$ dimensions), and can not be
+% easily recovered using this technique. To overcome this limitation, the full
+% $p$-dimensional density ratio can be estimated using a MVA technique as
+% demonstrated in Ref. \cite{Cranmer:2015bka}, which makes use of a Neural Network
+% or BDT classifier response to approximate in one dimension the $p$-dimensional
+% density ratio. Specifically, if one considers a classifier response (scalar
+% function), $s(\bm{x})$, for a space of $p$-real values,
+% $\mathbb{R}^{p}$, then in making the substitution $\bm{x} ->
+% u=s(\bold{x})$  into the density ratio:
+
+% \begin{equation}
+%   r(\bm{x}) \rightarrow r(u) = \frac{p(u|\vec{\theta}_{1})}{p(u|\vec{\theta}_{0})},
+%   \label{eq:DensityRatioPDim}
+% \end{equation}
+% one can prove the equivalence of equation \ref{eq:DensityRatio} and equation
+% \ref{eq:DensityRatioPDim} provided $s(\bm{x})$ is a monotonic function
+% with the density ratio (eq \ref{eq:DensityRatio}). For more details the reader
+% is directed to Appendix \ref{app:BDTrProof} for the corresponding proof.
+
+% The significance of the above heuristic proof, which validates equation
+% \ref{eq:DensityRatioPDim}, is that by substituting $\bm{x} \rightarrow u
+% = s(\bm{x})$ the probability density ratio in $\mathbb{R}^{p}$ space is
+% equivalent to that in the dimensionally reduced $\mathbb{R}$ (1-dimension)
+% space. This means that the density ratio of can be derived in exactly the same
+% way as the ICHEP style 1-dimensional procedure - calculate the ratio of the
+% differential cross-section of each MC predicition as a function of
+% $s(\bm{x})$ instead of an observable $\mathcal{O}_{i}$.
+
+% This is illustrated by Figure \ref{fig:IllustKinUncert_nDim}, which shows for a
+% toy $p=3$-dimension input space (a), the training of a Neural Network (b) to
+% separate two MC samples (black dotted and blue shaded), yielding a single scalar
+% value $s(\bm{x})$ for each event. The distribution of this is then shown
+% in (c), where the ratio of two classifier responses corresponds to the
+% probability density ratio $r(u=s(\bm{x}))$.
+
+% In summary, this $p$-dimensional re-weighting techinque, coined \textit{BDT
+%   re-weighting (BDTr)} due to the use of a BDT as the classifier within the
+% $VH \to b\bar{b}$ analysis, uses a classifier ratio rather than a kinematic observable
+% (like $p^{V}_{T}$) to map the nominal MC to look like the alternative. This
+% approach therefore maps simultaneously in all $p$-dimensions the two generators
+% onto each other.
+
+% For the BDTr technique the following procedure is implemented:
+% \begin{enumerate}
+%   \item \textbf{Train:} Train a BDT classifier to separate the nominal MC model,
+%     $\vec{\theta}_{0}$, from the alternative MC model, $\vec{\theta}_{1}$
+%   \item \textbf{Evaluate:} Evaluate the classifier response for the two MC
+%     models, $s(\bm{x})$ %$s(\bm{x}; \vec{\theta}_{0},
+%     % \vec{\theta}_{1})$
+%   \item \textbf{Density Ratio Eval.:} Obtain binned or analytic estimate of
+%     density ratio $r(u=s(\bm{x}))$
+%   \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
+%     function $p(s(\bm{x})| \vec{\theta}_{0})$ via the density function
+%     $r(u=s(\bm{x}))$ as a function of $s(\bm{x})$
+% \end{enumerate}
+
+% \begin{figure}[t]
+%   \includegraphics[width=\linewidth]{BDTr_Theory/IllustrationOfProbDensityEstimators_nDim.pdf}
+%   \caption{Illustration of $p=3$-dimensional density ratio estimation for
+%     $<bm{x} = [\mathcal{O}_{1}, \mathcal{O}_{2}, \mathcal{O}_{3}]$ input
+%     space when comparing two MC predictions. Sub-figure a) shows the input space
+%     of 3-dimensions, b) shows a toy MVA (Dense Neural Network) trained to
+%     classify ($s(\bm{x})$) the two MCs, whilst c) shows the
+%     $s(\bm{x})$ classifier distribution and its corresponding density
+%     ratio $r(\bm{x})$. }
+%   \label{fig:IllustKinUncert_nDim}
+% \end{figure}
+
+\subsection{Hybrid $p-n$ dimensional parameterisation}
+\label{sec:hybrid-reweight}
+
+% The following hybrid approach utilises both the above ICHEP 1-dimensional and
+% BDTr $p$-dimensional parameterisation techniques. Specifically, prior to
+% training a classifier ($s(\bm{x})$) on two MC predictions
+% ($\vec{\theta}_{0}$ and $\vec{\theta}_{1}$), the input space of the nominal
+% generator is weighted by the density ratio of a subset of the dimensions of the
+% input space, $\mathbb{R}^{n} \subset \mathbb{R}^{p}$. In the simplest case, and
+% that used within this analysis, $n=1$ and is specifically the $p^{V}_{T}$ or
+% $E^{miss}_{T}$ of the event. In this situation the density ratio becomes:
+
+% \begin{equation}
+%   r(\bm{x}) = \frac{p(\bm{x} \rightarrow p^{V}_{T}|\vec{\theta}_{1})}{p(\bm{x} \rightarrow p^{V}_{T}|\vec{\theta}_{0})},
+%   \label{eq:pTVDensityRatio}
+% \end{equation}
+% which is used to map the nominal MC prediction ($\vec{\theta}_{0}$) to look like
+% the alternative generator ($\vec{\theta}_{1}$). This is demonstrated in the
+% Figure \ref{fig:IllustKinUncert_nDim-n} (a) and \ref{fig:IllustKinUncert_nDim-n}
+% (b), where (a) shows a toy example of the density ratio $r(\mathcal{O}_{1} |
+% \vec{\theta}_{0}, \vec{\theta}_{1})$, which is then used to re-weight the
+% nominal input space as shown by sub-figure (b). Following this the $p^{V}_{T}$
+% re-weighted input space of the nominal generator, and the unaltered alternative
+% generator are used to train a classifier $s'(\bm{x})$. Upon completion
+% this new $p-1$ dimensional classifier is used to derive a density ratio,
+% $r(s'(\bm{x}))$, that encodes all remaining information that separates
+% the two generators (excluding the $p^{V}_{T}$ dependnce).
+% \begin{figure}[t]
+%   \includegraphics[width=\linewidth]{BDTr_Theory/IllustrationOfProbDensityEstimators_pDim-n.pdf}
+%   \caption{Illustration of hybrid $p=3-1$-dimensional density ratio estimation
+%     for $<bm{x} = [\mathcal{O}_{1}, \mathcal{O}_{2}, \mathcal{O}_{3}]$
+%     input space when comparing two MC predictions. Sub-figure a) shows the
+%     $\mathcal{O}_{1}$ dimension of the MC prediction, and the corresponding
+%     density ratio. Sub-figure b) then shows the resulting 3-dimensional input
+%     space after re-weighting by the $\mathcal{O}_{1}$ density ratio given in a).
+%     Sub-fgiure c) then shows the resulting new classifier $s(\bm{x})$
+%     for this \textit{1D weighted} input space. The red shaded and dotted
+%     distribution in sub-figure c) matches that of figure c) in Figure
+%     \ref{fig:IllustKinUncert_nDim}, simply to demonstrate how the MVa response
+%     of the newly trained MVA differs.}
+%   \label{fig:IllustKinUncert_nDim-n}
+% \end{figure}
+
+% The reader will find this technique referred to in the text as the
+% \textit{$p^{V}_{T}$ factorised BDTr} approach, specifically within the $W+$jets
+% and $t\bar{t}$ sections, due to the fact that the $p^{V}_{T}$ distribution is
+% factorised away prior to the BDT training.
+
+% For the BDTr technique the following procedure is implemented:
+% \begin{enumerate}
+% \item \textbf{Kinematic Observerable Evaluation:} Project MC model phase space
+%   onto the $\mathcal{O}_{i}$ dimension for both the nominal, $\theta_{0}$, and
+%   alternative, $\theta_{1}$, models. Typically $\mathcal{O}_{i} =
+%   p^{V}_{T}/E^{\textrm{miss}}_{T}$
+% \item \textbf{Density Ratio Eval.:} Obtain binned or analytical estimate of
+%   density ratio $r(\mathcal{O}_{i})$
+% \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
+%   function $p(\mathcal{O}_{i}| \vec{\theta}_{0})$ via the density ratio
+%   $r(\mathcal{O}_{i})$ as a function of $\mathcal{O}_{i}$
+% \item \textbf{Train:} Train a BDT classifier to separate the re-weighted nominal
+%   MC model, $\vec{\theta'}_{0}$, from the alternative MC model,
+%   $\vec{\theta}_{1}$.
+% \item \textbf{Evaluate:} Evaluate the classifier response for the two MC models,
+%   $s'(\bm{x}; \vec{\theta'}_{0}, \vec{\theta}_{1})$
+% \item \textbf{Density Ratio Eval.:} Obtain binned or analytic estimate of
+%   density ratio $r(u=s'(\bm{x}))$
+% \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
+%   function $p(s'(\bm{x})| \vec{\theta}_{0})$ via the density function
+%   $r(u=s'(\bm{x}))$ as a function of $s'(\bm{x})$. Separately
+%   re-weight the nominal $p(\mathcal{O}_{i}| \vec{\theta}_{0})$ via the
+%   1-dimension density ratio $r(\mathcal{O}_{i})$. The former is the BDTr
+%   nuisance parameter, and the later is the $p^{V}_{T}/E^{\textrm{miss}}_{T}$
+%   nuisance parameter.
+% \end{enumerate}
+
+
+% \subsection{ BDTr -vs- Hybrid BDTr: Motivation}
+% The adoption of the hybrid approach stems from the nature of the 2-point
+% MC-to-MC comparison. Two MC models, whilst seeded by the same Standard Model,
+% are determined by a collection of parameters, $\vec{\theta}_{j}$, that are not
+% always equivalent. For example one collection may contain parameters that are
+% not shared by its counter-part, i.e. some parameters have no one-to-one
+% correspondence amongst the two models. Furthermore, the remaining parameters
+% that are common, like the renormalisation scale, may not share the same value.
+% This means that the MC-to-MC comparison does not systematically change in a
+% controlled fashion the underlying parameters that govern the probability density
+% function, $p(\bm{x} | \vec{\theta}_{j})$. In essence it is not
+% guarranteed that one can smoothly interpolate between the two models.
+
+% In a profile likelihood fit this means that interpolating between the two MC
+% predictions in a smooth and continous manner via a gaussian constrained nuisance
+% parameter has very little meaning. Furthermore, it is possible that one MC model
+% may match data in one region of phase space, whilst its counter-part may better
+% model a distinctly separate and unique region of phase space. Therefore, the
+% constraints and pulls imposed by the data in one region do not trivially
+% transfer to the other phase space regions of an analysis.
+
+% Further considerations must also be made concerning what the analysis is
+% sensitive to. Specifially, Figure \ref{fig:1lepFitRegions} shows the analysis
+% $p^{V}_{T} = \{ \left[150 \textrm{\GeV},250 \textrm{\GeV}\right], \left[250
+%   \textrm{\GeV}\right[ \}$ and $\{\textrm{CRLow, SR, CRHigh}\}$ fit regions, in
+% addition to the corresponding fit discriminant distributions used in each case.
+% As is shown, the SR regions use an MVA distribution as the fit discriminant,
+% whilst the control regions use a single $p^{V}_{T}$ bin. Considering that two
+% $p^{V}_{T}$ fit regions are defined within the analysis fit model, a two binned
+% $p^{V}_T{} \geq 150$\GeV differential cross-section is therefore utilised.
+
+% Considering these two fundametal concepts, it was decided to factorise the
+% $p^{V}_{T}$ uncertainty of each physics process, and allow the BDTr technique to
+% encode all differences in the remaining variables of the analysis MVA. This was
+% further supported by a known $t\bar{t}$ mismodelling of the data when using
+% Powheg+Pythia8 for high $p^{V}_{T}$ events; Powheg+Pythia8 generates a harder
+% $p^{V}_{T}$ spectrum than data. In essence, fitting directly the $p^{V}_{T}$
+% spectrum, combined with the known miss-modelling lead to the need for an
+% additional degree of freedom with regards to the $p^{V}_{T}$ kinematics.
+    
+\% begin{figure}
+%   \centering
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMax250_BMin150_Y6051_DCRLow_T2_L1_distpTV_J2_GlobalFit_conditionnal_mu1.pdf}
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMax250_BMin150_Y6051_DSR_T2_L1_distmva_J2_GlobalFit_conditionnal_mu1log.pdf}
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMax250_BMin150_Y6051_DCRHigh_T2_L1_distpTV_J2_GlobalFit_conditionnal_mu1.pdf}\\
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMin250_Y6051_DCRLow_T2_L1_distpTV_J2_GlobalFit_conditionnal_mu1.pdf}
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMin250_Y6051_DSR_T2_L1_distmva_J2_GlobalFit_conditionnal_mu1log.pdf}
+%   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMin250_Y6051_DCRHigh_T2_L1_distpTV_J2_GlobalFit_conditionnal_mu1.pdf}
+%   \caption{ Post-fit distributions of the $p^{V}_{T} = \{ \left[150
+%       \textrm{\GeV},250 \textrm{\GeV}\right], \left[250 \textrm{\GeV}\right[ \}$
+%     and $\{\textrm{CRLow, SR, CRHigh}\}$ fit regions that make up the 1-lepton
+%     $VH \to b\bar{b}$ fit model in the 2-tag 2-jet categories. All plots correspond to a
+%     conditional $\mu = 1$ fit to data. }
+%   \label{fig:1lepFitRegions}
+% \end{figure}
+
+% \subsubsection{BDTr-based shape uncertainties}
+% \label{subsubsec:WjetsBDTrBasedShapeSyst}
+
+% A hybrid BDTr approach, as described in Section~\ref{subsec:ShapeMethod}, has
+% been adopted in the 1-lepton and the 0-lepton channels to derive the BDTr-based
+% shape systematics.
+
+% \textbf{$p_T^V$\ shape systematic}
+
+% In each leptonic channel, eight shapes are derived depending on the jet category
+% (2-jet and 3-jet) and flavour composition of the event. Only heavy flavours
+% events ($W$+bb, $W$+bc, $W$+bl and $W$+cc) are considered as the $W$+l and
+% $W$+cl background processes compose less than 1\% of the background in any
+% region.
+
+% In the 1-lepton channel, these shapes are obtained from a linear fit to the
+% ratio between \textsc{Sherpa}~2.2.1 and \textsc{MadGraph}  in the $p_T^V$ distribution with $p_T^V
+% > 75$ \GeV. In the 0-lepton channel, the MET distribution with MET $>150$ \GeV
+% is used.
+
+% Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and
+% Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} shows $p_T^V$ shape systematics in
+% the 1-lepton channel for each heavy flavour category and for 2-jet and 3-jet
+% events, respectively.
+
+% \begin{figure}[H]
+% \begin{center}
+%   \subfigure[$p_T^V$ 2tag 2jet
+%   bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bb.pdf}}
+%   \subfigure[$p_T^V$ 2tag 2jet
+%   bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bc.pdf}}
+% \\
+% \subfigure[$p_T^V$ 2tag 2jet
+% bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bl.pdf}}
+% \subfigure[$p_T^V$ 2tag 2jet
+% cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_cc.pdf}}
+% \\
+% \caption{$p_T^V$ shape systematic in the 1-lepton channel for each heavy flavour
+%   category and for the 2-jet category. The red and blue histograms correspond to
+%   the $p_T^V$ distribution predicted by \textsc{Sherpa}~2.2.1 and \textsc{MadGraph}, respectively,
+%   while the $p_T^V$ shape systematic is plotted in green.}
+% \label{fig:wjets_1lep_2jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+%   \subfigure[$p_T^V$ 2tag 3jet
+%   bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bb.pdf}}
+%   \subfigure[$p_T^V$ 2tag 3jet
+%   bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bc.pdf}}
+%   \\
+%   \subfigure[$p_T^V$ 2tag 3jet
+%   bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bl.pdf}}
+%   \subfigure[$p_T^V$ 2tag 3jet
+%   cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_cc.pdf}}
+%   \\
+% \caption{$p_T^V$ shape systematic in the 1-lepton channel for each heavy flavour
+%   category and for the 3-jet category. The red and blue histograms correspond to
+%   the $p_T^V$ distribution predicted by \textsc{Sherpa}~2.2.1 and
+%   \textsc{MadGraph}, respectively, while the $p_T^V$ shape systematic is plotted
+%   in green.}
+% \label{fig:wjets_1lep_3jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% Given the low statistics in the 0-lepton channel, the $p_T^V$ shapes derived in
+% the 1-lepton channel are also used in the 0-lepton channel. The goodness of this
+% approach is showed in Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr} for the
+% 2tag2jet category and in Figure~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} for the
+% 2tag3jet region for each heavy flavour pair. An offset between the $p_T^V$ and the
+% MET shapes in the two channels can be seen, especially in the $W$+bl events.
+% This is due to the fact that the $p_T^V$ shape is derived from a unit-normalized
+% ratio between \textsc{Sherpa}~2.2.1 and \textsc{MadGraph} in the $p_T^V > 75$ \GeV  range, while
+% the MET distribution is normalized to 1 in the MET $>150$ \GeV range. This is
+% confirmed by the example plot in
+% Figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} where both the $p_T^V$
+% and the MET shape in the 2tag2jet region have been normalized to 1 in the
+% $p_T^V$(MET) $>150$ \GeV range.
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[2tag 2jet
+% bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bb.pdf}}
+% \subfigure[2tag 2jet
+% bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bc.pdf}}
+% \\
+% \subfigure[2tag 2jet
+% bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bl.pdf}}
+% \subfigure[2tag 2jet
+% cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_cc.pdf}}
+% \\
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag2jet region of the
+%   1-lepton and 0-lepton channels, respectively, for each heavy flavour pair.}
+% \label{fig:wjets_01lep_2jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[2tag 3jet
+% bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bb.pdf}}
+% \subfigure[2tag 3jet
+% bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bc.pdf}}
+% \\
+% \subfigure[2tag 3jet
+% bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bl.pdf}}
+% \subfigure[2tag 3jet
+% cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_cc.pdf}}
+% \\
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag3jet region of the
+%   1-lepton and 0-lepton channels, respectively, for each heavy flavour pair.}
+% \label{fig:wjets_01lep_3jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[$p_T^V$ and $MET$ 2tag 3jet
+% bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bl_NormalizedFrom150.pdf}}
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag2jet region of the
+%   1-lepton and 0-lepton channels, respectively, for $W$+bl events, both
+%   normalized in the $p_T^V > 150$\GeV and MET$ > 150$\GeV.}
+% \label{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150}
+% \end{center}
+% \end{figure}
+
+% The $p_T^V$ shape systematic, derived in the 1-lepton channel, are thus applied to
+% both the 1-lepton and the 0-lepton channel and implemented in the fit as a
+% single nuisance parameter called \texttt{SysWPtV\_BDTr}.
+
 
 \section{Experimental Systematics}
 \input{07-systematic-errors/experimental-table.tex}
@@ -181,23 +598,23 @@ theoretical calculations.
 
 % In the current systematic model, independent normalization factors are employed
 % for the main backgrounds (\ttbar, $\Wboson +$HF and $\Zboson +$HF) independently
-% in $2$ and $3(+)$-jet, above or below $\pTV = 150~\\GeV$. Therefore, the
+% in $2$ and $3(+)$-jet, above or below $$p_T^V$ = 150~\GeV$. Therefore, the
 % extrapolation uncertainty is already accounted for at these boundaries. Most of
-% the systematic uncertainties are computed in total $\pTV$ phase space
-% ($\geq75~\\GeV$) in $2$-jet and $3$-jet events independently to avoid
-% double-counting to the best possible. However, migrations at the $pTV=150~\\GeV$
+% the systematic uncertainties are computed in total $$p_T^V$$ phase space
+% ($\geq75~\GeV$) in $2$-jet and $3$-jet events independently to avoid
+% double-counting to the best possible. However, migrations at the $pTV=150~\GeV$
 % are still possible, and differences in BDTr training and application setup or
 % correlations could induce a small uncertainty componant accross jet bins. When
 % visible, these effects are reduced with post-processing. The overall component
-% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF \pTV
+% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF $p_T^V$
 % uncertainties in the different jet bins, as well as in the bins
-% $75~\\GeV<\pTV<150~\\GeV$ and $\pTV>150~\\GeV$ is removed that way. \\
+% $75~\GeV<$p_T^V$<150~\GeV$ and $$p_T^V$>150~\GeV$ is removed that way. \\
 
 
 % Signal \mbb~shape uncertainty follow a similar but more refined treatment. In
 % fact, the \VH signal is meant to have independent floating parameters in each
 % STXS bin. Therefore, \VH~\mbb uncertainties are treated to have no overall
-% impact in each jet and \pTV analysis bin, and act only as a shape on the
+% impact in each jet and $p_T^V$ analysis bin, and act only as a shape on the
 % discriminant, or as an extrapolation between signal and control regions. The
 % same approach is adopted for di-boson \mbb uncertainties.
 

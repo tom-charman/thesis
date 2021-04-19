@@ -25,7 +25,7 @@ Decision Tree Re-weighting method.
 \label{sec:re-weighting}
 
 The predictions entering into the profile-likelihood fit of the analysis can be
-written as a probability density $p(\bm{x}|\vec{\theta})$, where $\bm{x} =
+written as a probability density $p(\vec{x}|\vec{\theta})$, where $\vec{x} =
 [x_{1},..., x_{i}]$ is a vector of observable quantities, with $N$ elements and
 $\vec{\theta}$ represents the theoretical parameters of the model. The
 parameters may come from the Standard Model theory or phenomenological
@@ -54,24 +54,24 @@ section~\ref{sec:hybrid-reweight}.
 
 The single dimension parameterisation uses the ratio of probability densities
 \begin{equation}
-  r(\bm{x}) = \frac{p(\bm{x}|\vec{\theta}_{1})}{p(\bm{x}|\vec{\theta}_{0})},
+  r(\vec{x}) = \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})},
   \label{eq:DensityRatio}
 \end{equation}
 where the subscripts on $\vec{theta}$ number different choices of the parameters
 which govern the model, for example due to different choice of generator. Here
 the subscript 0 denotes the nominal prediction and 1 denotes an alternative. In
 order to map the nominal to the alternative it is clear that the one can
-multiply $p(\bm{x}|\vec{\theta}_{0})$ by the ratio.
+multiply $p(\vec{x}|\vec{\theta}_{0})$ by the ratio.
 
 The only way that this calculation is tractable is to consider a single
 dimension of the probability density function, specifically a single observable
-chosen from the vector $\bm{x}$. The ratio then becomes
+chosen from the vector $\vec{x}$. The ratio then becomes
 \begin{equation}
   r(x_{i}) = \frac{p(x_{i}|\vec{\theta}_{1})}{p(x_{i}|\vec{\theta}_{0})},
   \label{eq:1D-ratio}
 \end{equation}
 which can in turn be calculated for as many or as few as the elements of
-$\bm{x}$ as is desired. It should be noted that when the ratio is calculated
+$\vec{x}$ as is desired. It should be noted that when the ratio is calculated
 using only a single variable it can still be used to map the $N$ dimensional
 nominal prediction to the alternative, however the mapping is only guaranteed to
 be successful in the dimension chosen to calculate the ratio and in general
@@ -105,7 +105,35 @@ solid line in the ratio.
 \subsection{$N$-dimensional parameterisation}
 \label{sec:ND-reweight}
 
-As already alluded to 
+As already alluded to in the previous section there are issues with the
+parametrisation in a single dimension. Not only is the mapping only guaranteed
+to work in a single dimension but if the technique is applied sequentially on
+one variable after another the mapping from the first step can be undone by the
+second. That is to say that if one calculates the ratio~\ref{eq:1D-ratio} with
+$i=1$ and $i=2$ the re-weighting by $r(x_2)$ will not preserve the agreement
+between the two predictions that would be achieved by the re-weighting with
+$r(x_1)$. It is clear that this is because a ratio for a given $x_i$ only encode
+information relating to the PDFs $p(x_i|\theta_0)$ and $p(x_i|\theta_1)$ whereas
+what is wanted is something that encodes the multi-variate distributions
+$p(\vec{x}|\theta_0)$ and $p(\vec{x}|\theta_1)$.
+
+A function capable of providing compression of the full multi-variate
+distribution has already been discussed, these are the functions that one
+obtains when training a machine learning algorithm such as those mentioned
+in chapter~\ref{ch:ml}. Functions of the form given in
+equation~\ref{eq:ml-general} can encode information from the multi-variate
+input $\vec{x}$ into a lower dimensional $\vec{y}$. Specifically for this
+parametrisation the model is trained to classify events based on which PDF they
+come from, either the model with parameters $\theta_0$ or $\theta_1$, the output
+is therefore written as $[y_0, y_1]$ where each term in the vector represents
+the probability that an event comes from $p(\vec{x} | \theta_0)$ or $p(\vec{x} |
+\theta_1)$ respectively. Note that the choice of output function in the model
+ensure that probability is conserved, i.e. $y_0 + y_1 = 1$.
+
+
+
+
+
 
 % One criticism of the \textit{ICHEP Style 1-dimensional} procedure is its
 % inability to capture the correlations of the input space dimensions. This
@@ -116,34 +144,34 @@ As already alluded to
 % demonstrated in Ref. \cite{Cranmer:2015bka}, which makes use of a Neural Network
 % or BDT classifier response to approximate in one dimension the $p$-dimensional
 % density ratio. Specifically, if one considers a classifier response (scalar
-% function), $s(\bm{x})$, for a space of $p$-real values,
-% $\mathbb{R}^{p}$, then in making the substitution $\bm{x} ->
+% function), $s(\vec{x})$, for a space of $p$-real values,
+% $\mathbb{R}^{p}$, then in making the substitution $\vec{x} ->
 % u=s(\bold{x})$  into the density ratio:
 
 % \begin{equation}
-%   r(\bm{x}) \rightarrow r(u) = \frac{p(u|\vec{\theta}_{1})}{p(u|\vec{\theta}_{0})},
+%   r(\vec{x}) \rightarrow r(u) = \frac{p(u|\vec{\theta}_{1})}{p(u|\vec{\theta}_{0})},
 %   \label{eq:DensityRatioPDim}
 % \end{equation}
 % one can prove the equivalence of equation \ref{eq:DensityRatio} and equation
-% \ref{eq:DensityRatioPDim} provided $s(\bm{x})$ is a monotonic function
+% \ref{eq:DensityRatioPDim} provided $s(\vec{x})$ is a monotonic function
 % with the density ratio (eq \ref{eq:DensityRatio}). For more details the reader
 % is directed to Appendix \ref{app:BDTrProof} for the corresponding proof.
 
 % The significance of the above heuristic proof, which validates equation
-% \ref{eq:DensityRatioPDim}, is that by substituting $\bm{x} \rightarrow u
-% = s(\bm{x})$ the probability density ratio in $\mathbb{R}^{p}$ space is
+% \ref{eq:DensityRatioPDim}, is that by substituting $\vec{x} \rightarrow u
+% = s(\vec{x})$ the probability density ratio in $\mathbb{R}^{p}$ space is
 % equivalent to that in the dimensionally reduced $\mathbb{R}$ (1-dimension)
 % space. This means that the density ratio of can be derived in exactly the same
 % way as the ICHEP style 1-dimensional procedure - calculate the ratio of the
 % differential cross-section of each MC predicition as a function of
-% $s(\bm{x})$ instead of an observable $\mathcal{O}_{i}$.
+% $s(\vec{x})$ instead of an observable $\mathcal{O}_{i}$.
 
 % This is illustrated by Figure \ref{fig:IllustKinUncert_nDim}, which shows for a
 % toy $p=3$-dimension input space (a), the training of a Neural Network (b) to
 % separate two MC samples (black dotted and blue shaded), yielding a single scalar
-% value $s(\bm{x})$ for each event. The distribution of this is then shown
+% value $s(\vec{x})$ for each event. The distribution of this is then shown
 % in (c), where the ratio of two classifier responses corresponds to the
-% probability density ratio $r(u=s(\bm{x}))$.
+% probability density ratio $r(u=s(\vec{x}))$.
 
 % In summary, this $p$-dimensional re-weighting techinque, coined \textit{BDT
 %   re-weighting (BDTr)} due to the use of a BDT as the classifier within the
@@ -157,13 +185,13 @@ As already alluded to
 %   \item \textbf{Train:} Train a BDT classifier to separate the nominal MC model,
 %     $\vec{\theta}_{0}$, from the alternative MC model, $\vec{\theta}_{1}$
 %   \item \textbf{Evaluate:} Evaluate the classifier response for the two MC
-%     models, $s(\bm{x})$ %$s(\bm{x}; \vec{\theta}_{0},
+%     models, $s(\vec{x})$ %$s(\vec{x}; \vec{\theta}_{0},
 %     % \vec{\theta}_{1})$
 %   \item \textbf{Density Ratio Eval.:} Obtain binned or analytic estimate of
-%     density ratio $r(u=s(\bm{x}))$
+%     density ratio $r(u=s(\vec{x}))$
 %   \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
-%     function $p(s(\bm{x})| \vec{\theta}_{0})$ via the density function
-%     $r(u=s(\bm{x}))$ as a function of $s(\bm{x})$
+%     function $p(s(\vec{x})| \vec{\theta}_{0})$ via the density function
+%     $r(u=s(\vec{x}))$ as a function of $s(\vec{x})$
 % \end{enumerate}
 
 % \begin{figure}[t]
@@ -172,9 +200,9 @@ As already alluded to
 %     $<bm{x} = [\mathcal{O}_{1}, \mathcal{O}_{2}, \mathcal{O}_{3}]$ input
 %     space when comparing two MC predictions. Sub-figure a) shows the input space
 %     of 3-dimensions, b) shows a toy MVA (Dense Neural Network) trained to
-%     classify ($s(\bm{x})$) the two MCs, whilst c) shows the
-%     $s(\bm{x})$ classifier distribution and its corresponding density
-%     ratio $r(\bm{x})$. }
+%     classify ($s(\vec{x})$) the two MCs, whilst c) shows the
+%     $s(\vec{x})$ classifier distribution and its corresponding density
+%     ratio $r(\vec{x})$. }
 %   \label{fig:IllustKinUncert_nDim}
 % \end{figure}
 
@@ -183,7 +211,7 @@ As already alluded to
 
 % The following hybrid approach utilises both the above ICHEP 1-dimensional and
 % BDTr $p$-dimensional parameterisation techniques. Specifically, prior to
-% training a classifier ($s(\bm{x})$) on two MC predictions
+% training a classifier ($s(\vec{x})$) on two MC predictions
 % ($\vec{\theta}_{0}$ and $\vec{\theta}_{1}$), the input space of the nominal
 % generator is weighted by the density ratio of a subset of the dimensions of the
 % input space, $\mathbb{R}^{n} \subset \mathbb{R}^{p}$. In the simplest case, and
@@ -191,7 +219,7 @@ As already alluded to
 % $E^{miss}_{T}$ of the event. In this situation the density ratio becomes:
 
 % \begin{equation}
-%   r(\bm{x}) = \frac{p(\bm{x} \rightarrow p^{V}_{T}|\vec{\theta}_{1})}{p(\bm{x} \rightarrow p^{V}_{T}|\vec{\theta}_{0})},
+%   r(\vec{x}) = \frac{p(\vec{x} \rightarrow p^{V}_{T}|\vec{\theta}_{1})}{p(\vec{x} \rightarrow p^{V}_{T}|\vec{\theta}_{0})},
 %   \label{eq:pTVDensityRatio}
 % \end{equation}
 % which is used to map the nominal MC prediction ($\vec{\theta}_{0}$) to look like
@@ -201,9 +229,9 @@ As already alluded to
 % \vec{\theta}_{0}, \vec{\theta}_{1})$, which is then used to re-weight the
 % nominal input space as shown by sub-figure (b). Following this the $p^{V}_{T}$
 % re-weighted input space of the nominal generator, and the unaltered alternative
-% generator are used to train a classifier $s'(\bm{x})$. Upon completion
+% generator are used to train a classifier $s'(\vec{x})$. Upon completion
 % this new $p-1$ dimensional classifier is used to derive a density ratio,
-% $r(s'(\bm{x}))$, that encodes all remaining information that separates
+% $r(s'(\vec{x}))$, that encodes all remaining information that separates
 % the two generators (excluding the $p^{V}_{T}$ dependnce).
 % \begin{figure}[t]
 %   \includegraphics[width=\linewidth]{BDTr_Theory/IllustrationOfProbDensityEstimators_pDim-n.pdf}
@@ -213,7 +241,7 @@ As already alluded to
 %     $\mathcal{O}_{1}$ dimension of the MC prediction, and the corresponding
 %     density ratio. Sub-figure b) then shows the resulting 3-dimensional input
 %     space after re-weighting by the $\mathcal{O}_{1}$ density ratio given in a).
-%     Sub-fgiure c) then shows the resulting new classifier $s(\bm{x})$
+%     Sub-fgiure c) then shows the resulting new classifier $s(\vec{x})$
 %     for this \textit{1D weighted} input space. The red shaded and dotted
 %     distribution in sub-figure c) matches that of figure c) in Figure
 %     \ref{fig:IllustKinUncert_nDim}, simply to demonstrate how the MVa response
@@ -241,12 +269,12 @@ As already alluded to
 %   MC model, $\vec{\theta'}_{0}$, from the alternative MC model,
 %   $\vec{\theta}_{1}$.
 % \item \textbf{Evaluate:} Evaluate the classifier response for the two MC models,
-%   $s'(\bm{x}; \vec{\theta'}_{0}, \vec{\theta}_{1})$
+%   $s'(\vec{x}; \vec{\theta'}_{0}, \vec{\theta}_{1})$
 % \item \textbf{Density Ratio Eval.:} Obtain binned or analytic estimate of
-%   density ratio $r(u=s'(\bm{x}))$
+%   density ratio $r(u=s'(\vec{x}))$
 % \item \textbf{Re-weight:} Re-weight the nominal MC model probability density
-%   function $p(s'(\bm{x})| \vec{\theta}_{0})$ via the density function
-%   $r(u=s'(\bm{x}))$ as a function of $s'(\bm{x})$. Separately
+%   function $p(s'(\vec{x})| \vec{\theta}_{0})$ via the density function
+%   $r(u=s'(\vec{x}))$ as a function of $s'(\vec{x})$. Separately
 %   re-weight the nominal $p(\mathcal{O}_{i}| \vec{\theta}_{0})$ via the
 %   1-dimension density ratio $r(\mathcal{O}_{i})$. The former is the BDTr
 %   nuisance parameter, and the later is the $p^{V}_{T}/E^{\textrm{miss}}_{T}$
@@ -264,7 +292,7 @@ As already alluded to
 % that are common, like the renormalisation scale, may not share the same value.
 % This means that the MC-to-MC comparison does not systematically change in a
 % controlled fashion the underlying parameters that govern the probability density
-% function, $p(\bm{x} | \vec{\theta}_{j})$. In essence it is not
+% function, $p(\vec{x} | \vec{\theta}_{j})$. In essence it is not
 % guarranteed that one can smoothly interpolate between the two models.
 
 % In a profile likelihood fit this means that interpolating between the two MC

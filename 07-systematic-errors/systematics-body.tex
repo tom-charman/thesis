@@ -128,10 +128,22 @@ come from, either the model with parameters $\theta_0$ or $\theta_1$, the output
 is therefore written as $[y_0, y_1]$ where each term in the vector represents
 the probability that an event comes from $p(\vec{x} | \theta_0)$ or $p(\vec{x} |
 \theta_1)$ respectively. Note that the choice of output function in the model
-ensure that probability is conserved, i.e. $y_0 + y_1 = 1$.
+ensure that probability is conserved, i.e. $y_0 + y_1 = 1$. This technique has
+been demonstrated in the literature~\ref{Cranmer:2015bka} where the mathematical
+details are discussed in more detail.
 
-
-
+Our setup allows to create the following approximation
+\begin{equation}
+  r(\vec{x}) =  \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})}
+  \approx \frac{F(\vec{x}, \vec{w})[1]}{F(\vec{x}, \vec{w})[0]},
+  \label{eq:bdtr-approximation}
+\end{equation}
+where $F$ is our trained model whose hyper-parameters we can considered fixed
+and drop from the notation (previously denoted $\vec{\theta}$ in
+chapter~\ref{ch:ml}). The numbers in the square brackets indicate which element
+of the $\vec{y}$ is being selected. Once the above approximation is made the
+steps to generate weights and perform a parameterisation of the difference in
+shape between two predictions is the same as in the one dimensional case.
 
 
 
@@ -322,7 +334,7 @@ ensure that probability is conserved, i.e. $y_0 + y_1 = 1$.
 % spectrum, combined with the known miss-modelling lead to the need for an
 % additional degree of freedom with regards to the $p^{V}_{T}$ kinematics.
     
-\% begin{figure}
+%\begin{figure}
 %   \centering
 %   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMax250_BMin150_Y6051_DCRLow_T2_L1_distpTV_J2_GlobalFit_conditionnal_mu1.pdf}
 %   \includegraphics[width=0.25\linewidth]{BDTr_Theory/1lepFitRegions/Region_BMax250_BMin150_Y6051_DSR_T2_L1_distmva_J2_GlobalFit_conditionnal_mu1log.pdf}

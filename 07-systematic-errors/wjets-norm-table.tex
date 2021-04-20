@@ -1,25 +1,28 @@
 \begin{table}[!htb]
   \centering
-  \begin{tabular}{llllllll}
-    \toprule
-    Process & Name & \multicolumn{6}{ c }{Prior in Region} \\
-    \midrule
-            &  &  CRLow 2-Jets & SR 2-Jets & CRHigh 2-Jets &  CRLow 3-Jets & SR 3-Jets & CRHigh 3-Jets  \\
-            &  &  {\bfseries 1-Lepton}& & & & & \\
-    W+l    &  {\texttt{SysWclNorm}}             &  \multicolumn{6}{ c }{   32\% } \\
-    W+cl   &  {\texttt{SysWlNorm}}              &  \multicolumn{6}{ c }{  37\%  }\\
-    W+hf   & {\texttt{norm\_Wbb\_J2}}           &  \multicolumn{6}{ c }{ Floating Normalisation (2-jet events only)} \\
-    W+hf   & {\texttt{norm\_Wbb\_J3}}           &  \multicolumn{6}{ c }{ Floating Normalisation (3-jet events only)} \\
-    W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -11.5\% &  -- & +14.8\%  &  -3.6\% & -- & +5.1\%    \\
-            &  &  {\bfseries 1-Lepton}& & & & & \\
-    W+hf   & {\texttt{SysWbbNorm\_L0}}    &   5\% &  5\% & --  &  -- & -- & --    \\
-    W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -7.7\% &  -- & +14.9\%  &  -5.6\% & -- & +7.0\%    \\
-    \bottomrule
-  \end{tabular}
-  \caption{Summary of the normalisation uncertainties on the W+jets predictions
-    in the various categories of the 0 and 1-lepton channels. For systematic
-    uncertainties implemented with a prior the effect of 1-$\sigma$ variation is
-    reported. The uncertainties labelled as $Wbb$ act on the entire W+hf
-    background.}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{llllllll}
+      \toprule
+      & & \multicolumn{6}{ c }{Prior in Region} \\
+      Process & Name & CRLow 2-Jets & SR 2-Jets & CRHigh 2-Jets &  CRLow 3-Jets & SR 3-Jets & CRHigh 3-Jets  \\
+      \midrule
+      &  &  {\bfseries 1-Lepton}& & & & & \\
+      W+l    &  {\texttt{SysWclNorm}}             &  \multicolumn{6}{ c }{   32\% } \\
+      W+cl   &  {\texttt{SysWlNorm}}              &  \multicolumn{6}{ c }{  37\%  }\\
+      W+hf   & {\texttt{norm\_Wbb\_J2}}           &  \multicolumn{6}{ c }{ Floating Normalisation (2-jet events only)} \\
+      W+hf   & {\texttt{norm\_Wbb\_J3}}           &  \multicolumn{6}{ c }{ Floating Normalisation (3-jet events only)} \\
+      W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -11.5\% &  -- & +14.8\%  &  -3.6\% & -- & +5.1\%    \\
+      &  &  {\bfseries 0-Lepton}& & & & & \\
+      W+hf   & {\texttt{SysWbbNorm\_L0}}    &   5\% &  5\% & --  &  -- & -- & --    \\
+      W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -7.7\% &  -- & +14.9\%  &  -5.6\% & -- & +7.0\%    \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Summary of the nuisance parameters used to account for the
+    uncertainty on W + jets background predictions. Systematic uncertainties
+    that are implemented with a prior have the value corresponding to a
+    1--$\sigma$ shift shown broken down by lepton channel and analysis category.
+    As can be seen by comparing the process and name columns uncertainties named
+    with \texttt{Wbb} are applied to all W + hf events.}
   \label{tab:wjetsnorm}
 \end{table}

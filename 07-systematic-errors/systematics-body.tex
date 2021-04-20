@@ -142,8 +142,8 @@ considered here the approximation will be the focus.
 Figure~\ref{fig:nd-rw-illustration} shows an illustration of the $N$-dimensional
 parametrisation procedure.
 
-\subsection{Hybrid $p-n$ dimensional parameterisation}
-\label{sec:hybrid-reweight}
+%\subsection{Hybrid $p-n$ dimensional parameterisation}
+%\label{sec:hybrid-reweight}
 
 % The following hybrid approach utilises both the above ICHEP 1-dimensional and
 % BDTr $p$-dimensional parameterisation techniques. Specifically, prior to
@@ -410,7 +410,7 @@ parametrisation procedure.
 \input{07-systematic-errors/experimental-table.tex}
 
 \section{V + jets systematics}
-\label{sec:zjets-shapes}
+\label{sec:vjets}
 Whilst the physics of the W and Z + jets processes leads to them being in
 different channels and needing to be treated differently in the analysis, the
 underlying theory means that simulation of these processes is coupled,
@@ -526,10 +526,483 @@ necessarily expected that the scaling factors should be different for $Z \to
 two processes in their generators compared with those used by the higher order
 theoretical calculations.
 
-\subsection{W + jets systematics}
+\subsection{W + jets modelling uncertainties}
+A number of nuisance parameters are introduced to account for modelling
+uncertainties on the W + jets background process. These uncertainties are
+considered and derived in the 0-- and 1-- lepton channels only as the amount of
+W + jets background present in the 2--lepton channel is negligible. A summary of
+all of the uncertainties for this background can be found in
+table~\ref{tab:wjets_systematics}.
 \input{07-systematic-errors/wjets-table.tex}
+The nominal and alternative predictions described in~\ref{sec:vjets} are used to
+in the determination of all of the values described in the following. 
 
-\subsubsection{Normalisation and Acceptance Errors}
+\subsubsection{Normalisation and Acceptance Uncertainties}
+
+Uncertainties on the W + jets background which take the form of normalisation
+uncertainties include a number of uncertainties designed to account for
+mismodelling of events with certain flavour compositions as well as acceptances
+between leptonic channels and analysis regions. A summary of the normalisation
+uncertainties is shown in table~\ref{tab:wjetsnorm}.
+
+% The $W$+l and $W$+cl background processes are strongly suppressed by the
+% requirement of 2 $b$-tags and as such compose less than 1\% of the background in
+% any region. As such it is sufficient to apply a single normalisation uncertainty
+% for each of these backgrounds, referred to as \texttt{SysWlNorm} and
+% \texttt{SysWclNorm} respectively, which are individually correlated across all
+% regions.
+
+% Given the large uncertainty on the normalisation of the $W$+hf processes, a
+% separate floating normalisation is adopted for 2-jet and 3-jet regions,
+% \texttt{norm\_Wbb\_J2}, \texttt{norm\_Wbb\_J3}. Additional nuisance parameters
+% have been introduced to model the extrapolation uncertainties on the relative
+% normalisation across regions\footnote{While the prior is obtained comparing
+%   double ratios, due to technical reason, the effect of the uncertainty is
+%   applied to only one of the two regions considered in the double ratio. This
+%   choice does not affect the result but only the interpretation of the
+%   normalisation factor.}:
+
+
+
+% \begin{itemize}
+
+% \item \textbf{0-to-1 lepton}: an additional uncertainty on the ratio of the
+%   yields between the 0 and 1-lepton regions derived as a double ratio as
+%   described in Section~\ref{subsubsec:vjetsUnc}. A common uncertainty
+%   (\texttt{SysWbbNorm\_L0}) of 5\% is applied to the 2-jet and 3-jet regions of
+%   the 0-lepton channel, as the most precise constraint on the $W$+hf prediction
+%   is obtained in the 1-lepton channel due to the dedicated $W$+hf control
+%   region. The effect is dominated by the comparison between \MADGRAPH and
+%   \SHERPA.
+
+% \item \textbf{[CR$_{\text{low}}$, SR, CR$_{high}$] $W$+jets Migration}: an
+%   uncertainty on the relative $W$+jets event yield across the control and signal
+%   regions. One NP (\texttt{SysWbbCRSRextrap}) to control the migration effect
+%   from CR$_{\text{low}}$ to SR and from CR$_{high}$ to SR, correlated in n-jet
+%   and in 0-lepton and 1-lepton channels.
+
+% The \ptv factorised BDTr uncertainty induces yield migration effects across the
+% CR/SR analysis regions, which agree well with the acceptance uncertainties
+% calculated directly from the MC generator comparisons (\SHERPA vs \MADGRAPH);
+% this can be observed in Table~\ref{tab:BDTr_MCs_extrap}. However, to increase
+% the degrees of freedom within the profile likelihood fit the yield migration
+% effect across analysis signal/control regions is decorrelated from the \ptv
+% factorised BDTr shape effect on the analysis fit discriminant ($m_{bb}/$mva).
+% This is achieved by the implementation of a new nuisance parameter applied to
+% the CR$_{\text{low}}$ and CR$_{high}$ (\texttt{SysWbbCRSRextrap}), while the
+% \ptv factorised BDTr uncertainty is kept as a shape only systematic. The new
+% nuisance parameter is assigned a prior based on the quadrature sum of the
+% difference between \SHERPA and \MADGRAPH, plus the additional differenes coming
+% from the scale and PDF variations. The relative sign of the nuisance parameter
+% priors for the CR$_{\textrm{\text{low}}}$ to SR and SR to CR$_{\textrm{High}}$
+% boundaries is taken from the net migration effect observed when applying the
+% \ptv factorised BDTr uncertainty. This is motivated by the fact that amongst all
+% MC comparisons a monotonic trend is observed for the net migration from
+% CR$_{\textrm{\text{low}}}$ to CR$_{\textrm{High}}$; see
+% Table~\ref{tab:BDTr_MCs_extrap}.
+
+% \item \textbf{$p^{V}_{T}$ $W$+jets Region Migrations:} an uncertainty on the
+%   relative acceptance between the various binned $p^{V}_{T}$ fit regions of the
+%   analysis. Covered by an uncertainty on the $W+jets~p^{V}_{T}$ spectrum.
+% \end{itemize}
+
+% The full breakdown of the migration effect induced by the $p^{V}_{T}$ factorised
+% BDTr uncertainty is reported in Table~\ref{tab:extrapolation_uncertainties_BDTr}
+% in the Appendix~\ref{app:wjets}, in both 0-lepton and 1-lepton channels. The
+% acceptance uncertainties induced by the $p_T^V$ shape systematic in all the
+% analysis regions and $p_T^V$ bins is reported in
+% Table~\ref{tab:extrapolation_uncertainties_pTV}, in both the 0-lepton and the
+% 1-lepton channels.
+
+
+% \begin{table}[!htb]
+% \begin{center}
+% \tiny
+% \begin{tabular}{ c || c | c | c | c  }
+% \hline
+% \multicolumn{5}{ c }{0-Lepton}   \\
+% \hline
+%  Systematics & 2j: SR/CR$_{\text{low}}$ & 2j: SR/CR$_{high}$ & 3j: SR/CR$_{\text{low}}$ & 3j: SR/CR$_{high}$  \\
+% \hline
+% BDT-rw & -7.3\% & +15.7\% & -2.7\% & +6.7\% \\
+% SH vs MG & +11.1/+11.1\% & -14.8/-14.8\% & -0.3/-0.3\% & -4.8\%/-4.8\%   \\
+% \hline
+% \multicolumn{5}{ c }{1-Lepton}   \\
+% \hline
+% BDT-rw & -10.1\% & +21.5\% & -1.4\% & +9.5\% \\
+% SH vs MG & -7.3/+7.3\% & -14.8/-14.8\% & -3.7/-3.7\% & -6.6\%/-6.6\%  \\
+% \end{tabular}
+% \caption{Migration effect from CR$_{\text{low}}$ to SR and from CR$_{high}$ to
+%   SR induced by the $p_T^V$ factorized BDTr uncertainty compared to the
+%   acceptance uncertainty obtained as a double ratio between the nominal \SHERPA
+%   and the alternative \MADGRAPH.}
+% \label{tab:BDTr_MCs_extrap}
+% \end{center}
+% \end{table}
+
+
+% %%%\textcolor{red}{TIM: Need to add the dominant source of uncertainty.  V: this
+% %%%is tricky atm since the net effect is much smaller than 10\% but then there
+% %%%is the Rivet/Reco NC ... which we haven't mentioned yet ...}.
+
+% %%%%\textcolor{red}{T: Is the following statement necessary? V: does not look
+% %%%%harmful to me but could be removed}
+
+% %%%%It should be noted that the way the normalisation systematics are
+% %%%%implemented affects the interpretation of the normalisation factor returned
+% %%%%by the fit. In the described configuration, the normalisation factor is
+% %%%%mainly driven by the 2-jet WCR.
+
+
+
+% \subsubsection{Flavour composition uncertainties}
+
+% The $W$+hf background is composed of the contributions from the $bb$, $bc$, $bl$
+% and $cc$ backgrounds; the relative composition of the various sub-components in
+% the 1-lepton analysis regions after full reconstruction selection is summarised
+% in Table~\ref{tab:wCOMP}. Uncertainties on the relative composition of these
+% processes are estimated separately in the 1-lepton and the 0-lepton channels. A
+% summary of the flavour composition uncertainties is reported in
+% Table~\ref{tab:whf}. The full breakdown of the uncertainties is outlined in
+% Appendix~\ref{app:wjets} of the previous version of this note at Ref.
+% \cite{VHmodellingsupportnote}. These numbers have been recalculated using the
+% new event categorization of the analysis and the full breakdown is outlined in
+% the Appendix~\ref{app:wjets} of this note; however, since the \SHERPA2.1 samples
+% for \textit{ckkw} and \textit{qsf} variations are not yet available, it was
+% decided to keep the numbers used for the ICHEP 2018 publication.\\ The
+% uncertainties are implemented as normalisation uncertainties on each of the
+% smaller components ($bc$ [\texttt{SysWbcWbbRatio}], $bl$
+% [\texttt{SysWblWbbRatio}], $cc$ [\texttt{SysWccWbbRatio}]) relative to the $bb$
+% component.
+
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{lllllll}
+%     \toprule
+%     Process & CRLow & CRHigh & SR & CRLow & CRHigh & SR \\
+%             & \multicolumn{3}{l}{\bfseries 2 jet}  &  \multicolumn{3}{l}{\bfseries 3 jet} \\
+%     \midrule
+%     {\bfseries 1-lepton} & & & & & & \\
+%     $Wcc$ & 0.03 & 0.05 & 0.03 & 0.03 & 0.04 & 0.03\\
+%     $Wbl$ & 0.01 & 0.03 & 0.01 & 0.01 & 0.05 & 0.02\\
+%     $Wbc$ & 0.03 & 0.15 & 0.07 & 0.03 & 0.13 & 0.05\\
+%     $Wbb$ & 0.93 & 0.77 & 0.89 & 0.94 & 0.77 & 0.90\\
+%     {\bfseries 0-lepton} & & & & & & \\
+%     $Wcc$ & 0.03 & 0.02 & 0.03 & 0.03 & 0.03 & 0.04\\
+%     $Wbl$ & 0.01 & 0.03 & 0.09 & 0.01 & 0.02 & 0.07\\
+%     $Wbc$ & 0.02 & 0.05 & 0.10 & 0.02 & 0.04 & 0.10\\
+%     $Wbb$ & 0.94 & 0.90 & 0.78 & 0.94 & 0.91 & 0.79\\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{The fractional contribution of each $W$+hf subprocesses to the total
+%     $W$+hf yields in all 1-lepton and 0-lepton channels analysis regions.}
+%   \label{tab:wCOMP}
+% \end{table}
+
+% \begin{table}[!htbp]
+%   \centering
+%   \begin{tabular}{llll}
+%     \toprule
+%     Category & Nuisance Parameter Name & Prior & Applied to\\ 
+%     \midrule
+%     \multirow{ 2}{*}{$W$+bc/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWbcWbbRatio}}  & 15\% & $W$+bc events (0-Lepton) \\
+%              &    & 30\% & $W$+bc events (1-Lepton) \\
+%     \multirow{ 2}{*}{$W$+bl/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWblWbbRatio}}     & 10\% & $W$+bl events (0-Lepton)\\
+%              &    & 30\% & $W$+bl events (1-Lepton)\\
+%     \multirow{ 2}{*}{$W$+cc/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWccWbbRatio}}    &  26\% & $W$+cc events (0-Lepton)\\
+%              &    &  23\% & $W$+cc events (1-Lepton)\\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{The priors on the relative acceptance variations for $W$+hf. The first
+%     column details the flavour components across which the acceptance variation
+%     is being considered, the second column quotes the name of the corresponding
+%     nuisance parameter in the Profile Likelihood Fit, the third contains the
+%     value of the prior and the fourth column the processes and categories to
+%     which this nuisance parameter is applied.}
+%   \label{tab:whf}
+% \end{table}
+
+% Full information on the uncertainty evaluation can be found in
+% Appendix~\ref{app:wfcomp_CBAMVA}. The largest systematic variation between the
+% regions comes from the comparison between \SHERPA2.2.1 and \MADGRAPH and is
+% applied as a common variation in all the analysis regions. The same value is
+% adopted for both the 2 and 3-jet bins as well as for the CR$_{\text{low}}$, SR
+% and CR$_{high}$ fit regions. This approach is justified by the relatively small
+% contribution of the non-$bb$ components after the 2 $b$-tag requirement which
+% makes the impact of the choice of the correlation scheme negligible in the final
+% fit.
+
+% Variations of the flavour composition are also partly accounted by the shape
+% uncertainty on the $m_{bb}$ distribution since the $W$+hf components have an
+% intrinsically different $m_{bb}$ distribution\footnote{In particular differences
+%   are observed between processes containing gluon splitting diagrams ($W$+bb and
+%   $W$+cc) and processes not containing it ($W$+bc and$W$+bl).} as illustrated in
+% Figure~\ref{fig:wjets_1lep_FlavComp_mBB}. These plots come from the studies
+% performed for the derivation of the flavour composition uncertainties for the
+% ICHEP 2018 publication.
+
+% \begin{figure}[!htp]
+% \begin{center}
+% \subfigure[$m_{bb}$ 2tag 2jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/Wjets_FlavComposition_mBB_pTV/2tag2jet_150ptv_SR+CR_mBB.pdf}}
+% \subfigure[$m_{bb}$ 2tag 2jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/Wjets_FlavComposition_mBB_pTV/2tag3jet_150ptv_SR+CR_mBB.pdf}}\\
+% \caption{\mbb\ distribution in the 1-lepton channel for each heavy flavour
+%   category and for the 2-jet and 3-jet categories. Differences are observed
+%   between processes containing gluon splitting diagrams ($W$+bb and $W$+cc) and
+%   processes not containing it ($W$+bc and$W$+bl).}
+% \label{fig:wjets_1lep_FlavComp_mBB}
+% \end{center}
+% \end{figure}
+
+% The shape uncertainties are derived as described in
+% Section~\ref{subsubsec:vjetsUnc}.
+
+% \subsubsection{BDTr-based shape uncertainties}
+% \label{subsubsec:WjetsBDTrBasedShapeSyst}
+
+% A hybrid BDTr approach, as described in Section~\ref{subsec:ShapeMethod}, has
+% been adopted in the 1-lepton and the 0-lepton channels to derive the BDTr-based
+% shape systematics.
+
+% \textbf{$p_T^V$ shape systematic}
+
+% In each leptonic channel, eight shapes are derived depending on the jet category
+% (2-jet and 3-jet) and flavour composition of the event. Only heavy flavours
+% events ($W$+bb, $W$+bc, $W$+bl and $W$+cc) are considered as the $W$+l and
+% $W$+cl background processes compose less than 1\% of the background in any
+% region.
+
+% In the 1-lepton channel, these shapes are obtained from a linear fit to the
+% ratio between \SHERPA2.2.1 and \MADGRAPH  in the $p_T^V$ distribution with
+% $p_T^V > 75$\ GeV. In the 0-lepton channel, the MET distribution with MET
+% $>150$\ GeV is used.\\
+
+% Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and
+% Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} shows $p_T^V$ shape systematics in
+% the 1-lepton channel for each heavy flavour category and for 2-jet and 3-jet
+% events, respectively.
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[$p_T^V$ 2tag 2jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bb.pdf}}  
+% \subfigure[$p_T^V$ 2tag 2jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bc.pdf}}  \\
+% \subfigure[$p_T^V$ 2tag 2jet bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_bl.pdf}} 
+% \subfigure[$p_T^V$ 2tag 2jet cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag2jet_75ptv_SR+CR_pTV_cc.pdf}}  \\
+% \caption{$p_T^V$ shape systematic in the 1-lepton channel for each heavy flavour category and for the 2-jet category. The red and blue histograms correspond to the $p_T^V$ distribution predicted by \SHERPA2.2.1 and \MADGRAPH, respectively, while the $p_T^V$ shape systematic is plotted in green.}
+% \label{fig:wjets_1lep_2jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[$p_T^V$ 2tag 3jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bb.pdf}}  
+% \subfigure[$p_T^V$ 2tag 3jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bc.pdf}}  \\
+% \subfigure[$p_T^V$ 2tag 3jet bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_bl.pdf}} 
+% \subfigure[$p_T^V$ 2tag 3jet cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_pTVreweighting_shapes/1lepton_2tag3jet_75ptv_SR+CR_pTV_cc.pdf}}  \\
+% \caption{$p_T^V$ shape systematic in the 1-lepton channel for each heavy flavour
+%   category and for the 3-jet category. The red and blue histograms correspond to
+%   the $p_T^V$ distribution predicted by \SHERPA2.2.1 and \MADGRAPH,
+%   respectively, while the $p_T^V$ shape systematic is plotted in green.}
+% \label{fig:wjets_1lep_3jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% Given the low statistics in the 0-lepton channel, the $p_T^V$ shapes derived in
+% the 1-lepton channel are also used in the 0-lepton channel. The goodness of this
+% approach is showed in Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr} for the
+% 2tag2jet category and in Figure~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} for the
+% 2tag3jet region for each heavy flavour pair. An offset between the $p_T^V$ and
+% the MET shapes in the two channels can be seen, especially in the $W$+bl events.
+% This is due to the fact that the $p_T^V$ shape is derived from a unit-normalized
+% ratio between \SHERPA2.2.1 and \MADGRAPH in the $p_T^V > 75$\ GeV  range, while
+% the MET distribution is normalized to 1 in the MET $>150$\ GeV range. This is
+% confirmed by the example plot in
+% Figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} where both the $p_T^V$
+% and the MET shape in the 2tag2jet region have been normalized to 1 in the
+% $p_T^V$(MET) $>150$\ GeV range.
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[2tag 2jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bb.pdf}}
+% \subfigure[2tag 2jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bc.pdf}}  \\
+% \subfigure[2tag 2jet bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bl.pdf}} 
+% \subfigure[2tag 2jet cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_cc.pdf}}  \\
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag2jet region of the 1-lepton and 0-lepton channels, respectively, for each heavy flavour pair.}
+% \label{fig:wjets_01lep_2jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[2tag 3jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bb.pdf}}  
+% \subfigure[2tag 3jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bc.pdf}}  \\
+% \subfigure[2tag 3jet bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_bl.pdf}} 
+% \subfigure[2tag 3jet cc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag3jet_75ptv_cc.pdf}}  \\
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag3jet region of the
+%   1-lepton and 0-lepton channels, respectively, for each heavy flavour pair.}
+% \label{fig:wjets_01lep_3jet_SysWPtVBDTr}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[$p_T^V$ and $MET$ 2tag 3jet
+% bl]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/01Lep_reweighting_shapes/ReweightingVarComparison_2tag2jet_75ptv_bl_NormalizedFrom150.pdf}}
+% \caption{$p_T^V$ and MET shape systematics derived in the 2tag2jet region of the
+%   1-lepton and 0-lepton channels, respectively, for $W$+bl events, both
+%   normalized in the $p_T^V > 150$\GeV and MET$ > 150$\GeV.}
+% \label{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150}
+% \end{center}
+% \end{figure}
+
+% The $p_T^V$ shape systematic, derived in the 1-lepton channel, are thus applied
+% to both the 1-lepton and the 0-lepton channel and implemented in the fit as a
+% single nuisance parameter called \texttt{SysWPtV\_BDTr}.
+
+
+% \textbf{BDTr shape systematic}
+
+% %### HEAD ###
+% %Prior the training, the nominal \SHERPA2.2.1 events are reweighted by the $p_T^V$  ratio with the alternative \MADGRAPH in each jet region and for each heavy flavour component. This ratio is exactly the one shown in blue in the bottom panel of Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} from which the $p_T^V$ shape uncertainty is derived through a linear fit. This allows to have a BDT shape systematic that does not account for the variance in $p_T^V$ .\\
+% %Once the training and evaluation are performed for each jet category and heavy flavour pair, the ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's distributions is found and used to define the BDTr-based systeamatic uncertainty. This is implemented in the fit as a nuisance parameter called \texttt{SysBDTr\_W\_SHtoMG5}.
+% % >>> <<<
+% Prior to the BDT training, the nominal \SHERPA2.2.1 events are reweighted by the
+% $p_T^V$ density ratio with the alternative \MADGRAPH in each jet region and for
+% each heavy flavour component. This thereby decouples the \ptv shape uncertainty
+% from the  BDTr based shape uncertainty, where the aforementioned density ratio
+% is implemented within the fit as a nuisance parameter called
+% \texttt{SysWPtV\_BDTr} (see Section \ref{subsubsec:WjetsBDTrBasedShapeSyst}).\\
+
+% Following the factorisation of the \ptv information, the \ptv weighted
+% \SHERPA2.2.1 and \MADGRAPH samples are trained against each other using a
+% classification BDT with the same inputs as those used in the main analysis MVA
+% (as outlined in Ref. \cite{AlKhoury:2692011}). Upon completion of the training
+% and evaluation of the BDT classifier for each jet category and heavy flavour
+% pair, the density ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's
+% distributions is derived. This is then implemented as either a binned or
+% continuous parameteric re-weighting function within the analysis, which then
+% enters the profile likelihood fit as a nuisance parameter called
+% \texttt{SysBDTr\_W\_SHtoMG5}.
+
+% In Figure~\ref{fig:wjets_1lep_2jet_BDTrClosure_1}, the closure of the BDTr-based
+% shape systematic on some of the key variables entering the analysis MVA is shown
+% for the 1-lepton 2tag2jet category and for the $W$+bb events only. More plots
+% showing the closure on the remaining variables and for $W$+bb, $W$+bc and $W$+bl
+% events in the 1-lepton 2tag2jet category and the full set of plots for the
+% 1-lepton 2tag3jet category can be found in the Appendix~\ref{app:wjets}. Small
+% level of non-closure is found but is of no worry as the most important variables
+% entering the Analysis-BDT, $p_T^V$ and $m_{bb}$, and the Analysis-BDT itself are
+% fully covered by the BDTr-based shape systematic.
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_pTV_bb.pdf}}  
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_mBB_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_Mtop_bb.pdf}} 
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_dRBB_bb.pdf}} \\
+% \caption{Closure of BDTr-based systematic on the variables entering the analysis MVA in the 2tag2jet region of the 1-lepton channel. The BDTr-based systematic is plotted in magenta, while the $p_T^V$ shape systematic is plotted in green. }
+% \label{fig:wjets_1lep_2jet_BDTrClosure_1}
+% \end{center}
+% \end{figure}
+
+%  In Figure~\ref{fig:wjets_0lep_2jet_BDTrClosure_1}, the closure of the
+%  BDTr-based shape systematic on some of the key variables entering the analysis
+%  MVA is shown for the 0-lepton 2tag2jet category and for the $W$+bb events only.
+%  More plots showing the closure on the remaining heavy flavour pairs in the
+%  0-lepton 2tag2jet category and the full set of plots for the 0-lepton 2tag3jet
+%  category can be found in the Appendix~\ref{app:wjets}. Also in this case, small
+%  level of non-closure is found but is of no worry as the most important
+%  variables entering the Analysis-BDT, MET and $m_{bb}$, and the Analysis-BDT
+%  itself are fully covered by the BDTr-based shape systematic.
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_MET_bb.pdf}}  
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_mBB_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_dRBB_bb.pdf}} \\
+% \caption{Closure of BDTr-based systematic on the variables entering the analysis
+%   MVA in the 2tag2jet region of the 0-lepton channel. The BDTr-based systematic
+%   is plotted in magenta, while the $p_T^V$ shape systematic is plotted in green.
+% }
+% \label{fig:wjets_0lep_2jet_BDTrClosure_1}
+% \end{center}
+% \end{figure}
+
+%  The effect of the BDTr-based systematic shape, as well as the $p_T^V$ one on
+%  the full Run2 analysis MVA is shown in
+%  Figure~\ref{fig:wjets_1lep_FullRun2MVA_BDTrClosure} and in
+%  Figure~\ref{fig:wjets_0lep_FullRun2MVA_BDTrClosure} for $W$+bb events in the
+%  2tag2jet category on the left and 2tag3jet category on the right, for the
+%  1-lepton and the 0-lepton channels, respectively.
+ 
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/1Lep_BDTbased_closure/1lepton_2tag3jet_75ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  \\
+% \caption{Closure of BDTr-based systematic on the full Run 2 analysis MVA for
+%   $W$+bb events in the 2tag2jet region (on the left) and 2tag3jet region (on the
+%   right) of the 1-lepton channel. The BDTr-based systematic is plotted in
+%   magenta, while the $p_T^V$ shape systematic is plotted in green. }
+% \label{fig:wjets_1lep_FullRun2MVA_BDTrClosure}
+% \end{center}
+% \end{figure}
+ 
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/BDTreweighting/0Lep_BDTbased_closure/0lepton_2tag3jet_150ptv_SR+CR_mvaFullRun2Default_bb.pdf}}
+% \\
+% \caption{Closure of BDTr-based systematic on the full Run 2 analysis MVA for
+%   $W$+bb events in the 2tag2jet region (on the left) and 2tag3jet region (on the
+%   right) of the 0-lepton channel. The BDTr-based systematic is plotted in
+%   magenta, while the $p_T^V$ shape systematic is plotted in green.}
+% \label{fig:wjets_0lep_FullRun2MVA_BDTrClosure}
+% \end{center}
+% \end{figure} 
+
+
+% Table~\ref{tab:extrapolation_uncertainties_pTV} and
+% Table~\ref{tab:extrapolation_uncertainties_BDTr} show the extrapolation
+% uncertainties of the $p_T^V$ and the BDTr-based shape systematics, respectively,
+% across all regions and $p_T^V$ bins of the analysis for both the 0-lepton and
+% the 1-lepton channels.
+% \begin{table}[!htb]
+%   \centering
+%   \begin{tabular}{lllllll}
+%     \toprule
+%     $p_T^v$ region & CR$_{\text{low}}$ &  SR   &  CR$_{high}$ & weighted-sum &  weighted-sum $\Delta$(CR$_{\text{low}}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+%     {\bfseries 0-lepton}& & & & & & \\
+%     {\bfseries 2-jet} & & & & & & \\
+%     150-250 $p_T^V$ & 5.08       & 5.49    & 5.83         & 5.44    &   \multirow{2}{*}{-1.64}       &      \multirow{2}{*}{-1.64}     \\
+%     250 $p_T^V$                  & 14.08      & 17.52  & 18.37        & 17.48    &         &           \\
+%     $\Delta$(high-low) $p_T^V$   & 9.00       & 12.03  & 12.54        & 12.04    &    --      &     -- \\
+%     {\bfseries 3-jet} & & & & & & \\
+%     150-250 $p_T^V$              & 4.12       & 4.41    & 4.77         & 4.42     &   \multirow{2}{*}{-1.26}       &   \multirow{2}{*}{-1.41}         \\
+%     250 $p_T^V$                  & 14.95      & 16.97   & 18.44        & 17.33    &          &            \\
+%     $\Delta$(high-low) $p_T^V$   & 10.83      & 12.56   & 13.67        & 12.91    &    --      &  --     \\
+%     {\bfseries 1-lepton} & & & & & & \\
+%     {\bfseries 2-jet} & & & & & &  \\
+%     150-250 $p_T^V$              & 5.14  & 5.41  & 5.29  & 5.30  &   \multirow{2}{*}{-1.95}            &  \multirow{2}{*}{+0.60}    \\
+%     250 $p_T^V$                  & 14.08 & 17.34 & 18.30 & 17.47 &               &         \\
+%     $\Delta$(high-low) $p_T^V$   & 8.94  & 11.93 & 13.01 & 12.17 &      --         &   --  \\
+%     {\bfseries 3-jet} & & & & & & \\
+%     150-250 $p_T^V$              & 4.08  & 4.38  & 4.61  & 4.39  &    \multirow{2}{*}{-1.89}     &     \multirow{2}{*}{+1.34}      \\ 
+%     250 $p_T^V$                  & 15.24 & 18.02 & 19.01 & 18.24 &               &              \\
+%     $\Delta$(high-low) $p_T^V$   & 11.16 & 13.64 & 14.40 & 13.85 &     --          &      --  \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{Summary of the extrapolation uncertainties of the $p_T^V$ shape
+%     systematic on the $W$+jets samples across all the analysis regions of the
+%   analysis and in the 0 and 1-lepton channels. The third column for both 2-jet
+%   and 3-jet categories shows the normalization effect induced by the shape
+%   systematic weighted by the yields in each of the analysis regions. The last
+%   row for both 0-lepton and 1-lepton channels shows the normalization effect
+%   induced by the $p_T^V$ shape systematic across the different $p_T^V$ bins of the
+%   analyisis. The last row for both 0-lepton and 1-lepton channels shows the
+%   normalization effect induced by the BDTr-based shape systematic across the
+%   different $p_T^V$ bins of the analyisis. The last two columns show the migration
+%   effect, inclusive in the two $p_T^V$ bins induced by the pVTshape systematic
+%   from CR$_{\text{low}}$ to SR and from CR$_{high}$ to SR.}
+% \label{tab:extrapolation_uncertainties_pTV}
+% \end{table}
 
 \subsubsection{Shape Errors}
 

@@ -1,0 +1,47 @@
+\chapter{BDTr Density Ratio Proof}
+\label{app:bdtr-proof}
+
+It is possible to turn the approximation in equation~\ref{eq:bdtr-approximation}
+in section~\ref{sec:ND-reweight} into an equivalence. The following is a proof
+that his can be done provided that $F$ is a monotonic function. Starting with
+the definition of the probability density function
+\begin{equation}
+  p(s(\vec{x}) | \vec{\theta}_{0}) = \frac{d}{du} \int_{s(\vec{x'}) \leq u} p(\vec{x'} | \vec{\theta}_{0}) d\vec{x'}
+  =  \int_{\mathbb{R}^{p}} \delta (u-s(\vec{x'})) p(\vec{x'} | \vec{\theta}_{0}) d\vec{x'}
+\end{equation}
+it is proven~\cite{Hormander1990} that this can be written as
+\begin{equation}
+  p(s(\vec{x}) | \vec{\theta}_{0}) = \int_{\vec{x'} \in \Omega_{u}} \frac{1}{|\bigtriangledown s(\vec{x'})|} p(\vec{x'} | \vec{\theta}_{0}) dS_{\vec{x'}},
+  \label{eq:CordTransPDF}
+\end{equation}
+where $|\bigtriangledown s(\vec{x'})| = \sqrt{\sum^{p}_{i}
+  |\frac{ds(\vec{x'})}{dx_{i}}|^{2}}$, and $dS_{\vec{x'}}$ is the
+Euclidean surface measure of $\Omega_{u}$. The purpose of this coordinate
+transformation of, is paired with the fact that as $F(\vec{x'})$ is
+monotonic
+
+with $r(\vec{x}; \vec{\theta}_{0}, \vec{\theta}_{1})$, there exists an
+invertible function $m$ that satisfies
+\begin{equation}
+  \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})} = m^{-1}(s(\boldsymbol(x)))
+  \label{eq:invertibleFunc}
+\end{equation}
+Therefore combining equation~\ref{eq:CordTransPDF} and equation
+\ref{eq:invertibleFunc}, one can extract the probability density ratio
+\begin{equation}
+  p(s(\vec{x}) | \vec{\theta}_{0}) = m(s(\vec{x})) \int_{\vec{x'} \in \Omega_{u}} \frac{1}{|\bigtriangledown s(\vec{x'})|} p(\vec{x'} | \vec{\theta}_{1}) dS_{\vec{x'}},
+\end{equation}
+Performing the same calculation for $p(s(\vec{x}), \vec{\theta}_{1})$
+from equation~\ref{eq:CordTransPDF}, it can then be shown that
+\begin{equation}
+  \frac{p(s(\vec{x}) | \vec{\theta}_{1})}{p(s(\vec{x}) | \vec{\theta}_{0})} = \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})} \frac{\int_{\vec{x'} \in \Omega_{u}} \frac{1}{|\bigtriangledown s(\vec{x'})|} p(\vec{x'} | \vec{\theta}_{1}) dS_{\vec{x'}}}{\int_{\vec{x'} \in \Omega_{u}} \frac{1}{|\bigtriangledown s(\vec{x'})|} p(\vec{x'} | \vec{\theta}_{1}) dS_{\vec{x'}}} =  \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})},
+\end{equation}
+The significance of the above heuristic proof is that by substituting
+$\vec{x} \rightarrow u = s(\vec{x})$, the probability density
+ratio in $\mathbb{R}^{p}$ space is equivalent to the dimensionally reduced
+$\mathbb{R}$ (1-dimension) space. This means that if one trains a BDT/NN
+classifier on two MC models, $\vec{\theta}_{0}$ and $\vec{\theta}_{1}$, then the
+ratio of the two MC model probability density functions, $p(s(\vec{x}) |
+\vec{\theta}_{0/1})$, as a function of the classifier response can be derived
+via the use of a single 1-dimensional binned/continuous function.
+

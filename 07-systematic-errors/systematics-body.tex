@@ -12,6 +12,23 @@ given distribution causing events to migrate between bins of a histogram, and
 potentially across boundaries that are used to define analysis regions described
 in~\ref{sec:ana-regions}.
 
+A sub-category of normalisation effect is the acceptance effect which deals with
+the normalisation in a particular region or set of regions. The purpose of the
+acceptance uncertainties is to account for any mismodelling in the theoretical
+prediction of the quantities used to categorise events into regions be it the
+leptonic channel, jet multiplicity or an analysis region. Nuisance parameters in
+the profile likelihood fit are used to control the acceptance, they are
+implemented as Gaussian probability densities whose priors are estimated in
+advance. The priors of all of these so called acceptance uncertainties are
+calculated using the double ratio
+\begin{equation}
+  \left. \dfrac{N_{A}^{\text{nominal}}}{N_{B}^{\text{nominal}}} \middle/ \dfrac{N_{A}^{\text{alternative}}}{N_{B}^{\text{alternative}}} \right.,
+  \label{eq:acceptance-dr}
+\end{equation}
+where the formula has been written agnostic of the specific application so
+$N_{A}^{nominal}$ is the number of events in the nominal prediction in some
+region or category called $A$ and so on. 
+
 The rest of this chapter will detail the sources of systematic error broken down
 into groups of similar origin. Before breaking down each group of systematic
 errors a technique called the Boosted Decision Tree Re-weighting method will be
@@ -462,7 +479,7 @@ described in table~\ref{tab:bc-filters}. All nominal V + jets samples with the
 corresponding max($H_T$,$p_T^V$) slices and flavour filters are listed in
 tables~\ref{tabular:mc_samples_Wjets} \ref{tabular:mc_samples_Zlljets}, and
 \ref{tabular:mc_samples_Zvvjets} in the appendices.
-
++
 A set of alternative predictions are used for a number of purposes in the
 analysis, one such purpose is to investigate any discrepancies that may arise
 between data and the nominal prediction. If the same discrepancy is present when
@@ -539,122 +556,46 @@ in the determination of all of the values described in the following.
 
 \subsubsection{Normalisation and Acceptance Uncertainties}
 
-Uncertainties on the W + jets background which take the form of normalisation
-uncertainties include a number of uncertainties designed to account for
-mismodelling of events with certain flavour compositions as well as acceptances
-between leptonic channels and analysis regions. A summary of the normalisation
-uncertainties is shown in table~\ref{tab:wjetsnorm}.
+A summary of the normalisation uncertainties is shown in
+table~\ref{tab:wjetsnorm}.
 \input{07-systematic-errors/wjets-norm-table}
+A single nuisance parameter is introduced for each of the W + cl and W + l
+processes which are both heavily suppressed by the analysis requirement of two
+b-tagged jets. There is a large mismodelling of the normalisation of the W + hf
+process and so floating normalisations are used separately in the 2--jet and
+3--jet categories. Priors for several acceptance uncertainties are calculated using
+equation~\ref{eq:acceptance-dr}\footnote{Whilst the priors are obtained with the
+  double ratio formula involving two regions, the effect of the uncertainty is
+  applied to only one of the two regions. This does not affect the result but
+  only the interpretation of the resulting acceptance factor.} which are used to
+control the migration of events between the 0-- and 1--lepton channels and the
+migration between the $\Delta R(b, \bar{b})$ regions.
 
-% The $W$+l and $W$+cl background processes are strongly suppressed by the
-% requirement of 2 $b$-tags and as such compose less than 1\% of the background in
-% any region. As such it is sufficient to apply a single normalisation uncertainty
-% for each of these backgrounds, referred to as \texttt{SysWlNorm} and
-% \texttt{SysWclNorm} respectively, which are individually correlated across all
-% regions.
+The parameter controlling migration between the two leptonic channels
+\texttt{SysWbbNorm\_L0} is applied to both the 2--jet and 3--jet regions of the
+0--lepton channel. The choice to apply to the 0--lepton channel and not the
+1--lepton channel is made because the 1--lepton channel provides a better
+constraint on the W + hf process. Whilst all alternative predictions are
+considered the size of this prior is dominated by the difference between the
+nominal prediction and \textsc{MadGraph}.
 
-% Given the large uncertainty on the normalisation of the $W$+hf processes, a
-% separate floating normalisation is adopted for 2-jet and 3-jet regions,
-% \texttt{norm\_Wbb\_J2}, \texttt{norm\_Wbb\_J3}. Additional nuisance parameters
-% have been introduced to model the extrapolation uncertainties on the relative
-% normalisation across regions\footnote{While the prior is obtained comparing
-%   double ratios, due to technical reason, the effect of the uncertainty is
-%   applied to only one of the two regions considered in the double ratio. This
-%   choice does not affect the result but only the interpretation of the
-%   normalisation factor.}:
-
-
-
-% \begin{itemize}
-
-% \item \textbf{0-to-1 lepton}: an additional uncertainty on the ratio of the
-%   yields between the 0 and 1-lepton regions derived as a double ratio as
-%   described in Section~\ref{subsubsec:vjetsUnc}. A common uncertainty
-%   (\texttt{SysWbbNorm\_L0}) of 5\% is applied to the 2-jet and 3-jet regions of
-%   the 0-lepton channel, as the most precise constraint on the $W$+hf prediction
-%   is obtained in the 1-lepton channel due to the dedicated $W$+hf control
-%   region. The effect is dominated by the comparison between \MADGRAPH and
-%   \SHERPA.
-
-% \item \textbf{[CR$_{\text{low}}$, SR, CR$_{high}$] $W$+jets Migration}: an
-%   uncertainty on the relative $W$+jets event yield across the control and signal
-%   regions. One NP (\texttt{SysWbbCRSRextrap}) to control the migration effect
-%   from CR$_{\text{low}}$ to SR and from CR$_{high}$ to SR, correlated in n-jet
-%   and in 0-lepton and 1-lepton channels.
-
-% The \ptv factorised BDTr uncertainty induces yield migration effects across the
-% CR/SR analysis regions, which agree well with the acceptance uncertainties
-% calculated directly from the MC generator comparisons (\SHERPA vs \MADGRAPH);
-% this can be observed in Table~\ref{tab:BDTr_MCs_extrap}. However, to increase
-% the degrees of freedom within the profile likelihood fit the yield migration
-% effect across analysis signal/control regions is decorrelated from the \ptv
-% factorised BDTr shape effect on the analysis fit discriminant ($m_{bb}/$mva).
-% This is achieved by the implementation of a new nuisance parameter applied to
-% the CR$_{\text{low}}$ and CR$_{high}$ (\texttt{SysWbbCRSRextrap}), while the
-% \ptv factorised BDTr uncertainty is kept as a shape only systematic. The new
-% nuisance parameter is assigned a prior based on the quadrature sum of the
-% difference between \SHERPA and \MADGRAPH, plus the additional differenes coming
-% from the scale and PDF variations. The relative sign of the nuisance parameter
-% priors for the CR$_{\textrm{\text{low}}}$ to SR and SR to CR$_{\textrm{High}}$
-% boundaries is taken from the net migration effect observed when applying the
-% \ptv factorised BDTr uncertainty. This is motivated by the fact that amongst all
-% MC comparisons a monotonic trend is observed for the net migration from
-% CR$_{\textrm{\text{low}}}$ to CR$_{\textrm{High}}$; see
-% Table~\ref{tab:BDTr_MCs_extrap}.
-
-% \item \textbf{$p^{V}_{T}$ $W$+jets Region Migrations:} an uncertainty on the
-%   relative acceptance between the various binned $p^{V}_{T}$ fit regions of the
-%   analysis. Covered by an uncertainty on the $W+jets~p^{V}_{T}$ spectrum.
-% \end{itemize}
-
-% The full breakdown of the migration effect induced by the $p^{V}_{T}$ factorised
-% BDTr uncertainty is reported in Table~\ref{tab:extrapolation_uncertainties_BDTr}
-% in the Appendix~\ref{app:wjets}, in both 0-lepton and 1-lepton channels. The
-% acceptance uncertainties induced by the $p_T^V$ shape systematic in all the
-% analysis regions and $p_T^V$ bins is reported in
-% Table~\ref{tab:extrapolation_uncertainties_pTV}, in both the 0-lepton and the
-% 1-lepton channels.
-
-
-% \begin{table}[!htb]
-% \begin{center}
-% \tiny
-% \begin{tabular}{ c || c | c | c | c  }
-% \hline
-% \multicolumn{5}{ c }{0-Lepton}   \\
-% \hline
-%  Systematics & 2j: SR/CR$_{\text{low}}$ & 2j: SR/CR$_{high}$ & 3j: SR/CR$_{\text{low}}$ & 3j: SR/CR$_{high}$  \\
-% \hline
-% BDT-rw & -7.3\% & +15.7\% & -2.7\% & +6.7\% \\
-% SH vs MG & +11.1/+11.1\% & -14.8/-14.8\% & -0.3/-0.3\% & -4.8\%/-4.8\%   \\
-% \hline
-% \multicolumn{5}{ c }{1-Lepton}   \\
-% \hline
-% BDT-rw & -10.1\% & +21.5\% & -1.4\% & +9.5\% \\
-% SH vs MG & -7.3/+7.3\% & -14.8/-14.8\% & -3.7/-3.7\% & -6.6\%/-6.6\%  \\
-% \end{tabular}
-% \caption{Migration effect from CR$_{\text{low}}$ to SR and from CR$_{high}$ to
-%   SR induced by the $p_T^V$ factorized BDTr uncertainty compared to the
-%   acceptance uncertainty obtained as a double ratio between the nominal \SHERPA
-%   and the alternative \MADGRAPH.}
-% \label{tab:BDTr_MCs_extrap}
-% \end{center}
-% \end{table}
-
-
-% %%%\textcolor{red}{TIM: Need to add the dominant source of uncertainty.  V: this
-% %%%is tricky atm since the net effect is much smaller than 10\% but then there
-% %%%is the Rivet/Reco NC ... which we haven't mentioned yet ...}.
-
-% %%%%\textcolor{red}{T: Is the following statement necessary? V: does not look
-% %%%%harmful to me but could be removed}
-
-% %%%%It should be noted that the way the normalisation systematics are
-% %%%%implemented affects the interpretation of the normalisation factor returned
-% %%%%by the fit. In the described configuration, the normalisation factor is
-% %%%%mainly driven by the 2-jet WCR.
-
-
+Migration between the $\Delta R(b, \bar{b})$ control regions and the signal
+region is controlled by one parameter per control region. Named
+\texttt{SysWbbCRSRextrap} it can be seen in table~\ref{tab:wjetsnorm} that it is
+applied in each of the control regions, it is also correlated across jet
+multiplicity and leptonic channel. The shape uncertainty which uses the BDTr
+method discussed in section~\ref{sec:ND-reweight} induces migration effects
+across the analysis regions, however in order to increase the degrees of freedom
+available to the profile-likelihood fit that systematic is taken as a shape only
+effect. The migrations induced by the shape uncertainty agree well with those
+derived from comparisons between nominal and alternative predictions, and the
+sign of the final priors is determined by migration due to the shape
+uncertainty. The magnitude of the prior is calculated as the quadrature sum of
+the difference between the nominal prediction and \textsc{MadGraph} as well as
+the scale and parton density function variations included in \textsc{Sherpa}.
+There is no dedicated nuisance parameter to control the migration between the
+$p_T^V$ regions of the analysis as this migration is controlled by the $p_T^V$
+shape uncertainty.
 
 % \subsubsection{Flavour composition uncertainties}
 

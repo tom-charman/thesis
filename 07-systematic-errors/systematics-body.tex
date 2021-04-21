@@ -949,8 +949,493 @@ shape uncertainty.
 \subsubsection{Shape Errors}
 
 \subsection{Z + jets systematics}
-
+%subsection{$Z$+jets uncertainties}
+\label{sec:zjets-systs}
 \input{07-systematic-errors/zjets-table.tex}
+% Only signal regions in the 0-lepton and 2-lepton channels have been considered
+% in the following, due to the sub-dominant nature of the $Z$+jets process in
+% the 2-lepton CRs, and in the negligible contribution of $Z+$jets in the
+% 1-lepton channel in general.
+
+% \textbf{Normalisation and acceptance uncertainties}
+
+% An overview of the $Z$+jets normalisation systematics and their effect in the
+% various analysis regions is reported in Table~\ref{tab:zjetsnorm}. The
+% normalization uncertainties are derived as described in
+% Section~\ref{subsubsec:vjetsUnc} and the full breakdown of the uncertainties
+% is outlined in Appendix~\ref{app:zjets} of this note.
+
+% \begin{table}[!htpb] 
+% %\begin{center} 
+% %\small
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{ c || c || c | c | c | c | c | c || c | c | c | c | c | c   } 
+% \hline 
+% \hline 
+%  Process 	& Name  	& \multicolumn{6}{ c }{prior in region}                                                             \\
+%        	       	&            	& \multicolumn{6}{ c ||}{2jet}   		                       &   \multicolumn{6}{ c }{($\geq$)3jets}  \\ 
+% 		&	  	& 2L: CRLow  &  2L: CRHigh & 2L: SR  & 0L: CRLow & 0L: CRHigh & 0L: SR & 2L: CRLow  &  2L: CRHigh & 2L: SR  & 0L: CRLow & 0L: CRHigh & 0L: SR     \\ 
+% \hline 
+% \hline
+% $Z$+l    & \texttt{SysZclNorm}            &  \multicolumn{12}{ c }{23\% } \\
+% $Z$+cl   & \texttt{SysZlNorm}             &  \multicolumn{12}{ c }{ 18\% } \\
+% \hline
+% $Z$+hf   & {\texttt{norm\_Zbb\_J2}}       &  \multicolumn{6}{ c || }{ Floating Normalisation} &  \multicolumn{6}{ c }{ -- } \\
+% $Z$+hf   & {\texttt{norm\_Zbb\_J3}}       &  \multicolumn{6}{ c || }{ -- } &  \multicolumn{6}{ c | }{ Floating Normalisation} \\
+% \hline
+% $Z$+hf   & \texttt{SysZbbNorm\_0L}    	  &  \multicolumn{3}{ c | }{--} & \multicolumn{3}{ c || }{7\%} & \multicolumn{3}{ c | }{--} &  \multicolumn{3}{ c  }{7\%} \\
+% \hline
+% $Z$+hf   & $\texttt{SysZbbPTV}$           &   \multicolumn{12}{ c }{$p^{V}_{T}$ dependent migrations covered by $p^{V}_{T}$ shape systematic}       \\
+% \hline
+% $Z+$hf   & \texttt{SysZbbCRSRExtrapolation\_CRLow} & -9.9\% & -- & -- & -6.0\% & -- & -- & -3.8\% & -- & -- & -6.6\% & -- & -- \\
+% $Z+$hf   & \texttt{SysZbbCRSRExtrapolation\_CRHigh} & -- & +2.7\% & -- & -- & +3.8\% & -- & -- & +4.1\% & -- & -- & +3.9\% & -- \\ 
+% \hline 
+% \hline 
+% \end{tabular}
+% }       
+% \caption{ \label{tab:zjetsnorm} Effect of modelling systematics on $Z$+jets
+% normalisation in the 0-lepton and 2-lepton regions of the \Vhtobb analysis.
+% For systematic uncertainties implemented with a prior the 1-$\sigma$ variation
+% effect is reported. The uncertainties labelled as $Zbb$ act on the entire
+% $Z$+hf background.}
+% %\end{center}
+
+% \end{table} 
+
+
+% The $Z$+l and $Z$+cl background processes are strongly suppressed by the
+% requirement of 2 $b$-tags and as such compose less than 1\% of the background
+% in any region. As such it is sufficient to apply a single normalisation
+% uncertainty for each of these backgrounds, referred to as \texttt{SysZlNorm}
+% and \texttt{SysZclNorm} respectively, which are individually correlated across
+% all regions.
+
+% Given the large uncertainty on the normalisation of the $Z$+hf processes, a
+% floating normalisation is adopted separately for the 2-jet and 3-jet regions,
+% \texttt{norm\_Zbb\_J2}, \texttt{norm\_Zbb\_J2}, which is heavily constrained
+% by the large statistical population of $Z$+hf in the analysis signal regions,
+% paired with the high $Z+$hf purity either side of the Higgs 110 GeV$<m_{bb}
+% <$140 GeV mass window.
+
+% Additional nuisance parameters have been introduced to model the extrapolation
+% uncertainties on the relative normalisation across regions\footnote{While the
+% prior is obtained comparing double ratios as explained, due to technical
+% reasons, the effect of the uncertainty is applied to only one of the two
+% regions considered in the double ratio. This choice does not affect the result
+% but only the interpretation of the normalisation factor.}:
+
+% \begin{itemize}
+
+% \item \textbf{0-to-2 lepton}: An uncertainty (\texttt{SysZbbNorm\_0L}) on the
+% ratio of the yields between the 0-lepton and 2-lepton regions derived as a
+% double ratio; see Section~\ref{subsubsec:vjetsUnc} for details. This
+% uncertainty is applied to the 0-lepton region, as a better constraint on the
+% $Z$+hf prediction is obtained from the 2-lepton channel due to the higher
+% $Z$+hf purity. The uncertainty is computed by comparing the $Z$+hf yield in
+% the high \ptv\ regions of the two channels\footnote{The $Z$+hf normalisation
+% factor is mainly determined in the low \ptv\ 2-lepton region, but the same
+% low-high $Vp_{T}$ uncertainty will be considered for both the high $Vp_{T}$
+% 2-lepton region and the 0-lepton SR.}.
+
+% There are similar contributions to the total uncertainty from the comparison
+% between \MADGRAPH and \SHERPA and the evaluation of the \SHERPA internal
+% parameter variations. A detail breakdown of the uncertainty is documented in
+% Appendix~\ref{app:z02lep}.
+
+% \item \textbf{ [$\textrm{CR}_{\textrm{low}}$, SR,
+% $\textrm{CR}_{\textrm{high}}$] Z $p_{T}$ Migration: }: An uncertainty
+% (\texttt{SysZbbPTV}) on the $Z p_{T}$ distribution (see the following section
+% \ref{sec:ZPtVAndMbbShape} for details) designed to vary the final MVA fit
+% discriminant in each analysis region, also alters the relative event yield
+% (normalisation) between the [$\textrm{CR}_{\textrm{low}}$, SR,
+% $\textrm{CR}_{\textrm{high}}$] regions. The same systematic uncertainty
+% derived from the 2-lepton data-driven approach is also applied in the 0-lepton
+% channel.
+
+% \item \textbf{ [$\textrm{CR}_{\textrm{low}}$, SR,
+% $\textrm{CR}_{\textrm{high}}$] Z $m_{bb}$ Migration: }: An uncertainty
+% assigned to the $\textrm{CR}_{\textrm{low}}$ and $\textrm{CR}_{\textrm{high}}$
+% regions as gaussian constrained nuisance parameters with priors derived
+% according to Section~\ref{subsubsec:vjetsUnc}. This uncertainty allows the
+% event yield in the $\textrm{CR}_{\textrm{low}}$ and
+% $\textrm{CR}_{\textrm{high}}$ regions to vary relative to the SR in a
+% decorrelated fashion.
+% \end{itemize}
+
+% The full breakdown of the migration effect induced by the \ptv\ shape
+% systematic in all the analysis regions and \ptv\ bins is reported in
+% Table~\ref{tab:zjets_extrapolation_uncertainties_pTVRegions} for the 2-lepton
+% channel and in
+% Table~\ref{tab:zjets_extrapolation_uncertainties_pTVRegions_0Lep} for the
+% 0-lepton channel.\\
+
+
+% %\begin{frame}[plain]{}
+%   \begin{table}
+%     \begin{center}
+%       %\caption{SysZPtV and SysZMbb effect on yields}
+%       \vspace{5mm}
+%       \resizebox{\linewidth}{!}{
+%         \begin{tabular}{l||c|c|c||c||c|c}
+%           \toprule
+%           %\bfseries Region (njets, ptv range) & \bfseries Nominal & \bfseries SysZPtV & \bfseries SysZMbb & \bfseries  Weighted Sum pTV & \bfseries Weighted Sum mBB \\
+            %             \bfseries Region ($n_{j}$, $p^{V}_{T}$ range) & \bfseries CRLow (\textsc{SysZPtv} \%) & \bfseries SR ( \textsc{SysZPtv} \%) & \bfseries CRHigh (\textsc{SysZPtv} \%) & \bfseries  Weighted Sum $p^{V}_{T}$ (\%) & \bfseries $\Delta$(SR - CRLow) & \bfseries $\Delta$(CRHigh, SR) \\
+%           \midrule
+%           2 jet 75GeV -- 150GeV &  0.68 & 0.78 & 0.55 & 0.685 & 0.1 & -0.23 \\
+%           2 jet 150GeV -- 250GeV & -2.02 & -2.08 & -2.17 & -2.119 & 0.06 & -0.09 \\
+%           2 jet 250+ GeV & -4.31 & -4.7 & -4.67 & -4.67 & 0.39 & 0.03 \\
+%           \midrule
+%           $\Delta$(150--250, 75--150) & -2.7 & -2.86 &  -2.72 & -2.805 & -0.04 & 0.14 \\
+%           $\Delta$(250+, 150--250) & -2.29 & -2.62 & -2.5 & -2.547 & 0.33 & 0.12 \\
+%           %$\Delta$(SR, CRLow) & N/A & N/A & N/A & 0.0311 & N/A & N/A \\
+%           %$\Delta$(CRHigh, SR) & N/A & N/A & N/A & -0.556 & N/A & N/A  \\
+%           %$\Delta$(SR, CRLow) & - & - & - & 0.0311  \\
+%           %$\Delta$(CRHigh, SR) & - & - & - & -0.556  \\
+%           \midrule
+%           &&&&\\
+%           \midrule
+%           3+ jet 75GeV -- 150GeV & 0.53 & 0.64 & 0 & 0.366 & 0.11 & -0.64  \\
+%           3+ jet 150GeV -- 250GeV & -2.16 & -2.18 & -2.26 &  -2.222 & -0.01 & -0.08 \\
+%           3+ jet 250+ GeV & -4.47 & -4.85 & -4.91 & -4.870 & -0.38 & -0.06 \\
+%           \midrule
+%           $\Delta$(150--250, 75--150) & -2.69 & -2.82 & -2.26 & -2.588 & 0.1 & 0.56 \\
+%           $\Delta$(250+, 150--250) & -2.31 & -2.67 & -2.65 & -2.647 &-0.37  & 0.02  \\
+%           %$\Delta$(SR, CRLow) & N/A & N/A & N/A & 0.0656 & N/A & N/A \\
+%           %$\Delta$(CRHigh, SR) & N/A & N/A & N/A & -0.967 & N/A & N/A  \\
+%           %$\Delta$(SR, CRLow) & - & - & - & 0.0656 \\
+%           %$\Delta$(CRHigh, SR) & - & - & - & -0.967 \\
+%           \bottomrule
+%         \end{tabular}
+%         }
+%       \caption{Summary of the extrapolation uncertainties of the \ptv\ shape
+%       systematic on the $Z$+jets samples across all the analysis regions of
+%       the analysis in the 2-lepton channel. The $5^{\textrm{th}}$ column for
+%       both 2-jet and 3-jet categories shows the normalization effect induced
+%       by the shape systematic weighted by the yields in each of the analysis
+%       regions. The rows that show $\Delta$ represent the normalization effect
+%       induced by the \ptv\ shape systematic across the different \ptv\ and
+%       [CRLow,SR,CRHigh] fit regions of the
+%       analysis. \label{tab:zjets_extrapolation_uncertainties_pTVRegions}}
+%     \end{center}
+%   \end{table}
+
+
+% %  \begin{table}
+% %    \begin{center}
+% %      %\caption{SysZPtV and SysZMbb effect on yields}
+% %      \vspace{5mm}
+% %      \resizebox{\linewidth}{!}{
+% %        \begin{tabular}{l||c|c|c||c||c|c}
+% %          \toprule
+% %          %\bfseries Region (njets, ptv range) & \bfseries Nominal &
+% \bfseries SysZPtV & \bfseries SysZMbb & \bfseries  Weighted Sum pTV &
+% \bfseries Weighted Sum mBB \\
+             % %              \bfseries Region ($n_{j}$, $p^{V}_{T}$ range) & \bfseries CRLow ( \textsc{SysZMbb} \%) & \bfseries SR (\textsc{SysZMbb} \%) & \bfseries CRHigh (\textsc{SysZMbb} \%)  & \bfseries Weighted Sum $m_{BB}$ (\%) & \bfseries $\Delta$(SR - CRLow) & \bfseries $\Delta$(CRHigh, SR) \\
+% %          \midrule
+% %          2 jet 75GeV -- 150GeV &  -1.45 & 0 & 1.56 & 0.276 & -1.45 & 1.56 \\
+% %          2 jet 150GeV -- 250GeV & -1.37 & 0 & 1.72 & 0.722 & -1.37 & 1.72\\
+% %          2 jet 250+ GeV & -1.15 & 0 & 2 & 1.238 & -1.15 & 2 \\
+% %          \midrule
+% %          $\Delta$(150--250, 75--150) & 0.08 & 0 & 0.16 & 0.445 & 0.08 & 0.16 \\
+% %          $\Delta$(250+, 150--250) & 0.22 & 0 & 0.28 & 0.516 & 0.22 & 0.28 \\
+% %          %$\Delta$(SR, CRLow) & N/A & N/A & N/A & 1.440 & N/A & N/A \\
+% %          %$\Delta$(CRHigh, SR) & N/A & N/A & N/A & 1.605 & N/A & N/A  \\
+% %          %$\Delta$(SR, CRLow) & - & - & - & 1.440 \\
+% %          %$\Delta$(CRHigh, SR) & - & - & - & 1.605 \\
+% %          \midrule
+% %          &&&&\\
+% %          \midrule
+% %          3+ jet 75GeV -- 150GeV & -1.42 & 0 & 1.35 & 0.346 & -1.42 & 1.35 \\
+% %          3+ jet 150GeV -- 250GeV & -1.39 & -0.6 & 1.36 & 0.399 & -0.79 & 1.96 \\
+% %          3+ jet 250+ GeV & -1.26 & -0.79 & 1.39 & 0.646 & 0.47 & 2.18 \\
+% %          \midrule
+% %          $\Delta$(150--250, 75--150) & 0.03 & -0.6 & 0.1 & 0.0534 & 0.63 & 0.61 \\
+% %          $\Delta$(250+, 150--250) & 0.6 & -0.19 & 0.03 & 0.247 & 1.26 & 0.22 \\
+% %          %$\Delta$(SR, CRLow) & N/A & N/A & N/A & 1.280 & N/A & N/A \\
+% %          %$\Delta$(CRHigh, SR) & N/A & N/A & N/A & 1.487 & N/A & N/A  \\
+% %          %$\Delta$(SR, CRLow) & - & - & - & 1.280 \\
+% %          %$\Delta$(CRHigh, SR) & - & - & - & 1.487 \\
+% %          \bottomrule
+% %        \end{tabular}
+% %        }
+% %      \caption{Summary of the extrapolation uncertainties of the \mbb\ shape
+% systematic on the $Z$+jets samples across all the analysis regions of the
+% analysis in the 2-lepton channel. The $5^{\textrm{th}}$ column for both 2-jet
+% and 3-jet categories shows the normalization effect induced by the shape
+% systematic weighted by the yields in each of the analysis regions. The rows
+% that show the $\Delta$ represent the normalization effect induced by the \mbb\
+% shape systematic across the different \ptv\ and [CRLow,SR,CRHigh] fit regions
+% of the analysis. \label{tab:zjets_extrapolation_uncertainties_mBBRegions}}
+% %    \end{center}
+% %  \end{table}
+
+
+
+
+% %  \begin{table}
+% %    \begin{center}
+% %      %\caption{SysZPtV and SysZMbb effect on yields}                                                                                                                                                      
+% %      \vspace{5mm}
+% %      \resizebox{\linewidth}{!}{
+% %        \begin{tabular}{l||c|c|c||c||c|c}
+% %          \toprule
+% %          %\bfseries Region (njets, ptv range) & \bfseries Nominal &
+% \bfseries SysZPtV & \bfseries SysZMbb & \bfseries  Weighted Sum pTV &
+% \bfseries Weighted Sum mBB \\
+             % %              \bfseries Region ($n_{j}$, $p^{V}_{T}$ range) & \bfseries CRLow ( \textsc{SysZMbb} \%) & \bfseries SR (\textsc{SysZMbb} \%) & \bfseries CRHigh (\textsc{SysZMbb} \%)  & \bfseries Weighted Sum $m_{BB}$ (\%) & \bfseries $\Delta$(SR - CRLow) & \bfseries $\Delta$(CRHigh - SR) \\
+% %          \midrule
+% %          2 jet 150GeV -- 250GeV & -1.31 & <5.0\% & 1.86 & 0.64 & 1.31 & 1.86 \\
+% %          2 jet 250+ GeV         & -1.09 & <5.0\% & 2.10 & 1.17  & 1.09 & 2.10 \\
+% %          \midrule
+% %          $\Delta$(250+, 150--250) & 0.22 & <5.0\% & 0.24 & 0.15 & -0.22 & 0.24 \\
+% %          %$\Delta$(SR, CRLow) & - & - & - & 1.440 \\                                                                                                                                                       
+% %          %$\Delta$(CRHigh, SR) & - & - & - & 1.605 \\                                                                                                                                                      
+% %          \midrule
+% %          &&&&\\
+% %          \midrule
+% %          3 jet 150GeV -- 250GeV & -1.40 & -0.54 & 1.49 & 0.29 & 0.86 & 2.03  \\
+% %          3 jet 250+ GeV         & -1.21 & -0.59 & 1.67 & 0.74 & -0.62 & 2.26  \\
+% %          \midrule
+% %          $\Delta$(250+, 150--250) & 0.19 & -0.05 & 0.18 & 0.11 & 1.48 & 0.23  \\
+% %          %$\Delta$(SR, CRLow) & - & - & - & 1.280 \\                                                                                                                                                       
+% %          %$\Delta$(CRHigh, SR) & - & - & - & 1.487 \\                                                                                                                                                      
+% %          \bottomrule
+% %        \end{tabular}
+% %        }
+% %      \caption{Summary of the extrapolation uncertainties of the \mbb\ shape
+% systematic on the $Z$+jets samples across all the analysis regions of the
+% analysis in the 0-lepton channel. The $5^{\textrm{th}}$ column for both 2-jet
+% and 3-jet categories shows the normalization effect induced by the shape
+% systematic weighted by the yields in each of the analysis regions. The row
+% that show the $\Delta$ represent the normalization effect induced by the \mbb\
+% shape systematic across the different \ptv\ bins. The 6th and 7th columns show
+% the normalization effect induced by the \mbb\ shape systematic across the
+% [CRLow,SR,CRHigh] fit regions of the
+% analysis. \label{tab:zjets_extrapolation_uncertainties_mBBRegions_0Lep}}
+% %    \end{center}
+% %  \end{table}
+
+
+
+
+%  \begin{table}
+%    \begin{center}
+%      %\caption{SysZPtV and SysZMbb effect on yields}                                                                                                                                                      
+%      \vspace{5mm}
+%      \resizebox{\linewidth}{!}{
+%        \begin{tabular}{l||c|c|c||c||c|c}
+%          \toprule
+%          %\bfseries Region (njets, ptv range) & \bfseries Nominal & \bfseries
+%          SysZPtV & \bfseries SysZMbb & \bfseries  Weighted Sum pTV & \bfseries
+                                                                       %                                                                        Weighted Sum mBB \\
+           %            \bfseries Region ($n_{j}$, $p^{V}_{T}$ range) & \bfseries CRLow ( \textsc{SysZPtV} \%) & \bfseries SR (\textsc{SysZPtV} \%) & \bfseries CRHigh (\textsc{SysZPtV} \%)  & \bfseries Weighted Sum $m_{BB}$ (\%) & \bfseries $\Delta$(SR - CRLow) & \bfseries $\Delta$(CRHigh - SR) \\
+%          \midrule
+%          2 jet 150GeV -- 250GeV & -2.05 & -2.10 & -2.20 & -2.14 & -0.05 & -0.10 \\
+%          2 jet 250+ GeV         & -4.22 & -4.67 & -4.67 & -4.64  & -0.45 & 0.0 \\
+%          \midrule
+%          $\Delta$(250+, 150--250) & -2.17 & -2.57 & -2.47 & -2.49 & -0.40 & 0.10 \\
+%          %$\Delta$(SR, CRLow) & - & - & - & 1.440 \\                                                                                                                                                       
+%          %$\Delta$(CRHigh, SR) & - & - & - & 1.605 \\                                                                                                                                                      
+%          \midrule
+%          &&&&\\
+%          \midrule
+%          3 jet 150GeV -- 250GeV & -2.15 & -2.16 & -2.25 & -2.20  & -0.01 & -0.09  \\
+%          3 jet 250+ GeV         & -4.37 & -4.70 &  -4.75 & -4.71 & -0.33 & -0.05  \\
+%          \midrule
+%          $\Delta$(250+, 150--250) & -2.22 & 2.54 & -2.5 & -0.85 & -0.32 & 0.04  \\
+%          %$\Delta$(SR, CRLow) & - & - & - & 1.280 \\                                                                                                                                                       
+%          %$\Delta$(CRHigh, SR) & - & - & - & 1.487 \\                                                                                                                                                      
+%          \bottomrule
+%        \end{tabular}
+%        }
+%      \caption{Summary of the extrapolation uncertainties of the \ptv\ shape
+%      systematic on the $Z$+jets samples across all the analysis regions of the
+%      analysis in the 0-lepton channel. The $5^{\textrm{th}}$ column for both
+%      2-jet and 3-jet categories shows the normalization effect induced by the
+%      shape systematic weighted by the yields in each of the analysis regions.
+%      The row that show the $\Delta$ represent the normalization effect induced
+%      by the \ptv\ shape systematic across the different \ptv\ bins. The 6th
+%      and 7th columns show the normalization effect induced by the \ptv\ shape
+%      systematic across the  [CRLow,SR,CRHigh] fit regions of the
+%      analysis. \label{tab:zjets_extrapolation_uncertainties_pTVRegions_0Lep}}
+%    \end{center}
+%  \end{table}
+
+
+
+% \paragraph{Flavour composition uncertainties}
+% The $Z$+hf background is composed of the contributions from the $bb$, $bc$,
+% $bl$ and $cc$ backgrounds. Uncertainties on the relative composition of these
+% processes are estimated as summarised in Table~\ref{tab:zhf}. The
+% uncertainties are implemented as normalisation uncertainties on each of the
+% smaller components ($bc$ [\texttt{SysZbcZbbRatio}],$bl$
+% [\texttt{SysZblZbbRatio}], $cc$ [\texttt{SysZccZbbRatio}]) relative to the
+% $bb$ component.
+
+
+% \begin{table}[!htbp]
+% \begin{center}
+% \begin{tabular}{c|c|c|c}
+%         \hline
+%         \hline
+%          Category & Nuisance Parameter Name & Prior & Applied to\\ 
+%         \hline
+%         \multirow{ 3}{*}{$Z$+bc/$Z$+bb} & \multirow{ 3}{*}{\texttt{SysZbcZbbRatio}}  & 40\% & $Z$+bc events (0-Lepton)\\
+%                                                             &								    & 40\% & $Z$+bc events (2-Lepton 2jet)\\
+% 							  &								    & 30\% & $Z$+bc events (2-Lepton $\geq$3jet)\\		
+%         \hline
+%         \multirow{ 3}{*}{$Z$+bl/$Z$+bb} & \multirow{ 3}{*}{\texttt{SysZblZbbRatio}}     & 25\% & $Z$+bl events (0-Lepton)\\
+%                                                             &								    & 28\% & $Z$+bl events (2-Lepton 2jet)\\
+% 							  &								    & 20\% & $Z$+bl events (2-Lepton $\geq$3jet)\\	
+% 	\hline
+%         \multirow{ 3}{*}{$Z$+cc/$Z$+bb} & \multirow{ 3}{*}{\texttt{SysZccZbbRatio}}    & 15\% & $Z$+cc events (0-Lepton)\\
+%                                                             &								    &  16\% & $Z$+cc events (2-Lepton 2jet)\\
+% 							  &								    &   13\% & $Z$+cc events (2-Lepton $\geq$3jet)\\	
+%         \hline
+%         \hline
+% \end{tabular}
+% \caption{The priors on the relative acceptance variations for $Z$+hf. The
+% first column details the flavour components across which the acceptance
+% variation is being considered, the second column lists the names of the
+% corresponding nuisance parameter in the Profile Likelihood Fit, the third
+% contains the value of the prior and the fourth column the processes and
+% categories to which this nuisance parameter is applied.}
+% \label{tab:zhf}
+% \end{center}
+% \end{table}
+
+% Different prior uncertainties have been adopted for the 0-lepton and 2-lepton
+% channels; for the latter, separate uncertainties are also adopted for the
+% 2-jet and $\geq$3-jet regions, but for each Z+hf sub-process the variations
+% are considered as correlated across regions. %\textcolor{red}{There is no
+% evidence of a strong dependence as a function of Z $p_{T}$ or $m_{bb}$, and so
+% the same prior is applied to the $\textrm{CR}_{\textrm{low}}$, SR, and
+% $\textrm{CR}_{\textrm{high}}$ fit regions} \footnote{ \textcolor{red}{This
+% needs to be check with the new [$\textrm{CR}_{\textrm{low}}$, SR,
+% $\textrm{CR}_{\textrm{high}}$] bins in the analysis} }.
+
+
+% It should be noted that due to the 2 $b$-tag requirement non-$bb$ components
+% are heavily suppressed, therefore the decision to correlate all flavour
+% composition uncertainties across all fit regions mitigates the impact of the
+% correlation scheme on the final fit result. Please also note that the heavy
+% flavour priors, as given by Table \ref{tab:zhf}, are completely dominated by
+% the difference between \SHERPA2.2.1 and \MADGRAPH; additional details can be
+% found in Appendix~\ref{app:zFlav}.
+
+% \paragraph{\ptv\ and \mbb\ shape uncertainties}
+% \label{sec:ZPtVAndMbbShape}
+
+% The $p^{V}_{T}$ and $m_{bb}$ shape uncertainties on the $Z$+jets process are
+% obtained from a data-driven method within the 2 lepton channel (where the
+% $Z$+jets purity is highest). Specifically, the $e^{\pm} \mu^{\pm}$ channel is
+% typically the result of either $t\bar{t}/$single top background processes or
+% fake electrons/muons from miss-identified leptons/jets. Consequently, the
+% $e^{\pm}\mu^{\pm}$ region is a pure top ($t\bar{t}$/single top) control region
+% (TopCR), where the kinematic properties of the $t\bar{t}$/single top
+% sub-processes within the TopCR region matches that of the 2-lepton
+% $e^{\pm}\mu^{\pm}$ SR+CRs; details regarding this can be found in Section
+% \ref{subsec:ttbar}.
+
+
+% Using this Top data-driven estimate, the $p^{V}_{T}$ and $m_{bb}$
+% distributions obtained according to the procedure outlined in Section
+% \ref{subsec:ttbar}, are subtracted from the data within the 2-lepton SR+CRs,
+% in addition to the remaining $W$+jets and $VV$ MC predictions. The $Z$+jet MC
+% prediction is then scaled to the data after subtracting off the non-$Z$+jet
+% backgrounds as described previously. The discrepancy between the now modified
+% data $p^{V}_{T}$/$m_{bb}$ distributions and the $Z$+jets MC prediction within
+% the 2-tag SR+CRs corresponds to an assessment of the systematic uncertainties
+% that one can assign to the $Z$+jets background process.
+
+
+% In order to account for $VH$ signal and $VZ$ contamination, the $80$ GeV
+% $<m_{b\bar{b}}<140$ GeV region is removed, such that all events vetoed are
+% vetoed in this window when studying the $m_{bb}$ and $p^{V}_{T}$
+% distributions. %Studies pertaining to $p^{V}_{T}$ biases induced by the
+% removal of the $110$ GeV $<m_{b\bar{b}}<140$ GeV region can be found in
+% Appendix \ref{app:zjets}.
+
+% The data Monte Carlo comparison inclusively of the low (75-150~GeV), medium
+% (150-250~GeV), and high (> 250~GeV)) $p^{Z}_{T}$ analysis regions for
+% $p^{Z}_{T}$ is shown in Figure \ref{fig:2lepptv_model} for the 2-jet, 3+ jet,
+% and 2+ jet categories, whilst the $m_{b\bar{b}}$ data Monte Carlo comparison
+% is shown for the low + medium + high $p^{Z}_{T}$ regions in Figure
+% \ref{fig:2lepmbb_model} for the same 2-jet, 3+ jet, and 2+ jet categories.
+
+% For the $p_T^Z$ and $m_{b\bar{b}}$ distributions the shape uncertainty is
+% extracted by performing a $\chi^{2}$ functional fit in the $\geq 2$ jets
+% category to the ratio of Data/MC. This category is chosen in order to maximise
+% the MC and data statistics during the fit procedure thereby reducing the
+% impact of statistical variance on the systematic error (2-jet and $\geq 3$ jet
+% categories shown for completeness only). The shape uncertainties are indicated
+% by the orange lines in the ratio of each figure, where the functional form and
+% fit parameters are displayed on the top pane of each figure. The adopted shape
+% systematic for the $p^{V}_{T}$ distribution has the parameteric form $y =
+% -0.97.\textrm{log}_{10} (x/50000) + 1.06$, whilst for the $m_{bb}$
+% distribution the parameteric form $y = 0.936 + 0.00000481x$ is used, where
+% $x=\{p^{V}_{T},m_{bb}\}$ respectively.
+
+
+% A summary of the $Z$+jets shape uncertainties are listed in
+% Table~\ref{tab:vjetsSysSummary}, where it should be noted that the same
+% parameterised uncertainties are also applied to the 0 lepton channel. With
+% this in mind, it should be noted that the $m_{bb}$ observable is calculated
+% using Anti-kT EMTopo $R=0.4$ jets prior to the application of the kinematic
+% fit (see Ref. \cite{AlKhoury:2692011} for details), as the 0-lepton channel
+% does not utilise the kinematic fit procedure.
+
+% \begin{table}[!htb]
+% \begin{scriptsize}
+% \begin{center}
+% \begin{tabular}{c|c|c|c|c}
+%         \hline
+%         \hline
+%         Process & Uncertainty & Value & Source & Nuisance Parameter \\
+%         \hline
+%         \hline
+% 	$Z$+jets 		& $p_T^V$ shape applied to 2-jet/$\geq 3$-jet 		& shape 	&  fit to data in 			&	  \texttt{ZPtV} 	\\
+% 		 	        & 				                & +norm         &  2 lepton $\geq 2$ jet signal+control region               &  				\\ 	
+% 	\hline
+    %     $Z$+jets 		& $m_{b\bar{b}}$ shape applied to 2-jet/$\geq 3$-jet 	& shape 	& fit to data in 			&         \texttt{ZMbb}         \\
+    %                   & 					        & 	        &  2 lepton $\geq 2$ jet signal+control region               &  \\
+% 	\hline
+%         \hline
+% \end{tabular}
+% \caption{Summary of overall shape uncertainties for the $Z$+jets processes
+% with short descriptions and the name of the corresponding nuisance
+% parameters.}
+% \label{tab:vjetsSysSummary}
+% \end{center}
+% \end{scriptsize}
+% \end{table}
+
+
+% \begin{figure}[!htb]
+% \centering
+% \subfigure[$\geq 2$ jet, 2 tag]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/two_plus_jet_inclusive_blind_ttbardd_pTV_logx.pdf}} 
+% \subfigure[2 jet, 2 tag]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/two_jet_inclusive_blind_ttbardd_pTV_logx.pdf}}
+% \subfigure[$\ge 3$ jets, 2 tag]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/three_plus_jet_inclusive_blind_ttbardd_pTV_logx.pdf}}
+% \caption{The transverse momentum of the $Z$, $p_T^Z$, in the 2-lepton
+% 2-tag $\geq 2$ jets (a), 2-jet (b) and 3+ jet (c) categories.}
+% \label{fig:2lepptv_model}
+% \end{figure}
+
+% \begin{figure}[!htb]
+% \centering
+% \subfigure[2-tag $\geq 2$ jet]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/two_plus_jet_inclusive_blind_ttbardd_GSCMbb.pdf}}
+% \subfigure[2-tag 2-jet]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/two_jet_inclusive_blind_ttbardd_GSCMbb.pdf}}
+% \subfigure[2-tag $\ge 3$ jets]{
+% \includegraphics[width=0.49\textwidth]{figures/modelling_vjets/2Lep/three_plus_jet_inclusive_blind_ttbardd_GSCMbb.pdf}}
+% \caption{The $m_{jj}$ distribution for the 2 lepton $\geq 2$ jets (a), 2-jet
+% (b) and $\ge 3$ jets (c) categories.}
+% \label{fig:2lepmbb_model}
+% \end{figure}
 
 \section{Top Quark Systematics}
 \input{07-systematic-errors/ttbar-table.tex}

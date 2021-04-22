@@ -1,0 +1,25 @@
+\begin{table}[!htpb] 
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{ l l l l l l l l l l l l l l   } 
+      \toprule
+      &            	& \multicolumn{6}{c}{2jet}   		                       &   \multicolumn{6}{ c }{($\geq$)3jets}  \\ 
+      {\bfseries Name} & {\bfseries Process} & {\bfseries 2L: CRLow}  & {\bfseries 2L: CRHigh} & {\bfseries 2L: SR}  & {\bfseries 0L: CRLow} & {\bfseries 0L: CRHigh} & {\bfseries 0L: SR} & {\bfseries 2L: CRLow}  &  {\bfseries 2L: CRHigh} & {\bfseries 2L: SR}  & {\bfseries 0L: CRLow} & {\bfseries 0L: CRHigh} & {\bfseries 0L: SR} \\ 
+      \midrule
+      \texttt{SysZclNorm}            & $Z$+l    &   \multicolumn{12}{c}{23\% } \\
+      \texttt{SysZlNorm}             & $Z$+cl   &   \multicolumn{12}{c}{ 18\% } \\
+      \texttt{norm\_Zbb\_J2}       & $Z$+hf   &  \multicolumn{6}{c}{ Floating Normalisation} &  \multicolumn{6}{ c }{ -- } \\
+      \texttt{norm\_Zbb\_J3}       & $Z$+hf   &  \multicolumn{6}{c}{ -- } &  \multicolumn{6}{ c | }{ Floating Normalisation} \\
+      \texttt{SysZbbNorm\_0L}    	  & $Z$+hf   &   \multicolumn{3}{c}{--} & \multicolumn{3}{ c || }{7\%} & \multicolumn{3}{ c | }{--} &  \multicolumn{3}{ c  }{7\%} \\
+      \texttt{SysZbbPTV}           & $Z$+hf   &    \multicolumn{12}{ c }{$p^{V}_{T}$ dependent migrations covered by $p^{V}_{T}$ shape systematic}       \\
+      \texttt{SysZbbCRSRExtrapolation\_CRLow} & $Z+$hf   &  -9.9\% & -- & -- & -6.0\% & -- & -- & -3.8\% & -- & -- & -6.6\% & -- & -- \\
+      \texttt{SysZbbCRSRExtrapolation\_CRHigh} & $Z+$hf   &  -- & +2.7\% & -- & -- & +3.8\% & -- & -- & +4.1\% & -- & -- & +3.9\% & -- \\ 
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{A summary of nuisance parameters which are used to control the Z +
+    jets normalisation in the relevant regions entering into the
+    profile-likelihood fit. The values in the table correspond to a 1-$\sigma$
+    deviation of the calculated prior unless otherwise stated.}
+\label{tab:zjetsnorm}
+\end{table} 

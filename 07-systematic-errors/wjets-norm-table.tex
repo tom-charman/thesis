@@ -1,20 +1,20 @@
 \begin{table}[!htb]
   \centering
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{llllllll}
+    \begin{tabular}{llS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
       \toprule
-      & & \multicolumn{6}{ c }{\bfseries Prior in Region} \\
-      {\bfseries Process} & {\bfseries Name} & {\bfseries CRLow 2-Jets} & {\bfseries SR 2-Jets} & {\bfseries CRHigh 2-Jets} &  {\bfseries CRLow 3-Jets} & {\bfseries SR 3-Jets} & {\bfseries CRHigh 3-Jets} \\
+      &  & \multicolumn{3}{c}{\bfseries 2--jet} & \multicolumn{3}{ c }{\bfseries 3--jets} \\
+      {\bfseries Name} & {\bfseries Process} & {\bfseries CRLow} & {\bfseries SR} & {\bfseries CRHigh} &  {\bfseries CRLow} & {\bfseries SR} & {\bfseries CRHigh} \\
       \midrule
       {\bfseries 0-Lepton} & & & & & & & \\
-      W+hf   & {\texttt{SysWbbNorm\_L0}}    &   5\% &  5\% & --  &  -- & -- & --    \\
-      W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -7.7\% &  -- & +14.9\%  &  -5.6\% & -- & +7.0\%    \\
+      {\texttt{SysWbbNorm\_L0}}    & W+hf   &  5\% &  5\% & --  &  -- & -- & --    \\
+      {\texttt{SysWbbCRSRextrap}}        & W+hf   &   -7.7\% &  -- & 14.9\%  &  -5.6\% & -- & 7.0\%    \\
       {\bfseries 1-Lepton} & & & & & & & \\
-      W+l    &  {\texttt{SysWclNorm}}             &  \multicolumn{6}{ c }{   32\% } \\
-      W+cl   &  {\texttt{SysWlNorm}}              &  \multicolumn{6}{ c }{  37\%  }\\
-      W+hf   & {\texttt{norm\_Wbb\_J2}}           &  \multicolumn{3}{ c }{ Floating Normalisation} & -- & -- & -- \\
-      W+hf   & {\texttt{norm\_Wbb\_J3}}           &  -- & -- & -- & \multicolumn{3}{ c }{ Floating Normalisation} \\
-      W+hf   & {\texttt{SysWbbCRSRextrap}}        &   -11.5\% &  -- & +14.8\%  &  -3.6\% & -- & +5.1\%    \\
+      {\texttt{SysWclNorm}}             & W+l    &   \multicolumn{6}{ c }{   32\% } \\
+      {\texttt{SysWlNorm}}              & W+cl   &   \multicolumn{6}{ c }{  37\%  }\\
+      {\texttt{norm\_Wbb\_J2}}           & W+hf   &   \multicolumn{3}{ c }{ Floating Normalisation} & -- & -- & -- \\
+      {\texttt{norm\_Wbb\_J3}}           & W+hf   &  -- & -- & -- & \multicolumn{3}{ c }{ Floating Normalisation} \\
+      {\texttt{SysWbbCRSRextrap}}        & W+hf   &   -11.5\% &  -- & 14.8\%  &  -3.6\% & -- & 5.1\%    \\
       \bottomrule
     \end{tabular}
   }

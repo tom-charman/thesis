@@ -438,6 +438,262 @@ parametrisation procedure.
 \section{Experimental Systematic Uncertainties}
 \input{07-systematic-errors/experimental-table.tex}
 
+This section describes experimental systematic uncertainties, these arise due to
+limitations of the hardware discussed in chapter~\ref{ch:detector} and
+reconstruction algorithms described in chapter~\ref{ch:recon}.
+
+% %-------------------------------------------------------------------------------
+\subsection{Luminosity and Pile-up}
+\label{sec:lumisys}
+% %-------------------------------------------------------------------------------
+% \begin{description}
+%   \item[$\bullet$ luminosity] 
+%     The uncertainty on the integrated luminosity is 2.1\%, 2.6\%, 2.4\%, and
+%     2.0\% for the data collection years of 2015, 2016, 2017, 2018
+%     respectively. For the combined integrated luminosity 2015-2018 luminosity
+%     is 1.7\%. It is derived following a methodology similar to that detailed
+%     in ~\cite{lumiDetermine}, from calibrations of the luminosity scale using
+%     x--y beam-separation scans ~\cite{lumiTwiki}.
+
+%   \item[$\bullet$ pile-up] compute the systematics by changing the nominal
+%   data scale of $1.0/1.03$ by $1.0/1.00$ or $1.0/1.18$ to get respectively the
+%   up and down variations~\cite{puTWiki}.
+
+% \end{description}
+
+% %-------------------------------------------------------------------------------
+\subsection{Triggers}
+\label{sec:trigsys}
+% %-------------------------------------------------------------------------------
+
+% %-------------------------------------------------------------------------------
+% \subsubsection{\MET trigger}
+% \label{sec:sysMETtrig}
+% %-------------------------------------------------------------------------------
+% \MET trigger SFs are derived using $W(\mu,\nu)$+jets events as outlined in
+% Section \ref{sec:trig0lepSF}. To account for biases three effects are taken
+% into account as systematic uncertainties. First the statistical error on the
+% dataset from which the scale factor was derived, referred to as
+% \texttt{METTrigStat}, is used as a systematic uncertainty. This is extracted
+% by taking the upper and lower $1\sigma$ uncertainty band of the polynomial fit
+% to the MC/Data ratio, as shown by Figure \ref{fig:trig_SFw}, as alternative
+% up/down SF variations.
+
+
+% The second systematic accounts for differences in SF measurement when using
+% different physics processes, for example \ttbar, to derive the SFs. As such
+% the trigger SFs are also derived using \ttbar events, such that the difference
+% between the SF(\ttbar) with respect to SF($W(\mu,\nu)$+jets) for a given \MET
+% value is defined as a systematic; \texttt{METTrigTop}.
+
+
+% The third systematic, referred to as \texttt{METTrigSumPt}, accounts for the
+% kinematic dependence of the \MET trigger efficiency on the offline scalar sum
+% of all final state jets within the event, known as \texttt{SumPt}. Relevant
+% only for the 2017 specific trigger, as shown by the bottom right plot in
+% Figure \ref{fig:SF_sumpt}, the scale factors as a function of \texttt{SumPt}
+% are used as an additional systematic.
+
+
+% Detailed studies and results pertaining to the aforementioned systematics can
+% be found in Section~\ref{sec:trig0lep}.
+
+% %-------------------------------------------------------------------------------
+% \subsubsection{Lepton trigger}
+% \label{sec:sysLEPtrig}
+% %-------------------------------------------------------------------------------
+% The lepton trigger systematics are provided by CP groups and links to
+% recommendation can be found in Section~\ref{sec:trig12lep}.
+
+
+% The trigger systematics for electron are returned by CP tool as
+% \texttt{EL\_EFF\_Trigger\_TotalCorrUncertainty}. It contains the systematics
+% and statistical error on the trigger SF. Systematics is obtained by doing
+% variation of $+/-$1 $\sigma$ of this error.
+
+% For the muons, the CP tool returns two components : the systematics error
+% (\texttt{MUON\_EFF\_TrigSystUncertainty}) and the statistical error
+% (\texttt{MUON\_EFF\_TrigStatUncertainty}) on the trigger SF. Systematics are
+% obtained by doing variation of $+/-$1 $\sigma$ of these errors.
+
+% %-------------------------------------------------------------------------------
+\subsection{Electrons}
+\label{sec:elecsys}
+% %-------------------------------------------------------------------------------
+
+% \subsubsection{Electron efficiency systematic}
+
+% Reconstruction and identification (ID) efficiency and its systematic
+% uncertainties are provided by the CP group as
+% \texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki}.
+
+% The electron efficiency scale factors have been calculated using the full Run
+% 2 data.
+
+% The reconstruction efficiency is 97-99\% in the entire \pt~range. The ID
+% efficiency scale factor is available from $\pt>7$~GeV. The scale factor of the
+% combined cuts of impact parameter significance and on $|z_{0}\sin\theta|$ is
+% included in ID efficiency scale factor. The isolation efficiency scale factor
+% is also provided. In current recommendation scale factors for $\pt>150$ GeV
+% are unity due to lack of statistics to measure scale factor. Therefore a
+% systematic uncertainty of additional $\pm 2\%$ is assigned above 150 GeV.
+% Three independent systematic sources
+% (\texttt{EL\_EFF\_ID\_TotalCorreUncertainty},
+% \texttt{EL\_EFF\_Reco\_TotalCorrUncertainty},
+% \texttt{EL\_EFF\_Iso\_TotalCorrUncertainty}) are considered as electron
+% efficiency systematic uncertainties.
+
+% \subsubsection{Electron energy scale and resolution}
+
+% Energy scale and resolution systematic uncertainties have been provided by CP
+% group~\cite{EgammaCalibTWiki}. More than 60 systematic variation are
+% considered in the energy calibration. However, the electron energy scale and
+% resolution systematic uncertainties are not dominant systematic sources. This
+% analysis is very weekly sensitive to the energy scale and resolution.
+% Therefore, we used simple a systematic model. Two systematic uncertainties
+% (\texttt{EG\_RESOLUTION\_ALL}, \texttt{EG\_SCALE\_ALL}) are considered in this
+% analysis.
+
+% %-------------------------------------------------------------------------------
+\subsection{Muons}
+\label{sec:muonsys}
+% %------------------------------------------------------------------------------
+% \subsubsection{Muon efficiency systematic uncertainties}
+
+% Reconstruction, isolation and track-to-vertex association ($d_0$ significance
+% and $z_0\sin\theta$) scale factors are calculated using $Z\rightarrow \mu\mu$
+% and $J/\psi\rightarrow \mu\mu$ events in the full data of 2015, which
+% corresponds to 3.2 fb$^{-1}$
+% (\texttt{MuonEfficiencyCorrections-03-02-05})~\cite{muonTWiki}. The scale
+% factor is valid in the full \pt range. Since $J/\psi$ measurement is valid
+% below 15 GeV and $Z$ measurement is more accurate above 15 GeV, the separated
+% systeamatic uncertainties are used in low-\pt (below 15 GeV). Four independent
+% systematic uncertainties (\texttt{MUON\_EFF\_RECO\_STAT},
+% \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
+% \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}) are provided. The isolation scale factor
+% and its systematic uncertainties (\texttt{MUON\_EFF\_ISO\_STAT},
+% \texttt{MUON\_EFF\_ISO\_SYS}) are supported in the range of $10 < \pt < 500$
+% GeV. For muons out of this range, the scale factor is 1$\pm$0.05. The scale
+% factor of the combined cuts on the Impact parameter significance and the
+% $|z_0\sin\theta|$ is also provided from above MuonEfficiencyCorrections
+% version. Two kinds of independent systematic uncertainties
+% (\texttt{MUON\_EFF\_TTVA\_STAT}, \texttt{MUON\_EFF\_TTVA\_SYS}) are provided.
+% Systematic uncertainties are evaluated from $\pm 1\sigma$ variations. %In
+% using muons close to jets ($\Delta R_{\mu-\text{jet}} < 0.4$), an extra
+% systematic uncertainty is added on top of nominal uncertainty.
+
+% \subsubsection{Muon momentum scale and resolution}
+
+% Muon momentum scale and resolution correction and uncertainties are provided
+% by the CP group \\
+% (\texttt{MuonMomentumCorrections-01-00-29})~\cite{muonTWiki}. Muons have been
+% calibrated with $Z\rightarrow \mu\mu$ for the high $p_{T}$ region ($\pt > 20$
+% GeV) and with $J/\psi\rightarrow \mu\mu$ for the low \pt~ region ($\pt < 20$
+% GeV). Three kinds of systematic sources (\texttt{MUONS\_ID},
+% \texttt{MUONS\_MS}, \texttt{MUONS\_SCALE}) related to scale and resolution are
+% provided. These systematic uncertainties are evaluated by varying the scale
+% and the ID/MS track $\pm 1\sigma$.
+
+% %-------------------------------------------------------------------------------
+\subsection{Jets}
+\label{sec:jetssys}
+% %-------------------------------------------------------------------------------
+
+% Jet systematics are implemented through the \texttt{JetUncertaintiesTool} using the
+% usual PAT interface for systematic variations. The number of uncertainties is
+% divided into different reduction categories. An analysis may choose between the
+% full set of nuisance parameters (\textasciitilde50 baseline parameters) or a
+% globally reduced set of 23 parameters. The baseline set uses \emph{in-situ}
+% analyses, eta intercalibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
+% composition, flavour response, $b$-jets, and punch-through jets. Each of these
+% areas of concern may be accessed separately using the tool. The reduced sets
+% comprise nuisance parameters made from performing a principal component
+% analysis and combining the resulting variations in such a way as to preserve
+% correlations in certain jet-kinematic regions. If an analysis will later
+% combine their result with another group, these reduced sets may not be
+
+% used. We use the 23-parameter reduced set.
+
+% The most prominent sources of jet-related uncertainty are the uncertainties from
+% the jet energy scale (JES) and jet energy resolution (JER). The determination of
+% the JES is documented in \cite{JetCalibration2015} and the JER is determined
+% from data-MC comparisons. Both uncertainties are available through the
+% \texttt{JetUncertaintiesTool}. 
+
+\subsection{\MET}
+\label{sec:metsys}
+% %-------------------------------------------------------------------------------
+% \MET systematics are implemented through the \texttt{METSystematicsTool} using
+% the usual
+% PAT interface. This tool can be configured to account for calorimeter-based
+% jets and track-based jets. The uncertainties related to TST are concerned with
+% MC-to-data disagreements, and thus are not needed when using data. The list of
+% uncertainties associated with \MET in this analysis are
+% \texttt{MET\_SoftTrk\_ResoPara}, \texttt{MET\_SoftTrk\_ResoPerp},
+% \texttt{MET\_SoftTrk\_ScaleDown}, \texttt{MET\_SoftTrk\_ScaleUp},
+% \texttt{MET\_JetTrk\_ScaleDown }, and \texttt{MET\_JetTrk\_ScaleUp}.
+
+% %-------------------------------------------------------------------------------
+\subsection{Flavour Tagging}
+\label{sec:bjetsys}
+% %-------------------------------------------------------------------------------
+% The uncertainties related to $b$-tagging jets are implemented as event-weight
+% systematics (scale factors). These scale factors (SF) are calculated in the
+% following ways:
+% \begin{enumerate}
+% \item For each signal jet identify if it has been $b$-tagged or not. If it has,
+%   multiply the event weight by the SF retrieved from the
+%   \texttt{BTaggingEfficiencyTool}
+%   CP tool. Otherwise, multiply the event weight by the inefficiency SF (InSF)
+%   retrieved from the same tool. This will yield the ``Nominal'' event weight.
+% \item For each systematic, vary the SF and InSF by the systematic using the
+%   \texttt{BTaggingEfficiencyTool} and repeat step 1 and store the event weight
+%   for this
+%   systematic.
+% \item For all histograms, make a separate histogram for each weight systematic
+%   using the corresponding weight.
+% \end{enumerate}
+% The individual systematics for $b$-tagging are on the order of about 40
+% elements per flavour ($b$, $c$, $\tau$, and light). In an effort to alleviate
+% the burden of accounting for \textasciitilde160 systematics variations the
+% flavour tagging CP group has performed a principal component analysis to
+% reduce the number of systematic variations. This reduction is summarized in
+% Table~\ref{BTaggingEV} for the chosen medium (70\%) operating point .
+
+% \begin{table}
+%   \centering
+%   \begin{tabular}{l c c c}
+%     \hline
+%     \hline
+%     \multirow{2}{*}{Reduction Scheme} & \multicolumn{3}{ c }{Number of variations:} \\
+%     & $b$-jet & $c$-jet & light-jet \\
+%     \hline
+%     Medium & 3 & 3 & 5 \\
+%     \hline
+%     \hline
+%   \end{tabular}
+%   \caption[Table caption text]{Flavor tagging reduction schemes. Fewer
+%     variations yield a less accurate preservation of total error and
+%   correlations. $\tau$-jet variations are identical to $c$-jet variations with
+% an additional systematic for the $c$-to-$\tau$ extrapolation.}
+%   \label{BTaggingEV}
+% \end{table}
+
+% \ \\Each analysis must determine the appropriate reduction scheme based on the
+% observed effects on the final distributions. There are two additionally
+% systematics that are not part of the reduction scheme and must be treated
+% separately. These are uncertainties related to the $p_{\mathrm{T}}$
+% extrapolation~\cite{BTaggingExtrap2015} and charm-to-bottom quark
+% extrapolation. A list of the ``Medium'' systematics include:
+% \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
+% \texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},
+% \texttt{FT\_EFF\_Eigen\_Light4}, \texttt{FT\_EFF\_Eigen\_B0},
+% \texttt{FT\_EFF\_Eigen\_B1}, \texttt{FT\_EFF\_Eigen\_B2},
+% \texttt{FT\_EFF\_Eigen\_C0}, \texttt{FT\_EFF\_Eigen\_C1},
+% \texttt{FT\_EFF\_Eigen\_C2}, 
+% \texttt{FT\_EFF\_Eigen\_extrapolation}, \\and
+% \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm}.
+
 \section{V + jets Systematic Uncertainties}
 \label{sec:vjets}
 Whilst the physics of the W and Z + jets processes leads to them being in

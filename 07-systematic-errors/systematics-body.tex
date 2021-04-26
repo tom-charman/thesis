@@ -564,10 +564,17 @@ track position in the detector by $\pm 1\sigma$. Two parameters which account
 for the charge dependence of the of the momentum scale uncertainty
 \texttt{MUON\_SAGITTA\_RHO} and \texttt{MUON\_SAGITTA\_RESBIAS} are also included.
 
-% %-------------------------------------------------------------------------------
+\subsection{Taus}
+
+Taus are not crucial to the analysis and therefore the systematic uncertainties
+on the measurement of taus does not have a large effect on the result. The
+systematic uncertainties considered in the analysis relating to taus are
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR},
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} and
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL}, which all account for different
+sources of energy scale uncertainty.
+
 \subsection{Jets}
-\label{sec:jetssys}
-% %-------------------------------------------------------------------------------
 
 As with the other reconstructed objects discussed so far the systematic
 uncertainties for jets are provided through a central tool written by the
@@ -599,62 +606,41 @@ $E_T^{\text{miss}}$ in table~\ref{tab:expSyst} and start with \texttt{MET}.
 
 \subsection{Flavour Tagging}
 
-% The uncertainties related to $b$-tagging jets are implemented as event-weight
-% systematics (scale factors). These scale factors (SF) are calculated in the
-% following ways:
-% \begin{enumerate}
-% \item For each signal jet identify if it has been $b$-tagged or not. If it has,
-%   multiply the event weight by the SF retrieved from the
-%   \texttt{BTaggingEfficiencyTool}
-%   CP tool. Otherwise, multiply the event weight by the inefficiency SF (InSF)
-%   retrieved from the same tool. This will yield the ``Nominal'' event weight.
-% \item For each systematic, vary the SF and InSF by the systematic using the
-%   \texttt{BTaggingEfficiencyTool} and repeat step 1 and store the event weight
-%   for this
-%   systematic.
-% \item For all histograms, make a separate histogram for each weight systematic
-%   using the corresponding weight.
-% \end{enumerate}
-% The individual systematics for $b$-tagging are on the order of about 40
-% elements per flavour ($b$, $c$, $\tau$, and light). In an effort to alleviate
-% the burden of accounting for \textasciitilde160 systematics variations the
-% flavour tagging CP group has performed a principal component analysis to
-% reduce the number of systematic variations. This reduction is summarized in
-% Table~\ref{BTaggingEV} for the chosen medium (70\%) operating point .
+The uncertainties relating to the flavour tagging procedure detailed
+in~\ref{sec:btagging} are very important to consider in the analysis as the
+tagging itself has a central role in selecting events in all of the leptonic
+channels. Each event that has been passed through the tagging algorithms has
+event weights that encode the systematic error on the tagging. The following
+describes how these scale factors are calculated with reference to the tool
+provided by the relevant CP group. For each signal events apply the scale factor
+from the CP tool if it has been tagged as a $b$-jet, otherwise apply the
+inefficiency scale factor provided by the same tool (which yields the nominal
+event weight). For each of the systematic uncertainties considered vary the
+scale factor and inefficiency scale factor by the variations provided by the CP
+tool and repeat the previous method (note the varied inefficiency scale factor
+will no longer yield the nominal event weight). For all histograms that would
+enter the profile-likelihood fit a separate histogram is created for each
+systematic uncertainty (both an up and down variation where the uncertainties
+are two-sided).
 
-% \begin{table}
-%   \centering
-%   \begin{tabular}{l c c c}
-%     \hline
-%     \hline
-%     \multirow{2}{*}{Reduction Scheme} & \multicolumn{3}{ c }{Number of variations:} \\
-%     & $b$-jet & $c$-jet & light-jet \\
-%     \hline
-%     Medium & 3 & 3 & 5 \\
-%     \hline
-%     \hline
-%   \end{tabular}
-%   \caption[Table caption text]{Flavor tagging reduction schemes. Fewer
-%     variations yield a less accurate preservation of total error and
-%   correlations. $\tau$-jet variations are identical to $c$-jet variations with
-% an additional systematic for the $c$-to-$\tau$ extrapolation.}
-%   \label{BTaggingEV}
-% \end{table}
+Similarly to in the determination of the systematic uncertainties on the jets, a
+large number of individual systematics are available (about 40 per jet flavour)
+and so in order to have a smaller set to work with a principle component
+analysis of the full set is performed by the CP group. For the working point
+(70~\%) and reduction scheme chosen in this analysis there are 3 variations for
+$b$-jets, 3 variations for $c$-jets and 5 variations for light-jets. These are
+named \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
+\texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},
+\texttt{FT\_EFF\_Eigen\_Light4}, \texttt{FT\_EFF\_Eigen\_B0},
+\texttt{FT\_EFF\_Eigen\_B1}, \texttt{FT\_EFF\_Eigen\_B2},
+\texttt{FT\_EFF\_Eigen\_C0}, \texttt{FT\_EFF\_Eigen\_C1} and
+\texttt{FT\_EFF\_Eigen\_C2}.
 
-% \ \\Each analysis must determine the appropriate reduction scheme based on the
-% observed effects on the final distributions. There are two additionally
-% systematics that are not part of the reduction scheme and must be treated
-% separately. These are uncertainties related to the $p_{\mathrm{T}}$
-% extrapolation~\cite{BTaggingExtrap2015} and charm-to-bottom quark
-% extrapolation. A list of the ``Medium'' systematics include:
-% \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
-% \texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},
-% \texttt{FT\_EFF\_Eigen\_Light4}, \texttt{FT\_EFF\_Eigen\_B0},
-% \texttt{FT\_EFF\_Eigen\_B1}, \texttt{FT\_EFF\_Eigen\_B2},
-% \texttt{FT\_EFF\_Eigen\_C0}, \texttt{FT\_EFF\_Eigen\_C1},
-% \texttt{FT\_EFF\_Eigen\_C2}, 
-% \texttt{FT\_EFF\_Eigen\_extrapolation}, \\and
-% \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm}.
+Two additional systematic uncertainties irrespective of reduction scheme are
+considered that relate to the $p_T$ extrapolation~\cite{BTaggingExtrap2015} and
+charm-to-bottom quark extrapolation, they are called
+\texttt{FT\_EFF\_Eigen\_extrapolation}, and
+\texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} respectively.
 
 \section{V + jets Systematic Uncertainties}
 \label{sec:vjets}

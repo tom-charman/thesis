@@ -166,8 +166,8 @@ of the $\vec{y}$ is being selected. Once the above approximation is made the
 steps to generate weights and perform a parameterisation of the difference in
 shape between two predictions is the same as in the one dimensional case. By
 placing certain restrictions on $F$ one can turn the approximation into an
-equivalence, this is discussed in~\cite{modelling-note}, however for what is
-considered here the approximation will be the focus.
+equivalence, this is discussed in~\cite{VHModellingNote2019}, however for what
+is considered here the approximation will be the focus.
 Figure~\ref{fig:nd-rw-illustration} shows an illustration of the $N$-dimensional
 parametrisation procedure.
 
@@ -445,7 +445,7 @@ made centrally available to members of the ATLAS collaboration, this ensures a
 consistent understanding of the performance of the detector and centrally
 provided reconstruction algorithms in Athena. A summary of all of the
 experimental systematic uncertainties used in the analysis can be found in
-table~\ref{tab::expSyst}.
+table~\ref{tab:expSyst}.
 \input{07-systematic-errors/experimental-table.tex}
 
 \subsection{Luminosity and Pile-up}
@@ -498,43 +498,35 @@ aforementioned nuisance parameters.
 
 \subsection{Electrons}
 
-% \subsubsection{Electron efficiency systematic}
+\subsubsection{Electron Efficiency Uncertainties}
 
-% Reconstruction and identification (ID) efficiency and its systematic
-% uncertainties are provided by the CP group as
-% \texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki}.
+The efficiency of the electron reconstruction and identification (discussed
+in~\ref{subsec:electrons}) has a systematic uncertainty provided by the relevant
+CP group called \texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki}.
+These have been calculated using the full run 2 data. Reconstruction is 97-99\%
+efficient across the full $p_T$~spectrum. Identification has an efficiency scale
+factor is available from $p_T>7$~\GeV. An isolation efficiency scale factor is
+also included. The latest uncertainties that are available include scale factors
+for $p_T>150$~\GeV that are unity due to the available sample being to small in
+statistics to measure a scale factor~\footnote{Check if this is for all electron
+  systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
+150~\GeV to over this shortcoming. The above uncertainties are controlled by
+\texttt{EL\_EFF\_ID\_TotalCorreUncertainty},
+\texttt{EL\_EFF\_Reco\_TotalCorrUncertainty},
+\texttt{EL\_EFF\_Iso\_TotalCorrUncertainty} in the profile-likelihood fit.
 
-% The electron efficiency scale factors have been calculated using the full Run
-% 2 data.
+\subsubsection{Electron Energy Scale and Resolution Uncertainties}
 
-% The reconstruction efficiency is 97-99\% in the entire \pt~range. The ID
-% efficiency scale factor is available from $\pt>7$~GeV. The scale factor of the
-% combined cuts of impact parameter significance and on $|z_{0}\sin\theta|$ is
-% included in ID efficiency scale factor. The isolation efficiency scale factor
-% is also provided. In current recommendation scale factors for $\pt>150$ GeV
-% are unity due to lack of statistics to measure scale factor. Therefore a
-% systematic uncertainty of additional $\pm 2\%$ is assigned above 150 GeV.
-% Three independent systematic sources
-% (\texttt{EL\_EFF\_ID\_TotalCorreUncertainty},
-% \texttt{EL\_EFF\_Reco\_TotalCorrUncertainty},
-% \texttt{EL\_EFF\_Iso\_TotalCorrUncertainty}) are considered as electron
-% efficiency systematic uncertainties.
+Energy scale and resolution systematic uncertainties have been provided by the
+relevant CP group~\cite{EgammaCalibTWiki}. Whilst there are a large number of
+uncertainties provided by the group, this analysis is not very sensitive to the
+energy scale or resolution of electrons and therefore only two uncertainties are
+considered which are called \texttt{EG\_RESOLUTION\_ALL} and
+\texttt{EG\_SCALE\_ALL}.
 
-% \subsubsection{Electron energy scale and resolution}
-
-% Energy scale and resolution systematic uncertainties have been provided by CP
-% group~\cite{EgammaCalibTWiki}. More than 60 systematic variation are
-% considered in the energy calibration. However, the electron energy scale and
-% resolution systematic uncertainties are not dominant systematic sources. This
-% analysis is very weekly sensitive to the energy scale and resolution.
-% Therefore, we used simple a systematic model. Two systematic uncertainties
-% (\texttt{EG\_RESOLUTION\_ALL}, \texttt{EG\_SCALE\_ALL}) are considered in this
-% analysis.
-
-% %-------------------------------------------------------------------------------
 \subsection{Muons}
 \label{sec:muonsys}
-% %------------------------------------------------------------------------------
+
 % \subsubsection{Muon efficiency systematic uncertainties}
 
 % Reconstruction, isolation and track-to-vertex association ($d_0$ significance

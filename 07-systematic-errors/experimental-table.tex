@@ -2,37 +2,39 @@
   \resizebox{\textwidth}{!}{
     \begin{tabular}{ll}
       \toprule
-      {\bfseries Systematic uncertainty} & {\bfseries Short description} \\%& Reference\\\
+      {\bfseries Systematic uncertainty} & {\bfseries Short description} \\
       \midrule
-      {\bfseries Event}&\\%&\\
-      Luminosity & uncertainty on total integrated luminosity \\%& Section 12.1 in Ref. \cite{VHobjectsupportnote}\\
-  Pileup Re-weighting & uncertainty on pileup re-weighting \\%& Section 12.1 in Ref. \cite{VHobjectsupportnote}\\
-  % PileUP ?&& \cite{VHobjectsupportnote}\\\hline
+      {\bfseries Event} & \\
+      Luminosity & uncertainty on total integrated luminosity \\
+      Pileup Re-weighting & uncertainty on pileup re-weighting \\
+
+      {\bfseries Triggers} & \\
+      \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} &  electron trigger efficiency uncertainty\\
+      \texttt{MUON\_EFF\_TrigStatUncertainty} &  \multirow{2}{*}{muon trigger efficiency uncertainty} \\
+      \texttt{MUON\_EFF\_TrigSystUncertainty} & \\
+      \texttt{METTrigStat}  &  \multirow{2}{*}{$E_T^{\text{miss}}$trigger efficiency uncertainty} \\
+      \texttt{METTrigTop/Z} & \\
+      \texttt{METTrigSumpt} & \\
       {\bfseries Electrons}&\\%&\\
-      % EL\_EFF\_Trigger/Reco/ID/Iso\_TotalCorrUncertainty &  trigger, reconstruction, ID and isolation efficiency uncertainties& \cite{VHobjectsupportnote}\\
-      \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} &  trigger efficiency uncertainty\\%& Section 12.2.2. in Ref. \cite{VHobjectsupportnote}\\
-      \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR} &  reconstruction efficiency uncertainty\\%& Section 12.3.1. in Ref. \cite{VHobjectsupportnote}\\
-      \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR} &  ID efficiency uncertainty\\%& Section 12.3.1. in Ref. \cite{VHobjectsupportnote}\\
-      \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} &  isolation efficiency uncertainty\\%& Section 12.3.1. in Ref. \cite{VHobjectsupportnote}\\
-      \texttt{EG\_SCALE\_ALL} &        energy scale uncertainty         \\%& Section 12.3.2. in Ref. \cite{VHobjectsupportnote}\\         
-      \texttt{EG\_RESOLUTION\_ALL} &    energy resolution uncertainty    \\%& Section 12.3.2. in Ref. \cite{VHobjectsupportnote}\\
+      \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR} &  reconstruction efficiency uncertainty \\
+      \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR} &  ID efficiency uncertainty \\
+      \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} &  isolation efficiency uncertainty \\
+      \texttt{EG\_SCALE\_ALL} &        energy scale uncertainty \\
+      \texttt{EG\_RESOLUTION\_ALL} &    energy resolution uncertainty \\
       {\bfseries Muons}&\\
-      \texttt{MUON\_EFF\_TrigStatUncertainty} &  \multirow{2}{*}{trigger efficiency uncertainty} \\%& \multirow{2}{*}{Section 12.2.2. in Ref. \cite{VHobjectsupportnote}}\\ % to verify
-      \texttt{MUON\_EFF\_TrigSystUncertainty} & \\%& \\ % to verify
-      \texttt{MUON\_EFF\_RECO\_STAT} &  \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_T$\ $>$ 15 \GeV} \\%& \multirow{2}{*}{Section 12.4.1. in Ref. \cite{VHobjectsupportnote}}\\
-      \texttt{MUON\_EFF\_RECO\_SYS} &  \\%&\\
-      \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT} & \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_T$\ $<$ 15 \GeV} \\%& \multirow{2}{*}{ Section 12.4.1. in Ref. \cite{VHobjectsupportnote}}\\ 
-      % MUON\_EFF\_RECO\_SYST\_LOWPT &  &  \\ % ??????????? to verify
-      \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT} &  \\%&  \\
-      \texttt{MUON\_EFF\_TTVA\_STAT}\footnotemark[10] &  \multirow{2}{*}{track-to-vertex association efficiency uncertainty} \\%& \multirow{2}{*}{Section 12.4.1. in  Ref. \cite{VHobjectsupportnote}}\\  
-      \texttt{MUON\_EFF\_TTVA\_SYS}\footnotemark[10] &                      \\%&\\
-      \texttt{MUON\_ISO\_STAT} &  \multirow{2}{*}{isolation efficiency uncertainty} \\%& \multirow{2}{*}{Section 12.4.1. in  \cite{VHobjectsupportnote}}\\  
-      \texttt{MUON\_ISO\_SYS} &                     \\%&\\
-      \texttt{MUON\_ID} & momentum resolution uncertainty from inner detector        \\%&  Section 12.4.2. in Ref. \cite{VHobjectsupportnote}\\                  
-      \texttt{MUON\_MS} &  momentum resolution uncertainty from muon system        \\%&  Section 12.4.2. in Ref. \cite{VHobjectsupportnote}\\ 
-      \texttt{MUON\_SCALE} &   momentum scale uncertainty         \\%& Section 12.4.2. in Ref. \cite{VHobjectsupportnote}\\                  
-      \texttt{MUON\_SAGITTA\_RHO} & \multirow{2}{*}{charge dependent momentum scale uncertainty} \\%& \multirow{2}{*}{Section 12.4.2 in Ref.  \cite{VHobjectsupportnote}}\\
-      \texttt{MUON\_SAGITTA\_RESBIAS} &  \\%& \\
+      \texttt{MUON\_EFF\_RECO\_STAT} &  \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_T$\ $>$ 15 \GeV} \\
+      \texttt{MUON\_EFF\_RECO\_SYS} &  \\
+      \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT} & \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_T$\ $<$ 15 \GeV} \\
+      \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT} &  \\
+      \texttt{MUON\_EFF\_TTVA\_STAT} &  \multirow{2}{*}{track-to-vertex association efficiency uncertainty} \\
+      \texttt{MUON\_EFF\_TTVA\_SYS} &                      \\
+      \texttt{MUON\_ISO\_STAT} &  \multirow{2}{*}{isolation efficiency uncertainty} \\
+      \texttt{MUON\_ISO\_SYS} &                     \\
+      \texttt{MUON\_ID} & momentum resolution uncertainty from inner detector        \\
+      \texttt{MUON\_MS} &  momentum resolution uncertainty from muon system        \\
+      \texttt{MUON\_SCALE} &   momentum scale uncertainty         \\
+      \texttt{MUON\_SAGITTA\_RHO} & \multirow{2}{*}{charge dependent momentum scale uncertainty} \\
+      \texttt{MUON\_SAGITTA\_RESBIAS} &  \\
       {\bfseries Jets and $\bm{b}$-tagging}&\\
       \texttt{JET\_CR\_JET\_EffectiveNP\_Detector1,2} & energy scale uncertainty from the in situ analyses (detector) \\%& Section 12.5.1. in Ref. \cite{VHobjectsupportnote}\\ % note: check diff items in CR scheme
       \texttt{JET\_CR\_JET\_EffectiveNP\_Modelling1,...,4} & energy scale uncertainty from the in situ analyses (modelling) \\%& Section 12.5.1. in Ref. \cite{VHobjectsupportnote}\\
@@ -62,9 +64,6 @@
       \texttt{FT\_EFF\_Eigen\_extrapolation} & $b$-tagging efficiency uncertainty on the extrapolation to high-$p_T$\ jets \\%& Section 12.7. in  Ref. \cite{VHobjectsupportnote}\\
       \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} & $b$-tagging efficiency uncertainty on tau jets \\%& Section 12.7. in  Ref. \cite{VHobjectsupportnote}\\
       {\bfseries MET}&\\
-      \texttt{METTrigStat}  &  \multirow{2}{*}{trigger efficiency uncertainty} \\%& \multirow{2}{*}{Section 12.2.1. in  Ref. \cite{VHobjectsupportnote}}\\
-      \texttt{METTrigTop/Z} & \\%&\\       
-      \texttt{METTrigSumpt} & \\%&\\       
       \texttt{MET\_SoftTrk\_ResoPara} & track-based soft term related longitudinal resolution uncertainty \\%& Section 12.6. in  Ref. \cite{VHobjectsupportnote} \\
       \texttt{MET\_SoftTrk\_ResoPerp} &  track-based soft term related transverse resolution uncertainty \\%& Section 12.6. in  Ref. \cite{VHobjectsupportnote} \\
       \texttt{MET\_SoftTrk\_Scale} & track-based soft term related longitudinal scale uncertainty \\%& Section 12.6. in Ref. \cite{VHobjectsupportnote} \\  

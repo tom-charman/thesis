@@ -489,7 +489,7 @@ The CP group recommendations for the lepton triggers can be found
 in~\cite{VHObjectNote2019}. The group provide a tool for determining the lepton
 trigger systematic error which is implemented in the CxAOD Framework (mentioned
 in section~\ref{sec:cxaod}). The nuisance parameter
-\texttt{EL\_EFF\_Trigger\_TotalCorrUncertainty} is used to control the overall
+\texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
 uncertainty on the electron trigger. For the muons, the tool returns two components
 \texttt{MUON\_EFF\_TrigSystUncertainty} and \texttt{MUON\_EFF\_TrigStatUncertainty}
 which account for the systematic error and the statistical error on scale factor
@@ -511,9 +511,9 @@ for $p_T>150$~\GeV that are unity due to the available sample being to small in
 statistics to measure a scale factor~\footnote{Check if this is for all electron
   systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
 150~\GeV to over this shortcoming. The above uncertainties are controlled by
-\texttt{EL\_EFF\_ID\_TotalCorreUncertainty},
-\texttt{EL\_EFF\_Reco\_TotalCorrUncertainty},
-\texttt{EL\_EFF\_Iso\_TotalCorrUncertainty} in the profile-likelihood fit.
+\texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
+\texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR},
+\texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
 
 \subsubsection{Electron Energy Scale and Resolution Uncertainties}
 
@@ -525,43 +525,44 @@ considered which are called \texttt{EG\_RESOLUTION\_ALL} and
 \texttt{EG\_SCALE\_ALL}.
 
 \subsection{Muons}
-\label{sec:muonsys}
 
-% \subsubsection{Muon efficiency systematic uncertainties}
+\subsubsection{Muon Efficiency Systematic Uncertainties}
 
-% Reconstruction, isolation and track-to-vertex association ($d_0$ significance
-% and $z_0\sin\theta$) scale factors are calculated using $Z\rightarrow \mu\mu$
-% and $J/\psi\rightarrow \mu\mu$ events in the full data of 2015, which
-% corresponds to 3.2 fb$^{-1}$
-% (\texttt{MuonEfficiencyCorrections-03-02-05})~\cite{muonTWiki}. The scale
-% factor is valid in the full \pt range. Since $J/\psi$ measurement is valid
-% below 15 GeV and $Z$ measurement is more accurate above 15 GeV, the separated
-% systeamatic uncertainties are used in low-\pt (below 15 GeV). Four independent
-% systematic uncertainties (\texttt{MUON\_EFF\_RECO\_STAT},
-% \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
-% \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}) are provided. The isolation scale factor
-% and its systematic uncertainties (\texttt{MUON\_EFF\_ISO\_STAT},
-% \texttt{MUON\_EFF\_ISO\_SYS}) are supported in the range of $10 < \pt < 500$
-% GeV. For muons out of this range, the scale factor is 1$\pm$0.05. The scale
-% factor of the combined cuts on the Impact parameter significance and the
-% $|z_0\sin\theta|$ is also provided from above MuonEfficiencyCorrections
-% version. Two kinds of independent systematic uncertainties
-% (\texttt{MUON\_EFF\_TTVA\_STAT}, \texttt{MUON\_EFF\_TTVA\_SYS}) are provided.
-% Systematic uncertainties are evaluated from $\pm 1\sigma$ variations. %In
-% using muons close to jets ($\Delta R_{\mu-\text{jet}} < 0.4$), an extra
-% systematic uncertainty is added on top of nominal uncertainty.
+Samples of $Z \to \mu\mu$ and $J/\psi \to \mu\mu$ events from the full 2015
+dataset (corresponding to 3.2~\invfb) are used to calculate scale factors to
+account for uncertainties in the reconstruction, isolation and track-to-vertex
+association~\cite{muonTWiki}. These scale factors are valid in the full $p_T$
+spectrum with the $J/psi$ measurement providing more accurate determination in
+the $p_T$<15~\GeV region and the Z measurement being more accurate in the
+$p_T$>15~\GeV region. Four independent systematic uncertainties are considered
+which are called \texttt{MUON\_EFF\_RECO\_STAT},
+\texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
+\texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on whether or not
+they come from the high or low $p_T$ measurement. Statistical and systematic
+uncertainties to the isolation scale factor are controlled by
+\texttt{MUON\_EFF\_ISO\_STAT} and \texttt{MUON\_EFF\_ISO\_SYS} respectively.
+They are supported in the range of $10 < p_T < 500$~\GeV. For muons outside of
+this range, a scale factor of 1$\pm$0.05 is used.
+\texttt{MUON\_EFF\_TTVA\_STAT} and \texttt{MUON\_EFF\_TTVA\_SYS} control the
+systematic uncertainty on the scale factor of the cuts on the impact parameter
+significance and the $|z_0\sin\theta|$ which estimate the error on
+track-to-vertex association. All of the above systematic uncertainties are
+derived using $\pm 1\sigma$ variations in the relevant samples.
 
-% \subsubsection{Muon momentum scale and resolution}
+\subsubsection{Muon Momentum Scale and Resolution Uncertainties}
 
-% Muon momentum scale and resolution correction and uncertainties are provided
-% by the CP group \\
-% (\texttt{MuonMomentumCorrections-01-00-29})~\cite{muonTWiki}. Muons have been
-% calibrated with $Z\rightarrow \mu\mu$ for the high $p_{T}$ region ($\pt > 20$
-% GeV) and with $J/\psi\rightarrow \mu\mu$ for the low \pt~ region ($\pt < 20$
-% GeV). Three kinds of systematic sources (\texttt{MUONS\_ID},
-% \texttt{MUONS\_MS}, \texttt{MUONS\_SCALE}) related to scale and resolution are
-% provided. These systematic uncertainties are evaluated by varying the scale
-% and the ID/MS track $\pm 1\sigma$.
+Similarly to the electron energy scale and resolution uncertainties described
+above the muon momentum scale and resolution uncertainties are provided by the
+relevant CP group~\cite{muonTWiki}. Measurements of muons have been calibrated
+using a sample of  $Z\rightarrow \mu\mu$ events in the region with
+$p_T$~>~20~\GeV and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
+with $p_T$~<~20~\GeV. The nuisance parameters control the uncertainties due to
+the inner detector, muon system and the overall momentum scale, they are called
+\texttt{MUONS\_ID}, \texttt{MUONS\_MS} and \texttt{MUONS\_SCALE} respectively.
+These systematic uncertainties are derived by varying the momentum scale and the
+track position in the detector by $\pm 1\sigma$. Two parameters which account
+for the charge dependence of the of the momentum scale uncertainty
+\texttt{MUON\_SAGITTA\_RHO} and \texttt{MUON\_SAGITTA\_RESBIAS} are also included.
 
 % %-------------------------------------------------------------------------------
 \subsection{Jets}

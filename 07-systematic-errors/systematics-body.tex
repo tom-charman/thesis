@@ -590,22 +590,15 @@ documented in~\cite{JetCalibration2015} and the latter is determined from data
 versus Monte-Carlo prediction comparisons.
 
 \subsection{$E_T^{\text{miss}}$}
-\label{sec:metsys}
-% %-------------------------------------------------------------------------------
-% \MET systematics are implemented through the \texttt{METSystematicsTool} using
-% the usual
-% PAT interface. This tool can be configured to account for calorimeter-based
-% jets and track-based jets. The uncertainties related to TST are concerned with
-% MC-to-data disagreements, and thus are not needed when using data. The list of
-% uncertainties associated with \MET in this analysis are
-% \texttt{MET\_SoftTrk\_ResoPara}, \texttt{MET\_SoftTrk\_ResoPerp},
-% \texttt{MET\_SoftTrk\_ScaleDown}, \texttt{MET\_SoftTrk\_ScaleUp},
-% \texttt{MET\_JetTrk\_ScaleDown }, and \texttt{MET\_JetTrk\_ScaleUp}.
 
-% %-------------------------------------------------------------------------------
+Once again $E_T^{\text{miss}}$ systematic uncertainties are implemented via a
+centrally available tool written by the relevant CP group and interfaced in the
+CxAOD Framework. The tool is configured to account for calorimeter and track
+based jets, the uncertainties considered in this analysis are under the heading
+$E_T^{\text{miss}}$ in table~\ref{tab:expSyst} and start with \texttt{MET}.
+
 \subsection{Flavour Tagging}
-\label{sec:bjetsys}
-% %-------------------------------------------------------------------------------
+
 % The uncertainties related to $b$-tagging jets are implemented as event-weight
 % systematics (scale factors). These scale factors (SF) are calculated in the
 % following ways:

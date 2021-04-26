@@ -436,90 +436,67 @@ parametrisation procedure.
 
 
 \section{Experimental Systematic Uncertainties}
-\input{07-systematic-errors/experimental-table.tex}
 
 This section describes experimental systematic uncertainties, these arise due to
 limitations of the hardware discussed in chapter~\ref{ch:detector} and
-reconstruction algorithms described in chapter~\ref{ch:recon}.
+reconstruction algorithms described in chapter~\ref{ch:recon}. All of these
+uncertainties are provided by different combined performance (CP) groups and
+made centrally available to members of the ATLAS collaboration, this ensures a
+consistent understanding of the performance of the detector and centrally
+provided reconstruction algorithms in Athena. A summary of all of the
+experimental systematic uncertainties used in the analysis can be found in
+table~\ref{tab::expSyst}.
+\input{07-systematic-errors/experimental-table.tex}
 
-% %-------------------------------------------------------------------------------
 \subsection{Luminosity and Pile-up}
 \label{sec:lumisys}
-% %-------------------------------------------------------------------------------
-% \begin{description}
-%   \item[$\bullet$ luminosity] 
-%     The uncertainty on the integrated luminosity is 2.1\%, 2.6\%, 2.4\%, and
-%     2.0\% for the data collection years of 2015, 2016, 2017, 2018
-%     respectively. For the combined integrated luminosity 2015-2018 luminosity
-%     is 1.7\%. It is derived following a methodology similar to that detailed
-%     in ~\cite{lumiDetermine}, from calibrations of the luminosity scale using
-%     x--y beam-separation scans ~\cite{lumiTwiki}.
 
-%   \item[$\bullet$ pile-up] compute the systematics by changing the nominal
-%   data scale of $1.0/1.03$ by $1.0/1.00$ or $1.0/1.18$ to get respectively the
-%   up and down variations~\cite{puTWiki}.
+As discussed in chapter~\ref{ch:detector} luminosity is used to measure how much
+data is recorded by the detector in any span of time. The uncertainty is
+calculated for each year of running and is determined to be  2.1\%, 2.6\%,
+2.4\%, and 2.0\% for the years 2015, 2016, 2017, 2018 respectively. A combined
+uncertainty is calculated for the entire period 2015--2018 at 1.7\%. The
+methodology used to calculate this figure is similar to that detailed
+in~\cite{lumiDetermine}, from calibrations of the luminosity scale using x--y
+beam-separation scans~\cite{lumiTwiki}.
 
-% \end{description}
+Pile-up uncertainties are computed by changing the nominal data scale of
+$1.0/1.03$ to $1.0/1.00$ and $1.0/1.18$ to get the up and down variations
+respectively~\cite{puTWiki}.
 
-% %-------------------------------------------------------------------------------
 \subsection{Triggers}
 \label{sec:trigsys}
-% %-------------------------------------------------------------------------------
 
-% %-------------------------------------------------------------------------------
-% \subsubsection{\MET trigger}
-% \label{sec:sysMETtrig}
-% %-------------------------------------------------------------------------------
-% \MET trigger SFs are derived using $W(\mu,\nu)$+jets events as outlined in
-% Section \ref{sec:trig0lepSF}. To account for biases three effects are taken
-% into account as systematic uncertainties. First the statistical error on the
-% dataset from which the scale factor was derived, referred to as
-% \texttt{METTrigStat}, is used as a systematic uncertainty. This is extracted
-% by taking the upper and lower $1\sigma$ uncertainty band of the polynomial fit
-% to the MC/Data ratio, as shown by Figure \ref{fig:trig_SFw}, as alternative
-% up/down SF variations.
+\subsubsection{\texorpdfstring{$E_T^{\text{miss}}$}{MET} Triggers}
 
+Scale factors are derived for the $E_T^{\text{miss}}$ triggers using
+$W(\mu,\nu)$ + jets events as outlined in~\cite{VHObjectNote2019}.
 
-% The second systematic accounts for differences in SF measurement when using
-% different physics processes, for example \ttbar, to derive the SFs. As such
-% the trigger SFs are also derived using \ttbar events, such that the difference
-% between the SF(\ttbar) with respect to SF($W(\mu,\nu)$+jets) for a given \MET
-% value is defined as a systematic; \texttt{METTrigTop}.
+Three uncertainties are taken into account, the statistical error on the dataset
+used to derived the scale factor \texttt{METTrigStat}, a parameter used to
+account for the choice of physics process and the effect that might have on the
+determination of the scale factor \texttt{METTrigTop} and \texttt{METTrigSumPt}
+which aims to account for dependence of the offline $S_T$ (as defined
+in~\ref{sec:0lep-selection}) on the trigger efficiency. The uncertainty
+\texttt{METTrigTop} is named as such because it is derived from a comparison of
+the scale factors as calculated with a $t\bar{t}$ sample and compared to the
+nominal sample. The uncertainty relating to $S_T$ is only applied to events
+recorded in 2017 due to a specific trigger used in this year.
 
+\subsubsection{Lepton trigger}
 
-% The third systematic, referred to as \texttt{METTrigSumPt}, accounts for the
-% kinematic dependence of the \MET trigger efficiency on the offline scalar sum
-% of all final state jets within the event, known as \texttt{SumPt}. Relevant
-% only for the 2017 specific trigger, as shown by the bottom right plot in
-% Figure \ref{fig:SF_sumpt}, the scale factors as a function of \texttt{SumPt}
-% are used as an additional systematic.
+The CP group recommendations for the lepton triggers can be found
+in~\cite{VHObjectNote2019}. The group provide a tool for determining the lepton
+trigger systematic error which is implemented in the CxAOD Framework (mentioned
+in section~\ref{sec:cxaod}). The nuisance parameter
+\texttt{EL\_EFF\_Trigger\_TotalCorrUncertainty} is used to control the overall
+uncertainty on the electron trigger. For the muons, the tool returns two components
+\texttt{MUON\_EFF\_TrigSystUncertainty} and \texttt{MUON\_EFF\_TrigStatUncertainty}
+which account for the systematic error and the statistical error on scale factor
+respectively. An up and down variation of 1-$\sigma$ are used for all of the
+aforementioned nuisance parameters.
 
-
-% Detailed studies and results pertaining to the aforementioned systematics can
-% be found in Section~\ref{sec:trig0lep}.
-
-% %-------------------------------------------------------------------------------
-% \subsubsection{Lepton trigger}
-% \label{sec:sysLEPtrig}
-% %-------------------------------------------------------------------------------
-% The lepton trigger systematics are provided by CP groups and links to
-% recommendation can be found in Section~\ref{sec:trig12lep}.
-
-
-% The trigger systematics for electron are returned by CP tool as
-% \texttt{EL\_EFF\_Trigger\_TotalCorrUncertainty}. It contains the systematics
-% and statistical error on the trigger SF. Systematics is obtained by doing
-% variation of $+/-$1 $\sigma$ of this error.
-
-% For the muons, the CP tool returns two components : the systematics error
-% (\texttt{MUON\_EFF\_TrigSystUncertainty}) and the statistical error
-% (\texttt{MUON\_EFF\_TrigStatUncertainty}) on the trigger SF. Systematics are
-% obtained by doing variation of $+/-$1 $\sigma$ of these errors.
-
-% %-------------------------------------------------------------------------------
 \subsection{Electrons}
-\label{sec:elecsys}
-% %-------------------------------------------------------------------------------
 
 % \subsubsection{Electron efficiency systematic}
 

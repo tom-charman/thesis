@@ -512,7 +512,7 @@ statistics to measure a scale factor~\footnote{Check if this is for all electron
   systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
 150~\GeV to over this shortcoming. The above uncertainties are controlled by
 \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
-\texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR},
+\texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR}, and
 \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
 
 \subsubsection{Electron Energy Scale and Resolution Uncertainties}
@@ -569,26 +569,25 @@ for the charge dependence of the of the momentum scale uncertainty
 \label{sec:jetssys}
 % %-------------------------------------------------------------------------------
 
-% Jet systematics are implemented through the \texttt{JetUncertaintiesTool} using the
-% usual PAT interface for systematic variations. The number of uncertainties is
-% divided into different reduction categories. An analysis may choose between the
-% full set of nuisance parameters (\textasciitilde50 baseline parameters) or a
-% globally reduced set of 23 parameters. The baseline set uses \emph{in-situ}
-% analyses, eta intercalibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
-% composition, flavour response, $b$-jets, and punch-through jets. Each of these
-% areas of concern may be accessed separately using the tool. The reduced sets
-% comprise nuisance parameters made from performing a principal component
-% analysis and combining the resulting variations in such a way as to preserve
-% correlations in certain jet-kinematic regions. If an analysis will later
-% combine their result with another group, these reduced sets may not be
+As with the other reconstructed objects discussed so far the systematic
+uncertainties for jets are provided through a central tool written by the
+relevant CP group that is interfaced in the CxAOD Framework. Analyses may choose
+between a number of different schemes, the choice for the VH(bb) analysis is to
+use a reduced set of 23 nuisance parameters comi
+ng from a reduction using
+principal component analysis of the baseline set of parameters. The baseline set
+accounts for effects due to eta calibration, high-$p_T$ jets, pile-up, flavour
+composition, flavour response, $b$-jets, and punch-through jets. The 23 nuisance
+parameters and a short description of each are displayed in
+table~\ref{tab:expSyst} under the category jets and $b$-tagging where all of the
+relevant nuisance parameters start with \texttt{JET} and
+\texttt{JET\_CR\_Flavour\_Composition} represents three independent nuisance
+parameters as explained in its short description.
 
-% used. We use the 23-parameter reduced set.
-
-% The most prominent sources of jet-related uncertainty are the uncertainties from
-% the jet energy scale (JES) and jet energy resolution (JER). The determination of
-% the JES is documented in \cite{JetCalibration2015} and the JER is determined
-% from data-MC comparisons. Both uncertainties are available through the
-% \texttt{JetUncertaintiesTool}. 
+The largest source of uncertainty amongst the chosen set come from the jet
+energy scale and the jet energy resolution. The determination of the former is
+documented in~\cite{JetCalibration2015} and the latter is determined from data
+versus Monte-Carlo prediction comparisons.
 
 \subsection{$E_T^{\text{miss}}$}
 \label{sec:metsys}

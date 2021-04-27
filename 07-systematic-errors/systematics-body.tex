@@ -408,7 +408,7 @@ analysis of the full set is performed by the CP group. For the working point
 (70~\%) and reduction scheme chosen in this analysis there are 3 variations for
 $b$-jets, 3 variations for $c$-jets and 5 variations for light-jets. These are
 named \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
-\texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},
+\texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},\\
 \texttt{FT\_EFF\_Eigen\_Light4}, \texttt{FT\_EFF\_Eigen\_B0},
 \texttt{FT\_EFF\_Eigen\_B1}, \texttt{FT\_EFF\_Eigen\_B2},
 \texttt{FT\_EFF\_Eigen\_C0}, \texttt{FT\_EFF\_Eigen\_C1} and
@@ -614,8 +614,10 @@ imposed.
 
 \subsubsection{Shape Uncertainties}
 
-% \subsubsection{BDTr-based shape uncertainties}
-% \label{subsubsec:WjetsBDTrBasedShapeSyst}
+The hybrid $(N-1)$--dimensional parametrisation technique is used to generate
+uncertainties on the shape of the distributions of the W + jets background. The
+variable that has been factorised out is $p_T^V$ and so there are 
+
 
 % A hybrid BDTr approach, as described in Section~\ref{subsec:ShapeMethod}, has
 % been adopted in the 1-lepton and the 0-lepton channels to derive the BDTr-based
@@ -720,8 +722,20 @@ imposed.
 % \textbf{BDTr shape systematic}
 
 % %### HEAD ###
-% %Prior the training, the nominal \SHERPA2.2.1 events are reweighted by the $p_T^V$  ratio with the alternative \MADGRAPH in each jet region and for each heavy flavour component. This ratio is exactly the one shown in blue in the bottom panel of Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} from which the $p_T^V$ shape uncertainty is derived through a linear fit. This allows to have a BDT shape systematic that does not account for the variance in $p_T^V$ .\\
-% %Once the training and evaluation are performed for each jet category and heavy flavour pair, the ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's distributions is found and used to define the BDTr-based systeamatic uncertainty. This is implemented in the fit as a nuisance parameter called \texttt{SysBDTr\_W\_SHtoMG5}.
+% %Prior the training, the nominal \SHERPA2.2.1 events are reweighted by the
+% $p_T^V$  ratio with the alternative \MADGRAPH in each jet region and for each
+% heavy flavour component. This ratio is exactly the one shown in blue in the
+% bottom panel of Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and
+% Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} from which the $p_T^V$ shape
+% uncertainty is derived through a linear fit. This allows to have a BDT shape
+% systematic that does not account for the variance in $p_T^V$ .\\
+
+% %Once the training and evaluation are performed for each jet category and
+% heavy flavour pair, the ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's
+% distributions is found and used to define the BDTr-based systeamatic
+% uncertainty. This is implemented in the fit as a nuisance parameter called
+% \texttt{SysBDTr\_W\_SHtoMG5}.
+
 % % >>> <<<
 % Prior to the BDT training, the nominal \SHERPA2.2.1 events are reweighted by the
 % $p_T^V$ density ratio with the alternative \MADGRAPH in each jet region and for

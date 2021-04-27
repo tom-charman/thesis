@@ -661,102 +661,46 @@ range where it can be seen that agreement is event better further supporting the
 validity of this choice.
 \input{07-systematic-errors/wjets-01lep-ptv-shapes-norm}
 
+As per the methodology of the factorised BDTr technique the nominal
+\textsc{Sherpa}~2.2.1 events are re-weighted by the $p_T^V$ ratio with the
+alternative prediction as was just discussed. The $p_T^V$ shape uncertainty is
+therefore factorised out of the BDTr shape uncertainty. The re-weighted
+\textsc{Sherpa}~2.2.1 events are then trained against the \textsc{MadGraph}
+prediction in a BDT classifier that uses the input variables detailed in
+table~\tef{tab:MVAinputs}. A separate training is performed in each jet category
+and for each sub-component of the W + hf process in congruence with the 8
+regions that the $p_T^V$ shape was derived in. Considering the output of the
+classifier the ratio of the scores of the nominal and alternative predictions
+enter into the profile-likelihood fit as a nuisance parameter called
+\texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only W +
+bb events as this is the dominant and most important component of the W + hf
+process and indeed the W + jets background in the analysis.
+
+In order to check the validity of the method the re-weighted nominal predictions
+of key inputs to the analyisis MVA are plotted against the nominal and
+alternative predictions in figures~\ref{fig:wjets_1lep_2jet_BDTrClosure_1}
+and~\ref{fig:wjets_0lep_2jet_BDTrClosure_1} for the 1-- and 0--lepton channels
+respectively in the 2--jet category.
 \input{07-systematic-errors/wjets-bdt-shapes-1lep2jet}
 \input{07-systematic-errors/wjets-bdt-shapes-0lep2jet}
+Should the re-weighted nominal inputs match
+the shapes of the alternative inputs then the method is considered to be valid.
+Indeed upon inspection one can see that this is largely the case across the
+board apart from small levels of disagreement. These small levels of
+disagreement are disregarded as the two most important variables in the
+determination of the analysis BDT score, $m(b, \bar{b})$, $p_T^V$ and
+$E_T^{\text{miss}}$ have good levels of agreement.
+
+The actual effect of the factorised BDTr systematic uncertainty on the analysis
+BDT score is shown in figures~\ref{fig:wjets_1lep_FullRun2MVA_BDTrClosure}
+and~\ref{fig:wjets_0lep_FullRun2MVA_BDTrClosure} for the 1-- and 0--lepton
+channels respectively. 
 \input{07-systematic-errors/wjets-bdt-shapes-mva-1lep}
 \input{07-systematic-errors/wjets-bdt-shapes-mva-0lep}
-
-% Prior to the BDT training, the nominal \SHERPA2.2.1 events are reweighted by the
-% $p_T^V$ density ratio with the alternative \MADGRAPH in each jet region and for
-% each heavy flavour component. This thereby decouples the \ptv shape uncertainty
-% from the  BDTr based shape uncertainty, where the aforementioned density ratio
-% is implemented within the fit as a nuisance parameter called
-% \texttt{SysWPtV\_BDTr} (see Section \ref{subsubsec:WjetsBDTrBasedShapeSyst}).\\
-
-% Following the factorisation of the \ptv information, the \ptv weighted
-% \SHERPA2.2.1 and \MADGRAPH samples are trained against each other using a
-% classification BDT with the same inputs as those used in the main analysis MVA
-% (as outlined in Ref. \cite{AlKhoury:2692011}). Upon completion of the training
-% and evaluation of the BDT classifier for each jet category and heavy flavour
-% pair, the density ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's
-% distributions is derived. This is then implemented as either a binned or
-% continuous parameteric re-weighting function within the analysis, which then
-% enters the profile likelihood fit as a nuisance parameter called
-% \texttt{SysBDTr\_W\_SHtoMG5}.
-
-% In Figure~\ref{fig:wjets_1lep_2jet_BDTrClosure_1}, the closure of the BDTr-based
-% shape systematic on some of the key variables entering the analysis MVA is shown
-% for the 1-lepton 2tag2jet category and for the $W$+bb events only. More plots
-% showing the closure on the remaining variables and for $W$+bb, $W$+bc and $W$+bl
-% events in the 1-lepton 2tag2jet category and the full set of plots for the
-% 1-lepton 2tag3jet category can be found in the Appendix~\ref{app:wjets}. Small
-% level of non-closure is found but is of no worry as the most important variables
-% entering the Analysis-BDT, $p_T^V$ and $m_{bb}$, and the Analysis-BDT itself are
-% fully covered by the BDTr-based shape systematic.
-
-% In Figure~\ref{fig:wjets_0lep_2jet_BDTrClosure_1}, the closure of the
-%  BDTr-based shape systematic on some of the key variables entering the analysis
-%  MVA is shown for the 0-lepton 2tag2jet category and for the $W$+bb events only.
-%  More plots showing the closure on the remaining heavy flavour pairs in the
-%  0-lepton 2tag2jet category and the full set of plots for the 0-lepton 2tag3jet
-%  category can be found in the Appendix~\ref{app:wjets}. Also in this case, small
-%  level of non-closure is found but is of no worry as the most important
-%  variables entering the Analysis-BDT, MET and $m_{bb}$, and the Analysis-BDT
-%  itself are fully covered by the BDTr-based shape systematic.
-
-
-%  The effect of the BDTr-based systematic shape, as well as the $p_T^V$ one on
-%  the full Run2 analysis MVA is shown in
-%  Figure~\ref{fig:wjets_1lep_FullRun2MVA_BDTrClosure} and in
-%  Figure~\ref{fig:wjets_0lep_FullRun2MVA_BDTrClosure} for $W$+bb events in the
-%  2tag2jet category on the left and 2tag3jet category on the right, for the
-%  1-lepton and the 0-lepton channels, respectively.
-
-
-% Table~\ref{tab:extrapolation_uncertainties_pTV} and
-% Table~\ref{tab:extrapolation_uncertainties_BDTr} show the extrapolation
-% uncertainties of the $p_T^V$ and the BDTr-based shape systematics, respectively,
-% across all regions and $p_T^V$ bins of the analysis for both the 0-lepton and
-% the 1-lepton channels.
-% \begin{table}[!htb]
-%   \centering
-%   \begin{tabular}{lllllll}
-%     \toprule
-%     $p_T^v$ region & CR$_{\text{low}}$ &  SR   &  CR$_{high}$ & weighted-sum &  weighted-sum $\Delta$(CR$_{\text{low}}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
-%     {\bfseries 0-lepton}& & & & & & \\
-%     {\bfseries 2-jet} & & & & & & \\
-%     150-250 $p_T^V$ & 5.08       & 5.49    & 5.83         & 5.44    &   \multirow{2}{*}{-1.64}       &      \multirow{2}{*}{-1.64}     \\
-%     250 $p_T^V$                  & 14.08      & 17.52  & 18.37        & 17.48    &         &           \\
-%     $\Delta$(high-low) $p_T^V$   & 9.00       & 12.03  & 12.54        & 12.04    &    --      &     -- \\
-%     {\bfseries 3-jet} & & & & & & \\
-%     150-250 $p_T^V$              & 4.12       & 4.41    & 4.77         & 4.42     &   \multirow{2}{*}{-1.26}       &   \multirow{2}{*}{-1.41}         \\
-%     250 $p_T^V$                  & 14.95      & 16.97   & 18.44        & 17.33    &          &            \\
-%     $\Delta$(high-low) $p_T^V$   & 10.83      & 12.56   & 13.67        & 12.91    &    --      &  --     \\
-%     {\bfseries 1-lepton} & & & & & & \\
-%     {\bfseries 2-jet} & & & & & &  \\
-%     150-250 $p_T^V$              & 5.14  & 5.41  & 5.29  & 5.30  &   \multirow{2}{*}{-1.95}            &  \multirow{2}{*}{+0.60}    \\
-%     250 $p_T^V$                  & 14.08 & 17.34 & 18.30 & 17.47 &               &         \\
-%     $\Delta$(high-low) $p_T^V$   & 8.94  & 11.93 & 13.01 & 12.17 &      --         &   --  \\
-%     {\bfseries 3-jet} & & & & & & \\
-%     150-250 $p_T^V$              & 4.08  & 4.38  & 4.61  & 4.39  &    \multirow{2}{*}{-1.89}     &     \multirow{2}{*}{+1.34}      \\ 
-%     250 $p_T^V$                  & 15.24 & 18.02 & 19.01 & 18.24 &               &              \\
-%     $\Delta$(high-low) $p_T^V$   & 11.16 & 13.64 & 14.40 & 13.85 &     --          &      --  \\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{Summary of the extrapolation uncertainties of the $p_T^V$ shape
-%     systematic on the $W$+jets samples across all the analysis regions of the
-%   analysis and in the 0 and 1-lepton channels. The third column for both 2-jet
-%   and 3-jet categories shows the normalization effect induced by the shape
-%   systematic weighted by the yields in each of the analysis regions. The last
-%   row for both 0-lepton and 1-lepton channels shows the normalization effect
-%   induced by the $p_T^V$ shape systematic across the different $p_T^V$ bins of the
-%   analyisis. The last row for both 0-lepton and 1-lepton channels shows the
-%   normalization effect induced by the BDTr-based shape systematic across the
-%   different $p_T^V$ bins of the analyisis. The last two columns show the migration
-%   effect, inclusive in the two $p_T^V$ bins induced by the pVTshape systematic
-%   from CR$_{\text{low}}$ to SR and from CR$_{high}$ to SR.}
-% \label{tab:extrapolation_uncertainties_pTV}
-% \end{table}
+Tables~\ref{tab:wjtes-extrapolation_uncertainties_pTV}
+and~\ref{tab:wjets-extrapolation_uncertainties_BDTr} in the appendix show the
+extrapolation uncertainties induced by the $p_T^V$ and factorised BDTr shape
+systematic uncertainties respectively.
 
 \subsection{Z + jets Systematic Errors}
 \label{sec:zjets-systs}

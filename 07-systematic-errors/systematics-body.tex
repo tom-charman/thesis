@@ -284,10 +284,10 @@ These have been calculated using the full run 2 data. Reconstruction is 97-99\%
 efficient across the full $p_T$~spectrum. Identification has an efficiency scale
 factor is available from $p_T>7$~\GeV. An isolation efficiency scale factor is
 also included. The latest uncertainties that are available include scale factors
-for $p_T>150$~\GeV that are unity due to the available sample being to small in
+for $p_T>150$~\GeV\ that are unity due to the available sample being to small in
 statistics to measure a scale factor~\footnote{Check if this is for all electron
   systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
-150~\GeV to over this shortcoming. The above uncertainties are controlled by
+150~\GeV\ to over this shortcoming. The above uncertainties are controlled by
 \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
 \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR}, and
 \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
@@ -310,8 +310,8 @@ dataset (corresponding to 3.2~\invfb) are used to calculate scale factors to
 account for uncertainties in the reconstruction, isolation and track-to-vertex
 association~\cite{muonTWiki}. These scale factors are valid in the full $p_T$
 spectrum with the $J/psi$ measurement providing more accurate determination in
-the $p_T$<15~\GeV region and the Z measurement being more accurate in the
-$p_T$>15~\GeV region. Four independent systematic uncertainties are considered
+the $p_T$<15~\GeV\ region and the Z measurement being more accurate in the
+$p_T$>15~\GeV\ region. Four independent systematic uncertainties are considered
 which are called \texttt{MUON\_EFF\_RECO\_STAT},
 
 \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
@@ -333,7 +333,7 @@ Similarly to the electron energy scale and resolution uncertainties described
 above the muon momentum scale and resolution uncertainties are provided by the
 relevant CP group~\cite{muonTWiki}. Measurements of muons have been calibrated
 using a sample of  $Z\rightarrow \mu\mu$ events in the region with
-$p_T$~>~20~\GeV and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
+$p_T$~>~20~\GeV\ and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
 with $p_T$~<~20~\GeV. The nuisance parameters control the uncertainties due to
 the inner detector, muon system and the overall momentum scale, they are called
 \texttt{MUONS\_ID}, \texttt{MUONS\_MS} and \texttt{MUONS\_SCALE} respectively.
@@ -629,11 +629,11 @@ sub-component, yielding eight regions total. The W + l and W + cl components of
 the W + jets backgrounds are not considered as they account for less than 1~\%
 of all background events in any region.
 
-In all regions the re-weighting is performed by comparing the ratio of the
-nominal \textsc{Sherpa}~2.2.1 prediction with that of \textsc{MadGraph}. The
-requirement of $p_T^V > 75$~\GeV is applied to all distributions in the
-1--lepton channel and in the 0--lepton channel the requirement of
-$E_T^{\text{miss}} > 150$~\GeV is imposed instead.
+In all regions the initial 1--dimensional re-weighting is performed by comparing
+the ratio of the nominal \textsc{Sherpa}~2.2.1 $(p_T^V, E_T^{\text{miss}})$
+prediction with that of \textsc{MadGraph}. The requirement of $p_T^V~>~75$~\GeV\
+is applied to all distributions in the 1--lepton channel and in the 0--lepton
+channel the requirement of $E_T^{\text{miss}}~>~150$~\GeV\~is imposed instead.
 
 Figures~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr}
 and~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} show the comparison between
@@ -656,29 +656,16 @@ It can be seen the two shapes mostly agree within the statistical error which is
 of course very large for the 0--lepton systematic. Furthermore
 figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} shows  a comparison in
 which both the $p_T^V$ and the $E_T^{\text{miss}}$ shapes in the 2--jet region
-have been normalised to unit area in the $(p_T^V, E_T^{\text{miss}}) > 150$~\GeV
+have been normalised to unit area in the $(p_T^V, E_T^{\text{miss}}) > 150$~\GeV\
 range where it can be seen that agreement is event better further supporting the
 validity of this choice.
 \input{07-systematic-errors/wjets-01lep-ptv-shapes-norm}
 
-% \textbf{BDTr shape systematic}
+\input{07-systematic-errors/wjets-bdt-shapes-1lep2jet}
+\input{07-systematic-errors/wjets-bdt-shapes-0lep2jet}
+\input{07-systematic-errors/wjets-bdt-shapes-mva-1lep}
+\input{07-systematic-errors/wjets-bdt-shapes-mva-0lep}
 
-% %### HEAD ###
-% %Prior the training, the nominal \SHERPA2.2.1 events are reweighted by the
-% $p_T^V$  ratio with the alternative \MADGRAPH in each jet region and for each
-% heavy flavour component. This ratio is exactly the one shown in blue in the
-% bottom panel of Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and
-% Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} from which the $p_T^V$ shape
-% uncertainty is derived through a linear fit. This allows to have a BDT shape
-% systematic that does not account for the variance in $p_T^V$ .\\
-
-% %Once the training and evaluation are performed for each jet category and
-% heavy flavour pair, the ratio between the \SHERPA2.2.1 and \MADGRAPH BDT's
-% distributions is found and used to define the BDTr-based systeamatic
-% uncertainty. This is implemented in the fit as a nuisance parameter called
-% \texttt{SysBDTr\_W\_SHtoMG5}.
-
-% % >>> <<<
 % Prior to the BDT training, the nominal \SHERPA2.2.1 events are reweighted by the
 % $p_T^V$ density ratio with the alternative \MADGRAPH in each jet region and for
 % each heavy flavour component. This thereby decouples the \ptv shape uncertainty
@@ -707,18 +694,7 @@ validity of this choice.
 % entering the Analysis-BDT, $p_T^V$ and $m_{bb}$, and the Analysis-BDT itself are
 % fully covered by the BDTr-based shape systematic.
 
-% \begin{figure}[H]
-% \begin{center}
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_pTV_bb.pdf}}  
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_mBB_bb.pdf}}  \\
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_Mtop_bb.pdf}} 
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_dRBB_bb.pdf}} \\
-% \caption{Closure of BDTr-based systematic on the variables entering the analysis MVA in the 2tag2jet region of the 1-lepton channel. The BDTr-based systematic is plotted in magenta, while the $p_T^V$ shape systematic is plotted in green. }
-% \label{fig:wjets_1lep_2jet_BDTrClosure_1}
-% \end{center}
-% \end{figure}
-
-%  In Figure~\ref{fig:wjets_0lep_2jet_BDTrClosure_1}, the closure of the
+% In Figure~\ref{fig:wjets_0lep_2jet_BDTrClosure_1}, the closure of the
 %  BDTr-based shape systematic on some of the key variables entering the analysis
 %  MVA is shown for the 0-lepton 2tag2jet category and for the $W$+bb events only.
 %  More plots showing the closure on the remaining heavy flavour pairs in the
@@ -727,18 +703,7 @@ validity of this choice.
 %  level of non-closure is found but is of no worry as the most important
 %  variables entering the Analysis-BDT, MET and $m_{bb}$, and the Analysis-BDT
 %  itself are fully covered by the BDTr-based shape systematic.
-% \begin{figure}[H]
-% \begin{center}
-% \subfigure{\includegraphics[width=0.45\textwidth]{0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_MET_bb.pdf}}  
-% \subfigure{\includegraphics[width=0.45\textwidth]{0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_mBB_bb.pdf}}  \\
-% \subfigure{\includegraphics[width=0.45\textwidth]{0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_dRBB_bb.pdf}} \\
-% \caption{Closure of BDTr-based systematic on the variables entering the analysis
-%   MVA in the 2tag2jet region of the 0-lepton channel. The BDTr-based systematic
-%   is plotted in magenta, while the $p_T^V$ shape systematic is plotted in green.
-% }
-% \label{fig:wjets_0lep_2jet_BDTrClosure_1}
-% \end{center}
-% \end{figure}
+
 
 %  The effect of the BDTr-based systematic shape, as well as the $p_T^V$ one on
 %  the full Run2 analysis MVA is shown in
@@ -746,31 +711,6 @@ validity of this choice.
 %  Figure~\ref{fig:wjets_0lep_FullRun2MVA_BDTrClosure} for $W$+bb events in the
 %  2tag2jet category on the left and 2tag3jet category on the right, for the
 %  1-lepton and the 0-lepton channels, respectively.
- 
-% \begin{figure}[H]
-% \begin{center}
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag2jet_75ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  
-% \subfigure{\includegraphics[width=0.45\textwidth]{1Lep_BDTbased_closure/1lepton_2tag3jet_75ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  \\
-% \caption{Closure of BDTr-based systematic on the full Run 2 analysis MVA for
-%   $W$+bb events in the 2tag2jet region (on the left) and 2tag3jet region (on the
-%   right) of the 1-lepton channel. The BDTr-based systematic is plotted in
-%   magenta, while the $p_T^V$ shape systematic is plotted in green. }
-% \label{fig:wjets_1lep_FullRun2MVA_BDTrClosure}
-% \end{center}
-% \end{figure}
- 
-% \begin{figure}[H]
-% \begin{center}
-% \subfigure{\includegraphics[width=0.45\textwidth]{0Lep_BDTbased_closure/0lepton_2tag2jet_150ptv_SR+CR_mvaFullRun2Default_bb.pdf}}  
-% \subfigure{\includegraphics[width=0.45\textwidth]{0Lep_BDTbased_closure/0lepton_2tag3jet_150ptv_SR+CR_mvaFullRun2Default_bb.pdf}}
-% \\
-% \caption{Closure of BDTr-based systematic on the full Run 2 analysis MVA for
-%   $W$+bb events in the 2tag2jet region (on the left) and 2tag3jet region (on the
-%   right) of the 0-lepton channel. The BDTr-based systematic is plotted in
-%   magenta, while the $p_T^V$ shape systematic is plotted in green.}
-% \label{fig:wjets_0lep_FullRun2MVA_BDTrClosure}
-% \end{center}
-% \end{figure} 
 
 
 % Table~\ref{tab:extrapolation_uncertainties_pTV} and
@@ -1036,7 +976,7 @@ validity of this choice.
 
 % In the current systematic model, independent normalization factors are employed
 % for the main backgrounds (\ttbar, $\Wboson +$HF and $\Zboson +$HF) independently
-% in $2$ and $3(+)$-jet, above or below $$p_T^V$ = 150~\GeV$. Therefore, the
+% in $2$ and $3(+)$-jet, above or below $$p_T^V$ = 150~\GeV\$. Therefore, the
 % extrapolation uncertainty is already accounted for at these boundaries. Most of
 % the systematic uncertainties are computed in total $$p_T^V$$ phase space
 % ($\geq75~\GeV$) in $2$-jet and $3$-jet events independently to avoid

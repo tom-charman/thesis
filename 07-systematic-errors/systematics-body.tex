@@ -614,55 +614,52 @@ imposed.
 
 \subsubsection{Shape Uncertainties}
 
-The hybrid $(N-1)$--dimensional parametrisation technique is used to generate
-uncertainties on the shape of the distributions of the W + jets background. The
-variable that has been factorised out is $p_T^V$ and so there are 
-
-
-% A hybrid BDTr approach, as described in Section~\ref{subsec:ShapeMethod}, has
-% been adopted in the 1-lepton and the 0-lepton channels to derive the BDTr-based
-% shape systematics.
-
-% \textbf{$p_T^V$ shape systematic}
-
-% In each leptonic channel, eight shapes are derived depending on the jet category
-% (2-jet and 3-jet) and flavour composition of the event. Only heavy flavours
-% events ($W$+bb, $W$+bc, $W$+bl and $W$+cc) are considered as the $W$+l and
-% $W$+cl background processes compose less than 1\% of the background in any
-% region.
-
-% In the 1-lepton channel, these shapes are obtained from a linear fit to the
-% ratio between \SHERPA2.2.1 and \MADGRAPH  in the $p_T^V$ distribution with
-% $p_T^V > 75$\ GeV. In the 0-lepton channel, the MET distribution with MET
-% $>150$\ GeV is used.\\
-
-% Figure~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr} and
-% Figure~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} shows $p_T^V$ shape systematics in
-% the 1-lepton channel for each heavy flavour category and for 2-jet and 3-jet
-% events, respectively.
-
-\input{07-systematic-errors/wjets-shapes2}
+The hybrid $(N-1)$--dimensional parametrisation technique described
+in~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
+the distributions of the W + jets background. The variable that has been
+factorised out is $p_T^V$ and so there are nuisance parameters which control the
+$p_T^V$ shape in each of the 2-- and 3--jet categories as well as a nuisance
+parameter that controls the multi-variate shape uncertainty across all regions
+and jet multiplicities. These nuisance parameters are summarised in
+table~\ref{tab:wjets-shapes}.
 \input{07-systematic-errors/wjets-shapes-table}
-% Given the low statistics in the 0-lepton channel, the $p_T^V$ shapes derived in
-% the 1-lepton channel are also used in the 0-lepton channel. The goodness of this
-% approach is showed in Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr} for the
-% 2tag2jet category and in Figure~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} for the
-% 2tag3jet region for each heavy flavour pair. An offset between the $p_T^V$ and
-% the MET shapes in the two channels can be seen, especially in the $W$+bl events.
-% This is due to the fact that the $p_T^V$ shape is derived from a unit-normalized
-% ratio between \SHERPA2.2.1 and \MADGRAPH in the $p_T^V > 75$\ GeV  range, while
-% the MET distribution is normalized to 1 in the MET $>150$\ GeV range. This is
-% confirmed by the example plot in
-% Figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} where both the $p_T^V$
-% and the MET shape in the 2tag2jet region have been normalized to 1 in the
-% $p_T^V$(MET) $>150$\ GeV range.
 
-\input{07-systematic-errors/wjets-shapes}
+Shapes are derived in regions split by leptonic channel and heavy flavour
+sub-component, yielding eight regions total. The W + l and W + cl components of
+the W + jets backgrounds are not considered as they account for less than 1~\%
+of all background events in any region.
 
-% The $p_T^V$ shape systematic, derived in the 1-lepton channel, are thus applied
-% to both the 1-lepton and the 0-lepton channel and implemented in the fit as a
-% single nuisance parameter called \texttt{SysWPtV\_BDTr}.
+In all regions the re-weighting is performed by comparing the ratio of the
+nominal \textsc{Sherpa}~2.2.1 prediction with that of \textsc{MadGraph}. The
+requirement of $p_T^V > 75$~\GeV is applied to all distributions in the
+1--lepton channel and in the 0--lepton channel the requirement of
+$E_T^{\text{miss}} > 150$~\GeV is imposed instead.
 
+Figures~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr}
+and~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} show the comparison between
+\textsc{Sherpa} and \textsc{MadGraph} in the  $p_T^V$ variable in the 2-- and
+3--jet categories, respectively. 
+\input{07-systematic-errors/wjets-1lep-ptv-shapes}
+The systematic uncertainties on the shape are shown in the ratio panel at the
+bottom of each plot in green.
+
+The low number of events available in the 0--lepton channel mean that it is not
+statistically viable to generate a parametrisation in that channel, therefore
+the shapes derived in the 1--lepton channel are also used in the 0--lepton
+channel. Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr}
+and~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} show a comparison of the $p_T^V$
+shapes derived in the 1--lepton channel compared with the equivalent systematic
+derived in the 0--lepton channel in the $E_T^{\text{miss}}$ variable for the 2--
+and 3--jet categories, respectively.
+\input{07-systematic-errors/wjets-01lep-ptv-shapes}
+It can be seen the two shapes mostly agree within the statistical error which is
+of course very large for the 0--lepton systematic. Furthermore
+figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} shows  a comparison in
+which both the $p_T^V$ and the $E_T^{\text{miss}}$ shapes in the 2--jet region
+have been normalised to unit area in the $(p_T^V, E_T^{\text{miss}}) > 150$~\GeV
+range where it can be seen that agreement is event better further supporting the
+validity of this choice.
+\input{07-systematic-errors/wjets-01lep-ptv-shapes-norm}
 
 % \textbf{BDTr shape systematic}
 

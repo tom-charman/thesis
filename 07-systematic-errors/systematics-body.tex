@@ -536,6 +536,7 @@ spectrum with the $J/psi$ measurement providing more accurate determination in
 the $p_T$<15~\GeV region and the Z measurement being more accurate in the
 $p_T$>15~\GeV region. Four independent systematic uncertainties are considered
 which are called \texttt{MUON\_EFF\_RECO\_STAT},
+
 \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
 \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on whether or not
 they come from the high or low $p_T$ measurement. Statistical and systematic
@@ -815,104 +816,26 @@ shape uncertainty.
 
 \subsubsection{Flavour Composition Uncertainties}
 
-% The $W$+hf background is composed of the contributions from the $bb$, $bc$, $bl$
-% and $cc$ backgrounds; the relative composition of the various sub-components in
-% the 1-lepton analysis regions after full reconstruction selection is summarised
-% in Table~\ref{tab:wCOMP}. Uncertainties on the relative composition of these
-% processes are estimated separately in the 1-lepton and the 0-lepton channels. A
-% summary of the flavour composition uncertainties is reported in
-% Table~\ref{tab:whf}. The full breakdown of the uncertainties is outlined in
-% Appendix~\ref{app:wjets} of the previous version of this note at Ref.
-% \cite{VHmodellingsupportnote}. These numbers have been recalculated using the
-% new event categorization of the analysis and the full breakdown is outlined in
-% the Appendix~\ref{app:wjets} of this note; however, since the \SHERPA2.1 samples
-% for \textit{ckkw} and \textit{qsf} variations are not yet available, it was
-% decided to keep the numbers used for the ICHEP 2018 publication.\\ The
-% uncertainties are implemented as normalisation uncertainties on each of the
-% smaller components ($bc$ [\texttt{SysWbcWbbRatio}], $bl$
-% [\texttt{SysWblWbbRatio}], $cc$ [\texttt{SysWccWbbRatio}]) relative to the $bb$
-% component.
+As introduced at the start of this chapter the W + jets background has a W + hf
+component that is comprised of the $bb$, $bc$, $bl$ and $cc$ sub-components. The
+fractional contribution of each of these sub-components is detailed in
+table~\ref{tab:whf-comp}.
+\input{07-systematic-errors/whf-components}
+Flavour composition uncertainties are computed using
+equation~\ref{eq:acceptance-dr} for each sub-component, the calculated priors
+are summarised in tables~\ref{tab:wjets-flavour-comp} separately in the 0-- and
+1--lepton channels~\footnote{Whilst these numbers were calculated using the
+  categorisation and samples of this analysis, due to incomplete availability of
+  \textsc{Sherpa} internal variations a set of numbers calculated in a previous
+  iteration of the analysis are displayed and used.}.
+\input{07-systematic-errors/wjets-flavour-comp}
+The flavour composition uncertainties are dominated by the difference between
+\textsc{Sherpa} and \textsc{MadGraph}. Individual uncertainties for different
+jet multiplicities or analysis regions are not considered necessary due to a
+small amount of non-$bb$ events remaining after the 2 b-tag requirement is
+imposed.
 
-% \begin{table}[h]
-%   \centering
-%   \begin{tabular}{lllllll}
-%     \toprule
-%     Process & CRLow & CRHigh & SR & CRLow & CRHigh & SR \\
-%             & \multicolumn{3}{l}{\bfseries 2 jet}  &  \multicolumn{3}{l}{\bfseries 3 jet} \\
-%     \midrule
-%     {\bfseries 1-lepton} & & & & & & \\
-%     $Wcc$ & 0.03 & 0.05 & 0.03 & 0.03 & 0.04 & 0.03\\
-%     $Wbl$ & 0.01 & 0.03 & 0.01 & 0.01 & 0.05 & 0.02\\
-%     $Wbc$ & 0.03 & 0.15 & 0.07 & 0.03 & 0.13 & 0.05\\
-%     $Wbb$ & 0.93 & 0.77 & 0.89 & 0.94 & 0.77 & 0.90\\
-%     {\bfseries 0-lepton} & & & & & & \\
-%     $Wcc$ & 0.03 & 0.02 & 0.03 & 0.03 & 0.03 & 0.04\\
-%     $Wbl$ & 0.01 & 0.03 & 0.09 & 0.01 & 0.02 & 0.07\\
-%     $Wbc$ & 0.02 & 0.05 & 0.10 & 0.02 & 0.04 & 0.10\\
-%     $Wbb$ & 0.94 & 0.90 & 0.78 & 0.94 & 0.91 & 0.79\\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{The fractional contribution of each $W$+hf subprocesses to the total
-%     $W$+hf yields in all 1-lepton and 0-lepton channels analysis regions.}
-%   \label{tab:wCOMP}
-% \end{table}
-
-% \begin{table}[!htbp]
-%   \centering
-%   \begin{tabular}{llll}
-%     \toprule
-%     Category & Nuisance Parameter Name & Prior & Applied to\\ 
-%     \midrule
-%     \multirow{ 2}{*}{$W$+bc/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWbcWbbRatio}}  & 15\% & $W$+bc events (0-Lepton) \\
-%              &    & 30\% & $W$+bc events (1-Lepton) \\
-%     \multirow{ 2}{*}{$W$+bl/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWblWbbRatio}}     & 10\% & $W$+bl events (0-Lepton)\\
-%              &    & 30\% & $W$+bl events (1-Lepton)\\
-%     \multirow{ 2}{*}{$W$+cc/$W$+bb} & \multirow{ 2}{*}{\texttt{SysWccWbbRatio}}    &  26\% & $W$+cc events (0-Lepton)\\
-%              &    &  23\% & $W$+cc events (1-Lepton)\\
-%     \bottomrule
-%   \end{tabular}
-%   \caption{The priors on the relative acceptance variations for $W$+hf. The first
-%     column details the flavour components across which the acceptance variation
-%     is being considered, the second column quotes the name of the corresponding
-%     nuisance parameter in the Profile Likelihood Fit, the third contains the
-%     value of the prior and the fourth column the processes and categories to
-%     which this nuisance parameter is applied.}
-%   \label{tab:whf}
-% \end{table}
-
-% Full information on the uncertainty evaluation can be found in
-% Appendix~\ref{app:wfcomp_CBAMVA}. The largest systematic variation between the
-% regions comes from the comparison between \SHERPA2.2.1 and \MADGRAPH and is
-% applied as a common variation in all the analysis regions. The same value is
-% adopted for both the 2 and 3-jet bins as well as for the CR$_{\text{low}}$, SR
-% and CR$_{high}$ fit regions. This approach is justified by the relatively small
-% contribution of the non-$bb$ components after the 2 $b$-tag requirement which
-% makes the impact of the choice of the correlation scheme negligible in the final
-% fit.
-
-% Variations of the flavour composition are also partly accounted by the shape
-% uncertainty on the $m_{bb}$ distribution since the $W$+hf components have an
-% intrinsically different $m_{bb}$ distribution\footnote{In particular differences
-%   are observed between processes containing gluon splitting diagrams ($W$+bb and
-%   $W$+cc) and processes not containing it ($W$+bc and$W$+bl).} as illustrated in
-% Figure~\ref{fig:wjets_1lep_FlavComp_mBB}. These plots come from the studies
-% performed for the derivation of the flavour composition uncertainties for the
-% ICHEP 2018 publication.
-
-% \begin{figure}[!htp]
-% \begin{center}
-% \subfigure[$m_{bb}$ 2tag 2jet bb]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/Wjets_FlavComposition_mBB_pTV/2tag2jet_150ptv_SR+CR_mBB.pdf}}
-% \subfigure[$m_{bb}$ 2tag 2jet bc]{\includegraphics[width=0.45\textwidth]{figures/modelling_vjets/Wjets_FlavComposition_mBB_pTV/2tag3jet_150ptv_SR+CR_mBB.pdf}}\\
-% \caption{\mbb\ distribution in the 1-lepton channel for each heavy flavour
-%   category and for the 2-jet and 3-jet categories. Differences are observed
-%   between processes containing gluon splitting diagrams ($W$+bb and $W$+cc) and
-%   processes not containing it ($W$+bc and$W$+bl).}
-% \label{fig:wjets_1lep_FlavComp_mBB}
-% \end{center}
-% \end{figure}
-
-% The shape uncertainties are derived as described in
-% Section~\ref{subsubsec:vjetsUnc}.
+\subsubsection{Shape Uncertainties}
 
 % \subsubsection{BDTr-based shape uncertainties}
 % \label{subsubsec:WjetsBDTrBasedShapeSyst}
@@ -1161,8 +1084,6 @@ shape uncertainty.
 %   from CR$_{\text{low}}$ to SR and from CR$_{high}$ to SR.}
 % \label{tab:extrapolation_uncertainties_pTV}
 % \end{table}
-
-\subsubsection{Shape Uncertainties}
 
 \subsection{Z + jets Systematic Errors}
 \label{sec:zjets-systs}

@@ -705,59 +705,39 @@ systematic uncertainties respectively.
 \subsection{Z + jets Systematic Errors}
 \label{sec:zjets-systs}
 
-% Only signal regions in the 0-lepton and 2-lepton channels have been considered
-% in the following, due to the sub-dominant nature of the $Z$+jets process in
-% the 2-lepton CRs, and in the negligible contribution of $Z+$jets in the
-% 1-lepton channel in general.
+Systematic uncertainties are considered in the 0-- and 2--lepton channels only
+as there is a negligible contribution of this background in the 1--lepton channel.
 
 \subsubsection{Normalisation and Acceptance Uncertainties}
+
+Several normalisation and acceptance uncertainties are considered for the Z +
+jets background, they are summarised in table~\ref{tab:zjetsnorm}.
 \input{07-systematic-errors/zjets-norm-table}
-\input{07-systematic-errors/zjets-shape-yield-effect}
+One nuisance parameter is used for each of the Z + l and Z + cl components as
+they are sub-dominant accounting for less than 1~\% of the total background in
+any region due to the requirement of two b-tags, they are called
+\texttt{SysZlNorm} and \texttt{SysZclNorm} respectively. These normalisations
+are each correlated across all regions.
 
-% An overview of the $Z$+jets normalisation systematics and their effect in the
-% various analysis regions is reported in Table~\ref{tab:zjetsnorm}. The
-% normalization uncertainties are derived as described in
-% Section~\ref{subsubsec:vjetsUnc} and the full breakdown of the uncertainties
-% is outlined in Appendix~\ref{app:zjets} of this note.
+The Z + hf process has a large normalisation uncertainty and so therefore the
+decision is made to have separate nuisance parameters for the 2--jet and 3--jet
+regions, these are called \texttt{norm\_Zbb\_J2} and \texttt{norm\_Zbb\_J3}
+respectively. These parameters are heavily constrained in the fit due to a very
+large number of Z + jets events in the 0-- and 2--lepton signal regions and due
+to high Z + jets purity particularly in the 2--lepton control regions.
 
-% The $Z$+l and $Z$+cl background processes are strongly suppressed by the
-% requirement of 2 $b$-tags and as such compose less than 1\% of the background
-% in any region. As such it is sufficient to apply a single normalisation
-% uncertainty for each of these backgrounds, referred to as \texttt{SysZlNorm}
-% and \texttt{SysZclNorm} respectively, which are individually correlated across
-% all regions.
+Nuisance parameters are introduced to the model migration of events between
+regions. The priors for these parameters are calculated using the double ratio
+in equation~\ref{eq:acceptance-dr}. Firstly a parameter is introduced in order
+to account for the difference in the number of Z + jets in the 0-- and 2--lepton
+channels, is it called \texttt{SysZbbNorm\_0L} and is applied to Z + hf events
+in the 0--lepton channel as the 2--lepton channel has a higher purity of Z +
+jets events and therefore yields a better constraint on the normalisation. The
+size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1 and
+\textsc{MadGraph} is similar to the size as calculated by examining the
+\textsc{Sherpa} internal weights.
 
-% Given the large uncertainty on the normalisation of the $Z$+hf processes, a
-% floating normalisation is adopted separately for the 2-jet and 3-jet regions,
-% \texttt{norm\_Zbb\_J2}, \texttt{norm\_Zbb\_J2}, which is heavily constrained
-% by the large statistical population of $Z$+hf in the analysis signal regions,
-% paired with the high $Z+$hf purity either side of the Higgs 110 GeV$<m_{bb}
-% <$140 GeV mass window.
-
-% Additional nuisance parameters have been introduced to model the extrapolation
-% uncertainties on the relative normalisation across regions\footnote{While the
-% prior is obtained comparing double ratios as explained, due to technical
-% reasons, the effect of the uncertainty is applied to only one of the two
-% regions considered in the double ratio. This choice does not affect the result
-% but only the interpretation of the normalisation factor.}:
-
-% \begin{itemize}
-
-% \item \textbf{0-to-2 lepton}: An uncertainty (\texttt{SysZbbNorm\_0L}) on the
-% ratio of the yields between the 0-lepton and 2-lepton regions derived as a
-% double ratio; see Section~\ref{subsubsec:vjetsUnc} for details. This
-% uncertainty is applied to the 0-lepton region, as a better constraint on the
-% $Z$+hf prediction is obtained from the 2-lepton channel due to the higher
-% $Z$+hf purity. The uncertainty is computed by comparing the $Z$+hf yield in
-% the high \ptv\ regions of the two channels\footnote{The $Z$+hf normalisation
-% factor is mainly determined in the low \ptv\ 2-lepton region, but the same
-% low-high $Vp_{T}$ uncertainty will be considered for both the high $Vp_{T}$
-% 2-lepton region and the 0-lepton SR.}.
-
-% There are similar contributions to the total uncertainty from the comparison
-% between \MADGRAPH and \SHERPA and the evaluation of the \SHERPA internal
-% parameter variations. A detail breakdown of the uncertainty is documented in
-% Appendix~\ref{app:z02lep}.
+% Secondly a parameter
 
 % \item \textbf{ [$\textrm{CR}_{\textrm{low}}$, SR,
 % $\textrm{CR}_{\textrm{high}}$] Z $p_{T}$ Migration: }: An uncertainty
@@ -779,6 +759,7 @@ systematic uncertainties respectively.
 % decorrelated fashion.
 % \end{itemize}
 
+\input{07-systematic-errors/zjets-shape-yield-effect}
 % The full breakdown of the migration effect induced by the \ptv\ shape
 % systematic in all the analysis regions and \ptv\ bins is reported in
 % Table~\ref{tab:zjets_extrapolation_uncertainties_pTVRegions} for the 2-lepton

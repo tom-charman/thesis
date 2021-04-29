@@ -733,9 +733,10 @@ to account for the difference in the number of Z + jets in the 0-- and 2--lepton
 channels, is it called \texttt{SysZbbNorm\_0L} and is applied to Z + hf events
 in the 0--lepton channel as the 2--lepton channel has a higher purity of Z +
 jets events and therefore yields a better constraint on the normalisation. The
-size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1 and
-\textsc{MadGraph} is similar to the size as calculated by examining the
+size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1
+and\textsc{MadGraph} is similar to the size as calculated by examining the
 \textsc{Sherpa} internal weights.
+
 
 % Secondly a parameter
 
@@ -768,37 +769,22 @@ size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1 and
 % 0-lepton channel.\\
 
 \subsubsection{Flavour Composition Uncertainties}
+
+The Z + hf process breaks down in the exact same way as the W + hf process, into
+$(b,b)$, $(b, c)$, $(b, l)$ and $(c, c)$ sub-components. Uncertainties on the
+fraction that each of these makes up of the Z + hf process are found in
+table~\ref{tab:zjets-flavour-comp}.
 \input{07-systematic-errors/zjets-flavour-comp}
-% \paragraph{Flavour composition uncertainties}
-% The $Z$+hf background is composed of the contributions from the $bb$, $bc$,
-% $bl$ and $cc$ backgrounds. Uncertainties on the relative composition of these
-% processes are estimated as summarised in Table~\ref{tab:zhf}. The
-% uncertainties are implemented as normalisation uncertainties on each of the
-% smaller components ($bc$ [\texttt{SysZbcZbbRatio}],$bl$
-% [\texttt{SysZblZbbRatio}], $cc$ [\texttt{SysZccZbbRatio}]) relative to the
-% $bb$ component.
+They are calculated using equation~\ref{eq:acceptance-dr} and applied to the
+non-$(b, b)$ component of the ratio. The nuisance parameters entering into the
+fit are \texttt{SysZbcZbbRatio}, \texttt{SysZccZbbRatio} and
+\texttt{SysZblZbbRatio}. Priors are calculated separately in the 0-- and
+2--lepton channels, and in the 2--lepton channel priors are also calculated
+separately in the 2-- and 3--jet categories. The variations are nonetheless
+considered to be correlated across regions. The value of the priors is
+completely dominated by the difference between the nominal \textsc{Sherpa}~2.2.1
+prediction and the alternative \textsc{MadGraph} prediction.
 
-% Different prior uncertainties have been adopted for the 0-lepton and 2-lepton
-% channels; for the latter, separate uncertainties are also adopted for the
-% 2-jet and $\geq$3-jet regions, but for each Z+hf sub-process the variations
-% are considered as correlated across regions. %\textcolor{red}{There is no
-% evidence of a strong dependence as a function of Z $p_{T}$ or $m_{bb}$, and so
-% the same prior is applied to the $\textrm{CR}_{\textrm{low}}$, SR, and
-% $\textrm{CR}_{\textrm{high}}$ fit regions} \footnote{ \textcolor{red}{This
-% needs to be check with the new [$\textrm{CR}_{\textrm{low}}$, SR,
-% $\textrm{CR}_{\textrm{high}}$] bins in the analysis} }.
-
-
-% It should be noted that due to the 2 $b$-tag requirement non-$bb$ components
-% are heavily suppressed, therefore the decision to correlate all flavour
-% composition uncertainties across all fit regions mitigates the impact of the
-% correlation scheme on the final fit result. Please also note that the heavy
-% flavour priors, as given by Table \ref{tab:zhf}, are completely dominated by
-% the difference between \SHERPA2.2.1 and \MADGRAPH; additional details can be
-% found in Appendix~\ref{app:zFlav}.
-
-% \paragraph{\ptv\ and \mbb\ shape uncertainties}
-% \label{sec:ZPtVAndMbbShape}
 \subsubsection{Shape Uncertainties}
 \input{07-systematic-errors/zjets-shape-table}
 

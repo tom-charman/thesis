@@ -1,10 +1,12 @@
 \begin{table}[!htb]
   \begin{tabular}{lllll}
     \toprule
-    {\bfseries Nuisance Parameter} & {\bfseries Uncertainty} & {\bfseries Effect} & {\bfseries Source} \\
+    {\bfseries Nuisance Parameter} & {\bfseries Uncertainty} & {\bfseries Effect} & {\bfseries Source} & {\bfseries Region} \\
     \midrule
-    \texttt{SysZPtV} & $p_T^V$ shape & Shape \& Normalisation &  fit to data \\
-    \texttt{SysZMbb} & $m_{b\bar{b}}$ shape & shape 	& fit to data \\
+    \texttt{SysZPtV} & $p_T^V$ shape & Shape \& normalisation &  fit to data & All regions with $p_T^V > 150$~\GeV \\
+    \texttt{SysZMbb} & $m_{b\bar{b}}$ shape & shape 	& fit to data All regions with $p_T^V > 150$~\GeV \\
+    \texttt{SysZPTV\_BMin75\_L2} & $p_T^V$ Shape \& normalisation & fit to data & All regions with $75~\GeV p_T^V < 150$~\GeV \\
+    \texttt{SysZMbb\_BMin75\_L2} & $m_{b\bar{b}}$ shape & fit to data & All regions with $75~\GeV p_T^V < 150$~\GeV \\
     \bottomrule
   \end{tabular}
   \caption{A summary of the shape uncertainties for the $Z$+jets background, all

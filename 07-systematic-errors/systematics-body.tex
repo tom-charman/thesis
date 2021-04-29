@@ -786,9 +786,38 @@ completely dominated by the difference between the nominal \textsc{Sherpa}~2.2.1
 prediction and the alternative \textsc{MadGraph} prediction.
 
 \subsubsection{Shape Uncertainties}
-\input{07-systematic-errors/zjets-shape-table}
+
+The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{tab:zjets-mbb-shapes}
+show the nominal \textsc{Sherpa}~2.2.1 prediction of the Z + jets background in
+the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and
+CR$_{\text{high}}$ plotted against the subtracted data in the $p_T^V$ and GSC
+$m_{bb}$ variables respectively.
 \input{07-systematic-errors/zjets-mbb-shape-plots}
 \input{07-systematic-errors/zjets-ptv-shape-plots}
+The subtracted data is the data with a template comprised of the data from the
+top $e\mu$ CR and the nominal predictions of all backgrounds other than Z + jets
+subtracted from it. Plots are shown in the 2--jet, $\geq$3--jet and $\geq$2--jet
+categories (the sum of the two jet multiplicity based categories in the
+analysis) and are plotted across all $p_T^V$ bins of the analysis. The shape
+uncertainty is derived by taking a fit to the ratio in the bottom pane of each
+plot, the fit defines the 1-$\sigma$ up variation of the Gaussian constrained
+nuisance parameter, the symmetrised version of the fit (not displayed) defines
+the 1-$\sigma$ down variation. The $\geq$2--jet region is used to calculate the
+prior for the systematic uncertainties \texttt{SysZPtV} and \texttt{SysZMbb}
+that are applied to all Z + jets events in the 0-- and 2--lepton channels.
+
+The nuisance parameters are correlated across leptonic channels, however as can
+be seen by inspection of figure~\ref{fig:zjets-mbb-shapes} the fitted shape does
+not cover the discrepancy between the subtracted data and the prediction at low
+values of $m_{bb}$. Investigating the plots in
+figure~\ref{fig:zjets-mbb-shape-ptv-range} shows that this discrepancy is coming
+from the $75~\GeV < p_T^V < 150~\GeV$ analysis bin, therefore the aforementioned
+nuisance parameters are decorrelated in this bin.
+\input{07-systematic-errors/zjets-mbb-shapes-ptv-range}
+The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
+\texttt{SysMbb\_BMin75\_L2}. A summary of the Z + jets shape uncertainties is
+found in table~\ref{tab:zjets-shapes}.
+\input{07-systematic-errors/zjets-shape-table}
 
 % The $p^{V}_{T}$ and $m_{bb}$ shape uncertainties on the $Z$+jets process are
 % obtained from a data-driven method within the 2 lepton channel (where the

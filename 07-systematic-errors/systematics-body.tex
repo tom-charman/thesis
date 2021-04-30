@@ -789,6 +789,38 @@ prediction and the alternative \textsc{MadGraph} prediction.
 
 \subsubsection{Shape Uncertainties}
 
+The shape uncertainties for the Z + jets process are derived using the
+1--dimensional parametrisation approach detailed in
+section~\ref{sec:1D-reweight} with one notable difference. Instead of a ratio of
+predictions generated with different parameters, the ratio in this case is of
+the nominal \textsc{Sherpa}~2.2.1 prediction and the data itself. In order to be
+valid this method has a number of requirements, the first of which is that the
+region of interest must have a high purity of the background for which the
+uncertainty is derived. In the case of the 2--lepton channel the sidebands of
+the region which contains both the VH(bb) signal and the VZ(bb) process is quite
+pure in Z + jets events. The purity can be enhanced by subtracting from the data
+the top quark background events which contribute second to the Z + jets events,
+this can be done with a high degree of certainty over the template as the data
+from the top $e\mu$ CR can be used. The remaining backgrounds contribute a very
+small amount to the region and so even with large uncertainties on their
+template the method is still sufficiently accurate.
+
+This method is used to derived shape uncertainties on the $p_T^V$ and $m_{bb}$
+variables as they are considered to be the most important in the analysis. The
+uncertainty is used in the 0--lepton channel which adds an additional
+complication. As mentioned in section~\ref{} a kinematic fit is used in order to
+correct the b-jet momentum and these corrected jets are then used in the
+formulation of $m_{bb}$ in the 2--lepton channel only (as there are two visible
+leptons). This means that $m_{bb}$ in the 0-- and 2--lepton channels refers to a
+different quantity and so a shape uncertainty derived on one may not be suitable
+to use on the other. In order to get around this issue the shape uncertainty for
+$m_{bb}$ is derived on a variable that is calculated using globally sequentially
+calibrated (GSC) jets and is called GSC $m_{bb}$, these jets have not undergone
+the kinematic fit procedure and so ought to match more closely between the two
+leptonic channels. In order for the region where this method is applied to not
+contain signal events, or events from the diboson cross-check, events with
+80~\GeV < GSC $m_{bb}$ < 140~\GeV are removed from all distributions considered.
+
 The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{tab:zjets-mbb-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the Z + jets background in
 the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and

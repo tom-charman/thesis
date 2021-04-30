@@ -739,36 +739,31 @@ size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1
 and\textsc{MadGraph} is similar to the size as calculated by examining the
 \textsc{Sherpa} internal weights.
 
-
-% Secondly a parameter
-
-% \item \textbf{ [$\textrm{CR}_{\textrm{low}}$, SR,
-% $\textrm{CR}_{\textrm{high}}$] Z $p_{T}$ Migration: }: An uncertainty
-% (\texttt{SysZbbPTV}) on the $Z p_{T}$ distribution (see the following section
-% \ref{sec:ZPtVAndMbbShape} for details) designed to vary the final MVA fit
-% discriminant in each analysis region, also alters the relative event yield
-% (normalisation) between the [$\textrm{CR}_{\textrm{low}}$, SR,
-% $\textrm{CR}_{\textrm{high}}$] regions. The same systematic uncertainty
-% derived from the 2-lepton data-driven approach is also applied in the 0-lepton
-% channel.
-
-% \item \textbf{ [$\textrm{CR}_{\textrm{low}}$, SR,
-% $\textrm{CR}_{\textrm{high}}$] Z $m_{bb}$ Migration: }: An uncertainty
-% assigned to the $\textrm{CR}_{\textrm{low}}$ and $\textrm{CR}_{\textrm{high}}$
-% regions as gaussian constrained nuisance parameters with priors derived
-% according to Section~\ref{subsubsec:vjetsUnc}. This uncertainty allows the
-% event yield in the $\textrm{CR}_{\textrm{low}}$ and
-% $\textrm{CR}_{\textrm{high}}$ regions to vary relative to the SR in a
-% decorrelated fashion.
-% \end{itemize}
-
+The nuisance parameter that controls the Z + jets $p_T^V$ uncertainty,
+\texttt{SysZPTV} (see section~\ref{sec:zjets-shapes}), is also allowed to
+control the relative number of events between analysis regions. This choice is
+made as the magnitude of the extrapolation uncertainties shown in
+table~\ref{tab:zjets-ptv-extrap} are similar in size to the largest variations
+one would obtain by comparing the nominal prediction to the alternatives.
 \input{07-systematic-errors/zjets-shape-yield-effect}
-% The full breakdown of the migration effect induced by the \ptv\ shape
-% systematic in all the analysis regions and \ptv\ bins is reported in
-% Table~\ref{tab:zjets_extrapolation_uncertainties_pTVRegions} for the 2-lepton
-% channel and in
-% Table~\ref{tab:zjets_extrapolation_uncertainties_pTVRegions_0Lep} for the
-% 0-lepton channel.\\
+
+In the case of $m_{bb}$ the uncertainty on the normalisations that would be
+induced by the shape does not cover the differences that arise from comparison
+of the different available predictions. Therefore this systematic uncertainty is
+applied as a shape effect only and an additional nuisance parameter is
+introduced to cover the migration between analysis regions. As will be explained
+in section~\ref{sec:zjets-shapes} it is necessary to de-correlate the $m_{bb}$
+shape systematic in the lowest $p_T^V$ bin of the analysis. It is therefore the
+case that the nuisance parameter controlling the migration between analysis
+regions in the $m_{bb}$ variable is also de-correlated in that bin. These
+acceptance uncertainties are applied to the CR$_{\text{high}}$ and
+CR$_{\text{low}}$ separately, the nuisance parameters involved are
+\texttt{SysZbbCRSRExtrapolation\_CRLow}, de-correlated as
+\texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRLow} and
+\texttt{SysZbbCRSRExtrapolation\_CRHigh} de-correlated as
+\texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRHigh}. The determination of the prior
+for these nuisance parameters is dominated by the difference between
+\textsc{Sherpa}~2.2.1 and \textsc{MadGraph}.
 
 \subsubsection{Flavour Composition Uncertainties}
 
@@ -788,6 +783,7 @@ completely dominated by the difference between the nominal \textsc{Sherpa}~2.2.1
 prediction and the alternative \textsc{MadGraph} prediction.
 
 \subsubsection{Shape Uncertainties}
+\label{sec:zjets-shapes}
 
 The shape uncertainties for the Z + jets process are derived using the
 1--dimensional parametrisation approach detailed in
@@ -853,65 +849,10 @@ The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
 found in table~\ref{tab:zjets-shapes}.
 \input{07-systematic-errors/zjets-shape-table}
 
-% The $p^{V}_{T}$ and $m_{bb}$ shape uncertainties on the $Z$+jets process are
-% obtained from a data-driven method within the 2 lepton channel (where the
-% $Z$+jets purity is highest). Specifically, the $e^{\pm} \mu^{\pm}$ channel is
-% typically the result of either $t\bar{t}/$single top background processes or
-% fake electrons/muons from miss-identified leptons/jets. Consequently, the
-% $e^{\pm}\mu^{\pm}$ region is a pure top ($t\bar{t}$/single top) control region
-% (TopCR), where the kinematic properties of the $t\bar{t}$/single top
-% sub-processes within the TopCR region matches that of the 2-lepton
-% $e^{\pm}\mu^{\pm}$ SR+CRs; details regarding this can be found in Section
-% \ref{subsec:ttbar}.
-
-
-% Using this Top data-driven estimate, the $p^{V}_{T}$ and $m_{bb}$
-% distributions obtained according to the procedure outlined in Section
-% \ref{subsec:ttbar}, are subtracted from the data within the 2-lepton SR+CRs,
-% in addition to the remaining $W$+jets and $VV$ MC predictions. The $Z$+jet MC
-% prediction is then scaled to the data after subtracting off the non-$Z$+jet
-% backgrounds as described previously. The discrepancy between the now modified
-% data $p^{V}_{T}$/$m_{bb}$ distributions and the $Z$+jets MC prediction within
-% the 2-tag SR+CRs corresponds to an assessment of the systematic uncertainties
-% that one can assign to the $Z$+jets background process.
-
-
-% In order to account for $VH$ signal and $VZ$ contamination, the $80$ GeV
-% $<m_{b\bar{b}}<140$ GeV region is removed, such that all events vetoed are
-% vetoed in this window when studying the $m_{bb}$ and $p^{V}_{T}$
-% distributions. %Studies pertaining to $p^{V}_{T}$ biases induced by the
-% removal of the $110$ GeV $<m_{b\bar{b}}<140$ GeV region can be found in
-% Appendix \ref{app:zjets}.
-
-% The data Monte Carlo comparison inclusively of the low (75-150~GeV), medium
-% (150-250~GeV), and high (> 250~GeV)) $p^{Z}_{T}$ analysis regions for
-% $p^{Z}_{T}$ is shown in Figure \ref{fig:2lepptv_model} for the 2-jet, 3+ jet,
-% and 2+ jet categories, whilst the $m_{b\bar{b}}$ data Monte Carlo comparison
-% is shown for the low + medium + high $p^{Z}_{T}$ regions in Figure
-% \ref{fig:2lepmbb_model} for the same 2-jet, 3+ jet, and 2+ jet categories.
-
-% For the $p_T^Z$ and $m_{b\bar{b}}$ distributions the shape uncertainty is
-% extracted by performing a $\chi^{2}$ functional fit in the $\geq 2$ jets
-% category to the ratio of Data/MC. This category is chosen in order to maximise
-% the MC and data statistics during the fit procedure thereby reducing the
-% impact of statistical variance on the systematic error (2-jet and $\geq 3$ jet
-% categories shown for completeness only). The shape uncertainties are indicated
-% by the orange lines in the ratio of each figure, where the functional form and
-% fit parameters are displayed on the top pane of each figure. The adopted shape
-% systematic for the $p^{V}_{T}$ distribution has the parameteric form $y =
-% -0.97.\textrm{log}_{10} (x/50000) + 1.06$, whilst for the $m_{bb}$
-% distribution the parameteric form $y = 0.936 + 0.00000481x$ is used, where
-% $x=\{p^{V}_{T},m_{bb}\}$ respectively.
-
-
-% A summary of the $Z$+jets shape uncertainties are listed in
-% Table~\ref{tab:vjetsSysSummary}, where it should be noted that the same
-% parameterised uncertainties are also applied to the 0 lepton channel. With
-% this in mind, it should be noted that the $m_{bb}$ observable is calculated
-% using Anti-kT EMTopo $R=0.4$ jets prior to the application of the kinematic
-% fit (see Ref. \cite{AlKhoury:2692011} for details), as the 0-lepton channel
-% does not utilise the kinematic fit procedure.
-
+- Shapes derived in CR$_{\text{high}}$ + SR + CR$_{\text{low}}$.
+- List of subtracted backgrounds
+- What happens to pTV shape when you remove mbb window
+- Specifically mention the fit functional form, binning choice, etc. 
 
 \section{Systematic Uncertainties on \texorpdfstring{$t\bar{t}$}{tt} Events}
 \input{07-systematic-errors/ttbar-table.tex}

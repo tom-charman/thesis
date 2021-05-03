@@ -872,62 +872,17 @@ the $t\bar{t}$ systematic uncertainties can be found in
 table~\ref{tab:ttbar-systs}.
 \input{07-systematic-errors/ttbar-table.tex}
 
-% The modelling of top-quark pair production within the fiducial phase space of
-% the analysis differs between the 0-/1-lepton and 2-lepton channel due to the
-% differing definitions of the $V$-boson system. The $V$-boson system in the
-% 0-/1-lepton channel typically represents a single $W$-boson from a single
-% top-quark decay, meanwhile in the 2-lepton channel the $V$-boson candidate is
-% constructed from the $ll$-system, which corresponds to two leptons from two
-% different top-quarks. This difference is reflected in the different flavour
-% compositions of the $t\bar{t}$ process for the 0+1-lepton and 2-lepton channels,
-% as the possibility of a hadronically decaying $W$-bosons in the 0-/1-lepton
-% channel yields a larger non-$bb$ flavour sub-component.
+The nominal Monte-Carlo prediction for the $t\bar{t}$ process is
+\textsc{Powheg}~+~\textsc{Pythia}~8 with the \textsc{Powheg} NLO matrix element
+(ME) generator~\cite{JHEP0709.2007.126,JHEP0411.2004.040} interfaced to
+\textsc{Pythia}~8~\cite{Comp.Phys.Comm.191.159} using the A14
+tune~\cite{ATL-PHYS-PUB-2014-021} to model parton showering, hadronisation,
+the underlying event, and multiple parton interactions. The NNPDF3.0 (NLO) and
+NNPDF2.3 parton distribution function sets are used in the ME calculation and
+parton showering respectively~\cite{ATL-PHYS-PUB-2016-020}.
 
-
-% Consequently, two different methodologies are used for the 0-/1-lepton and
-% 2-lepton: Monte Carlo based prediction and associated theory uncertainties are
-% used in the 0-/1-lepton, meanwhile the 2-lepton categorises the $ll$-system into
-% one of two categorises, either same-flavour ($ee/\mu\mu$) or opposite-flavour
-% ($e\mu$), where the former is an enriched $Z$+Jets region, whilst the latter
-% yields a pure $t\bar{t}/$single top CR.
-
-
-% \subsection{0-/1-lepton Monte Carlo Modelling \& Uncertainties}
-% \label{sec:ttbar_MC}
-
-% The default MC configuration for the $t\bar{t}$ process is \POWHEG + \PYTHIA8,
-% which utilises the \POWHEG NLO matrix element (ME) generator
-% \cite{JHEP0709.2007.126,JHEP0411.2004.040} interfaced to
-% \PYTHIA8.210\cite{Comp.Phys.Comm.191.159} using the A14 tune
-% \cite{ATL-PHYS-PUB-2014-021} for the parton shower, hadronization, underlying
-% event, and multiple parton interactions. In addition to this, the sample
-% utilises the NNPDF3.0 (NLO), and NNPDF2.3 (LO) PDF set in the ME calculation and
-% parton shower respectively.
-
-
-% Full details concerning the tuning, and optimisation of top-quark pair
-% production ($t\bar{t}$) modelling, in addition to the systematic model used to
-% cover theoretical uncertaities, can be found in
-% Ref.\cite{ATL-PHYS-PUB-2016-020}. However, a brief summary of the \POWHEG
-% generator configuration is provided in the following. The intrinsic $h_{damp}$
-% parameter to the \POWHEG ME generator, which serves as a resummation damping
-% factor to control the ME/PS matching in \POWHEG (effectively regulates the high
-% $p_T$ radiation) was found in comparisons to 8 TeV data across various variables
-% ($t\bar{t}$ system $p_T$, mass, top $p_T$, jet multiplicity, jet pTs and so on),
-% to disfavour valued of $h_{damp} < m_{top}$. The best description was given with
-% $h_{damp} = 1.5 \cdot m_{top}$ for both 8 TeV data and 13 TeV data, and so this
-% value has been chosen for the main sample generation.
-
-
-% Additional parameters that were optimized are the \PYTHIA8 \texttt{pTdef} and
-% \texttt{pTHard} parameters, which control the merging between \POWHEG and
-% \PYTHIA8 through the use of vetoed showering. Strongly correlated with the $p_T$
-% definition used for ISR and FSR, and the procedure to calculate the matching
-% scale, the parameters were varied with $h_{damp} = 1.5 \cdot m_{top}$. The
-% resulting optimised parameter settings were identified to be \texttt{pTdef}$=2$
-% and \texttt{pTHard}$=0$ (See Section 2.2.2 of Ref\cite{ATL-PHYS-PUB-2016-020}).
-
-
+Details of the samples making up the nominal $t\bar{t}$ prediction can be found
+in table~\ref{tab:ttbar-nominal}.
 % A summary of all samples used as either the nominal MC prediction or the
 % alternative systematic samples (detailed in Section
 % \ref{subsubsec:ttbarAlternative}) are listed in
@@ -941,48 +896,7 @@ table~\ref{tab:ttbar-systs}.
 % events, can be found in Appendix~\ref{app:metfilterttbar}.
 
 
-% \begin{table}[!htb]
-% \begin{footnotesize}
-% \begin{center}
-% \resizebox{\textwidth}{!}{%
-% \begin{tabular}{c|l|c|c|c|c|r}
-%         \hline
-%         \hline
-%         DS ID & Process & Generator &  $\sigma\times\text{BR}$ [nb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events  \\ 
-%         \hline
-%         410470 & non-all-had $t\bar{t}$                 & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.54300 & 709,060,000 \\   %% (FS) 
-%         410472 & dilepton    $t\bar{t}$                                        & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 554,162,000 \\   %% (FS)
-%         345935 & non-all-had $t\bar{t}$, 100 < \met\ < 200~GeV                   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.09520 & 22,000,000 \\   %% (FS)
-%         407345 & non-all-had $t\bar{t}$, 200 < \met\ < 300~GeV                     & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00806 & 41,936,300 \\   %% (FS)
-%         407346 & non-all-had $t\bar{t}$, 300 < \met\ < 400~GeV                       & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00112 & 16,491,045 \\   %% (FS)
-%         407347 & non-all-had $t\bar{t}$, \met\ > 400~GeV                               & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00031 & 6,779,400 \\   %% (FS)
-%         \hline\hline
-%         410480 & non-all-had $t\bar{t}$ RadHi   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.43842 & 376,240,000  \\  %% (AF)
-%         410482 & dilepton $t\bar{t}$ RadHi      & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 312,904,000  \\  %% (AF)    
-%         410470 & non-all-had $t\bar{t}$ RadLo   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.54300 & 709,060,000 \\  %% (AF)
-%         410472 & dilepton $t\bar{t}$ RadLo      & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 554,162,000 \\  %% (AF)
-%                \hline
-%         410557 & single-lep  $t\bar{t}$                 & \POWHEG+\HERWIG7   & 0.83176 & 1 & 0.43842  & 37,826,500 \\   %% (FS)
-%         410558 & dilepton    $t\bar{t}$                   & \POWHEG+\HERWIG7   & 0.83176 & 1 & 0.10500  & 312,507,000 \\   %% 
-%         \hline                                                                                                   
-%         410464 & single-lep  $t\bar{t}$                                                                                 & aMC@NLO+\PYTHIA8.2 & 0.83176 & 1 & 0.44034 & 376,985,000  \\  %% (AF)
-%         410465 & dilepton    $t\bar{t}$                                                                                   & aMC@NLO+\PYTHIA8.2 & 0.83176 & 1 & 0.10718 & 364,951,000  \\  %% (AF)
-%         \hline
-%         \hline
-% \end{tabular}
-% }
-% \caption{ $t\bar{t}$ samples used in the analysis, both for the nominal
-%   prediction and the systematic variations. The dataset ID, MC generator,
-%   production cross-section, $k$-factor, filter efficiency and total number of
-%   generated events are shown. Note that all samples are normalised to the same
-%   NNLO cross-section value. The \met\ filtered \ttbar\ samples are utilised in
-%   the 0-lepton channel to increase the number of simulated \ttbar\ events, with
-%   more details provided in Appendix~\ref{app:metfilterttbar}.}
 
-% \label{tabular:mc_samples_ttbar2}
-% \end{center}
-% \end{footnotesize}
-% \end{table}
 
 
 % %\subsubsection{Cross-Section}

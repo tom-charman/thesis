@@ -1,0 +1,35 @@
+\begin{table}[!htb]
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{clc}
+      \toprule
+      Generator & Setup Details & Systematic Effect \\
+      \midrule
+      \textsc{Powheg}~+~\textsc{Pythia}~8  &  A14 tune & nominal sample \\
+                &  NNPDF30NLO \& NNPDF23LO & \\
+                & \texttt{hdamp} = $1.5\cdot m_{top}$ & \\
+                &  nonallhad filter & \\
+      \textsc{Powheg}~+~\textsc{Pythia}~8  & nominal setup & \textit{low variation} for additional radiation \\
+                & scale variations low ($\mu_R = \mu_F = 2$) & \\
+                & \texttt{hdamp} = $1.5\cdot m_{top}$ & \\
+                & Up variation of A14 tune (Var3c) & \\
+                &  nonallhad filter & \\
+      \textsc{Powheg}~+~\textsc{Pythia}~8  & nominal setup & \textit{high variation} for additional radiation \\
+                & scale variations high ($\mu_R = \mu_F = 0.5$) & \\
+                & \texttt{hdamp} = $3.0\cdot \times m_{top}$ & \\
+                & Down variation of A14 tune (Var3c) & \\  
+                &  nonallhad filter & \\
+      \textsc{Powheg}~+~\textsc{Herwig}~7  & H7UE tune & fragmentation/hadronisation model\\
+                & CT10 \& MMHT2014lo68cl & \\
+                & \texttt{hdamp}=175.2GeV & \\
+                & nonallhad filter & \\
+      \textsc{MadGraph}~5~aMC@NLO~+~\textsc{Pythia}~8 & A14 tune & hard scatter generation and matching\\
+                & NNPDF30NLO \& NNPDF23LO & \\
+                & nonallhad filter & \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{$t\bar{t}$ MC samples generated for the estimate of systematic
+    uncertainties.}
+  \label{tab:ttbar-alternative}
+\end{table}

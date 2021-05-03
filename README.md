@@ -1,8 +1,6 @@
-# thesis
-
- My PhD thesis project!
+My PhD thesis project!
  
- To find the latest compiled version (and compiled pdfs of each chapter) checkout the most recently run CI pipeline and download the artifacts.
+To find the latest compiled version (and compiled pdfs of each chapter) navigate to the most recently run CI pipeline and download the artifacts.
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 

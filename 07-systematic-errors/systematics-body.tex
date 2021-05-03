@@ -857,6 +857,1081 @@ found in table~\ref{tab:zjets-shapes}.
 \section{Systematic Uncertainties on \texorpdfstring{$t\bar{t}$}{tt} Events}
 \input{07-systematic-errors/ttbar-table.tex}
 
+% The modelling of top-quark pair production within the fiducial phase space of
+% the analysis differs between the 0-/1-lepton and 2-lepton channel due to the
+% differing definitions of the $V$-boson system. The $V$-boson system in the
+% 0-/1-lepton channel typically represents a single $W$-boson from a single
+% top-quark decay, meanwhile in the 2-lepton channel the $V$-boson candidate is
+% constructed from the $ll$-system, which corresponds to two leptons from two
+% different top-quarks. This difference is reflected in the different flavour
+% compositions of the $t\bar{t}$ process for the 0+1-lepton and 2-lepton channels,
+% as the possibility of a hadronically decaying $W$-bosons in the 0-/1-lepton
+% channel yields a larger non-$bb$ flavour sub-component.
+
+
+% Consequently, two different methodologies are used for the 0-/1-lepton and
+% 2-lepton: Monte Carlo based prediction and associated theory uncertainties are
+% used in the 0-/1-lepton, meanwhile the 2-lepton categorises the $ll$-system into
+% one of two categorises, either same-flavour ($ee/\mu\mu$) or opposite-flavour
+% ($e\mu$), where the former is an enriched $Z$+Jets region, whilst the latter
+% yields a pure $t\bar{t}/$single top CR.
+
+
+% \subsection{0-/1-lepton Monte Carlo Modelling \& Uncertainties}
+% \label{sec:ttbar_MC}
+
+% The default MC configuration for the $t\bar{t}$ process is \POWHEG + \PYTHIA8,
+% which utilises the \POWHEG NLO matrix element (ME) generator
+% \cite{JHEP0709.2007.126,JHEP0411.2004.040} interfaced to
+% \PYTHIA8.210\cite{Comp.Phys.Comm.191.159} using the A14 tune
+% \cite{ATL-PHYS-PUB-2014-021} for the parton shower, hadronization, underlying
+% event, and multiple parton interactions. In addition to this, the sample
+% utilises the NNPDF3.0 (NLO), and NNPDF2.3 (LO) PDF set in the ME calculation and
+% parton shower respectively.
+
+
+% Full details concerning the tuning, and optimisation of top-quark pair
+% production ($t\bar{t}$) modelling, in addition to the systematic model used to
+% cover theoretical uncertaities, can be found in
+% Ref.\cite{ATL-PHYS-PUB-2016-020}. However, a brief summary of the \POWHEG
+% generator configuration is provided in the following. The intrinsic $h_{damp}$
+% parameter to the \POWHEG ME generator, which serves as a resummation damping
+% factor to control the ME/PS matching in \POWHEG (effectively regulates the high
+% $p_T$ radiation) was found in comparisons to 8 TeV data across various variables
+% ($t\bar{t}$ system $p_T$, mass, top $p_T$, jet multiplicity, jet pTs and so on),
+% to disfavour valued of $h_{damp} < m_{top}$. The best description was given with
+% $h_{damp} = 1.5 \cdot m_{top}$ for both 8 TeV data and 13 TeV data, and so this
+% value has been chosen for the main sample generation.
+
+
+% Additional parameters that were optimized are the \PYTHIA8 \texttt{pTdef} and
+% \texttt{pTHard} parameters, which control the merging between \POWHEG and
+% \PYTHIA8 through the use of vetoed showering. Strongly correlated with the $p_T$
+% definition used for ISR and FSR, and the procedure to calculate the matching
+% scale, the parameters were varied with $h_{damp} = 1.5 \cdot m_{top}$. The
+% resulting optimised parameter settings were identified to be \texttt{pTdef}$=2$
+% and \texttt{pTHard}$=0$ (See Section 2.2.2 of Ref\cite{ATL-PHYS-PUB-2016-020}).
+
+
+% A summary of all samples used as either the nominal MC prediction or the
+% alternative systematic samples (detailed in Section
+% \ref{subsubsec:ttbarAlternative}) are listed in
+% Tab.~\ref{tabular:mc_samples_ttbar2}. Samples are filtered at the event
+% generation stage using truth level information, such that all samples with
+% ``non-all-had'' are required to have at least one W boson decaying leptonically,
+% and ``dilepton'' samples are required to have both W bosons decaying
+% leptonically. Further details concerning filters specific to each channel, like
+% the \met\ filtered \ttbar\ samples (DSIDs 345935, 407345, 407346, 407347)
+% utilised in the 0-lepton channel to increase the number of simulated \ttbar\
+% events, can be found in Appendix~\ref{app:metfilterttbar}.
+
+
+% \begin{table}[!htb]
+% \begin{footnotesize}
+% \begin{center}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{c|l|c|c|c|c|r}
+%         \hline
+%         \hline
+%         DS ID & Process & Generator &  $\sigma\times\text{BR}$ [nb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events  \\ 
+%         \hline
+%         410470 & non-all-had $t\bar{t}$                 & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.54300 & 709,060,000 \\   %% (FS) 
+%         410472 & dilepton    $t\bar{t}$                                        & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 554,162,000 \\   %% (FS)
+%         345935 & non-all-had $t\bar{t}$, 100 < \met\ < 200~GeV                   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.09520 & 22,000,000 \\   %% (FS)
+%         407345 & non-all-had $t\bar{t}$, 200 < \met\ < 300~GeV                     & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00806 & 41,936,300 \\   %% (FS)
+%         407346 & non-all-had $t\bar{t}$, 300 < \met\ < 400~GeV                       & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00112 & 16,491,045 \\   %% (FS)
+%         407347 & non-all-had $t\bar{t}$, \met\ > 400~GeV                               & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.00031 & 6,779,400 \\   %% (FS)
+%         \hline\hline
+%         410480 & non-all-had $t\bar{t}$ RadHi   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.43842 & 376,240,000  \\  %% (AF)
+%         410482 & dilepton $t\bar{t}$ RadHi      & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 312,904,000  \\  %% (AF)    
+%         410470 & non-all-had $t\bar{t}$ RadLo   & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.54300 & 709,060,000 \\  %% (AF)
+%         410472 & dilepton $t\bar{t}$ RadLo      & \POWHEG+\PYTHIA8     & 0.83176 & 1 & 0.10500 & 554,162,000 \\  %% (AF)
+%                \hline
+%         410557 & single-lep  $t\bar{t}$                 & \POWHEG+\HERWIG7   & 0.83176 & 1 & 0.43842  & 37,826,500 \\   %% (FS)
+%         410558 & dilepton    $t\bar{t}$                   & \POWHEG+\HERWIG7   & 0.83176 & 1 & 0.10500  & 312,507,000 \\   %% 
+%         \hline                                                                                                   
+%         410464 & single-lep  $t\bar{t}$                                                                                 & aMC@NLO+\PYTHIA8.2 & 0.83176 & 1 & 0.44034 & 376,985,000  \\  %% (AF)
+%         410465 & dilepton    $t\bar{t}$                                                                                   & aMC@NLO+\PYTHIA8.2 & 0.83176 & 1 & 0.10718 & 364,951,000  \\  %% (AF)
+%         \hline
+%         \hline
+% \end{tabular}
+% }
+% \caption{ $t\bar{t}$ samples used in the analysis, both for the nominal
+%   prediction and the systematic variations. The dataset ID, MC generator,
+%   production cross-section, $k$-factor, filter efficiency and total number of
+%   generated events are shown. Note that all samples are normalised to the same
+%   NNLO cross-section value. The \met\ filtered \ttbar\ samples are utilised in
+%   the 0-lepton channel to increase the number of simulated \ttbar\ events, with
+%   more details provided in Appendix~\ref{app:metfilterttbar}.}
+
+% \label{tabular:mc_samples_ttbar2}
+% \end{center}
+% \end{footnotesize}
+% \end{table}
+
+
+% %\subsubsection{Cross-Section}
+% \subsection{Cross-Section}
+% \label{subsubsec:ttbarXS}
+% The $t\bar{t}$ cross section for pp collisions at a centre-of-mass energy of
+% $\sqrt{s} = 13$TeV is $\sigma_{t\bar{t}}= 831.76^{+40}_{-46}$pb for a top quark
+% mass of 172.5 GeV. It has been calculated at next-to-next-to leading order
+% (NNLO) in QCD including resummation of next-to-next-to-leading logarithmic
+% (NNLL) soft gluon terms with top++2.0
+% \cite{Beneke2012695,Cacciari2012612,PhysRevLett.109.132001,NNLOcorr,NNLOcorrNLO,PhysRevLett.110.252004,Czakon:2011xx}.
+% The PDF and $\alpha_S$ uncertainties were calculated using the PDF4LHC
+% prescription ~\cite{Botje:2011sn} with the MSTW2008 68\% CL
+% NNLO~\cite{PDFLHC,alphasunc}, CT10
+% NNLO~\cite{PhysRevD.82.074024,PhysRevD.89.033009} and NNPDF2.3 5f
+% FFN~\cite{Ball:2012cx} PDF sets, added in quadrature to the scale uncertainty.
+% PDFs uncertainties by themselves correspond to a $\pm 35.06$\,pb error on the
+% total cross section, while QCD scale variations correspond to an error of
+% $^{+19.77}_{-29.20}$\,pb on the total cross section.
+
+
+% It should be noted that all the \ttbar\ MC samples used as either the default
+% $t\bar{t}$ prediction in the analysis or as a systematic variation sample, are
+% normalised to the NNLO+NNLL cross-section given in Table
+% \ref{tabular:mc_samples_ttbar2}.
+
+
+% \subsection{Alternative Samples}
+% \label{subsubsec:ttbarAlternative}
+% Alternative $t\bar{t}$ MC generator configurations are used to assess the
+% theoretical uncertainties on the top-quark pair production process for the
+% 0-/1-lepton channel, by serving as point of comparison to the default MC
+% configuration; referred to as a 2-point MC-to-MC systematic from here on. Table
+% \ref{tabular:ttbarAlternativeSamples} summarised the different MC samples
+% generated, which includes a short description of the main differences with
+% respect to the nominal \POWHEG+\PYTHIA8 prediction. All the alternative samples
+% are generated applying the same lepton filters as the default \POWHEG+\PYTHIA8
+% sample. The samples considered are the following:
+
+
+% \begin{itemize}
+%         \item \textbf{\POWHEG+\HERWIG7 - Parton Shower}: Using the same setup
+%           for \POWHEG as for the nominal \POWHEG+\PYTHIA8 sample, the parton
+%           shower (PS), hadronisation, underlying event (UE) and multiple parton
+%           interactions (MPI) are simulated with \HERWIG7.0
+%           ~\cite{herwig271,EPJC.76.196} with the H7UE tune~\cite{EPJC.76.196}
+%           tune. The primary purpose of this sample is to systematically vary the
+%           parton shower model (\HERWIG7 vs \PYTHIA8) with respect to the nominal
+%           prediction, while maintaining the same hard scattering simulation with
+%           \POWHEG.
+          
+%         \item \textbf{\MADGRAPH5\_aMC@NLO+\PYTHIA8.2 - ME}: Using
+%           \MADGRAPH5\_aMC@NLO~\cite{Alwall:2014hca} for the hard scattering
+%           generation at NLO precision and \PYTHIA8.2 for the PS, hadronisation,
+%           UE and MPI simulation, this sample serves as a systematic variation of
+%           the matrix element (ME) or hard scattering calculation generation
+%           (\MADGRAPH5\_aMC@NLO vs \POWHEG), while maintaining the same parton
+%           shower model with \PYTHIA8.2.
+          
+%         \item \textbf{\POWHEG+\PYTHIA8 - Initial/Final State Radiation} Two
+%           samples are produced with exactly the same setup as the nominal
+%           \POWHEG+\PYTHIA8 samples, with the following exception:
+          
+%         \begin{list}{-}{}
+%                 \item Low radiation sample: both renormalisation scale $\mu_R$
+%                   and factorisation scale $\mu_F$ are doubled, the
+%                   \POWHEG+\PYTHIA8 parameters are kept at their nominal values,
+%                   \texttt{hdamp} $= 1.5 \cdot m_{top}$, \texttt{pTdef}$=2$ and
+%                   \texttt{pThard}$=0$, while the the A14 tune (Var3c) Down
+%                   variation is used (\textit{radLo}).
+                  
+%                 \item High radiation sample: both renormalisation scale $\mu_R$
+%                   and factorization scale $\mu_F$ are halved, the
+%                   \POWHEG+\PYTHIA8 parameters are kept at their nominal values,
+%                   \texttt{pTdef}$=2$ and \texttt{pThard}$=0$ except
+%                   \texttt{hdamp} set to $3.0 \cdot m_{top}$, and the A14 tune
+%                   (Var3c) Up variation is used (\textit{radHi}).
+                  
+%         \end{list}
+% \end{itemize}
+
+% It should be noted that the \texttt{hdamp} parameter used to assess the low/high
+% radiation systematics in \POWHEG corresponds to the transverse momentum scale
+% around which the Sudakov resummation becomes insignificant, i.e. can be damped
+% (the pure NLO matrix element provides a good description in these regions),
+% meaning that smaller values of \texttt{hdamp} correspond to a larger suppression
+% of the hardest emission from the matrix element to the cross section. This
+% parameter is set to a finite value for the $t\bar{t}$ \POWHEG samples to avoid
+% an underestimate of the scale dependence in the high-$p_T$ region. Therefore the
+% $\mu_R$ and $\mu_F$ scales variations and \texttt{hdamp} variations are kept
+% correlated since the two proposed variations envelope the full set of
+% uncertainties obtained by changing the scales and the resummation damping
+% parameter independently.
+
+
+% \begin{table}[!htb]
+% \begin{footnotesize}
+% \begin{center}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{clc}
+%         \hline
+%         \hline
+%         Generator & Setup Details & Systematic Effect \\
+%         \hline
+%         \POWHEG+\PYTHIA8  &  A14 tune & nominal sample \\
+%                           &  NNPDF30NLO \& NNPDF23LO & \\
+%                           & \texttt{hdamp} = $1.5\cdot m_{top}$ & \\
+%                           &  nonallhad filter & \\
+%         \hline
+%         \POWHEG+\PYTHIA8  & nominal setup & \textit{low variation} for additional radiation \\
+%                           & scale variations low ($\mu_R = \mu_F = 2$) & \\
+%                           & \texttt{hdamp} = $1.5\cdot m_{top}$ & \\
+%                           & Up variation of A14 tune (Var3c) & \\
+%                           &  nonallhad filter & \\
+%         \hline
+%         \POWHEG+\PYTHIA8  & nominal setup & \textit{high variation} for additional radiation \\
+%                           & scale variations high ($\mu_R = \mu_F = 0.5$) & \\
+%                           & \texttt{hdamp} = $3.0\cdot \times m_{top}$ & \\
+%                           & Down variation of A14 tune (Var3c) & \\  
+%                           &  nonallhad filter & \\
+%         \hline
+%         \POWHEG+\HERWIG7  & H7UE tune & fragmentation/hadronisation model\\
+%                           & CT10 \& MMHT2014lo68cl & \\
+%                           & \texttt{hdamp}=175.2GeV & \\
+%                           & nonallhad filter & \\
+%         \hline
+%         \MADGRAPH5\_aMC@NLO+\PYTHIA8 & A14 tune & hard scatter generation and matching\\
+%                           & NNPDF30NLO \& NNPDF23LO & \\
+%                           & nonallhad filter & \\
+%         \hline
+%         \hline
+% \end{tabular}
+% }
+% \caption{$t\bar{t}$ MC samples generated for the estimate of systematic uncertainties.}
+% \label{tabular:ttbarAlternativeSamples}
+% \end{center}
+% \end{footnotesize}
+% \end{table}
+
+% The systematic model used in evaluating the MC based modelling uncertainties on
+% the nominal $t\bar{t}$ prediction originates from the structure of the Profile
+% Likelihood Fit, specifically there are three main components considered:
+
+
+% \begin{itemize}
+%   \item \textbf{Normalisation:} The overall normalisation of the background
+%     across the entire fiducial phase space (all fit regions) is left freely
+%     floating in 2-jet and 3-jet categories independently and being
+%     multiplicative factors in the likelihood definition, require no prior
+%     estimate (see details in Ref~\cite{Wang:2121287}).
+    
+%   \item \textbf{Acceptance:} Variation in acceptance between the different
+%     analysis fit regions. Gaussian constrained nuisance parameters in the
+%     Profile Likelihood Fit are assigned to control the relative yield
+%     (acceptance) between the analysis fit regions. The Gaussian priors are
+%     calculated as double ratios:
+    
+% \begin{equation}
+% \label{equ:doubleratio}
+% \left. \dfrac{Acceptance[Category_{A}(nominal MC)]}{Acceptance[Category_{B}(nominal MC)]} \middle/ \dfrac{Acceptance[Category_{A}(alternative MC)]}{Acceptance[Category_{B}(alternative MC)]} \right.
+% \end{equation}
+
+
+% This double ratio is calculated for several alternative MC samples normalised to
+% the same NNLO cross-section, therefore no effect of changes in the total
+% cross-section from the different MC schemes enters this calculation. The final
+% uncertainties are given by the sum in quadrature of the three main variations:
+% parton shower uncertainty (\POWHEG+\HERWIG7 versus \POWHEG+\PYTHIA8), matrix
+% element uncertainty (\MADGRAPH5\_aMC@NLO+\PYTHIA8 versue \POWHEG+\PYTHIA8) and
+% radiation uncertainties. For the latter case, half the difference between the
+% \POWHEG+\PYTHIA8 with different radiation samples was taken into account in the
+% sum in quadrature.
+
+
+% Additional acceptance uncertainties come from the migration induced by the \ptv\
+% and the BDTr-based shape uncertainties. The full breakdown of the normalization
+% effect induced by these two systematics across all the analysis regions and
+% across all the analysis regions and \ptv\ bins of the analysis are reported in
+% Table~\ref{tab:ttbar_extrapolation_uncertainties_pTV} and
+% Table~\ref{tab:ttbar_extrapolation_uncertainties_BDTr}.
+
+
+% \item \textbf{Differential Shape Uncertainties:} as already explained in
+%   Section~\ref{subsec:ShapeMethod}, a hybrid BDTr approach is used to derive the
+%   shape uncertainties in both the 0-lepton and 1-lepton channels. Prior to the
+%   training, the nominal \POWHEG+\PYTHIA8 events are reweighted by the ratio of
+%   the nominal \POWHEG+\PYTHIA8 and the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8
+%   and \POWHEG+\HERWIG7 generators in each jet category and flavour composition
+%   (bb, bc and others events). These events are than used to train two different
+%   BDTs to separate them from the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8 and
+%   \POWHEG+\HERWIG7 events. The ratio between the nominal and each alternative
+%   BDT score is than used as a reweighting factor. \\
+
+ 
+% As the BDTr-based shape systematic does not account for the variance in \ptv\ ,
+% a fit to the ratio between the nominal \POWHEG+\PYTHIA8 and the alternatives
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8 and \POWHEG+\HERWIG7 in each jet category and
+% inclusively in the flavour categoris, is derived. Only the largest variation,
+% coming from the comparison between \POWHEG+\PYTHIA8 and
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8, is considered as a \ptv\ shape systematic. A
+% detailed description of the procedure used to derive both the \ptv  and
+% BDT-based shape systematics is reported in
+% Subsection~\ref{subsubsec:ttbar_shapesysts}.
+
+
+%  \end{itemize}
+
+% \subsubsection{Acceptance uncertainties}
+
+% To control the correlations and model the extrapolation uncertainties on the
+% overall $t\bar{t}$ floating normalisation (\texttt{norm\_ttbar}) across the
+% different analysis fit regions, the following nuisance parameters are
+% introduced:
+
+% \begin{list}{-}{}
+%         \item \textbf{[$CR_{low}, SR, CR_{high}$] ttbar Migration:} an
+%           uncertainty on the relative $t\bar{t}$ event yield across the control
+%           and signal regions. Covered by the $t\bar{t}$ \ptv shape uncertainty
+%           and $p^{V}_{T}$ factorised BDTr uncertainty.
+          
+%         \item \textbf{$p^{V}_{T}$ ttbar Region Migrations:} an uncertainty on
+%           the relative acceptance between the various binned $p^{V}_{T}$ fit
+%           regions of the analysis. Covered by an uncertainty on the
+%           $t\bar{t}~p^{V}_{T}$ spectrum.
+          
+%         \item \textbf{1-to-0-lepton uncertainty (0-/1-lepton):} 2+3-jet regions
+%           in 1-lepton channel to the 2+3-jet regions in the 0-lepton channel
+%           ($\texttt{SysTTbarNorm\_L0}$).
+          
+% \end{list}
+
+% An overview of the $t\bar{t}$ normalisation/acceptance systematic priors, paired
+% with the effect of each in the various analysis regions is detailed in
+% Table~\ref{tab:ttbarSysSummary1} for the 0-/1-lepton channels. Further details
+% concerning the full normalisation/acceptances amongst the analysis regions for
+% the full MC prescription outlined above can be found in
+% Appendix~\ref{app:ttbar}.
+
+
+% \begin{table}[!htpb] 
+% \begin{center} 
+% \small
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{  c  ||  c  c  c  c  c  c  } 
+% \hline 
+% \hline 
+%             &     $\textrm{CR}_{\textrm{low}}$ 2j   &   SR 2j   &     $\textrm{CR}_{\textrm{high}}$ 2j    &    $\textrm{CR}_{\textrm{low}}$ 3j    &    SR 3j   &    $\textrm{CR}_{\textrm{high}}$ 3j \\
+%             &     \multicolumn{6}{ c }{0-/1-lepton}    \\ 
+% \hline 
+% $\texttt{norm\_ttbar}$   &  \multicolumn{3}{ c }{Floating normalisation}  &  \multicolumn{3}{ c }{Floating normalisation} \\
+% \hline \hline
+%             &     \multicolumn{6}{ c }{1-lepton}    \\ 
+% \hline
+% \texttt{SysBDTr\_ttbar\_ME} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr ME based shape systematic} \\
+% \texttt{SysBDTr\_ttbar\_PS} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr PS based shape systematic} \\
+% \texttt{SysTTbarPTV\_BDTr}  &   \multicolumn{6}{ c }{$p_{T}^{V}$ dependent migrations covered by factorised BDTr $p_{T}^{V}$ shape systematic} \\
+% \hline \hline
+%             &     \multicolumn{6}{ c }{0-lepton}    \\
+% \hline
+% \texttt{SysTTbarNorm\_L0}   &     \multicolumn{6}{ c }{8\%}    \\
+% \texttt{SysBDTr\_ttbar\_ME} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr ME based shape systematic} \\
+% \texttt{SysBDTr\_ttbar\_PS} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr PS based shape systematic} \\
+% \texttt{SysTTbarPTV\_BDTr} &   \multicolumn{6}{ c }{$p_{T}^{V}$ dependent migrations covered by factorised factorised $p_{T}^{V}$ shape systematic} \\
+% \hline 
+% \hline 
+% \end{tabular}
+% }
+% \caption{ \label{tab:ttbarSysSummary1} Normalisation and acceptance priors
+%   assiged to \ttbar\ process in the 0-/1-lepton analysis fit regions region.}
+% \end{center} 
+% \end{table} 
+
+% \subsubsection{ Flavour Composition uncertainty}
+
+% The $t\bar{t}$ background process, like the $V$+jets background, can be broken
+% down into 6 flavour categories, [$bb,bc,bl,cc,cl,ll$]. However, with a $t \to
+% Wb$ branching fraction of $0.957\pm0.034$ \cite{PhysRevD.98.030001}, an Anti-kT
+% EMTopo $R=0.4$ jet $b$-tagging efficiency of 70\%, and the leading
+% miss-classification rate of 12.5\% for charm-jets, only the $[bb,bc]$ flavour
+% components are non-negligible. Therefore, the $t\bar{t}$ background process is
+% categorised according to a reduced set of flavour categorises, [$bb,bc,$Oth],
+% where Oth = [$bl,cc,cl,ll$].
+
+
+% To account for any systematic uncertainty in the flavour composition of the
+% $t\bar{t}$ process stemming from MC modelling, flavour composition uncertainties
+% are applied on the relative fraction of $bc$ to $bb$ and Oth to $bb$. Estimated
+% using the same uncertainty prescription as summarised in Section
+% \ref{subsubsec:ttbarAlternative}, Table \ref{tab:TTbarFlavPriors} summarises the
+% flavour fraction uncertainty priors originating from the ME and PS comparisons
+% as a function of the jet category for the 0-lepton and 1-lepton channels. Each
+% column is constructed according to:
+
+
+% \begin{equation}
+
+% \sigma_{\textrm{flav}} = \frac{ N^{XY}_{0}}{N^{bb}_{0}}/\frac{N^{XY}_{v}}{N^{bb}_{v}},
+% \label{eq:TTbarFlavFormula}
+% \end{equation}
+% where $N^{bb}$ represents $bb$ categorised event yield, $N^{XY}$ is the
+% $[bc,\textrm{Oth}]$ event yield, subscript $v$ represents the alternative MC
+% configurations, and subscript $0$ represents the nominal MC configuration
+% \POWHEG+\PYTHIA8.
+
+                                                                                                                                                                                  
+% \begin{table}
+%   \begin{center}
+%     \vspace{5mm}
+%     %\resizebox{\linewidth}{!}{                                                                                                                                                                             
+%       \begin{tabular}{l|l||c|c|c|c}
+%         \hline
+%         \hline
+%         \multirow{2}{*}{\textbf{Nuisance parameter}} & \multirow{2}{*}{\textbf{Systematic}} & \multicolumn{2}{c|}{\textbf{2-jet}} & \multicolumn{2}{c}{\textbf{3-jet}} \\
+%         &   & \textbf{bc} & \textbf{Oth} & \textbf{bc} & \textbf{Oth} \\
+%         \hline
+%         \hline
+%         &        & \multicolumn{4}{c}{\textbf{0-lepton}} \\
+%         \hline
+%         \texttt{SysTTbarbcMEACC}  &  \multirow{2}{*}{Matrix Element} & $+8.2$\% & -- & $+7.6$\% & -- \\
+%         \texttt{SysTTbarOthMEACC} &                                  & -- & $-6.36$\% & -- & $-2.8$\% \\
+%         \hline
+%         \texttt{SysTTbarbcPSACC}  &  \multirow{2}{*}{Parton Shower}  & $-2.1$\% & -- & $-3.2$\% & -- \\
+%         \texttt{SysTTbarOthPSACC} &                                  & -- & $-13.2$\% & -- & $-5.6$\% \\
+%         \hline
+%         %        \textbf{Total} & $\pm 8.5$\% & $\pm 14.7$\% & $\pm 8.2$\% & $\pm 6.3$\% \\
+%         \hline
+%         &        & \multicolumn{4}{c}{\textbf{1-lepton}} \\
+%         \hline
+%         \texttt{SysTTbarbcMEACC}  &  \multirow{2}{*}{Matrix Element} & $+1.3$\% & -- & $+3.8$\% & -- \\
+%         \texttt{SysTTbarOthMEACC} &   & -- & $+3.3$\% & -- & $+5.7$\% \\
+%         \hline                    
+%         \texttt{SysTTbarbcPSACC}  &  \multirow{2}{*}{Parton Shower}  & $+7.1$\% & -- & $+1.5$\% & -- \\
+%         \texttt{SysTTbarOthPSACC} &   & -- & $+0.3$\% & -- & $+2.1$\% \\  
+%         \hline
+%         %\textbf{Total} & $\pm 7.2$\% & $\pm 3.3$\% & $\pm 4.1$\% & $\pm 6.1$\% \\
+%         \hline
+%       \end{tabular}
+%     %}%
+%     \caption{ Summary of flavour composition uncertainties for each jet category
+%       in the 0-lepton and 1-lepton channels for the relative variation of the
+%       $bc$/Oth event flavours relative to the dominant $bb$ flavour conponents.
+%       Note that the numbers quoted are caluclated using $\alpha =
+%       \sigma_{\textrm{flav}} - 1 $, where $\sigma_{\textrm{flav}}$ is given by
+%       eq. \ref{eq:TTbarFlavFormula}.}\label{tab:TTbarFlavPriors}
+    
+%   \end{center}
+% \end{table}
+
+% These priors are included in the profile likelihood fit as four guassian
+% constrained nuisance parameters, one for each jet category and each MC
+% variation, for both the 0-lepton and 1-lepton channels. The names of these
+% nuisance parameters can be found in the first column of Table
+% \ref{tab:TTbarFlavPriors}.
+
+
+
+% \subsubsection{BDTr-based shape uncertainties}
+% \label{subsubsec:ttbar_shapesysts}
+
+% A hybrid BDT-reweighting approach, as described in
+% Section~\ref{subsec:ShapeMethod}, has been adopted in the 1-lepton and the
+% 0-lepton channels to derive the BDT-based shape systematics. The reason for this
+% is described in Section~\ref{subsec:ShapeMethod}.\\
+
+
+% \textbf{\ptv\ shape systematic}
+% \label{subsubsec:ttbar_1D_shape_Uncert}
+
+% In each leptonic channel and for each Monte Carlo prediction
+% (\MADGRAPH5\_aMC@NLO+\PYTHIA8 and \POWHEG+\HERWIG7),  six shapes are derived
+% depending on the jet category (2-jet and 3-jet) and flavour composition of the
+% event (bb, bc, others = bl, cc, cl, ll). \\
+
+% In the 1-lepton channel, these shapes are obtained from a second order
+% polinomial fit to the ratio between the nominal \POWHEG+\PYTHIA8 and the
+% alternatives \MADGRAPH5\_aMC@NLO+\PYTHIA8 and \POWHEG+\HERWIG7 in the \ptv\
+% distribution with $p_T^V > 75$\ GeV. In the 0-lepton channel, the MET
+% distribution with MET $>150$\ GeV is used.\\
+
+% Only the largest variation is taken in both the 0-lepton and 1-lepton channels
+% and this is coming from the comparison between \POWHEG+\PYTHIA8 and the
+% alternatives \MADGRAPH5\_aMC@NLO+\PYTHIA8 in both 2-jet and 3-jet categories.
+
+
+% Figure~\ref{fig:ttbar_1lep_SysTTbarPTVBDTr} shows the \ptv\ shape systematics in
+% the 1-lepton channel for all flavour categories combined (bb, bc, oth.) and for
+% 2-jet and 3-jet events, respectively. The \ptv\ shape is derived from a fit to
+% the ratio between the nominal \POWHEG+\PYTHIA8 and the alternative
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8.
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[$p_T^V$ 2tag 2jet]{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_pTVreweighting_shapes/ttbar_1Lep_2tag2jet_75ptv_pTV.pdf}}
+% \subfigure[$p_T^V$ 2tag 3jet]{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_pTVreweighting_shapes/ttbar_1Lep_2tag3jet_75ptv_pTV.pdf}}\\
+% \caption{\ptv\ shape systematic in the 1-lepton channel for all flavour
+%   categories combined (bb, bc and oth.) and for 2-jet and 3-jet categories. The
+%   \ptv\ distribution is shown in blue for \POWHEG+\PYTHIA8, in red for
+%   \MADGRAPH5\_aMC@NLO+\PYTHIA8 and in green for \POWHEG+\HERWIG7. The \ptv\
+%   shape is derived from a fit to the ratio between \POWHEG+\PYTHIA8 and
+%   \MADGRAPH5\_aMC@NLO+\PYTHIA8 and is plotted in black. }
+
+% \label{fig:ttbar_1lep_SysTTbarPTVBDTr}
+% \end{center}
+% \end{figure}
+
+% Figure~\ref{fig:ttbar_0lep_SysTTbarPTVBDTr} shows the MET shape systematics in
+% the 0-lepton channel for all flavour categories combined (bb, bc, oth.) and for
+% 2-jet and 3-jet events, respectively. The MET shape is derived from a fit to the
+% ratio between the nominal \POWHEG+\PYTHIA8 and the alternative
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8.
+
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure[MET 2tag 2jet]{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_METreweighting_shapes/ttbar_0Lep_2tag2jet_150ptv_MET.pdf}}
+% \subfigure[MET 2tag 3jet]{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_METreweighting_shapes/ttbar_0Lep_2tag3jet_150ptv_MET.pdf}}\\
+% \caption{MET shape systematic in the 0-lepton channel for all flavour categories
+%   combined (bb, bc and oth.) and for the 2-jet and 3-jet categories. The MET
+%   distribution is shown in blue for \POWHEG+\PYTHIA8, in red for
+%   \MADGRAPH5\_aMC@NLO+\PYTHIA8 and green for \POWHEG+\HERWIG7. The MET shape is
+%   derived from a fit to the ratio between \POWHEG+\PYTHIA8 and
+%   \MADGRAPH5\_aMC@NLO+\PYTHIA8 and is plotted in black. }
+
+% \label{fig:ttbar_0lep_SysTTbarPTVBDTr}
+% \end{center}
+% \end{figure}
+
+
+% \textbf{BDTr shape systematic}
+
+% Prior to the training, the nominal \POWHEG+\PYTHIA8 events are reweighted by the
+% \ptv\ and MET shape uncertainties calculated in the Section
+% \ref{subsubsec:ttbar_1D_shape_Uncert}, for the 1-lepton and 0-lepton channels
+% respectively. The \ptv/MET shape uncertainties are derived for the $bb$, $bc$,
+% and $[bl,cc,cl,ll]$ flavour categories, divided further according to the jet
+% category. This thereby decouples the $p^{V}_{T}$/MET shape uncertainty from the
+% BDTr shape systematic.\\
+
+
+% Following the factorisation of the \ptv/MET information, the \ptv weighted
+% \POWHEG+\PYTHIA8 and alternative $t\bar{t}$ samples are then trained against
+% each other using a classification BDT. The input variables for each BDT training
+% match exactly those variables used in the main analysis MVA (as outlined in Ref.
+% \cite{AlKhoury:2692011}). Upon completion of the training and evaluation of the
+% BDT classifier for each jet category and the aforementioned flavour categories,
+% the density ratio between the nominal and alternative BDT distributions is
+% derived. This is then implemented as either a binned or continuous parameteric
+% re-weighting function within the analysis, which then enter the profile
+% likelihood fit as a set of nuisance parameters called
+% \texttt{SysBDTr\_ttbar\_ME} and \texttt{SysBDTr\_ttbar\_PS}.
+
+
+% In Figure~\ref{fig:ttbar_1lep_2jet_BDTrClosure_PS_1} the closure of the
+% BDTr-based shape systematic for the comparison between \POWHEG+\PYTHIA8 and
+% \POWHEG+\HERWIG7 is shown for some of the key variables entering the analysis
+% MVA for the 1-lepton 2tag2jet category and for the $t\bar{t}$-bb events only.
+% More plots showing the closure of the remaining flavour pairs in the 1-lepton
+% 2tag2jet category and the full set of plots for the 1-lepton 2tag3jet category
+% can be found in the Appendix~\ref{app:ttbar}. Good closure is observed in
+% general and, in most of the cases, the BDTr-based shape systematic allows to
+% smooth away the statistical fluctuations.
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/PS_pTV_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/PS_mBB_2jet_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/PS_mTop_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/PS_dRBB_2jet_bb.pdf}}
+% \caption{Closure of the BDTr-based systematic derived from the comparison
+%   between \POWHEG+\PYTHIA8 and \POWHEG+\HERWIG7 on the variables entering the
+%   analysis MVA in the 2tag2jet region of the 1-lepton channel. The BDTr-based
+%   systematic is plotted in green while the \ptv\ shape systematic is plotted in
+%   magenta. By definition, the magenta distribution, which represents the nominal
+%   \POWHEG+\PYTHIA8 reweighted by the ratio (histogram) with the alternative
+%   \POWHEG+\HERWIG7, should match exactly the red one, which represents the
+%   alternative \POWHEG+\HERWIG7. }
+
+% \label{fig:ttbar_1lep_2jet_BDTrClosure_PS_1}
+% \end{center}
+% \end{figure}
+
+
+% In Figure~\ref{fig:ttbar_1lep_2jet_BDTrClosure_ME_1} the closure of the
+% BDTr-based shape systematic for the comparison between \POWHEG+\PYTHIA8 and
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8 is shown on some of the key variables entering the
+% analysis MVA for the 1-lepton 2tag2jet category and for the $t\bar{t}$-bb events
+% only. More plots showing the closure on the remaining flavour pairs in the
+% 1-lepton 2tag2jet category and the full set of plots for the 1-lepton 2tag3jet
+% category can be found in the Appendix~\ref{app:ttbar}. Good closure is observed
+% in general and, in most of the cases, the BDTr-based shape systematic allows to
+% smooth away the statistical fluctuations.
+
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/ME_pTV_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/ME_mBB_2jet_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/ME_mTop_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/1Lep_BDTbased_closure/ME_dRBB_2jet_bb.pdf}}
+% \caption{Closure of the BDTr-based systematic derived from the comparison
+%   between \POWHEG+\PYTHIA8 and \MADGRAPH5\_aMC@NLO+\PYTHIA8 on the variables
+%   entering the analysis MVA in the 2tag2jet region of the 1-lepton channel. The
+%   BDTr-based systematic is plotted in green while the \ptv\ shape systematic is
+%   plotted in magenta. By definition, the magenta distribution, which represents
+%   the nominal \POWHEG+\PYTHIA8 reweighted by the ratio (histogram)  with the
+%   alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8, should match exactly the red one,
+%   which represents the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8.}
+
+% \label{fig:ttbar_1lep_2jet_BDTrClosure_ME_1}
+% \end{center}
+% \end{figure}
+
+% In Figure~\ref{fig:ttbar_0lep_2jet_BDTrClosure_PS_1} the closure of the
+% BDTr-based shape systematic for the comparison between \POWHEG+\PYTHIA8 and
+% \POWHEG+\HERWIG7 is shown on some of the key variables entering the analysis MVA
+% for the 0-lepton 2tag2jet category and for the $t\bar{t}$-bb events only. More
+% plots showing the closure on the remaining flavour pairs in the 0-lepton
+% 2tag2jet category and the full set of plots for the 0-lepton 2tag3jet category
+% can be found in the Appendix~\ref{app:ttbar}. Good closure is observed in
+% general and, in most of the cases, the BDTr-based shape systematic allows to
+% smooth away the statistical fluctuations.
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/PS_MET_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/PS_mBB_2jet_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/PS_dRBB_2jet_bb.pdf}}
+% \caption{Closure of the BDTr-based systematic derived from the comparison
+%   between \POWHEG+\PYTHIA8 and \POWHEG+\HERWIG7 on the variables entering the
+%   analysis MVA in the 2tag2jet region of the 0-lepton channel. The BDTr-based
+%   systematic is plotted in green while the \ptv\ shape systematic is plotted in
+%   magenta. By definition, the magenta distribution, which represents the nominal
+%   \POWHEG+\PYTHIA8 reweighted by the ratio (histogram) with the alternative
+%   \POWHEG+\HERWIG7, should match exactly the red one, which represents the
+%   alternative \POWHEG+\HERWIG7. }
+
+% \label{fig:ttbar_0lep_2jet_BDTrClosure_PS_1}
+% \end{center}
+% \end{figure}
+
+% In Figure~\ref{fig:ttbar_0lep_2jet_BDTrClosure_ME_1} the closure of the
+% BDTr-based shape systematic for the comparison between \POWHEG+\PYTHIA8 and
+% \MADGRAPH5\_aMC@NLO+\PYTHIA8 is shown on some of the key variables entering the
+% analysis MVA for the 0-lepton 2tag2jet category and for the $t\bar{t}$-bb events
+% only. More plots showing the closure on the remaining flavour pairs in the
+% 0-lepton 2tag2jet category and the full set of plots for the 0-lepton 2tag3jet
+% category can be found in the Appendix~\ref{app:ttbar}. Good closure is observed
+% in general and, in most of the cases, the BDTr-based shape systematic allows to
+% smooth away the statistical fluctuations.
+
+
+% \begin{figure}[H]
+% \begin{center}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/ME_MET_2jet_bb.pdf}}
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/ME_mBB_2jet_bb.pdf}}  \\
+% \subfigure{\includegraphics[width=0.45\textwidth]{figures/ttbar/BDTreweighting/0Lep_BDTbased_closure/ME_dRBB_2jet_bb.pdf}}
+% \caption{Closure of the BDTr-based systematic derived from the comparison
+%   between \POWHEG+\PYTHIA8 and \MADGRAPH5\_aMC@NLO+\PYTHIA8 on the variables
+%   entering the analysis MVA in the 2tag2jet region of the 0-lepton channel. The
+%   BDTr-based systematic is plotted in green while the \ptv\ shape systematic is
+%   plotted in magenta. By definition, the magenta distribution, which represents
+%   the nominal \POWHEG+\PYTHIA8 reweighted by the ratio (histogram) with the
+%   alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8, should match exactly the red one,
+%   which represents the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8.}
+
+% \label{fig:ttbar_0lep_2jet_BDTrClosure_ME_1}
+% \end{center}
+% \end{figure}
+
+
+% Table~\ref{tab:ttbar_extrapolation_uncertainties_pTV} and
+% Table~\ref{tab:ttbar_extrapolation_uncertainties_BDTr} show the extrapolation
+% uncertainties of the \ptv\ and the BDTr-based shape systematics\ptv\ and the
+% BDTr-based shape systematics, respectively, across all regions and \ptv\ bins of
+% the analysis for both the 0-lepton and the 1-lepton channels.
+
+% \begin{table}[!htb]
+% \begin{center}
+% \tiny
+% \begin{tabular}{ c || c | c | c | c | c | c  }
+% \hline
+% \multicolumn{7}{ c }{\textbf{0-lepton}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%                            & CR$_{low}$ &  SR   &  CR$_{high}$ & weighted-sum & weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & 1.59       & 0.89    & <0.5\%    & 0.52     &   \multirow{2}{*}{0.89}      &    \multirow{2}{*}{-1.89}       \\
+% 250 \ptv\                  & -8.89      & -7.93   & -8.24     & -8.14    &         &           \\
+% $\Delta$(high-low) \ptv\   & -10.48     & -8.82   & -8.24     & -8.66    & --   & --     \\
+% \hline
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+%                            & CR$_{low}$ & SR      &  CR$_{high}$ & weighted-sum &  weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & 1.15         & 0.92      & <0.5\%    & 0.40         &  \multirow{2}{*}{0.37}       &    \multirow{2}{*}{-1.35}      \\
+% 250 \ptv\                  & -9.42        & -9.57     & -9.71     & -9.68        &           &          \\ 
+% $\Delta$(high-low) \ptv\   & -10.57       & -10.49    & -9.71     & -10.08       &  --      &     --  \\
+% \hline
+% \hline
+% \multicolumn{7}{ c }{\textbf{1-lepton}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &  weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -4.36      & -4.72   & -5.26     & -5.02    &   \multirow{2}{*}{0.52}        &    \multirow{2}{*}{-0.92}      \\
+% 250 \ptv\                  & -10.08     & -10.12  & -10.20    & -10.19   &           &          \\
+% $\Delta$(high-low) \ptv\   & -5.72      & -5.40   & -4.94     & -5.17    &   --     &  --   \\
+% \hline
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+% &  CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &     weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -4.32       & -4.54     & -5.19        & -5.00      &  \multirow{2}{*}{0.35}      &      \multirow{2}{*}{-1.21}       \\
+% 250 \ptv\                  & -10.82      & -10.85    & -10.99       & -10.98     &        &             \\
+% $\Delta$(high-low) \ptv\   & -6.50       & -6.31     & -5.80        & -5.98      &   --      &     --       \\
+% \hline
+% \hline
+% \end{tabular}
+% \caption{Summary of the extrapolation uncertainties of the \ptv\ shape
+%   systematic on the $t\bar{t}$ sample across all the analysis regions of the
+%   analysis and in the 0 and 1-lepton channels. The third column for both 2-jet
+%   and 3-jet categories shows the normalization effect induced by the shape
+%   systematic weighted by the yields in each of the analysis regions. The last
+%   row for both 0-lepton and 1-lepton channels shows the normalization effect
+%   induced by the \ptv\ shape systematic across the different \ptv\ bins of the
+%   analyisis. The last two columns show the migration effect, inclusive in the
+%   two \ptv\ bins induced by the \ptv\ shape systematic from CR$_{low}$ to SR and
+%   from CR$_{high}$ to SR.}
+
+% \label{tab:ttbar_extrapolation_uncertainties_pTV}
+% \end{center}
+% \end{table}
+
+
+
+
+% \begin{table}[!htb]
+% \begin{center}
+% \tiny
+% \begin{tabular}{ c || c | c | c | c | c | c  }
+% \hline
+% \hline
+% \multicolumn{7}{ c }{\textbf{0-lepton - \texttt{SysBDTr\_ttbar\_ME}}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%         & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &   weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -18.97  & -5.52  & -15.67  & -11.02  &  \multirow{2}{*}{-13.46}      &    \multirow{2}{*}{-9.25}   \\
+% 250 \ptv\                  & -26.98  & -7.77  & -2.18   & -4.60   &        &         \\
+% $\Delta$(high-low) \ptv\   & -8.01   & -2.25  & 13.49   & 6.42    &  --      &   --   \\
+% \hline
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+%         & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum   &  weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -4.91   & -4.96  & -4.76 & -4.84 &     \multirow{2}{*}{+0.11}      &    \multirow{2}{*}{+0.47}      \\
+% 250 \ptv\                  & -12.89  & -11.60 & -4.08 & -5.72 &           &          \\
+% $\Delta$(high-low) \ptv\   & -7.98   & -6.64  & -0.68 & -0.88 &     --      &   --  \\
+% \hline
+% \hline
+% \multicolumn{7}{ c }{\textbf{0-lepton - \texttt{SysBDTr\_ttbar\_PS}}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &    weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -2.50   & -1.55  & -3.87   & -2.68   &    \multirow{2}{*}{-1.07}       &   \multirow{2}{*}{-1.79}      \\
+% 250 \ptv\                  & -8.43   & <0.5\% & 5.84    & 3.49    &           &         \\
+% $\Delta$(high-low) \ptv\   & -5.93   & 1.55   & 9.71    & 6.17    &    --       &     --    \\
+% \hline
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &   weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\                & -1.52   & -2.41  & -4.91 & -3.81 &    \multirow{2}{*}{+0.81}       &   \multirow{2}{*}{-2.25}      \\ 
+% 250 \ptv\                    & -3.94   & -1.45  & -1.43 & -1.47 &          &         \\
+% $\Delta$(high-low) \ptv\     & -2.42   & 0.96   & 3.48  & 2.35  &    --       &   --      \\
+% \hline
+% \hline
+% \multicolumn{7}{ c }{\textbf{1-lepton - \texttt{SysBDTr\_ttbar\_ME}}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &   weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & 3.49    & 1.39   & -1.95   & -0.47   &   \multirow{2}{*}{+2.15}      &   \multirow{2}{*}{-3.29}      \\
+% 250 \ptv\                  & 0.65    & -0.54  & -2.23   & -1.94   &         &         \\
+% $\Delta$(high-low) \ptv\   & -2.84   & -1.93  & -0.28   & -1.47   &   --       &     --   \\
+% \hline 
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+%   & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum    &  weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\                 & 2.40    & 0.97   & -1.69  & -0.88 &   \multirow{2}{*}{+1.48}    &   \multirow{2}{*}{-2.79}    \\
+% 250 \ptv\                     & <0.5\%  & -1.30  & -3.00  & -2.82 &       &       \\
+% $\Delta$(high-low) \ptv\      & -2.40   & -2.27  & -1.31  & -1.94 &   --       &    --   \\
+% \hline
+% \hline
+% \multicolumn{7}{ c }{\textbf{1-lepton - \texttt{SysBDTr\_ttbar\_PS}}}\\
+% \hline
+% \multicolumn{7}{ c }{2-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &   weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\              & -0.57   & -0.69  & <0.5\%  & -0.28   &   \multirow{2}{*}{+0.17}    &   \multirow{2}{*}{+0.92}      \\
+% 250 \ptv\                  & -7.60   & -3.81  & 0.87    & 0.07    &       &         \\
+% $\Delta$(high-low) \ptv\   & -7.03   & -3.12  & 0.87    & 0.35    &   --    &   --  \\
+% \hline
+% \multicolumn{7}{ c }{3-jet}\\
+% \hline
+%        & CR$_{low}$ & SR &  CR$_{high}$ & weighted-sum &   weighted-sum $\Delta$(CR$_{low}$ - SR)  & weighted-sum $\Delta$(CR$_{high}$ - SR)    \\
+% \hline
+% 150-250 \ptv\                 & 1.77    & <0.5\% & -0.57  & -0.35 &    \multirow{2}{*}{+1.74}    &   \multirow{2}{*}{-0.42}      \\
+% 250 \ptv\                     & -1.69   & -1.37  & <0.5\% & -0.14 &        &         \\
+% $\Delta$(high-low) \ptv\      & -3.46   & -1.37  & 0.57   & 0.21 &     --  &   --  \\
+% \hline
+% \hline
+% \end{tabular}
+% \caption{Summary of the extrapolation uncertainties of the BDTr-based shape
+%   systematic on the $t\bar{t}$ samples across all the analysis regions of the
+%   analysis and in the 0 and 1-lepton channels. The third column for both 2-jet
+%   and 3-jet categories shows the normalization effect induced by the shape
+%   systematic weighted by the yields in each of the analysis regions. The last
+%   row for both 0-lepton and 1-lepton channels shows the normalization effect
+%   induced by the BDTr-based shape systematic across the different \ptv\ bins of
+%   the analyisis. The last two columns show the migration effect, inclusive in
+%   the two \ptv\ bins induced by the \ptv\ shape systematic from CR$_{low}$ to SR
+%   and from CR$_{high}$ to SR.}
+
+% \label{tab:ttbar_extrapolation_uncertainties_BDTr}
+% \end{center}
+% \end{table}
+
+
+% \makeatletter
+% \def\ddtt@base{./}
+% \def\ddtt@figures{figures/datadrivenTTbar}
+% \def\ddtt@fig@scripts{\ddtt@base/TTbar_DataDrive_Tex}
+% \def\ddtt@fig@angle{0}
+% \def\ddtt@fig@anglepull{270}
+% \input{\ddtt@fig@scripts/figure.tex}
+% \input{\ddtt@fig@scripts/tables.tex}
+% \makeatother
+
+% \newcommand{\unit}[1]
+% {{\, \mathrm{#1}}}
+
+% \newcommand{\Hyphen}[0]
+% {{\textrm \,\mathchar`-\,}}
+
+% \newcommand{\emucr}[0]
+% {${\textrm e\mu CR}$}
+
+
+\subsection{Data Driven Estimation}
+\label{sec:ttbar_DD}
+
+% As one of the leading uncertainties in the \Vhtobb 2018 discovery
+% \cite{VHmainsupportnote}, $t\bar{t}$ modeling uncertainties were a performance
+% limiting factor within the analysis. Therefore in order to reduce the impact of
+% top modelling, and increase the rebustness of the analysis, a data driven
+% estimation of $t\bar{t}$ and single top background in the 2 lepton channel was
+% adopted. Distributions of data as a function of an observable ($\mathcal{O}$) in
+% the ${\textrm top\Hyphen e\mu}$ CRs (\emucr{}) can be directly used as a
+% template for the top background ($t\bar{t}$ and single top) within the signal
+% regions (SR), once a normalisation correction factor between the two regions is
+% derived:
+
+% \begin{align}
+% N_{\textrm top, data}^{\textrm SR}
+% =
+% \frac{N_{\textrm top, data}^{\textrm CR}}{N_{\textrm top, MC}^{\textrm CR}}
+% \times
+% N_{\textrm top, MC}^{\textrm SR}
+% =
+% \frac{N_{\textrm top, MC}^{\textrm SR}}{N_{\textrm top, MC}^{\textrm CR}}
+% \times
+% N_{\textrm top, data}^{\textrm CR}.
+% \label{eq:TTbar_DD_ExtrapFac}
+% \end{align}
+% Due to the very high purity of top background (99.5-99.9\% depending on the
+% categories, see Ref. \cite{VHmainsupportnote}) in the \emucr{}s, the $N_{\textrm
+%   top, data}^{\textrm CR}$ can be considered as the integral of the data in the
+% \emucr{}.
+
+% The extrapolation factor between the \emucr{} and SR (right hand side of
+% equation \ref{eq:TTbar_DD_ExtrapFac}), ${N_{\textrm top, MC}^{\textrm
+%     SR}}/{N_{\textrm top, MC}^{\textrm CR}}$ (the scale factor, $\alpha$), can
+% then be estimated via studying Monte Carlo predictions.
+
+% This is made possible due to the same kinematic selections that are applied to
+% both SRs and \emucr{}s, and the flavor symmetric nature ofthe $t\bar{t}$ (and
+% Wt) background, which means that most of the systematic uncertainties on the
+% extrapolation parameter cancel; especially the theoretical modeling and
+% jet-related systematic uncertainties. Therefore, the normalization and shape of
+% flavor symmetric top background in the SRs can be estimated by using
+% $\alpha\times N_{\textrm top, data}^{\textrm CR}$, and the differential shape of
+% the data in the \emucr{} as a function of $\mathcal{O}$.
+
+
+% In this data-driven background estimation, the two things are achieved:
+
+% \begin{enumerate}
+% \item[(i)]
+  
+% eliminating experimental systematics related to detector and combined
+% performance, jet and flavor tagging.
+
+% \item[(i)]
+  
+% eliminating theoretical systematics from modeling and MC dependence.
+% \end{enumerate}
+% Since the dominant systematic source of uncertainty in the data-driven
+% estimation is the limited data statistics, statistical uncertainties in the
+% \emucr{} data are implemented in the fit studies.
+
+
+% As the the foundation of this method relies on the assumption that the shapes of
+% the $t\bar{t}$ and single top background in the SR are the same as those in the
+% \emucr{}, validation studies have been performed to show that the differential
+% cross-sections of the top background agree within statistical uncertainty, when
+% comparing the SR and \emucr{}, i.e. the $\alpha$ is not dependent on any
+% kinematic variable (see Section \ref{ssec:comp2Lsrcr}). Furthermore, data/MC
+% plots utilising this method are then shown in the Section \ref{ssec:datamcDD} as
+% a check on the performance of the data-driven estimation to model the data in
+% the SR.
+
+% For further details concerning fit stability tests, and systematic shape
+% cancelation effects between SR and \emucr, the reader is directed to Appendix
+% \ref{app:FitTTbarDD}.
+
+%  The reader should be aware that all studies/fits are done using the ICHEP 2018
+%  style fit regions (as outlined in Ref. \cite{VHmainsupportnote}), and only
+%  utilise the 2015-2017 datasets. However, as the $t\bar{t}$ data-driven
+%  methodology utilises the same-flavour ($ee\mu\mu$) vs different-flavour
+%  ($e\mu$) categorisation, it is independent of the definition of CR/SRs, so the
+%  revised fit strategy in the new \Vhtobb analysis has little impact on the
+%  studies presented here.
+ 
+
+% \subsubsection{Comparison of distributions between SR and \emucr{}}
+% \label{ssec:comp2Lsrcr}
+
+% \tabCompSamples
+
+% In this section, the $p^{Z}_{T}$, $n_{jet}$, $m_{bb}$, $\textrm{BDT}_{VH}$
+% distributions in the 2 lepton SRs and \emucr{}s are compared using processes
+% listed in Table \ref{tab:CompSamples}, in order to validate the assumption that
+% the \emucr top data-driven estimate is kinematically identical to the SR top
+% processes. To investigate the difference four categories are considered,
+% $n_{jet} = [2,3]$ and $ p^{V}_{T} \geq 150\textrm{GeV}$, where the
+% aforementioned kinematic variables are compared, see Figures \ref{fig:compptv}
+% and \ref{fig:compnjet}.
+
+% No significant kinematic dependence can be found in the ratio(=$\alpha$) for the
+% \ptv{} plots (as shown in the bottom panes of each figure), so there is no need
+% to split the scale factors for the medium and high \ptv{} categories. No global
+% slopes in the ratio for the $n_{\textrm{jet}}$ plots, but the fluctuations are
+% relatively large, therefore caution is taken and so an independent scale factor
+% for the 2 and 3+jet categories is derived.
+
+
+% The MVA, $m_{\textrm bb}$ distributions are compared in the Figure
+% \ref{fig:compmva}, \ref{fig:compmbb} as they are variables considered in the
+% fit; no significant slope can be found in the ratio.
+
+
+% \figcompptv
+% \figcompnjet
+% \figcompmvaRed
+% \figcompmbbRed
+
+% \paragraph{Scale factors in each sample}
+% \label{sssec:scalefactors_topsample}
+
+% To check the consistency of the scale factors between samples listed in the
+% Table \ref{tab:CompSamples}, the SR-\emucr{} comparisons were made for samples
+% separately. 
+
+% The comparisons in dilepton $t\bar{t}$, dilepton single top (Wt) and
+% semi-leptonic $t\bar{t}$ are shown in the Figure \ref{fig:compTTbarDilep},
+% \ref{fig:compStopWtDilep}, and \ref{fig:compTTbarSemilep}, respectively.
+
+% While the ratios for dilepton $t\bar{t}$ and dilepton single top are around 1,
+% they are, for semi-leptonic $t\bar{t}$ events, around 1.5 in 3+ jet category
+% rather than 1 due to contribution from same sign ee events in the SRs.
+
+% This scale factor of 1.5 can be explained via the following argument. Defining
+% the fake rates of $qqbb$ reconstructed as $ebbj$/$\mu bbj$, including fake
+% e/$\mu$, as $f(qqbb\rightarrow e^{\pm}bbj)$ and $f(qqbb\rightarrow\mu^{\pm}
+% bbj)$, and the numbers of events at truth level as $N(e^{\pm}qqbb)$ and
+% $N(\mu^{\pm}qqbb)$, then the true/reconstructed final states, and the expected
+% yields in the SRs and \emucr{}s can be summarized as shown in Table
+% \ref{tab:fakeSemilep}.
+
+
+% Since $N(e^{\pm}qqbb)=N(\mu^{\pm}qqbb)=N(\ell^{\pm}qqbb)$, the expected yields
+% of events are:
+
+% \begin{align}
+  
+%   &SR:&&N(\ell^{\pm}qqbb)\cdot[f(qqbb\rightarrow e^{\mp}bbj)+f(qqbb\rightarrow \mu^{\mp}bbj)]+N(\ell^{\pm}qqbb)\cdot f(qqbb\rightarrow e^{\pm}bbj),\label{eq:samesigneeyield}\\
+  
+%   &{\textrm e\mu CRs}:&&N(\ell^{\pm}qqbb)\cdot[f(qqbb\rightarrow e^{\mp}bbj)+f(qqbb\rightarrow \mu^{\mp}bbj)].
+                        
+% \end{align}
+
+% Since we are accepting same charged sign electron-pairs, $e^{\pm} e^{\pm}$
+% events (as expressed via the second term of the equation
+% \ref{eq:samesigneeyield}), it is expected that a scale factor of $\geq 1$ when
+% considering the ratio of the SRs to \emucr{}s.
+
+
+% The fake events from semi-leptonic $t\bar{t}$ are much less in the 2 jets
+% category, since the scale factors for inclusive top samples should be different
+% in 2 and 3+ jets categories, therefore it is required to have SFs for two
+% categories separately.
+
+% The impact on shapes by including semi-leptonic $t\bar{t}$ sample is confirmed
+% to be less than stat uncertainty in the $m_{bb}$ and BDT distributions.
+
+% \figcompSeparate
+% \tabfakeSemilep
+
+% \clearpage
+% \subsubsection{Data-MC plots}
+% \label{ssec:datamcDD}
+% \figDataMC
+% To check that the data-driven modeling of the top background describes the data
+% distributions well, some data-MC plots are shown in Figure
+% \ref{fig:DataMCmbb}-\ref{fig:DataMCptv}. In these plots the opposite to same
+% lepton flavour extrapolation scale factors used for the data driven top
+% background are summarised in Table \ref{tab:ScaleFactors}, and are detailed in
+% Appendix \ref{ssec:comp2Lsrcrvar}. For the $Zbb+Zbc+Zbl+Zcc$ heavy flavour
+% category, the MC prediction is scaled using the \Vhtobb ICHEP 2018 $80fb^{-1}$
+% analysis scale factors obtained from the unconditional $\mu$ fit to data (se
+% Ref. \cite{Aaboud:2018zhk}), which are summarized in the Table
+% \ref{tab:ScaleFactors}.
+
+
+% From Figure \ref{fig:DataMCmbb} it can be seen that the data/MC agreement
+% demonstrates no statistically significant shape differences, as illustrated by
+% the ratio pane of each $p^{V}_{T}$ and $n_{j}$ binned plot which shows the
+% relative difference between the data and background estimates normalised to the
+% background expectation. This trend is observed for the other Data/MC comparisons
+% given by Figure \ref{fig:DataMCmva}-\ref{fig:DataMCptv}. Howeverit should be
+% noted that whilst the shapes agree normalisation offsets like that seen in the
+% 2-tag 2-jet $p^{V}_{T} > 150$GeV signal region (lower left pane of Figure
+% \ref{fig:DataMCmbb}) are absorbed by the freely floating $Z+$jet heavy flavour
+% normalisation nuisance parameter within the fit model, where variances of
+% 20-30\% are not uncommon.
+
+
+% \tabScaleFactors
+
+
 \section{Systematic Uncertainties on Sub-Dominant Backgrounds}
 \input{07-systematic-errors/small-bkg-table.tex}
 

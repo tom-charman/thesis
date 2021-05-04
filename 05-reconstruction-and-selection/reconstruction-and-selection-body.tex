@@ -5,8 +5,8 @@ At the top level events are required to have one Higgs boson candidate and one
 vector boson candidate. In all cases a Higgs boson candidate is comprised of two
 b-tagged jets. More on the jet collection and b-tagging strategy used in
 section~\ref{sec:jets}. Vector boson candidates are defined by a number of
-different decay products defined in section~\ref{sec:channels-and-selections},
-these decay products are triggered on, specific triggers used are discussed in
+different decay products defined in section~\ref{sec:lepton}, these decay
+products are triggered on, specific triggers used are discussed in
 section~\ref{sec:triggers}. Reconstruction of basic quantities as well as higher
 level algorithms such as overlap removal are handled by Athena and the CxAOD
 Framework, more on these in section~\ref{sec:cxaod}. Finally with all quantities
@@ -33,8 +33,7 @@ The files containing the reconstructed physics objects adhere to the ATLAS Event
 Data Model (EDM) and are referred to as Analysis Object Data (xAOD). After
 reconstruction a part of Athena called the derivation framework is used to
 produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The reduction
-of these files is carried out based on a loose selection criteria, the criteria
-used in the VH(bb) analysis are shown in table~\ref{tab:derivations}.
+of these files is carried out based on a loose selection criteria.
 
 DxAODs are the usual starting point for analysis level software, in the case of
 this analysis the CxAOD Framework. Of course xAODs can also be used as the
@@ -48,10 +47,10 @@ The Reader takes a CxAOD as input and performs the analysis event selection, it
 can output histograms or nTuples.
 
 The Maker applies selections the selections of each of the three analysis
-channels, defined in section~\ref{sec:channels-and-selections}. CxAODs are
-produced separately for each of the three channels as the different background
-compositions and signal signatures require different optimisation. Pre-selection is
-performed on jets based on application of requirements on transverse momentum and
+channels, defined in section~\ref{sec:selection}. CxAODs are produced separately
+for each of the three channels as the different background compositions and
+signal signatures require different optimisation. Pre-selection is performed on
+jets based on application of requirements on transverse momentum and
 pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
 jets resulting from pileup from events.
 
@@ -78,18 +77,18 @@ of background leptons are required to be isolated from other detector activity.
 \subsection{Electrons}
 \label{subsec:electrons}
 
-As mentioned in chapter~\ref{sec:detector} electrons leave tracks in the ID and
+As mentioned in chapter~\ref{ch:detector} electrons leave tracks in the ID and
 energy deposits in the ECAL. Reconstructing electrons requires clustering the
 energy deposits in the ECAL, this is achieved with a sliding window
-algorithm~\cite{slide}. Clusters must then be associated to tracks in the ID, a
-Gaussian Sum Filter~\cite{GSF} is used to account for energy loses due to
-bremsstrahlung radiation. The energy for electron candidates must be calibrated
-before it can be used in order to account for things such as non-uniformity in
-the detector response. Calibration is achieved by using simulated cluster
-activity from single particles to train a BDT regression model designed to
-regress the measured energy in the ECAL to the simulated energy. An in-situ data
-driven correction is applied to normalise the response between data and
-simulation~\cite{elec-calibration}.
+algorithm~\cite{Delmastro:1747242}. Clusters must then be associated to tracks
+in the ID, a Gaussian Sum Filter~\cite{ATLAS-CONF-2012-047} is used to account
+for energy loses due to bremsstrahlung radiation. The energy for electron
+candidates must be calibrated before it can be used in order to account for
+things such as non-uniformity in the detector response. Calibration is achieved
+by using simulated cluster activity from single particles to train a BDT
+regression model designed to regress the measured energy in the ECAL to the
+simulated energy. An in-situ data driven correction is applied to normalise the
+response between data and simulation~\cite{ATL-PHYS-PUB-2016-015}.
 
 Reconstruction alone is not enough to find electrons, other particles may leave
 similar signatures in the ATLAS sub-detectors and therefore electron
@@ -99,7 +98,7 @@ electrons and other particles are used in the likelihood such as shower
 profiles, track quality, how closely track and cluster positions match in $\eta$
 and $\phi$, and the presence of a high-threshold TRT hit. This is one of the
 main benefits of the TRT. Performance of this method is well
-studied~\cite{2likelihood-electron-id-notes}.
+studied~\cite{ATLAS-CONF-2016-024,EgammaEffTWiki}.
 
 \subsection{Muons}
 
@@ -109,12 +108,13 @@ detector. Muons leave charged tracks in the ID and the muon spectrometers which
 have coverages of $\lvert \eta \rvert < 2.7$ and $\lvert \eta \rvert < 2.5$
 respectively. For the region $\lvert \eta \rvert > 2.5$ a stand-alone algorithm
 which doesn't use ID tracks can be used. All muons within the coverage of the ID
-require good quality ID tracks~\cite{}. A combined algorithm is used in the
-majority of cases. For the region $\lvert  \eta  \rvert < 0.1$ two specialised
-algorithms SegmentTagged and CaloTagged are used which require only muon segment
-and calorimeter deposits respectively. All aforementioned algorithms are used
-together in what is known as a unified chain~\cite{muon-reco-id} to reconstruct and identify
-muons.
+require good quality ID tracks~\cite{muonTWiki,MuonSelectionToolTwik}. A
+combined algorithm is used in the majority of cases. For the region $\lvert
+\eta  \rvert < 0.1$ two specialised algorithms SegmentTagged and CaloTagged are
+used which require only muon segment and calorimeter deposits respectively. All
+aforementioned algorithms are used together in what is known as a unified
+chain~\cite{Aad:2014rra,MuonChainTWiki,ATL-PHYS-PUB-2015-037} to reconstruct and
+identify muons.
 
 \subsection{Taus}
 
@@ -125,12 +125,13 @@ considered differently. Decays are considered as one or three pronged based on
 the number of charged decay products, pions, with neutrinos a
 nd neutral pions
 also present. These decays are reconstructed in the calorimeters like jets with
-the anti-$k_t$ algorithm with $\Delta R = 0.4$~\cite{tau-reco} but the $p_T$ of
-the tau is set to the total energy of the TopoClusters within $\Delta I goR < 0.2$,
-more on TopoClusters in section~\ref{sec:jets}. Tau candidates must have $p_T >
-20 \GeV$, $\lvert  \eta \rvert < 2.5$ excluding $1.37 \lvert \eta \rvert < 1.52$,
-and either exactly 1 or 3 tracks. A BDT based method for tau identification is
-used to reject fakes. Medium quality taus are counted for each event~\cite{med-taus2}.
+the anti-$k_t$ algorithm with $\Delta R = 0.4$~\cite{ATL-PHYS-PUB-2015-045} but
+the $p_T$ of the tau is set to the total energy of the TopoClusters within
+$\Delta I goR < 0.2$, more on TopoClusters in section~\ref{sec:jets}. Tau
+candidates must have $p_T > 20 \GeV$, $\lvert  \eta \rvert < 2.5$ excluding
+$1.37 \lvert \eta \rvert < 1.52$, and either exactly 1 or 3 tracks. A BDT based
+method for tau identification is used to reject fakes. Medium quality taus are
+counted for each event~\cite{TauRecommendation2015,TauRecommendation2016}.
 
 \section{Triggers}
 \label{sec:triggers}
@@ -178,7 +179,7 @@ triggers are used in conjunction with the single lepton triggers.
 \section{Jets}
 \label{sec:jets}
 
-As mentioned in chapter~\ref{sec:theory} jets are the roughly conical structure
+As mentioned in chapter~\ref{ch:theory} jets are the roughly conical structure
 of detector activity resulting from the ultimate hadronisation of a QCD parton.
 Two categories of jets are considered, signal jets and forward jets, when the
 number of total jets is referred to it is equal to the sum of signal and forward
@@ -191,12 +192,12 @@ then the specific tagging strategy of the analysis will be detailed.
 \subsection{Topological Calorimeter Cluster Anti-$k_t$ Jets}
 The jets that are found with a given algorithm are referred to as a jet
 collection. The jet collection relevant to this analysis uses topological
-calorimeter cell clusters to reconstruct jets~\cite{emtopo}. These cluster are
+calorimeter cell clusters to reconstruct jets~\cite{CALO2008}. These cluster are
 then passed to the anti-$k_t$ jet finding algorithm~\cite{anti-kt}. This
 algorithm takes a radius parameter which governs the size of jets, in the ATLAS
 coordinates a radius parameter of $R=0.4$ is chosen.
 
-As mentioned in chapter~\ref{sec:detector} pileup can cause issues with
+As mentioned in chapter~\ref{ch:detector} pileup can cause issues with
 reconstruction. In general there is a desire to suppress any jets which arise
 from pileup. The Jet Vertex Tagger (JVT) is a likelihood-based discriminant
 which is used to achieve this. The primary vertex location, jet $p_T$ and the
@@ -206,7 +207,8 @@ outputs a 2-D likelihood that the jet arises from pileup. The likelihood is
 resilient to bias arising from the jet flavour. The tool is applied only to jets
 in region $\lvert  \eta \rvert < 2.5$ and $p_T > 120$ \GeV. A cut of JVT = 0.59,
 is applied to all jets in the collection, this cut has an average efficiency of
-92~\%. The definitions of signal and forward jets can be found in table~\ref{tab:jet-cats}
+92~\%. The definitions of signal and forward jets can be found in
+table~\ref{tab:jet-cats}.
 \input{05-reconstruction-and-selection/jet-categories}
 
 \subsection{b-tagging}
@@ -245,7 +247,7 @@ $t\bar{t}$ events and 3 million Z$^\prime$ events.
 The kinematic training variables that enter into the MV2c10 algorithm are simply
 the jet $p_T$ and $\eta$. The structural information is more complicated, IP2D
 and IP3D are two algorithms based on a log-likelihood ratio discriminant of
-impact parameters (see chapter~\ref{sec:detector}). IP3D is defined as
+impact parameters (see chapter~\ref{ch:detector}). IP3D is defined as
 \begin{align}
   \text{IP3D} &=\sum_{i=1}^{N}\log{\frac{p_b}{p_u}} \\
   \text{where}& \notag \\
@@ -271,7 +273,7 @@ table~\ref{tab:b-tag}.
 The working points defined in table~\ref{tab:b-tag} are used in a so-called
 pseudo-continuous mode. In this mode the MV2c10 distribution is binned with bin
 edges corresponding to the working points listed in the table, and as can be
-seen in figure~\ref{PCBT_quant}. This figure shows the discrimination between
+seen in figure~\ref{fig:PCBT_quant}. This figure shows the discrimination between
 events with different jet flavours. 
 \input{05-reconstruction-and-selection/pcbt-fig}
 Events that fall in the bins with ranges 70~--~60~\% and 60~--~0~\% have their

@@ -83,8 +83,8 @@ particular node, this choice will lead to a very different tree structure than
 if the fluctuation were not present.
 
 In order to mitigate the over--training tendencies of decision trees they are
-often used in an ensemble algorithm such as bagging~\cite{bagging}
-or boosting~\cite{boosting}. Here only boosting will be discussed. Ensembles of
+often used in an ensemble algorithm such as bagging~\cite{Bagging}
+or boosting~\cite{Boosting}. Here only boosting will be discussed. Ensembles of
 decision trees are often referred to as random forests. Boosting works by
 training a sequence of trees, weighting misclassified events from a tree so that
 they have more influence over the structure of the next tree in the sequence.
@@ -97,7 +97,7 @@ can take any weighted average.
 Gradient boosting is the name of an optimisation algorithm that takes the
 concept of boosting and combines it with the gradient descent algorithm. A
 pictographic representation of gradient descent for a regression problem can be
-seen in figure~\ref{fig:grad-desc.}
+seen in figure~\ref{fig:grad-desc}.
 \input{04-machine-learning/grad-desc}
 The basic principle of gradient descent is to find the minimum of some
 multi-variable function by taking the derivative of the function around some
@@ -188,9 +188,7 @@ F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)
 where the superscript number in brackets labels the layer to which parameters
 belong. The hyper-parameters $\vec{\theta}$ here are the choice of activation
 function $\mathcal{H}$, output function $\mathcal{O}$, number of hidden units
-$m$ and the number of hidden layers (just one here). A depiction of a single
-layered NN can is shown in figure~\ref{fig:single-nn}.
-\input{04-machine-learning/nn}
+$m$ and the number of hidden layers (just one here).
 
 The output function $\mathcal{O}$ must have properties that allow us to
 interpret the outputs of the network as probabilistic. A common choice of output
@@ -214,7 +212,7 @@ built, in the network function can be written in general as the cumbersome
 This behaves in a similar way to the network with one hidden layer but now each
 layer's width and activation must be chosen individually, though often they are
 set to the same values. A diagram of an arbitrary sized neural network is shown
-in figure~\ref{fig:full-nn}.
+in figure~\ref{fig:nn}.
 \input{04-machine-learning/nn}
 It is clear that the number of parameters that need to be learned $\vec{w}$ and
 the number that need to be set by hand to tune the model to a given problem
@@ -235,15 +233,13 @@ has been shown that, using
 E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg)
 \label{eq:xentropy}
 \end{equation}
-known as cross-entropy, is faster and more generalised \cite{XEntropySimard}
-(further discussion on generalisation in section \ref{sec:generalisation}). The
-particular training algorithm that will be used to update parameters in this
+known as cross-entropy, is faster and more generalised \cite{XEntropySimard}.
 
 Optimisers:
-report is known as adaptive moment estimation or ADAM \cite{ADAMOpt}. ADAM is a
+The particular training algorithm that will be used to update parameters in this
+report is known as adaptive moment estimation or ADAM~\cite{ADAMOpt}. ADAM is a
 variant of the gradient descent algorithm, which is widely used and has spawned
-many other variants \cite{GDOverview}. The reasons for picking between ADAM and
-vanilla gradient descent are given in chapter \ref{ch:netarch}.
+many other variants~\cite{GDOverview}.
 
 
 

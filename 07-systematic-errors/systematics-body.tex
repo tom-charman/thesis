@@ -26,7 +26,7 @@ calculated using the double ratio
   \label{eq:acceptance-dr}
 \end{equation}
 where the formula has been written agnostic of the specific application so
-$N_{A}^{nominal}$ is the number of events in the nominal prediction in some
+$N_{A}^{nominal}$ is the number of  events in the nominal prediction in some
 region or category called $A$ and so on.
 
 Another variant of the normalisation effect are the flavour composition
@@ -109,7 +109,7 @@ be successful in the dimension chosen to calculate the ratio and in general
 agreement between the two predictions in the other variables can not be relied
 upon.
 
-Figure~\ref{fig:IllustKinUncert} shows a graphical illustration of how this
+Figure~\ref{fig:1d-rw-illustration} shows a graphical illustration of how this
 single dimensional ratio is calculated. In practice the ratio is used to derive
 a systematic shape uncertainty by weighting each event in the nominal
 prediction as a function of the variable $x_{i}$ whose distribution was used to
@@ -117,7 +117,7 @@ calculate the ratio. Limitations on the sample size of each prediction mean that
 in practice it is better to smooth the ratio via the use of a parametric fit in
 order to mitigate any large statistical fluctuations in a single bin of the
 ratio (arising from a large fluctuation in one of the predictions in that bin).
-In figure~\ref{fig:IllustKinUncert} the parametric fit is represented by the
+In figure~\ref{fig:1d-rw-illustration} the parametric fit is represented by the
 solid line in the ratio.
 \input{07-systematic-errors/re-weighting-illustration}
 
@@ -804,20 +804,21 @@ template the method is still sufficiently accurate.
 This method is used to derived shape uncertainties on the $p_T^V$ and $m_{bb}$
 variables as they are considered to be the most important in the analysis. The
 uncertainty is used in the 0--lepton channel which adds an additional
-complication. As mentioned in section~\ref{} a kinematic fit is used in order to
-correct the b-jet momentum and these corrected jets are then used in the
-formulation of $m_{bb}$ in the 2--lepton channel only (as there are two visible
-leptons). This means that $m_{bb}$ in the 0-- and 2--lepton channels refers to a
-different quantity and so a shape uncertainty derived on one may not be suitable
-to use on the other. In order to get around this issue the shape uncertainty for
-$m_{bb}$ is derived on a variable that is calculated using globally sequentially
+complication. As mentioned in section~\ref{sec:2lep-selection} a kinematic fit
+is used in order to correct the b-jet momentum and these corrected jets are then
+used in the formulation of $m_{bb}$ in the 2--lepton channel only (as there are
+two visible leptons). This means that $m_{bb}$ in the 0-- and 2--lepton channels
+refers to a different quantity and so a shape uncertainty derived on one may not
+be suitable to use on the other. In order to get around this issue the shape
+uncertainty for $m_{bb}$ is derived on a variable that is calculated using
+globally sequentially e
 calibrated (GSC) jets and is called GSC $m_{bb}$, these jets have not undergone
 the kinematic fit procedure and so ought to match more closely between the two
 leptonic channels. In order for the region where this method is applied to not
 contain signal events, or events from the diboson cross-check, events with
 80~\GeV < GSC $m_{bb}$ < 140~\GeV are removed from all distributions considered.
 
-The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{tab:zjets-mbb-shapes}
+The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{fig:zjets-mbb-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the Z + jets background in
 the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and
 CR$_{\text{high}}$ plotted against the subtracted data in the $p_T^V$ and GSC

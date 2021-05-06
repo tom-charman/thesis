@@ -886,7 +886,12 @@ parton showering respectively~\cite{ATL-PHYS-PUB-2016-020}.
 Details of the samples making up the nominal $t\bar{t}$ prediction can be found
 in table~\ref{tab:ttbar-nominal} these include the high and low radiation
 variations called  RadHi and RadLo respectively, the samples making up the
-alternative prediction can be found in table~\ref{tab:ttbar-alternative}.
+alternative prediction can be found in table~\ref{tab:ttbar-alternative}. As
+well as accounting for variations in radiation, samples are simulated with
+\textsc{Powheg}~+~\textsc{Herwig}~7 to vary the parton shower model and
+\textsc{MadGraph}~5\textsc{\_aMC@NLO}+\textsc{Pythia}~8 to vary the matrix
+element calculation. 
+
 
 The $t\bar{t}$ cross section relevant to this analysis is calculated for
 proton-proton collisions at a centre of mass energy of $\sqrt{s} = 13$~\TeV and
@@ -903,292 +908,28 @@ PDFs uncertainties alone correspond to an error of $\pm 35.06$~\picobarn, while
 the $\alpha_s$ variations correspond to an error of
 $^{+19.77}_{-29.20}$~\picobarn.
 
+In all fit regions the normalisation of the $t\bar{t}$ background is kept as a
+floating normalisation in 2-- and 3--jet categories independently. The nuisance
+parameters tracking this normalisation are \texttt{norm\_ttbar\_J2} and
+\texttt{norm\_ttbar\_J3} respectively. In terms of acceptance uncertainties,
+most of the potential migrations such as migration between analysis regions and
+$p_T^V$ bins are covered by the shape uncertainties. There is one nuisance
+parameter, \texttt{SysTTbarNorm\_L0} which is implemented to cover migrations
+between the 1-- and 0-- lepton channels, it is implemented in the combination of
+the 2-- and 3--jet categories, applied to events in the 0--lepton channel and
+has a prior calculated using the usual formula in
+equation~\ref{eq:acceptance-dr}.
 
-% \subsection{Alternative Samples}
-% \label{subsubsec:ttbarAlternative}
-% Alternative $t\bar{t}$ MC generator configurations are used to assess the
-% theoretical uncertainties on the top-quark pair production process for the
-% 0-/1-lepton channel, by serving as point of comparison to the default MC
-% configuration; referred to as a 2-point MC-to-MC systematic from here on. Table
-% \ref{tabular:ttbarAlternativeSamples} summarised the different MC samples
-% generated, which includes a short description of the main differences with
-% respect to the nominal \POWHEG+\PYTHIA8 prediction. All the alternative samples
-% are generated applying the same lepton filters as the default \POWHEG+\PYTHIA8
-% sample. The samples considered are the following:
-
-
-% \begin{itemize}
-%         \item \textbf{\POWHEG+\HERWIG7 - Parton Shower}: Using the same setup
-%           for \POWHEG as for the nominal \POWHEG+\PYTHIA8 sample, the parton
-%           shower (PS), hadronisation, underlying event (UE) and multiple parton
-%           interactions (MPI) are simulated with \HERWIG7.0
-%           ~\cite{herwig271,EPJC.76.196} with the H7UE tune~\cite{EPJC.76.196}
-%           tune. The primary purpose of this sample is to systematically vary the
-%           parton shower model (\HERWIG7 vs \PYTHIA8) with respect to the nominal
-%           prediction, while maintaining the same hard scattering simulation with
-%           \POWHEG.
-          
-%         \item \textbf{\MADGRAPH5\_aMC@NLO+\PYTHIA8.2 - ME}: Using
-%           \MADGRAPH5\_aMC@NLO~\cite{Alwall:2014hca} for the hard scattering
-%           generation at NLO precision and \PYTHIA8.2 for the PS, hadronisation,
-%           UE and MPI simulation, this sample serves as a systematic variation of
-%           the matrix element (ME) or hard scattering calculation generation
-%           (\MADGRAPH5\_aMC@NLO vs \POWHEG), while maintaining the same parton
-%           shower model with \PYTHIA8.2.
-          
-%         \item \textbf{\POWHEG+\PYTHIA8 - Initial/Final State Radiation} Two
-%           samples are produced with exactly the same setup as the nominal
-%           \POWHEG+\PYTHIA8 samples, with the following exception:
-          
-%         \begin{list}{-}{}
-%                 \item Low radiation sample: both renormalisation scale $\mu_R$
-%                   and factorisation scale $\mu_F$ are doubled, the
-%                   \POWHEG+\PYTHIA8 parameters are kept at their nominal values,
-%                   \texttt{hdamp} $= 1.5 \cdot m_{top}$, \texttt{pTdef}$=2$ and
-%                   \texttt{pThard}$=0$, while the the A14 tune (Var3c) Down
-%                   variation is used (\textit{radLo}).
-                  
-%                 \item High radiation sample: both renormalisation scale $\mu_R$
-%                   and factorization scale $\mu_F$ are halved, the
-%                   \POWHEG+\PYTHIA8 parameters are kept at their nominal values,
-%                   \texttt{pTdef}$=2$ and \texttt{pThard}$=0$ except
-%                   \texttt{hdamp} set to $3.0 \cdot m_{top}$, and the A14 tune
-%                   (Var3c) Up variation is used (\textit{radHi}).
-                  
-%         \end{list}
-% \end{itemize}
-
-% It should be noted that the \texttt{hdamp} parameter used to assess the low/high
-% radiation systematics in \POWHEG corresponds to the transverse momentum scale
-% around which the Sudakov resummation becomes insignificant, i.e. can be damped
-% (the pure NLO matrix element provides a good description in these regions),
-% meaning that smaller values of \texttt{hdamp} correspond to a larger suppression
-% of the hardest emission from the matrix element to the cross section. This
-% parameter is set to a finite value for the $t\bar{t}$ \POWHEG samples to avoid
-% an underestimate of the scale dependence in the high-$p_T$ region. Therefore the
-% $\mu_R$ and $\mu_F$ scales variations and \texttt{hdamp} variations are kept
-% correlated since the two proposed variations envelope the full set of
-% uncertainties obtained by changing the scales and the resummation damping
-% parameter independently.
-
-
-
-
-% The systematic model used in evaluating the MC based modelling uncertainties on
-% the nominal $t\bar{t}$ prediction originates from the structure of the Profile
-% Likelihood Fit, specifically there are three main components considered:
-
-
-% \begin{itemize}
-%   \item \textbf{Normalisation:} The overall normalisation of the background
-%     across the entire fiducial phase space (all fit regions) is left freely
-%     floating in 2-jet and 3-jet categories independently and being
-%     multiplicative factors in the likelihood definition, require no prior
-%     estimate (see details in Ref~\cite{Wang:2121287}).
-    
-%   \item \textbf{Acceptance:} Variation in acceptance between the different
-%     analysis fit regions. Gaussian constrained nuisance parameters in the
-%     Profile Likelihood Fit are assigned to control the relative yield
-%     (acceptance) between the analysis fit regions. The Gaussian priors are
-%     calculated as double ratios:
-    
-% \begin{equation}
-% \label{equ:doubleratio}
-% \left. \dfrac{Acceptance[Category_{A}(nominal MC)]}{Acceptance[Category_{B}(nominal MC)]} \middle/ \dfrac{Acceptance[Category_{A}(alternative MC)]}{Acceptance[Category_{B}(alternative MC)]} \right.
-% \end{equation}
-
-
-% This double ratio is calculated for several alternative MC samples normalised to
-% the same NNLO cross-section, therefore no effect of changes in the total
-% cross-section from the different MC schemes enters this calculation. The final
-% uncertainties are given by the sum in quadrature of the three main variations:
-% parton shower uncertainty (\POWHEG+\HERWIG7 versus \POWHEG+\PYTHIA8), matrix
-% element uncertainty (\MADGRAPH5\_aMC@NLO+\PYTHIA8 versue \POWHEG+\PYTHIA8) and
-% radiation uncertainties. For the latter case, half the difference between the
-% \POWHEG+\PYTHIA8 with different radiation samples was taken into account in the
-% sum in quadrature.
-
-
-% Additional acceptance uncertainties come from the migration induced by the \ptv\
-% and the BDTr-based shape uncertainties. The full breakdown of the normalization
-% effect induced by these two systematics across all the analysis regions and
-% across all the analysis regions and \ptv\ bins of the analysis are reported in
-% Table~\ref{tab:ttbar_extrapolation_uncertainties_pTV} and
-% Table~\ref{tab:ttbar_extrapolation_uncertainties_BDTr}.
-
-
-% \item \textbf{Differential Shape Uncertainties:} as already explained in
-%   Section~\ref{subsec:ShapeMethod}, a hybrid BDTr approach is used to derive the
-%   shape uncertainties in both the 0-lepton and 1-lepton channels. Prior to the
-%   training, the nominal \POWHEG+\PYTHIA8 events are reweighted by the ratio of
-%   the nominal \POWHEG+\PYTHIA8 and the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8
-%   and \POWHEG+\HERWIG7 generators in each jet category and flavour composition
-%   (bb, bc and others events). These events are than used to train two different
-%   BDTs to separate them from the alternative \MADGRAPH5\_aMC@NLO+\PYTHIA8 and
-%   \POWHEG+\HERWIG7 events. The ratio between the nominal and each alternative
-%   BDT score is than used as a reweighting factor. \\
-
- 
-% As the BDTr-based shape systematic does not account for the variance in \ptv\ ,
-% a fit to the ratio between the nominal \POWHEG+\PYTHIA8 and the alternatives
-% \MADGRAPH5\_aMC@NLO+\PYTHIA8 and \POWHEG+\HERWIG7 in each jet category and
-% inclusively in the flavour categoris, is derived. Only the largest variation,
-% coming from the comparison between \POWHEG+\PYTHIA8 and
-% \MADGRAPH5\_aMC@NLO+\PYTHIA8, is considered as a \ptv\ shape systematic. A
-% detailed description of the procedure used to derive both the \ptv  and
-% BDT-based shape systematics is reported in
-% Subsection~\ref{subsubsec:ttbar_shapesysts}.
-
-
-%  \end{itemize}
-
-% \subsubsection{Acceptance uncertainties}
-
-% To control the correlations and model the extrapolation uncertainties on the
-% overall $t\bar{t}$ floating normalisation (\texttt{norm\_ttbar}) across the
-% different analysis fit regions, the following nuisance parameters are
-% introduced:
-
-% \begin{list}{-}{}
-%         \item \textbf{[$CR_{low}, SR, CR_{high}$] ttbar Migration:} an
-%           uncertainty on the relative $t\bar{t}$ event yield across the control
-%           and signal regions. Covered by the $t\bar{t}$ \ptv shape uncertainty
-%           and $p^{V}_{T}$ factorised BDTr uncertainty.
-          
-%         \item \textbf{$p^{V}_{T}$ ttbar Region Migrations:} an uncertainty on
-%           the relative acceptance between the various binned $p^{V}_{T}$ fit
-%           regions of the analysis. Covered by an uncertainty on the
-%           $t\bar{t}~p^{V}_{T}$ spectrum.
-          
-%         \item \textbf{1-to-0-lepton uncertainty (0-/1-lepton):} 2+3-jet regions
-%           in 1-lepton channel to the 2+3-jet regions in the 0-lepton channel
-%           ($\texttt{SysTTbarNorm\_L0}$).
-          
-% \end{list}
-
-% An overview of the $t\bar{t}$ normalisation/acceptance systematic priors, paired
-% with the effect of each in the various analysis regions is detailed in
-% Table~\ref{tab:ttbarSysSummary1} for the 0-/1-lepton channels. Further details
-% concerning the full normalisation/acceptances amongst the analysis regions for
-% the full MC prescription outlined above can be found in
-% Appendix~\ref{app:ttbar}.
-
-
-% \begin{table}[!htpb] 
-% \begin{center} 
-% \small
-% \resizebox{\textwidth}{!}{%
-% \begin{tabular}{  c  ||  c  c  c  c  c  c  } 
-% \hline 
-% \hline 
-%             &     $\textrm{CR}_{\textrm{low}}$ 2j   &   SR 2j   &     $\textrm{CR}_{\textrm{high}}$ 2j    &    $\textrm{CR}_{\textrm{low}}$ 3j    &    SR 3j   &    $\textrm{CR}_{\textrm{high}}$ 3j \\
-%             &     \multicolumn{6}{ c }{0-/1-lepton}    \\ 
-% \hline 
-% $\texttt{norm\_ttbar}$   &  \multicolumn{3}{ c }{Floating normalisation}  &  \multicolumn{3}{ c }{Floating normalisation} \\
-% \hline \hline
-%             &     \multicolumn{6}{ c }{1-lepton}    \\ 
-% \hline
-% \texttt{SysBDTr\_ttbar\_ME} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr ME based shape systematic} \\
-% \texttt{SysBDTr\_ttbar\_PS} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr PS based shape systematic} \\
-% \texttt{SysTTbarPTV\_BDTr}  &   \multicolumn{6}{ c }{$p_{T}^{V}$ dependent migrations covered by factorised BDTr $p_{T}^{V}$ shape systematic} \\
-% \hline \hline
-%             &     \multicolumn{6}{ c }{0-lepton}    \\
-% \hline
-% \texttt{SysTTbarNorm\_L0}   &     \multicolumn{6}{ c }{8\%}    \\
-% \texttt{SysBDTr\_ttbar\_ME} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr ME based shape systematic} \\
-% \texttt{SysBDTr\_ttbar\_PS} &   \multicolumn{6}{ c }{CRLow/SR/CRHigh and $p^{V}_{T}$ region migrations covered by BDTr PS based shape systematic} \\
-% \texttt{SysTTbarPTV\_BDTr} &   \multicolumn{6}{ c }{$p_{T}^{V}$ dependent migrations covered by factorised factorised $p_{T}^{V}$ shape systematic} \\
-% \hline 
-% \hline 
-% \end{tabular}
-% }
-% \caption{ \label{tab:ttbarSysSummary1} Normalisation and acceptance priors
-%   assiged to \ttbar\ process in the 0-/1-lepton analysis fit regions region.}
-% \end{center} 
-% \end{table} 
-
-% \subsubsection{ Flavour Composition uncertainty}
-
-% The $t\bar{t}$ background process, like the $V$+jets background, can be broken
-% down into 6 flavour categories, [$bb,bc,bl,cc,cl,ll$]. However, with a $t \to
-% Wb$ branching fraction of $0.957\pm0.034$ \cite{PhysRevD.98.030001}, an Anti-kT
-% EMTopo $R=0.4$ jet $b$-tagging efficiency of 70\%, and the leading
-% miss-classification rate of 12.5\% for charm-jets, only the $[bb,bc]$ flavour
-% components are non-negligible. Therefore, the $t\bar{t}$ background process is
-% categorised according to a reduced set of flavour categorises, [$bb,bc,$Oth],
-% where Oth = [$bl,cc,cl,ll$].
-
-
-% To account for any systematic uncertainty in the flavour composition of the
-% $t\bar{t}$ process stemming from MC modelling, flavour composition uncertainties
-% are applied on the relative fraction of $bc$ to $bb$ and Oth to $bb$. Estimated
-% using the same uncertainty prescription as summarised in Section
-% \ref{subsubsec:ttbarAlternative}, Table \ref{tab:TTbarFlavPriors} summarises the
-% flavour fraction uncertainty priors originating from the ME and PS comparisons
-% as a function of the jet category for the 0-lepton and 1-lepton channels. Each
-% column is constructed according to:
-
-
-% \begin{equation}
-
-% \sigma_{\textrm{flav}} = \frac{ N^{XY}_{0}}{N^{bb}_{0}}/\frac{N^{XY}_{v}}{N^{bb}_{v}},
-% \label{eq:TTbarFlavFormula}
-% \end{equation}
-% where $N^{bb}$ represents $bb$ categorised event yield, $N^{XY}$ is the
-% $[bc,\textrm{Oth}]$ event yield, subscript $v$ represents the alternative MC
-% configurations, and subscript $0$ represents the nominal MC configuration
-% \POWHEG+\PYTHIA8.
-
-                                                                                                                                                                                  
-% \begin{table}
-%   \begin{center}
-%     \vspace{5mm}
-%     %\resizebox{\linewidth}{!}{                                                                                                                                                                             
-%       \begin{tabular}{l|l||c|c|c|c}
-%         \hline
-%         \hline
-%         \multirow{2}{*}{\textbf{Nuisance parameter}} & \multirow{2}{*}{\textbf{Systematic}} & \multicolumn{2}{c|}{\textbf{2-jet}} & \multicolumn{2}{c}{\textbf{3-jet}} \\
-%         &   & \textbf{bc} & \textbf{Oth} & \textbf{bc} & \textbf{Oth} \\
-%         \hline
-%         \hline
-%         &        & \multicolumn{4}{c}{\textbf{0-lepton}} \\
-%         \hline
-%         \texttt{SysTTbarbcMEACC}  &  \multirow{2}{*}{Matrix Element} & $+8.2$\% & -- & $+7.6$\% & -- \\
-%         \texttt{SysTTbarOthMEACC} &                                  & -- & $-6.36$\% & -- & $-2.8$\% \\
-%         \hline
-%         \texttt{SysTTbarbcPSACC}  &  \multirow{2}{*}{Parton Shower}  & $-2.1$\% & -- & $-3.2$\% & -- \\
-%         \texttt{SysTTbarOthPSACC} &                                  & -- & $-13.2$\% & -- & $-5.6$\% \\
-%         \hline
-%         %        \textbf{Total} & $\pm 8.5$\% & $\pm 14.7$\% & $\pm 8.2$\% & $\pm 6.3$\% \\
-%         \hline
-%         &        & \multicolumn{4}{c}{\textbf{1-lepton}} \\
-%         \hline
-%         \texttt{SysTTbarbcMEACC}  &  \multirow{2}{*}{Matrix Element} & $+1.3$\% & -- & $+3.8$\% & -- \\
-%         \texttt{SysTTbarOthMEACC} &   & -- & $+3.3$\% & -- & $+5.7$\% \\
-%         \hline                    
-%         \texttt{SysTTbarbcPSACC}  &  \multirow{2}{*}{Parton Shower}  & $+7.1$\% & -- & $+1.5$\% & -- \\
-%         \texttt{SysTTbarOthPSACC} &   & -- & $+0.3$\% & -- & $+2.1$\% \\  
-%         \hline
-%         %\textbf{Total} & $\pm 7.2$\% & $\pm 3.3$\% & $\pm 4.1$\% & $\pm 6.1$\% \\
-%         \hline
-%       \end{tabular}
-%     %}%
-%     \caption{ Summary of flavour composition uncertainties for each jet category
-%       in the 0-lepton and 1-lepton channels for the relative variation of the
-%       $bc$/Oth event flavours relative to the dominant $bb$ flavour conponents.
-%       Note that the numbers quoted are caluclated using $\alpha =
-%       \sigma_{\textrm{flav}} - 1 $, where $\sigma_{\textrm{flav}}$ is given by
-%       eq. \ref{eq:TTbarFlavFormula}.}\label{tab:TTbarFlavPriors}
-    
-%   \end{center}
-% \end{table}
-
-% These priors are included in the profile likelihood fit as four guassian
-% constrained nuisance parameters, one for each jet category and each MC
-% variation, for both the 0-lepton and 1-lepton channels. The names of these
-% nuisance parameters can be found in the first column of Table
-% \ref{tab:TTbarFlavPriors}.
-
+Flavour composition uncertainties are derived using ratios of flavour
+sub-components as for other backgrounds, however given that only the $bb$ and
+$bc$ sub-components are non-negligible so the remainder of sub-components are
+combined into $\text{Oth} = [bl, cc, cl, ll]$. Nuisance parameters are therefore
+implemented for $bc$ and Oth only with $bb$ on the bottom of the ratio as
+before. Given that neither the matrix element nor parton shower variation
+dominates the uncertainty heavily, nuisance parameters are implemented for each
+in turn, in total the nuisance parameters controlling flavour composition
+uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
+\texttt{SysTTbarOthMeACC}, \texttt{SysTTbarOthPSACC}.
 
 
 % \subsubsection{BDTr-based shape uncertainties}

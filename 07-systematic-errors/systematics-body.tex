@@ -967,6 +967,27 @@ question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 \subsection{Data Driven Estimation}
 \label{sec:ttbar_DD}
 
+As mentioned in section~\ref{sec:topemucr} the top $e\mu$ control region is
+constructed and studied in the analysis in order to get a handle on top quark
+backgrounds. Due to the flavour symmetry of the $t\bar{t}$ and $Wt$ processes
+the shape of the top quark backgrounds in the top $e\mu$ control region and the
+SR ought to be the same. In order to correct for any differences in
+normalisation as scale factor is derived as follows
+\begin{align}
+  N_{\textrm top, data}^{\textrm SR}
+  =
+  \frac{N_{\textrm top, data}^{\textrm CR}}{N_{\textrm top, MC}^{\textrm CR}}
+  \times
+  N_{\textrm top, MC}^{\textrm SR}
+  =
+  \frac{N_{\textrm top, MC}^{\textrm SR}}{N_{\textrm top, MC}^{\textrm CR}}
+  \times
+  N_{\textrm top, data}^{\textrm CR}.
+  \label{eq:TTbar_DD_ExtrapFac}
+\end{align}
+Once that factor is applied then the data from the top $e\mu$ control region can
+be used as a template for top quark backgrounds in the SR.
+
 % As one of the leading uncertainties in the \Vhtobb 2018 discovery
 % \cite{VHmainsupportnote}, $t\bar{t}$ modeling uncertainties were a performance
 % limiting factor within the analysis. Therefore in order to reduce the impact of

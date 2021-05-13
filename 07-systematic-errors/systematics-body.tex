@@ -858,7 +858,7 @@ found in table~\ref{tab:zjets-shapes}.
 - Specifically mention the fit functional form, binning choice, etc. 
 
 \section{Systematic Uncertainties on \texorpdfstring{$t\bar{t}$}{tt} Events}
-
+\label{sec:ttbar-systs}
 Modelling of $t\bar{t}$ events differs between the leptonic channels of the
 analysis. Like many of the differences between channels that have been discussed
 already the reason for this ultimately boils down to there being two visible
@@ -970,10 +970,10 @@ question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 
 As mentioned in section~\ref{sec:topemucr} the top $e\mu$ control region is
 constructed and studied in the analysis in order to get a handle on top quark
-backgrounds. Due to the flavour symmetry of the $t\bar{t}$ and $Wt$ processes
-the shape of the top quark backgrounds in the top $e\mu$ control region and the
-SR ought to be the same. In order to correct for any differences in
-normalisation as scale factor is derived as follows
+backgrounds in the 2--lepton channel. Due to the flavour symmetry of the
+$t\bar{t}$ and $Wt$ processes the shape of the top quark backgrounds in the top
+$e\mu$ control region and the SR ought to be the same. In order to correct for
+any differences in normalisation as scale factor is derived as follows
 \begin{align}
   N_{\text{top, data}}^{\text{SR}}
   =
@@ -1194,7 +1194,56 @@ $\alpha$ cancel.
 
 
 \section{Systematic Uncertainties on Sub-Dominant Backgrounds}
+
+This section details the systematic uncertainties on sub-dominant backgrounds.
+None of these background processes dominate in any region of any channel of the
+analysis and so they are not considered to have as large of an impact on the
+analysis as the rest of the backgrounds. These descriptions will be briefer than
+for the other backgrounds. All of the uncertainties of sub-dominant backgrounds
+are summarised in table~\ref{tab:small_bkg_systematics}.
 \input{07-systematic-errors/small-bkg-table.tex}
+
+\subsection{Multi-Jet}
+Systematic uncertainties on the multi-jet background due to QCD are considered
+only in the 1--lepton channel. This is due to heavy suppression of multi-jet
+processes in the 0-- and 2--lepton channels. The uncertainties considered are on
+the normalisation and shape effects only. For normalisation a nuisance parameter
+is introduced for each category in jet multiplicity and each channel ($e$ or
+$\mu$) of the multi-jet process, totalling four parameters. Two parameters
+control the shape uncertainty which are associated to altering the isolation
+criteria described in section~\ref{sec:lepton} and altering the scaling with
+respect to the W + hf and top quark processes. 
+
+\subsection{Single Top}
+Systematic uncertainties on the single top process are applied to all regions of
+the analysis and include parameters controlling the normalisation, acceptance
+effects and shape effects. Normalisation is considered for the s-channel,
+t-channel and Wt-channel single top decays individually. Acceptances in the
+2--jet and 3--jet categories are considered for the t- and Wt-channels where the
+Wt-channel has a parameter for $bb$ and Oth flavour sub-components where Oth is
+defined as in ~\sec{sec:ttbar-systs}. Shape uncertainties are considered for the
+$p_T^V$ and $m_{bb}$ variables for the t- and Wt-channels totally four
+parameters controlling the shapes.
+
+\subsection{Diboson}
+Systematic uncertainties on the diboson process are considered in all regions of
+the analysis and include normalisation, acceptance and shape uncertainties.
+There is one parameter controlling normalisation for each of the $WW$, $ZZ$ and
+$WZ$ processes. A number of parameters controlling acceptance uncertainty due to
+the underlying event and parton shower variations are introduced. There are two
+for the $VZ$ process controlling the overall variation and the acceptance
+between categories in jet multiplicity. There is one parameter for each of the
+$WZ$ and $ZZ$ process that controls the acceptance in the 0--lepton channel.
+Additionally there are four parameters controlling acceptance uncertainty
+originating from the chosen QCD strength parameter, there is one for acceptance
+of $VZ$ events in the 2--jet category, one to control migration of $VZ$ events
+between the 2-- and 3--jet categories, one that controls acceptance changes due
+to the veto based on the total number of jets in any $VZ$ event, and one that
+controls the acceptance of $gg$ initiated $ZZ$ events. Four shape uncertainties
+are considered, one for variations due to the matrix element calculation and one
+for variations due to the underlying events and parton shower calculations, for
+the $p_T^V$ and $m_{bb}$ variables.
+
 
 \section{Systematic Uncertainties on the Signal Process}
 \input{07-systematic-errors/signal-table.tex}

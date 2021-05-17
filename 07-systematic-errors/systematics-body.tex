@@ -1075,142 +1075,598 @@ the $p_T^V$ and $m_{bb}$ variables.
 \section{Systematic Uncertainties on the Signal Process}
 \input{07-systematic-errors/signal-table.tex}
 
-% \paragraph{Shape systematic Uncertainties post-processing} 
+% The following section details the Monte Carlo configurations used to model the
+% production of a Standard Model Higgs boson in association with a vector boson
+% ($VH$), referred to as the signal, in addition to the methodology adopted in
+% estimating the theoretical uncertainties pertaining to the $VH$ process within
+% the context of the full Run 2 ATLAS dataset \Vhtobb analysis.
 
-% In the current systematic model, independent normalization factors are employed
-% for the main backgrounds (\ttbar, $\Wboson +$HF and $\Zboson +$HF) independently
-% in $2$ and $3(+)$-jet, above or below $$p_T^V$ = 150~\GeV\$. Therefore, the
-% extrapolation uncertainty is already accounted for at these boundaries. Most of
-% the systematic uncertainties are computed in total $$p_T^V$$ phase space
-% ($\geq75~\GeV$) in $2$-jet and $3$-jet events independently to avoid
-% double-counting to the best possible. However, migrations at the $pTV=150~\GeV$
-% are still possible, and differences in BDTr training and application setup or
-% correlations could induce a small uncertainty componant accross jet bins. When
-% visible, these effects are reduced with post-processing. The overall component
-% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF $p_T^V$
-% uncertainties in the different jet bins, as well as in the bins
-% $75~\GeV<$p_T^V$<150~\GeV$ and $$p_T^V$>150~\GeV$ is removed that way. \\
+% It should be noted that the theoretical uncertainties summarised within the
+% following section originate from three primary sources:
 
-
-% Signal \mbb~shape uncertainty follow a similar but more refined treatment. In
-% fact, the \VH signal is meant to have independent floating parameters in each
-% STXS bin. Therefore, \VH~\mbb uncertainties are treated to have no overall
-% impact in each jet and $p_T^V$ analysis bin, and act only as a shape on the
-% discriminant, or as an extrapolation between signal and control regions. The
-% same approach is adopted for di-boson \mbb uncertainties.
-
-% \subsubsection{Smoothing of the Systematic Uncertainties}
-% \label{sec:smooth}
-% The uncertainties on reconstructed objects are propagated in the analysis in two
-% different ways: by shifting weights, or by modifying the kinematic properties of
-% the relevant objects and re-running the analysis chain. For flavour tagging,
-% where a scale factor (SF) is used to correct efficiencies in the simulations to
-% match those of data, the event weight is varied according to an upward
-% (downward) shift of the SF and the change in the final distribution is noted as
-% the +1 (-1) $\sigma$ uncertainties. For jet energy scale (JES) uncertainties,
-% the jet energies are varied directly. Therefore events can migrate in and out of
-% the analysis acceptance. Again the difference in the final discriminant is noted
-% as the 1 $\sigma$ error. However, in the case of small variations and/or limited
-% available MC statistics, the MC statistical uncertainty can make up a
-% substantial part of this supposed systematic difference. Given that independent
-% NP are introduce in the analysis to account for the MC statistical
-% uncertainties, the inflation of systematic uncertainties due to limited
-% statistic should be smoothed out.
-
-% Two so-called ``smoothing'' algorithms are used to mitigate these effects. They
-% have been developed for the Run 1 analysis and are based on the merging of
-% consecutive bins in MC templates. Systematics templates are built as the ratios
-% of varied to nominal MC templates. First, bins from one extremum to the next are
-% merged until no local extrema remain in the BDT systematics template for the
-% multi-variate analysis, or at most one extremum in the mbb systematics template
-% for the cut-based analysis and well as the jet energy resolution systematics in
-% the multi-variate analysis. This is an iterative process in which the merging
-% performed at each step is chosen as the one for which the difference between
-% merged and unmerged templates is smallest. Second, the bins resulting from this
-% first algorithm are sequentially merged, starting from the upper end of the
-% distribution, until the statistical uncertainty in each of the merged bins,
-% calculated in the nominal template, is smaller than 5\%. In each of these merged
-% bins, the nominal and systematically shifted contents are compared to give the
-% $\pm1\sigma$ variation. This value is then used as the associated uncertainty
-% for all the nominal bins in the corresponding merged bin.
-
-
-% The smoothing procedure is applied to the uncertainties associated to:
-% $e\gamma$, MET, muons, taus, jvt, jet, PRW and multi-jet modelling shapes. An
-% example of the MET and JES systematics can be found in
-% Figure~\ref{fig:Smoothing_Example}. The result of smoothing systematic
-% uncertainties is checked to ensure that this is behaving as expected.
-
-% % \begin{figure}[h]
-% %   \centering
-% %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_T2_L0_distmva_J2_VHSTXS_SysMET_SoftTrk_ResoPara.png}
-% %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_T2_L0_distmBB_J3_VHSTXS_SysJET_CR_JET_EtaIntercalibration_Modelling.png}
-% %      \caption{The variation in 0 lepton channel, 150\,\GeV$< p^{V}_{T}
-% <$250\,\GeV region of the MET track-based soft term systematic in the
-% multi-variate analysis (top) and the jet energy scale on eta-intercalibration
-% systematic in the cut-based analysis (bottom). The dashed lines represent the
-% systematic shape before smoothing and the solid lines represent the systematic
-% shape after smoothing.}
-% % \label{fig:Smoothing_Example}
-
-% % \end{figure}
-
-
-% \subsubsection{Pruning of the Systematic Uncertainties}
-% \label{sec:smooth_prune}
-
-% Several of the uncertainties described in Section~\ref{sec:npdefs} have a
-% negligible effect on the distributions entering in the fit.  In addition,
-% limited statistics in the MC nominal distributions can produce systematic
-% templates with large fluctuations, introducing artificial variations in the fit.
-% Therefore, following the Run 1 strategy, uncertainties are removed following a
-% ``pruning'' procedure, which is carried out for each category/sub-channel in
-% each region.
-
-% Pruning is performed as follows: 
 % \begin{itemize}
-% \item Neglect the normalization uncertainty for a given sample in a region if either of the
-%   following is true:
- 
-%  \begin{itemize}
-%   \item the variation is less than 0.5\%
-%   \item both up and down variations have the same sign
+%   \item \textbf{ICHEP 2018 Observation Analysis:} See the main supporting
+%     document, Ref. \cite{VHmainsupportnote}, for an overview, whilst a detailed
+%     summary of the uncertainties can be found in the dedicated modelling
+%     supporting note of Ref. \cite{VHmodellingsupportnote}.
     
-%  \end{itemize}
-
-% \item Neglect the shape uncertainty for a given sample in a given region if the
-%   following is true:
+%   \item \textbf{Simplified Template Cross-section Measurment (STXS):} The STXS
+%     measurement can be found in Ref. \cite{VHSTXSsupportnote}, however a
+%     dedicated theoretical uncertainty supporting document is also available, see
+%     Ref. \cite{ATL-PHYS-PUB-2018-035}.
+%   \end{itemize}
   
-%  \begin{itemize}
-%   \item not one single bin has a deviation over 0.5\% after the overall
-%     normalization is removed
-    
-%   \item if only the up or the down variation is non-zero and passed the previous
-%     pruning steps
-    
-%  \end{itemize}
 
-% \item An additional pruning is made to remove systematic effects on small
-%   samples in all regions. In any given region, that pruning is only applied to
-%   samples contributing to less than $1\%$ of the total background and reads as
-%   follow:
+% These are coined \textit{Observation Specific} (ObS), or \textit{Simplified
+%   Template Cross-section} (STXS) uncertainties, respectively. Whilst a summary
+% of these uncertainties will be provided within this section, several instances
+% will arise where the uncertainty has not changed. In this situation the reader
+% will be directed to one of these two sets of reference materials.
+
+
+% \section{Standard Model $VH$ Nominal Monte Carlo Simulation}
+% \label{sec:SMsignal}
+% The \Vh \; signal is divided into three main signatures based on the vector
+% boson decay: $ZH\rightarrow \nu\nu b\bar{b}$, $ZH\rightarrow ll b\bar{b}$ and
+% $WH \rightarrow l\nu b\bar{b}$, where $l=e,\mu,\tau$. Two production modes exist
+% for the \Zh \; process, $q\bar{q} \rightarrow ZH$ and $gg \rightarrow ZH$,
+% whilst for \Wh \; only the $q\bar{q} \rightarrow WH$ is possible.
+
+
+% All $q\bar{q}$-initiated production processes are simulated using the \POWHEG
+% generator with the \texttt{MiNLO} (Multiscale Improved NLO) procedure applied
+% \cite{Luisoni2013}, interfaced to the \PYTHIA8~\cite{Sjostrand2008852} MC
+% generator applying the AZNLO tune~\cite{Aad:2014xaa} with the NNPDF3.0
+% PDF~\cite{Ball:2014uwa} set, while for the $gg$-initiated ZH contribution we
+% rely on the LO QCD \POWHEG prediction interfaced with \PYTHIA8 for the modelling
+% of parton shower, underlying event and multiple parton interactions, applying
+% the AZNLO tune~\cite{Aad:2014xaa} with the NNPDF3.0 PDF~\cite{Ball:2012cx} for
+% both the matrix-element (ME) and the parton shower.
+
+
+% Both the nominal and alternative samples used to derive uncertainties in the
+% context of the STXS scheme, are listed in Table~\ref{tabular:VHSMsignals}, along
+% with the statistics of the generated samples. The cross sections used for the
+% normalisation of these samples are detailed in Section~\ref{subsec:SMsignalXS}.
+
+
+% \begin{table}[ht!b]
+% \small
+% \centering
+% \begin{tabular}{c|l|c|r}
+%   \hline
+%   \hline
+%   DSID 	& Process 	& Generator 		 & Events \\ \hline
+%   \hline
+%   \multicolumn{4}{c}{$qq$-initiated (nominal) }  \\
+% 	\hline
+% 	345053   & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$  	& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 7319850 \\
+% 	345054   & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$  	& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 14634450 \\		
+% 	345055   & $qq\rightarrow ZH \rightarrow ll b\bar{b}$  			& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 10979800 \\	
+% 	345056   & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$		& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 7319400 \\				
+%   \hline
+%   \multicolumn{4}{c}{$qq$-initiated (alternative) }  \\        
+%   \hline
+
+%   346396 & $qq\rightarrow WH \rightarrow l\nu b\bar{b}$ & \POWHEG+\HERWIG7 & 14615000 \\
+%   346395 & $qq\rightarrow WH \rightarrow l\nu b\bar{b}$ & \POWHEG+\HERWIG7 & 7320000 \\
+%   346397 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$ & \POWHEG+\HERWIG7 & 10980000 \\
+%   346398 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\HERWIG7 & 7315000 \\
+         
+%   345816 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Up & 7994300 \\
+%   345810 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Down & 7994450 \\
+%   345828 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Up & 7994450 \\
+%   345822 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Down & 7994400 \\
+%   345792 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIUp & 7994350 \\
+%   345786 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIDown & 7994300 \\
+%   345804 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenUp & 7994250 \\
+%   345798 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenDown & 7994400 \\
+                                                                                                   
+%   345815 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Up & 3999850 \\
+%   345809 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Down & 3999800 \\
+%   345827 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Up & 3999800 \\
+%   345821 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Down & 3999850 \\
+%   345791 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIUp & 3999750 \\
+%   345785 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIDown & 3999800 \\
+%   345803 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenUp & 3999850 \\
+%   345797 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenDown & 3999850 \\
+                                                                                                   
+%   345817 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var1Up & 5999900 \\
+%   345811 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var1Down & 5999900 \\
+%   345829 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var2Up & 5999950 \\
+%   345823 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var2Down & 5999950 \\
+%   345793 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  MPIUp & 5999900 \\
+%   345787 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  MPIDown & 5999900 \\
+%   345805 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  RenUp & 5999950 \\
+%   345799 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  RenDown & 5999900 \\
   
-%  \begin{itemize}
-%   \item in low sensitivity regions (no bin with $S/B>2\%$), normalization
-%     effects below $5$ per mille of the total backgrounds and shapes varying no
-%     bin by more than $5$ per mille of the total backgrounds are pruned
-    
-%   \item in regions where at least one bin has a signal contribution $>2\%$ of
-%     the total background, shape and normalization effects are pruned if they
-%     generate yield variations in these bins smaller than $2\%$ of the signal
-%     yields in these bins
-    
-%  \end{itemize}
+%   345818 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var1Up & 3999650 \\
+%   345812 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var1Down & 3999650 \\
+%   345830 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var2Up & 3999600 \\
+%   345824 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var2Down & 3999650 \\
+%   345794 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  MPIUp & 3999650 \\
+%   345788 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  MPIDown & 3999600 \\
+%   345806 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  RenUp & 3999650 \\
+%   345800 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  RenDown & 3999550 \\
+
+%   \hline
+%   \multicolumn{4}{c}{$gg$-initiated (nominal) }  \\
+%   \hline 
+%   345057   & $gg\rightarrow ZH \rightarrow ll b\bar{b}$			& \POWHEG+\PYTHIA8   &  2740000\\	
+%   345058   & $gg\rightarrow ZH \rightarrow \nu\nu b\bar{b}(*) $			& \POWHEG+\PYTHIA8  &  1835000\\	
+
+%   \hline  
+%   \multicolumn{4}{c}{$gg$-initiated (alternative) } \\
+%   \hline
+%   346399 & $gg\rightarrow ZH \rightarrow ll b\bar{b}$    & \POWHEG+\HERWIG7   & 2240000 \\
+%   346400 & $gg\rightarrow ZH \rightarrow \nu\nu b\bar{b}(*) $  &  \POWHEG+\HERWIG7   &  1490000 \\
+  
+%   \hline
+%   \hline
+% \end{tabular}
+% \caption{Standard Model VH samples used in the analyses including alternative
+%   samples to assess the systematic uncertainties. The dataset ID, MC generator,
+%   and total number of generated events are shown.}
+% \label{tabular:VHSMsignals}
+% \end{table}
+
+% \begin{comment}
+% \subsection{Update of nominal Predictions}
+% The nominal predictions for $q\bar{q}$-initiated production processes have been
+% simulated at NLO accuracy using \POWHEG+\texttt{MiNLO}+\PYTHIA8. The \mbb\ and
+% \ptv\ shapes were compared between \PYTHIA8 and \POWHEG+\texttt{MiNLO}+\PYTHIA8
+% and are shown in Figures \ref{fig:smvh_nom_mBB} and \ref{fig:smvh_nom_pTV}
+% respectively. The shape difference between the \ptv\ distributions is shown to
+% be negligible whereas shape differences can be seen in the \mbb\ distributions.
+% These are not used as a systematic uncertainty, they are purely to document the
+% changes between the samples.
+
+
+% \begin{figure}[htbp!]
+%   \centering
+%   \subfigure[\Zhtovvbb, 0 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_0leptons_0jets_shapes.pdf}} 
+%   \subfigure[\Zhtovvbb, 0 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_0leptons_1jets_shapes.pdf}} 
+%   \subfigure[\Whtolvbb, 1 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_1leptons_0jets_shapes.pdf}} 
+%   \subfigure[\Whtolvbb, 1 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_1leptons_1jets_shapes.pdf}}
+%   \subfigure[\Zhtollbb, 2 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_2leptons_0jets_shapes.pdf}}
+%   \subfigure[\Zhtollbb, 2 lepton, $\geq 3$ jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_2leptons_1jets_shapes.pdf}}\\
+%   \caption{ Shape comparison of the $m_(bb)$ distributions for each $VH$ process, i.e. lepton channel and each number of jets category, inclusive in \ptv\. Shown is a comparison between \PYTHIA8 (red) and \POWHEG+\texttt{MiNLO}+\PYTHIA8 (black). The ratio between the two samples is shown in the lower panel of the plot.}
+%   \label{fig:smvh_nom_mBB}
+% \end{figure}
+
+% \begin{figure}[htbp!]
+%   \centering
+%   \subfigure[\Zhtovvbb, 0 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_0leptons_0jets_shapes_log.pdf}} 
+%   \subfigure[\Zhtovvbb, 0 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_0leptons_1jets_shapes_log.pdf}} 
+%   \subfigure[\Whtolvbb, 1 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_1leptons_0jets_shapes_log.pdf}} 
+%   \subfigure[\Whtolvbb, 1 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_1leptons_1jets_shapes_log.pdf}}
+%   \subfigure[\Zhtollbb, 2 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_2leptons_0jets_shapes_log.pdf}}
+%   \subfigure[\Zhtollbb, 2 lepton, $\geq 3$ jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_2leptons_1jets_shapes_log.pdf}}\\
+%   \caption{ Shape comparison of the \ptv\ distributions for each $VH$ process,
+%     i.e. lepton channel and each number of jets category, inclusive in \ptv\.
+%     Shown is a comparison between \PYTHIA8 (red) and
+%     \POWHEG+\texttt{MiNLO}+\PYTHIA8 (black). The ratio between the two samples
+%     is shown in the lower panel of the plot.}
+  
+%   \label{fig:smvh_nom_pTV}
+% \end{figure}
+% \end{comment}
+
+% \subsection{Alternative Monte Carlo Samples}
+% \label{subsec:SMaltMC}
+
+% In order to cross check the signal modelling and study uncertainties, the
+% nominal \POWHEG+\texttt{MiNLO}+\PYTHIA8 samples are compared to the following
+% alternative samples:
+
+
+% \begin{itemize}
+% \item \POWHEG+\texttt{MiNLO}+\HERWIG7, for the underlying event and parton
+%   shower models;
+% \item \POWHEG+\PYTHIA8 with variations of the multiple parton interaction (MPI)
+%   cut-off parameter between 1.91 GeV and 2.05 GeV (compared to the nominal value
+%   of 2.00 GeV);
+  
+% \item \POWHEG+\PYTHIA8 with 6 variations of $\mu_{R}$ and $\mu_{F}$ by a factor
+%   of two around the nominal value (avoiding anti-correlated variations) for the
+%   parton shower final state radiation (FSR) emission;
+  
+% \item \POWHEG+\PYTHIA8, with variations of 2 sets of eigentunes for the AZNLO
+%   parton shower tune covering primordial $k_{T}$ and initial state radiation
+%   (ISR) cut-off variations, (described in Table 4 from Ref.~\cite{Aad:2014xaa})
+  
 % \end{itemize}
 
-% The list of pruned uncertainties is regularly checked to ensure that this is
-% behaving as expected. The value of the threshold is also tested and compared to
-% no-threshold for each stable iteration of the fit. This to ensure no
-% over-pruning is made and the analysis sensitivity is not artificially increased.
+% \subsection{Cross-Section}
+% \label{subsec:SMsignalXS}
+% All samples are normalised to the best theoretical prediction of the cross
+% section for the different processes. The cross sections for $WH$ and $ZH$ are
+% calculated at NNLO in QCD~\cite{Brein:2003wg}~\cite{Brein:2011vx} and NLO in
+% EW~\cite{Denner:2012sx} and the next-order ($\mathcal{O}(\alpha_S^3)$)
+% contribution to the gluon-induced heavy-quark loop mediate subprocess for $ZH$
+% has been calculated in the limit of infinite top-quark and vanishing
+% bottom-quark masses ~\cite{Altenkamp:2012sx}. The cross section calculation also
+% takes photon-induced contributions into account which are of the order of O(5\%)
+% for $WH$ and O(1\%) for $ZH$.
+
+
+% The $WH$ signal samples are normalised to the production cross section of 1.37 pb, where the $W^+H$ and $W^{-}H$ production channels contribute $\sigma_{W^+H}=0.84$ pb, and $\sigma_{W^-H}=0.53$ pb to the total cross section.
+
+% The $ZH$ signal samples are normalised as follows: the $gg\rightarrow ZH$
+% samples use their cross section calculated from NLO+NLL QCD corrections
+% $\sigma_{gg\rightarrow ZH}^{NLO(QCD)} =  0.12$ pb, whilst the $qq\rightarrow ZH$
+% samples cross section is obtained from the difference between the total $ZH$
+% production cross section and the $gg\rightarrow ZH$ cross section which
+% corresponds to $\sigma_{qq\rightarrow ZH}^{NLO(QCD)} =  0.76$ pb. This is done
+% to avoid double counting when merging $qq\rightarrow ZH$ and $gg \rightarrow ZH$
+% samples together. The total cross section for the $ZH$ production corresponds to
+% $\sigma_{ZH}^{NNLO(QCD)+NLO(EW)} = 0.88^{+0.04}_{-0.03}$ pb.
+
+
+% The given uncertainties here take into account QCD scale, PDF, and $\alpha_s$
+% uncertainties which were added in quadrature, but are given as separate nuisance
+% parameters to the fit. They are discussed in detail in
+% Section~\ref{subsection:SMsyst}. All cross section numbers are obtained from the
+% LHC Higgs Cross Section Working Group prescriptions for a Higgs boson mass of
+% $m_{H}=125$GeV. The inclusive cross section for the various signal processes are
+% summarised in Table~\ref{tab:inclXS}.
+
+
+% \begin{table}[ht!b]
+% \small
+% \centering
+% \begin{tabular}{c | c | c }
+% \hline
+% \hline
+% Process  & order  & cross section (pb) \\
+%  \hline
+%  \hline
+% WH  & NNLO(QCD)+NLO(EW) & $1.37\pm0.04$ \\
+%  \hline
+% $W^{+}H$  & NNLO(QCD)+NLO(EW) & 0.84 \\ 
+% $W^{-}H$  & NNLO(QCD)+NLO(EW) & 0.53 \\ 
+%  \hline
+%  \hline
+% ZH   & NNLO(QCD)+NLO(EW) & $0.88^{+0.04}_{-0.03}$ \\
+%  \hline
+% $gg\rightarrow ZH$  & NLO+NNL(QCD) & $0.12$ \\
+% $qq\rightarrow ZH$  &                             & $0.76$ \\
+% \hline
+% \hline
+% \end{tabular}
+% \caption{Inclusive cross section for the signal processes.}
+% \label{tab:inclXS}
+% \end{table}
+
+% \subsection{NLO Electroweak Corrections}
+% %\section{NLO Electroweak Corrections}
+% \label{subsec:ewcorrections}
+% Although the total VH cross section used to normalise these samples is computed
+% at NLO (EW), we expect the EW NLO corrections to have a sizeable impact on the
+% shape of the $p_T^V$ distributions (transverse momentum of the Higgs boson),
+% which is not accounted for in the total higher order cross section (and it's not
+% included in the MC prediction from \POWHEG or \PYTHIA8). The VH differential
+% cross section will therefore be computed at NLO EW using the HAWK MC software as
+% a function of $p_T^V$ to extract a correction function $k_{EW}^{NLO}(p_T^V) =
+% 1+\delta_{\textrm{EW}}$. Figure~\ref{fig:VhEwCorr} shows $\delta_{\textrm{EW}}$
+% in dependence of $p_T^V$ for $(W^-\to l^-\bar{\nu})H$, $(W^+\to l^+\nu)H$,
+% $(Z\to l^+l^-)H$ and $(Z\to\nu\bar{\nu})H$. The difference between the NLO EW
+% corrected distributions and the nominal MC prediction then serve as a shape
+% uncertainty, entering the profile likelihood fit as a nuisance parameter.
+
+ 
+%  \begin{figure}[htbp!]
+%   \centering
+%   %\subfigure[$(W^-\to l^-\bar{\nu})H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/nlo_ewk_corrections_hwm.eps}} 
+%   \subfigure[$W(\to l\nu)H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_whlv_nloewCorr.pdf} \label{fig:VhEwCorr_a}}\\
+%   \subfigure[$Z(\to l^+l^-)H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_zhll_nloewCorr.pdf} \label{fig:VhEwCorr_b}} 
+%   \subfigure[$Z(\to\nu\bar{\nu})H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_zhvv_nloewCorr.pdf} \label{fig:VhEwCorr_c}}\\
+%   \caption{$\delta_{\textrm{EW}}$ $p_T^V$ dependence for the $W(\to l\bar{\nu})H$ (fig. \ref{fig:VhEwCorr_a}), $Z(\to l^+l^-)H$ (fig. \ref{fig:VhEwCorr_b}) and $(Z\to\nu\bar{\nu})H$ (fig. \ref{fig:VhEwCorr_c}) processes.}
+%  \label{fig:VhEwCorr} 
+% \end{figure}
+
+% \subsection{Systematic Uncertainties}
+% \label{subsection:SMsyst}
+
+% \subsubsection{Inclusive \& Migration Cross Section Uncertainties}
+
+% An overall normalisation uncertainty can be calculated on the $VH$ cross section
+% and the $H\to b\bar{b}$ branching ratio for a nominal Higgs boson mass of
+% $m_H=125$ GeV.
+
+% They follow the recommendations of the LHC Higgs working
+% group~\cite{Heinemeyer:1559921}, and~\cite{Garcia2150771}, which are summarised
+% in table~\ref{tab:vhSysTheorySummary}.
+
+
+% The QCD scale uncertainties on the overall $VH$ cross section were obtained by
+% varying the renormalisation ($\mu_R$) and factorisation scales ($\mu_F$)
+% independently via factors of $1/3$ and $3$ times their original
+% value\footnote{It should be noted that the scale variations referred to here are
+%   unique to the  NNLO(NLO) QCD + NLO EW fixed order qq(gg) intiated calculations
+%   made using the \textsc{VH@NNLO} \cite{Brein_2013}. This is in contrast to the
+%   Monte Carlo simulations used to estimate the \Vhtobb signal which vary the
+%   $\mu_{R(F)}$ scales by factors of $1/2$ and $2$ when ascertaining sources of
+%   systematic error.}. To obtain the QCD scale uncertainties separately for
+% $qq\to ZH$ and $gg\to ZH$ it was assumed that the QCD scale uncertainty on
+% $qq\to ZH$ is identical to the QCD scale uncertainty on $WH$. The $gg\to ZH$
+% uncertainty is then derived such that the sum in quadrature of the $qq\to ZH$
+% and $gg\to ZH$ uncertainties considering their respective production cross
+% sections amounts to the QCD scale uncertainty for the overall $ZH$ production
+% given in~\cite{Garcia2150771}.
+
+% In order to account for missing higher order electro-weak (EW) corrections on
+% the overall $VH$ cross-section, an additional $\Delta_{\textrm{EW}}$ uncertainty
+% as a function of $p^{V}_{T}$ is assigned according to:
+
+% \begin{center}
+%   $\Delta_{\textrm{EW}} = \textrm{max}\{\alpha, \delta_{\textrm{EW}}^2\}$,
+% \end{center}
+% where $\delta_{\textrm{EW}}$ is the relative NLO EW correction factor as a
+% function of $p^{V}_{T}$, and $\alpha$ is the generic size of the neglected NNLO
+% EW effects and the relative uncertainty of the photon induced contributions to
+% the $(W/Z)H$ cross-section ($\alpha =1\%$ for \Wh \, and $\alpha = 1.5\%$ for
+% \Zh).
+
+
+% The systematic uncertainty on the $H\to b\bar{b}$ branching ratio is 1.7\%
+% following the recommendations of the LHC Higgs working group. This uncertainty
+% takes into account missing higher order effects in QCD and EW theory calculation
+% as well as uncertainties on the $b$-quark mass and $\alpha_s$.
+
+
+
+% \paragraph{Migration Uncertainties - $p^{V}_{T}/n_{jet}$ Boundaries:}
+% As outlined in the the STXS uncertainties reference material (Ref.
+% \cite{VHSTXSsupportnote}, and Ref. \cite{ATL-PHYS-PUB-2018-035}), parameterised
+% $VH$ signal uncertainties across the STXS $p^{V}_{T}/n_{jet}$ bin boundaries are
+% evaluated using QCD scale variations ([$\mu_{R} / \mu^{norm}_{R}, \mu_{F} /
+% \mu^{norm}_{F}$] : [$\times 0.5,\times 2$]) in order to account for event
+% migrations across the $p^{V}_{T}/n_{jet}$ sliced fit regions of the analysis.
+% The aforementioned uncertainties are entered as a pair of decorrelated Gaussian
+% contrained nuisance parameters within the analysis profile likelihood fit,
+% $\theta^{Y}$ and $\theta_{a/b}$, which are defined as:
+
+% \begin{equation}
+%   \begin{split}
+%         \theta^{y}:   \{ \Delta^{y}_{ab}, \Delta^{y}_{a}, \Delta^{y}_{b} \} \\
+%         \theta_{a/b}: \{ 0, \Delta_{a/b}, -\Delta_{a/b} \},
+%   \end{split}     
+% \end{equation}
+% where a(b) refer to a STXS bin (e.g 75(150)GeV$< p^{V}_{T} <150(250)$GeV), a/b
+% is the boundary between the two bins, $\Delta^{y}_{a(b)}$ is the error on the
+% cross-section ($\sigma_{a(b)}$) in each bin, such that the error on the total
+% cross-section of the two bins ($\sigma_{ab} = \sigma_{a} + \sigma_{b}$)
+% satisfies $\Delta_{ab} = \Delta_{a} + \Delta_{b}$. It should be noted that in
+% the above forumlisation of the uncertainty, the yield nuisance parameter
+% $\theta^{y}$ simultaneously applies a correlated uncertainty to bins $\{a+b, a,
+% b\}$, whilst the migration nuisance parameter $\theta_{a/b}$ applies an
+% anti-correlated yield migration uncertainty to bins $\{a,b\}$. The latter
+% migration uncertainty by construction cancels when looking at the combined a+b
+% bin.
+
+
+% The reader is directed to Section 4.2 of Ref. \cite{VHSTXSsupportnote} for the
+% exact values of the priors.
+
+% \paragraph{Acceptances Uncertainties - STXS bins:}
+% Systematic uncertainty on the STXS \Vh \, bin cross-sections stemming from
+% Parton Distribution Functions (PDF) and Parton Showering/Underlying
+% Event/Hadronisation (UEPS) models are evaluated using:
+
+% \begin{itemize}
+%         \item  PDF4LHC15\_30 error sets, and PDF $\alpha_{s}$ ($\alpha_{S} =
+%           [0.1165,0.1195]$ variation following the PDF4LHC recommendations for
+%           LHC Run II \cite{Butterworth:2015oua, Ball:2014uwa,
+%             Harland-Lang:2014zoa, Dulat:2015mca, Gao:2013bia, Carrazza:2015aoa,
+%             Watt:2012tq}
+          
+%         \item \POWHEG+\PYTHIA 8 vs \POWHEG+\HERWIG 7, and \POWHEG+\PYTHIA 8
+%           AZNLO tune variations (Var1, Var2, MPI, and Renormalisation scale
+%           variations)
+          
+% \end{itemize}
+
+% For the PDF variations the priors are calculated according to:
+% \begin{equation}
+%    \begin{split}
+%           \sigma^{PDF}_{i} = \frac{y_{PDFi} - y_{PDF0}}{y_{PDF0}} \\
+%           \sigma_{\alpha_{s}} = \frac{\left| Var_{\alpha_{s}=0.1165} \right| + \left| Var_{\alpha_{s}=0.1195} \right|}{2},
+%    \end{split}   
+% \end{equation}
+% where $y_{PDF0}$ is the $0^{\textrm{th}}$ or nominal PDF, $y_{PDFi}$ is the
+% $i^{\textrm{th}}$ variation of the PDF4LHC15\_30 error set, and
+% $Var_{\alpha_{s}}$ is the yield variation induced by the PDF $\alpha_{S}$
+% variations. Each prior is then then implemented within the Profile Likelihood
+% Fit as gaussian constrained nuisance parameters.
+
+
+% For the UEPS variations the acceptance variation in each STXS bin I, is
+% calculated for each reconstructed fit region C (where C represents the event
+% selection of the reco. category), is calculated according to:
+
+
+% \begin{equation}
+%         \sigma^{C,I}_{S} = \frac{\frac{N_{S}(C,I)}{N_{S}(I)}}{\frac{N_{\textrm{Nom}}(C,I)}{N_{\textrm{Nom}}(I)}}
+% \end{equation}
+
+% The reader is directed to Section 4.3 and Section 4.4 of Ref.
+% \cite{VHSTXSsupportnote} for the exact values of the priors calculated from the
+% PDF and UEPS uncertainty prescriptions. However, please note that in the case of
+% the 3-jet category for the $ZH\rightarrow \nu\nu b\bar{b}$, $ZH\rightarrow ll
+% b\bar{b}$ and $WH \rightarrow l\nu b\bar{b}$ processes a miss-classification bug
+% was identifed. This bug only considered forward jets ($2.5 \leq |\eta| < 4.5 $)
+% as viable candidates for the $3^{\textrm{rd}}$ jet in an event, meaning that
+% 3-jet events comprised entirely of central jet ($|\eta| < < 2.5$) where never
+% considered.
+
+
+% The corrected acceptance priors for the \POWHEG+\PYTHIA8 vs \POWHEG+\HERWIG7
+% comparison in each STXS bin for the $ZH\rightarrow \nu\nu b\bar{b}$ process is
+% summarised in Figure \ref{fig:ZHvvAccError}, in Figure \ref{fig:ZHllAccError}
+% for $ZH\rightarrow ll b\bar{b}$, and Figure \ref{fig:WHlvAccError} for $WH
+% \rightarrow l\nu b\bar{b}$. The remaining UEPS AZNLO tune variations, can be
+% found in Appendix \ref{app:SMVH_UEPS-STXS}.
+
+
+% \begin{figure}[htbp!]
+% \centering
+% \subfigure[$gg ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} < 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax250_BMin150_DSR_T2_L2_J3_0.pdf}} 
+% \subfigure[$qq ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} < 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax250_BMin150_DSR_T2_L2_J3_1.pdf}}\\
+% \subfigure[$gg ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, $p^{V}_{T} \geq 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMin250_DSR_T2_L2_J3_0.pdf}} 
+% \subfigure[$qq ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, $p^{V}_{T} \geq 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMin250_DSR_T2_L2_J3_1.pdf}}\\
+% \caption{ UEPS $ZH\rightarrow l^+l^- b\bar{b}$ STXS bin acceptance uncertainty priors. \label{fig:ZHvvAccError}}
+% \end{figure}
+
+% \begin{figure}[htbp!]
+% \centering
+% \subfigure[$gg ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} <
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax150_BMin75_DSR_T2_L2_J3_0.pdf}}
+% \subfigure[$qq ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} <
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax150_BMin75_DSR_T2_L2_J3_1.pdf}}\\
+% \subfigure[$gg ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} <
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax250_BMin150_DSR_T2_L2_J3_0.pdf}}
+% \subfigure[$qq ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} <
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMax250_BMin150_DSR_T2_L2_J3_1.pdf}}\\
+% \subfigure[$gg ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, $p^{V}_{T} \geq
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMin250_DSR_T2_L2_J3_0.pdf}}
+% \subfigure[$qq ZH\rightarrow l^+l^- b\bar{b}$ 3-jet, $p^{V}_{T} \geq
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/2-lepton/Acceptance/PSUE/BMin250_DSR_T2_L2_J3_1.pdf}}\\
+% \caption{ UEPS $ZH\rightarrow l^+l^- b\bar{b}$ STXS bin acceptance uncertainty
+%   priors. \label{fig:ZHllAccError}}
+
+% \end{figure}
+
+% \begin{figure}[htbp!]
+% \centering
+% \subfigure[$qq WH\rightarrow lv b\bar{b}$ 3-jet, 150GeV$\leq p^{V}_{T} <
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/1-lepton/Acceptance/PSUE/BMax250_BMin150_DSR_T2_L1_J3_0.pdf}}
+
+% \subfigure[$qq WH\rightarrow lv b\bar{b}$ 3-jet, $p^{V}_{T} \geq
+% 250$GeV]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/STXS/1-lepton/Acceptance/PSUE/BMin250_DSR_T2_L1_J3_0.pdf}}
+
+% \caption{ UEPS $WH\rightarrow lv b\bar{b}$ STXS bin acceptance uncertainty
+%   priors. \label{fig:WHlvAccError}}
+
+% \end{figure}
+
+% \paragraph{ Summary: }
+% A summary of the above SM \Vh \, signal acceptance and migration uncertainties
+% is given by Table \ref{tab:SMVHAccptMigUncert}. This table summarises the
+% components added to the profile likelihood fit, a description of the uncertainty
+% and the categorises it is applied to in the analysis.
+
+% \subsubsection{Analysis specific uncertainties}
+
+% In this section, only the systematic uncertainties that are not covered in the
+% supporting note of the STXS analysis, Ref. \cite{VHSTXSsupportnote}, are
+% treated.
+
+% These correspond to the shape uncertainties for the PS/UE and QCD scale
+% variations calculated on the $m_{b\bar{b}}$ distribution.
+
+% To derive the shape uncertainty, all distributions were normalised to the same
+% area since acceptance uncertainties are already accounted for as explained in
+% Ref. \cite{VHSTXSsupportnote}. In all cases the uncertainties for \Zhtovvbb were
+% derived using the 0 lepton selection, the uncertainties for \Whtolvbb using the
+% 1 lepton selection and for \Zhtollbb using the 2 lepton selection.\\
+
+
+% \textbf{$m_{bb}$ shape uncertainty for PS and UE variations}
+
+% To derive the shape uncertainties on the $m_{bb}$ distribution, the nominal
+% \POWHEG+\PYTHIA8 prediction is compared to \POWHEG+\HERWIG7 as shown in Figure
+% \ref{fig:smvh_herwig_mbb}. These shapes are similar across all analysis regions,
+% and due to the complex non-linear nature of the ratios a parameteric fit is not
+% possible. Therefore a binnned parameterisation is implemented using the
+% histogram with the largest statistical population in order to reduce statistical
+% variance. The selected shape uncertainty was take using the 1-lepton 2-jet
+% binned parameterisation given in Figure \ref{fig:smvh_herwig_mbb}.
+
+
+% \begin{figure}[htbp!]
+% \centering                                                                                                                                                          
+% \subfigure[]{\includegraphics[width=0.8\textwidth]{figures/smvhSignal/Hw7_mBB/TruthShapes/combined.pdf}}                                                                                           
+% \caption{ Shape comparison of the $m_{b\bar{b}}$ distributions
+%   for each $VH$ process, i.e. lepton channel, and each number of jets category
+%   after comparing the \POWHEG+\texttt{MiNLO}+\PYTHIA8 and
+%   \POWHEG+\texttt{MiNLO}+\HERWIG7 sample.}
+% \label{fig:smvh_herwig_mbb}
+% \end{figure}
+
+% The comparisons in Figure \ref{fig:smvh_herwig_mbb} are obtained at truth level
+% using the \TruthFramework outlined in Appendix \ref{app:truthframeworkAna}.
+% Consequently, to account for reconstruction effects such as jet resolution and
+% energy scale, the above 1-lepton 2-jet binned parameterisation utilises the
+% truth $m_{bb}$ value of each event. This truth $m_{bb}$ value is obtained by
+% matching all Anti-kT EMTopo $R=0.4$ reconstructed jets with Anti-kT Truth
+% $R=0.4$ jets, via requiring $\Delta R(r,t) < 0.4$ where $r$ is the
+% reconstructued jet and $t$ is the truth jet. The $m^{\textrm{Truth}}_{bb}$ value
+% is then built using the truth jets associated to the two leading $b$-tagged
+% Anti-kT EMTopo $R=0.4$ jets within the event that comprise the Higgs candidate.
+
+
+% Figure \ref{fig:smvh_herwig_mbb_deployed} shows for the $qq \to ZH$ and $qq \to
+% WH$ processes the \POWHEG+\PYTHIA8 and \POWHEG+\HERWIG7 $m_{bb}$ distributions
+% at reconstruction level, in addition to the application of the 1-lepton 2-jet
+% binned parameterisation given in Figure \ref{fig:smvh_herwig_mbb} using the
+% above $m^{\textrm{Truth}}_{bb}$ derived event value (referred to as
+% SysVHUEPSMbb). From these plots it can be seen that the two reconstruction level
+% generator comparisons and the deployed uncertainty match, thereby validating the
+% above choice of shape and deployment method.
+
+% \begin{figure}[htbp!]
+% \centering
+% \subfigure[]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/Hw7_mBB/RecoCLosure/0L/qqZvvH125_2tag2jet_150_250ptv_SR_mBB_reco_syst.pdf}}
+% \subfigure[]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/Hw7_mBB/RecoCLosure/1L/qqWlvH125_2tag2jet_150_250ptv_SR_mBB_reco_syst.pdf}}   \\
+% \subfigure[]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/Hw7_mBB/RecoCLosure/2L/qqZllH125_2tag2jet_75_150ptv_SR_mBB_reco_syst.pdf}}   
+% \caption{                                                                                                                                                                                            
+% \label{fig:smvh_herwig_mbb_deployed} Shape comparison of the $m_{b\bar{b}}$
+% distributions for each $VH$ process in the 2-jet category for 75(150)GeV$<
+% p^{V}_{T} <$150(250)GeV for the 2-lepton(0-/1-lepton) channels for
+% \POWHEG+\texttt{MiNLO}+\PYTHIA8 (nominal), and \POWHEG+\texttt{MiNLO}+\HERWIG7
+% at reconstruction level, in addition to the truth evaluated $m_{bb}$ shape
+% uncertainty referred to as SysVHUEPSMbb.}
+% \end{figure}
+
+
+% \textbf{$m_{bb}$ shape uncertainty for QCD scale variations}
+
+% The nominal \POWHEG+\texttt{MiNLO}+\PYTHIA8 samples were compared to those
+% generated with weights corresponding to varied factorisation and renormalisation
+% scales applied.
+
+% To derive the shape uncertainties for $m_{b\bar{b}}$ the deviation between each
+% variation and the nominal description was parametrised by a second order
+% polynomial for $m_{b\bar{b}}$ which is shown in figure~\ref{fig:smvh_scale_mBB}.
+% The largest of the deviations is selected as the corresponding uncertainty,
+% which in the aforementioned figure is the cyan coloured line; shape was
+% considered separately for the 2 jet and 3 jet category. For the $ZH$ channels
+% the same uncertainties are used for the $gg\to ZH$ production channel, however
+% the $qq\to ZH$ and $gg \to ZH$ production channel systematics are considered
+% fully decorrelated.
+
+
+% \begin{figure}[htbp!]
+% \centering
+% \subfigure[0 lepton, 2 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_0leptons_0jet_shapes.pdf}} 
+% \subfigure[0 lepton, 3 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_0leptons_1jet_shapes.pdf}}\\
+% \subfigure[1 lepton, 2 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_1leptons_0jet_shapes.pdf}} 
+% \subfigure[1 lepton, 3 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_1leptons_1jet_shapes.pdf}}\\
+% \subfigure[2 lepton, 2 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_2leptons_0jet_shapes.pdf}} 
+% \subfigure[2 lepton, $\geq$3 jets]{\includegraphics[width=0.49\textwidth]{figures/smvhSignal/fitted_scale_mBB_2leptons_1jet_shapes.pdf}}\\
+% \caption{
+% \label{fig:smvh_scale_mBB} $m_{b\bar{b}}$: Fits through the deviations
+% originating from each scale variation for each $VH$ process, i.e. lepton
+% channel, split into the 2 jet and 3(3p) jet category. The cyan line shows the
+% envelope of those variations and was chosen as a systematic uncertainty for the
+% $m_{b\bar{b}}$ shape.}
+
+% \end{figure}
+
+% In Appendix \ref{app:scale_smsig}, the reader will also find the comparison of
+% the raw differential cross-section distributions (not just the ratios) for those
+% presented in Figure~\ref{fig:smvh_scale_mBB}. In addition to this the impact of
+% the scale variations on the $p^{V}_{T}$ distribution and the combined $ZH/WH$
+% processes are also presented.
+

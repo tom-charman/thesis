@@ -992,66 +992,22 @@ which are related to detector performance, jet reconstruction and flavour
 tagging. It also means we don't have to consider theoretical modelling
 uncertainties associated with any Monte-Carlo generator. Note that systematic
 uncertainties on the Monte-Carlo prediction used to derive the scale factor
-$\alpha$ cancel. 
+$\alpha$ cancel.
 
-% As one of the leading uncertainties in the \Vhtobb 2018 discovery
-% \cite{VHmainsupportnote}, $t\bar{t}$ modeling uncertainties were a performance
-% limiting factor within the analysis. Therefore in order to reduce the impact of
-% top modelling, and increase the rebustness of the analysis, a data driven
-% estimation of $t\bar{t}$ and single top background in the 2 lepton channel was
-% adopted. Distributions of data as a function of an observable ($\mathcal{O}$) in
-% the ${\textrm top\Hyphen e\mu}$ CRs (\emucr{}) can be directly used as a
-% template for the top background ($t\bar{t}$ and single top) within the signal
-% regions (SR), once a normalisation correction factor between the two regions is
-% derived:
+In order to check the validity of this approach a data versus prediction check
+was carried out as part of series of wider checks~\cite{VHModellingNote2019}.
+This check includes the data from the top $e\mu$ control region as the
+prediction for both $t\bar{t}$ and single top events. The plots showing the
+comparison can be found in figure~\ref{fig:ttbar-mbb}.
+\input{07-systematic-errors/ttbar-data-driven-check}
+In order to see how the shape is modelled the scale factors controlling
+normalisation of the other backgrounds have been taken from the previous
+iteration of the analysis and applied, in this iteration there was no boundary
+at 250~\GeV and therefore $p_T^V$ bins 75--150~\GeV and $\geq$150~\GeV are
+shown. It can be seen in the ratio panels that the data and prediction agree
+well and therefore the prediction from the top $e\mu$ control region are
+considered to be accurate.
 
-% \begin{align}
-% N_{\textrm top, data}^{\textrm SR}
-% =
-% \frac{N_{\textrm top, data}^{\textrm CR}}{N_{\textrm top, MC}^{\textrm CR}}
-% \times
-% N_{\textrm top, MC}^{\textrm SR}
-% =
-% \frac{N_{\textrm top, MC}^{\textrm SR}}{N_{\textrm top, MC}^{\textrm CR}}
-% \times
-% N_{\textrm top, data}^{\textrm CR}.
-% \label{eq:TTbar_DD_ExtrapFac}
-% \end{align}
-% Due to the very high purity of top background (99.5-99.9\% depending on the
-% categories, see Ref. \cite{VHmainsupportnote}) in the \emucr{}s, the $N_{\textrm
-%   top, data}^{\textrm CR}$ can be considered as the integral of the data in the
-% \emucr{}.
-
-% The extrapolation factor between the \emucr{} and SR (right hand side of
-% equation \ref{eq:TTbar_DD_ExtrapFac}), ${N_{\textrm top, MC}^{\textrm
-%     SR}}/{N_{\textrm top, MC}^{\textrm CR}}$ (the scale factor, $\alpha$), can
-% then be estimated via studying Monte Carlo predictions.
-
-% This is made possible due to the same kinematic selections that are applied to
-% both SRs and \emucr{}s, and the flavor symmetric nature ofthe $t\bar{t}$ (and
-% Wt) background, which means that most of the systematic uncertainties on the
-% extrapolation parameter cancel; especially the theoretical modeling and
-% jet-related systematic uncertainties. Therefore, the normalization and shape of
-% flavor symmetric top background in the SRs can be estimated by using
-% $\alpha\times N_{\textrm top, data}^{\textrm CR}$, and the differential shape of
-% the data in the \emucr{} as a function of $\mathcal{O}$.
-
-
-% In this data-driven background estimation, the two things are achieved:
-
-% \begin{enumerate}
-% \item[(i)]
-  
-% eliminating experimental systematics related to detector and combined
-% performance, jet and flavor tagging.
-
-% \item[(i)]
-  
-% eliminating theoretical systematics from modeling and MC dependence.
-% \end{enumerate}
-% Since the dominant systematic source of uncertainty in the data-driven
-% estimation is the limited data statistics, statistical uncertainties in the
-% \emucr{} data are implemented in the fit studies.
 
 
 % As the the foundation of this method relies on the assumption that the shapes of

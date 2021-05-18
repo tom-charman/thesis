@@ -1,9 +1,9 @@
-\begin{table}[!htb]
+\begin{table}[hb]
   \centering
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{llrrrr}
+    \begin{tabular}{llS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]r}
       \toprule
-      DS ID & Process & $\sigma\times\text{BR}$ [pb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events \\
+      {\bfseries DS ID} & {\bfseries Process} & {\bfseries $\bm{\sigma\times\text{BR}}$ \picobarn} & {\bfseries $\bm{k}$-factor} & {\bfseries $\bm{\epsilon_{\text{filter}}}$} & {\bfseries Events} \\
       \midrule
       $\bm{W \to e \nu}$ &&&&&\\
       361520 & $W \to e\nu$ Np=0 &   13939.0    & 1.2019 & 1.0 & 13936475\\
@@ -26,7 +26,8 @@
       \bottomrule
     \end{tabular}
   }
-  \caption{Alternative $W \to \ell \nu$ samples used in the analysis, which are
-    all generated using \textsc{MadGraph} + \textsc{Pythia}~8.}
+  \caption[Alternative $W \to \ell \nu$ samples used in the
+  analysis.]{Alternative $W \to \ell \nu$ samples used in the analysis, which
+    are all generated using \textsc{MadGraph} + \textsc{Pythia}~8.}
   \label{tabular:wjetsAlternativeSamples}
 \end{table}

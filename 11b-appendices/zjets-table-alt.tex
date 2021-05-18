@@ -1,9 +1,9 @@
-\begin{table}[!htb]
+\begin{table}[hb]
   \centering
   \resizebox{\textwidth}{!}{
-  \begin{tabular}{llrrrr}
+    \begin{tabular}{llS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]r}
     \toprule
-    DS ID & Process & $\sigma\times\text{BR}$ [pb] & $k$-factor & $\epsilon_{\text{filter}}$ & Events \\
+    {\bfseries DS ID} & {\bfseries Process} & {\bfseries $\bm{\sigma\times\text{BR}}$ \picobarn} & {\bfseries $\bm{k}$-factor} & {\bfseries $\bm{\epsilon_{\text{filter}}}$} & {\bfseries Events} \\
     \midrule
     $\bm{Z \to e e}$ &&&&&\\
     361500 & $Z \to ee$ Np=0 &  1401.6 & 1.232 & 1.0 & 6871800\\
@@ -32,7 +32,8 @@
     \bottomrule
   \end{tabular}
   }
-  \caption{Alternative Z + jets samples used in the analysis, which are all
-    generated using \textsc{MadGraph} + \textsc{Pythia}~8.}
+  \caption[Alternative Z + jets samples.]{Alternative Z + jets samples used in
+    the analysis, which are all generated using \textsc{MadGraph} +
+    \textsc{Pythia}~8.}
   \label{tabular:zjetsAlternativeSamples}
 \end{table}

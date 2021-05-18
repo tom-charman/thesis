@@ -1086,96 +1086,14 @@ with \textsc{Powheg}~+~\textsc{MiNLO}~+~\textsc{Herwig}~7. Details of the
 nominal and alternative predictions are found in
 tables~\ref{tab:VHSMsignals-nom} and~\ref{tab:VHSMsignals-alt} respectively.
 
+The cross section that samples are normalised to is the best theoretical
+prediction available which is calculated at NNLO in QCD~\cite{Brein:2003wg,
+  Brein:2011vx}, NLO in EW~\cite{Denner:2012sx} and includes higher order
+contributions to the gluon-induced heavy quark loop entering into the $ZH$
+calculation~\cite{Altenkamp:2012sx}.
+
 
 \input{07-systematic-errors/signal-table.tex}
-
-% \subsection{Cross-Section}
-% \label{subsec:SMsignalXS}
-% All samples are normalised to the best theoretical prediction of the cross
-% section for the different processes. The cross sections for $WH$ and $ZH$ are
-% calculated at NNLO in QCD~\cite{Brein:2003wg}~\cite{Brein:2011vx} and NLO in
-% EW~\cite{Denner:2012sx} and the next-order ($\mathcal{O}(\alpha_S^3)$)
-% contribution to the gluon-induced heavy-quark loop mediate subprocess for $ZH$
-% has been calculated in the limit of infinite top-quark and vanishing
-% bottom-quark masses ~\cite{Altenkamp:2012sx}. The cross section calculation also
-% takes photon-induced contributions into account which are of the order of O(5\%)
-% for $WH$ and O(1\%) for $ZH$.
-
-
-% The $WH$ signal samples are normalised to the production cross section of 1.37 pb, where the $W^+H$ and $W^{-}H$ production channels contribute $\sigma_{W^+H}=0.84$ pb, and $\sigma_{W^-H}=0.53$ pb to the total cross section.
-
-% The $ZH$ signal samples are normalised as follows: the $gg\rightarrow ZH$
-% samples use their cross section calculated from NLO+NLL QCD corrections
-% $\sigma_{gg\rightarrow ZH}^{NLO(QCD)} =  0.12$ pb, whilst the $qq\rightarrow ZH$
-% samples cross section is obtained from the difference between the total $ZH$
-% production cross section and the $gg\rightarrow ZH$ cross section which
-% corresponds to $\sigma_{qq\rightarrow ZH}^{NLO(QCD)} =  0.76$ pb. This is done
-% to avoid double counting when merging $qq\rightarrow ZH$ and $gg \rightarrow ZH$
-% samples together. The total cross section for the $ZH$ production corresponds to
-% $\sigma_{ZH}^{NNLO(QCD)+NLO(EW)} = 0.88^{+0.04}_{-0.03}$ pb.
-
-
-% The given uncertainties here take into account QCD scale, PDF, and $\alpha_s$
-% uncertainties which were added in quadrature, but are given as separate nuisance
-% parameters to the fit. They are discussed in detail in
-% Section~\ref{subsection:SMsyst}. All cross section numbers are obtained from the
-% LHC Higgs Cross Section Working Group prescriptions for a Higgs boson mass of
-% $m_{H}=125$GeV. The inclusive cross section for the various signal processes are
-% summarised in Table~\ref{tab:inclXS}.
-
-
-% \begin{table}[ht!b]
-% \small
-% \centering
-% \begin{tabular}{c | c | c }
-% \hline
-% \hline
-% Process  & order  & cross section (pb) \\
-%  \hline
-%  \hline
-% WH  & NNLO(QCD)+NLO(EW) & $1.37\pm0.04$ \\
-%  \hline
-% $W^{+}H$  & NNLO(QCD)+NLO(EW) & 0.84 \\ 
-% $W^{-}H$  & NNLO(QCD)+NLO(EW) & 0.53 \\ 
-%  \hline
-%  \hline
-% ZH   & NNLO(QCD)+NLO(EW) & $0.88^{+0.04}_{-0.03}$ \\
-%  \hline
-% $gg\rightarrow ZH$  & NLO+NNL(QCD) & $0.12$ \\
-% $qq\rightarrow ZH$  &                             & $0.76$ \\
-% \hline
-% \hline
-% \end{tabular}
-% \caption{Inclusive cross section for the signal processes.}
-% \label{tab:inclXS}
-% \end{table}
-
-% \subsection{NLO Electroweak Corrections}
-% %\section{NLO Electroweak Corrections}
-% \label{subsec:ewcorrections}
-% Although the total VH cross section used to normalise these samples is computed
-% at NLO (EW), we expect the EW NLO corrections to have a sizeable impact on the
-% shape of the $p_T^V$ distributions (transverse momentum of the Higgs boson),
-% which is not accounted for in the total higher order cross section (and it's not
-% included in the MC prediction from \POWHEG or \PYTHIA8). The VH differential
-% cross section will therefore be computed at NLO EW using the HAWK MC software as
-% a function of $p_T^V$ to extract a correction function $k_{EW}^{NLO}(p_T^V) =
-% 1+\delta_{\textrm{EW}}$. Figure~\ref{fig:VhEwCorr} shows $\delta_{\textrm{EW}}$
-% in dependence of $p_T^V$ for $(W^-\to l^-\bar{\nu})H$, $(W^+\to l^+\nu)H$,
-% $(Z\to l^+l^-)H$ and $(Z\to\nu\bar{\nu})H$. The difference between the NLO EW
-% corrected distributions and the nominal MC prediction then serve as a shape
-% uncertainty, entering the profile likelihood fit as a nuisance parameter.
-
- 
-%  \begin{figure}[htbp!]
-%   \centering
-%   %\subfigure[$(W^-\to l^-\bar{\nu})H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/nlo_ewk_corrections_hwm.eps}} 
-%   \subfigure[$W(\to l\nu)H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_whlv_nloewCorr.pdf} \label{fig:VhEwCorr_a}}\\
-%   \subfigure[$Z(\to l^+l^-)H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_zhll_nloewCorr.pdf} \label{fig:VhEwCorr_b}} 
-%   \subfigure[$Z(\to\nu\bar{\nu})H$]{\includegraphics[width=0.47\textwidth]{figures/nlo_ewk_plots/C_zhvv_nloewCorr.pdf} \label{fig:VhEwCorr_c}}\\
-%   \caption{$\delta_{\textrm{EW}}$ $p_T^V$ dependence for the $W(\to l\bar{\nu})H$ (fig. \ref{fig:VhEwCorr_a}), $Z(\to l^+l^-)H$ (fig. \ref{fig:VhEwCorr_b}) and $(Z\to\nu\bar{\nu})H$ (fig. \ref{fig:VhEwCorr_c}) processes.}
-%  \label{fig:VhEwCorr} 
-% \end{figure}
 
 % \subsection{Systematic Uncertainties}
 % \label{subsection:SMsyst}

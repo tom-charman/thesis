@@ -2,7 +2,7 @@
   \resizebox{\textwidth}{!}{
     \begin{tabular}{lllll}
       \toprule
-      {\bfseries Nuisance Parameter} & {\bfseries Description} & {\bfseries Categories/Sample} & {\bfseries Value} & {\bfseries Effect} \\
+      {\bfseries Nuisance Parameter} & {\bfseries Description} & {\bfseries Region} & {\bfseries Value} & {\bfseries Effect} \\
       \midrule
       \texttt{SysTheoryBRbb} & BR variation & all regions & 1.7\% & Normalization\\
       \texttt{QCDScaleDeltaY\_qqVH}  & Scale uncertainty on qqVH production cross-section   & all reg / $qqVH$   & 0.7\%  & Normalization\\
@@ -10,15 +10,15 @@
       \texttt{QCDScaleDelta150\_qqVH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $150$~\GeV   & all reg / $qqVH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDelta250\_qqVH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $250$~\GeV   & all reg / $qqVH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDelta400\_qqVH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $400$~\GeV   & all reg / $qqVH$   & -  & Migration+Shape \\
-      \texttt{TheoryDelta1\_qqVH}  & Scale uncertainty due to STXS boundary at $N(jet)-N(Higgs jets)==1$   & all reg / $qqVH$   & -  & Migration+Shape \\
-      \texttt{TheoryDelta2\_qqVH}  & Scale uncertainty due to STXS boundary at $N(jet)-N(Higgs jets)==2$   & all reg / $qqVH$   & -  & Migration+Shape \\
+      \texttt{TheoryDelta1\_qqVH}  & Scale uncertainty due to STXS boundary at $N_{\text{jet}} - N_{H \text{jets}} == 1$   & all reg / $qqVH$   & -  & Migration+Shape \\
+      \texttt{TheoryDelta2\_qqVH}  & Scale uncertainty due to STXS boundary at $N_{\text{jet}} - N_{H \text{jets}} == 2$   & all reg / $qqVH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDeltaY\_ggZH}  & Scale uncertainty on ggZH production cross-section   & all reg / $ggZH$   & 25\%  & Normalization\\
       \texttt{QCDScaleDelta75\_ggZH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $75$~\GeV   & all reg / $ggZH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDelta150\_ggZH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $150$~\GeV   & all reg / $ggZH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDelta250\_ggZH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $250$~\GeV   & all reg / $ggZH$   & -  & Migration+Shape \\
       \texttt{QCDScaleDelta400\_ggZH}  & Scale uncertainty due to $p_T^V$ STXS boundary at $400$~\GeV   & all reg / $ggZH$   & -  & Migration+Shape \\
-      \texttt{TheoryDelta1\_ggVH}  & Scale uncertainty due to STXS boundary at $N(jet)-N(Higgs jets)==1$   & all reg / $ggVH$   & -  & Migration+Shape \\
-      \texttt{TheoryDelta2\_ggVH}  & Scale uncertainty due to STXS boundary at $N(jet)-N(Higgs jets)==2$   & all reg / $ggVH$   & -  & Migration+Shape \\
+      \texttt{TheoryDelta1\_ggVH}  & Scale uncertainty due to STXS boundary at $N_{\text{jet}} - N_{H \text{jets}} == 1$   & all reg / $ggVH$   & -  & Migration+Shape \\
+      \texttt{TheoryDelta2\_ggVH}  & Scale uncertainty due to STXS boundary at $N_{\text{jet}} - N_{H \text{jets}} == 2$   & all reg / $ggVH$   & -  & Migration+Shape \\
       \texttt{TheoryPDF\_[1-30]}  & 30 PDF4LHC uncertainties on predicted cross-section in all STXS bins   & all regions   & -  & Normalization+Shape \\
       \texttt{TheoryPDFalphas}  & $\alpha_S$ variation uncertainties on predicted cross-section in all STXS bins   & all regions   & -  & Normalization+Shape \\
       \texttt{TheoryPSUE\_H7}  & STXS bin acceptance uncertainty comparing \textsc{Pythia8} and \textsc{Herwig7}   & all regions   & -  & Migration+Shape \\
@@ -33,17 +33,8 @@
       \bottomrule
     \end{tabular}
   }
-  \caption[A summary of systematic uncertainties on the signal process.]{VH
-    Signal syst summary}
-     % Summary of the systematic
-  % uncertainties for SM VH processes: the first column quotes the name of the
-  % nuisance parameter implemented in the fit referring to a specific systematic
-  % uncertainty, the second column the source of the uncertainty, the third the
-  % categories and sample on which it is applied, the fourth column the value of
-  % the Gaussian prior on the NP (if applicable) and the fifth column the effect
-  % of the systematic uncertainty. The listed systematic uncertainties are
-  % separated in branching ratio uncertainty, STXS cross-section QCD scale and PDF
-  % variations, STXS acceptance effects and shape systematic uncertainties.
-
-\label{tab:sig_systematics}
+  \caption[A summary of systematic uncertainties on the signal process.]{A
+    summary of systematic uncertainties on the VH(bb) signal process. Most of
+    the uncertainties account for migration between STXS bins.}
+  \label{tab:sig_systematics}
 \end{table}

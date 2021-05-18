@@ -1072,209 +1072,22 @@ for variations due to the underlying events and parton shower calculations, for
 the $p_T^V$ and $m_{bb}$ variables.
 
 \section{Systematic Uncertainties on the Signal Process}
+
+Predictions of the number of events expected due to the VH(bb) signal process
+are generated as follows. Processes initiated by a $q\bar{q}$ interaction are
+simulated with
+\textsc{Powheg}~+~\textsc{MiNLO}~+~\textsc{Pythia}~8~\cite{Luisoni2013,
+  Sjostrand2008852} at NLO whereas processes initiated by a $gg$ interaction are
+simulated with \textsc{Powheg}~+~\textsc{Pythia}~8 at LO. Both sets of samples
+are have the AZNLO tune~\cite{Aad:2014xaa} applied with the NNPDF3.0
+PDF~\cite{Ball:2014uwa} set being used. Alternative predictions are generated 
+using variations of the internal parameters of the nominal generators and also
+with \textsc{Powheg}~+~\textsc{MiNLO}~+~\textsc{Herwig}~7. Details of the
+nominal and alternative predictions are found in
+tables~\ref{tab:VHSMsignals-nom} and~\ref{tab:VHSMsignals-alt} respectively.
+
+
 \input{07-systematic-errors/signal-table.tex}
-
-% The following section details the Monte Carlo configurations used to model the
-% production of a Standard Model Higgs boson in association with a vector boson
-% ($VH$), referred to as the signal, in addition to the methodology adopted in
-% estimating the theoretical uncertainties pertaining to the $VH$ process within
-% the context of the full Run 2 ATLAS dataset \Vhtobb analysis.
-
-% It should be noted that the theoretical uncertainties summarised within the
-% following section originate from three primary sources:
-
-% \begin{itemize}
-%   \item \textbf{ICHEP 2018 Observation Analysis:} See the main supporting
-%     document, Ref. \cite{VHmainsupportnote}, for an overview, whilst a detailed
-%     summary of the uncertainties can be found in the dedicated modelling
-%     supporting note of Ref. \cite{VHmodellingsupportnote}.
-    
-%   \item \textbf{Simplified Template Cross-section Measurment (STXS):} The STXS
-%     measurement can be found in Ref. \cite{VHSTXSsupportnote}, however a
-%     dedicated theoretical uncertainty supporting document is also available, see
-%     Ref. \cite{ATL-PHYS-PUB-2018-035}.
-%   \end{itemize}
-  
-
-% These are coined \textit{Observation Specific} (ObS), or \textit{Simplified
-%   Template Cross-section} (STXS) uncertainties, respectively. Whilst a summary
-% of these uncertainties will be provided within this section, several instances
-% will arise where the uncertainty has not changed. In this situation the reader
-% will be directed to one of these two sets of reference materials.
-
-
-% \section{Standard Model $VH$ Nominal Monte Carlo Simulation}
-% \label{sec:SMsignal}
-% The \Vh \; signal is divided into three main signatures based on the vector
-% boson decay: $ZH\rightarrow \nu\nu b\bar{b}$, $ZH\rightarrow ll b\bar{b}$ and
-% $WH \rightarrow l\nu b\bar{b}$, where $l=e,\mu,\tau$. Two production modes exist
-% for the \Zh \; process, $q\bar{q} \rightarrow ZH$ and $gg \rightarrow ZH$,
-% whilst for \Wh \; only the $q\bar{q} \rightarrow WH$ is possible.
-
-
-% All $q\bar{q}$-initiated production processes are simulated using the \POWHEG
-% generator with the \texttt{MiNLO} (Multiscale Improved NLO) procedure applied
-% \cite{Luisoni2013}, interfaced to the \PYTHIA8~\cite{Sjostrand2008852} MC
-% generator applying the AZNLO tune~\cite{Aad:2014xaa} with the NNPDF3.0
-% PDF~\cite{Ball:2014uwa} set, while for the $gg$-initiated ZH contribution we
-% rely on the LO QCD \POWHEG prediction interfaced with \PYTHIA8 for the modelling
-% of parton shower, underlying event and multiple parton interactions, applying
-% the AZNLO tune~\cite{Aad:2014xaa} with the NNPDF3.0 PDF~\cite{Ball:2012cx} for
-% both the matrix-element (ME) and the parton shower.
-
-
-% Both the nominal and alternative samples used to derive uncertainties in the
-% context of the STXS scheme, are listed in Table~\ref{tabular:VHSMsignals}, along
-% with the statistics of the generated samples. The cross sections used for the
-% normalisation of these samples are detailed in Section~\ref{subsec:SMsignalXS}.
-
-
-% \begin{table}[ht!b]
-% \small
-% \centering
-% \begin{tabular}{c|l|c|r}
-%   \hline
-%   \hline
-%   DSID 	& Process 	& Generator 		 & Events \\ \hline
-%   \hline
-%   \multicolumn{4}{c}{$qq$-initiated (nominal) }  \\
-% 	\hline
-% 	345053   & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$  	& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 7319850 \\
-% 	345054   & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$  	& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 14634450 \\		
-% 	345055   & $qq\rightarrow ZH \rightarrow ll b\bar{b}$  			& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 10979800 \\	
-% 	345056   & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$		& \POWHEG+\texttt{MiNLO}+\PYTHIA8 & 7319400 \\				
-%   \hline
-%   \multicolumn{4}{c}{$qq$-initiated (alternative) }  \\        
-%   \hline
-
-%   346396 & $qq\rightarrow WH \rightarrow l\nu b\bar{b}$ & \POWHEG+\HERWIG7 & 14615000 \\
-%   346395 & $qq\rightarrow WH \rightarrow l\nu b\bar{b}$ & \POWHEG+\HERWIG7 & 7320000 \\
-%   346397 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$ & \POWHEG+\HERWIG7 & 10980000 \\
-%   346398 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\HERWIG7 & 7315000 \\
-         
-%   345816 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Up & 7994300 \\
-%   345810 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Down & 7994450 \\
-%   345828 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Up & 7994450 \\
-%   345822 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Down & 7994400 \\
-%   345792 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIUp & 7994350 \\
-%   345786 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIDown & 7994300 \\
-%   345804 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenUp & 7994250 \\
-%   345798 & $qq\rightarrow W^{+}H \rightarrow l^{+}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenDown & 7994400 \\
-                                                                                                   
-%   345815 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Up & 3999850 \\
-%   345809 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var1Down & 3999800 \\
-%   345827 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Up & 3999800 \\
-%   345821 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  Var2Down & 3999850 \\
-%   345791 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIUp & 3999750 \\
-%   345785 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  MPIDown & 3999800 \\
-%   345803 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenUp & 3999850 \\
-%   345797 & $qq\rightarrow W^{-}H \rightarrow l^{-}\nu b\bar{b}$         & \POWHEG+\PYTHIA8  RenDown & 3999850 \\
-                                                                                                   
-%   345817 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var1Up & 5999900 \\
-%   345811 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var1Down & 5999900 \\
-%   345829 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var2Up & 5999950 \\
-%   345823 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  Var2Down & 5999950 \\
-%   345793 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  MPIUp & 5999900 \\
-%   345787 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  MPIDown & 5999900 \\
-%   345805 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  RenUp & 5999950 \\
-%   345799 & $qq\rightarrow ZH \rightarrow ll b\bar{b}$                   & \POWHEG+\PYTHIA8  RenDown & 5999900 \\
-  
-%   345818 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var1Up & 3999650 \\
-%   345812 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var1Down & 3999650 \\
-%   345830 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var2Up & 3999600 \\
-%   345824 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  Var2Down & 3999650 \\
-%   345794 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  MPIUp & 3999650 \\
-%   345788 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  MPIDown & 3999600 \\
-%   345806 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  RenUp & 3999650 \\
-%   345800 & $qq\rightarrow ZH \rightarrow \nu\nu b\bar{b}$  & \POWHEG+\PYTHIA8  RenDown & 3999550 \\
-
-%   \hline
-%   \multicolumn{4}{c}{$gg$-initiated (nominal) }  \\
-%   \hline 
-%   345057   & $gg\rightarrow ZH \rightarrow ll b\bar{b}$			& \POWHEG+\PYTHIA8   &  2740000\\	
-%   345058   & $gg\rightarrow ZH \rightarrow \nu\nu b\bar{b}(*) $			& \POWHEG+\PYTHIA8  &  1835000\\	
-
-%   \hline  
-%   \multicolumn{4}{c}{$gg$-initiated (alternative) } \\
-%   \hline
-%   346399 & $gg\rightarrow ZH \rightarrow ll b\bar{b}$    & \POWHEG+\HERWIG7   & 2240000 \\
-%   346400 & $gg\rightarrow ZH \rightarrow \nu\nu b\bar{b}(*) $  &  \POWHEG+\HERWIG7   &  1490000 \\
-  
-%   \hline
-%   \hline
-% \end{tabular}
-% \caption{Standard Model VH samples used in the analyses including alternative
-%   samples to assess the systematic uncertainties. The dataset ID, MC generator,
-%   and total number of generated events are shown.}
-% \label{tabular:VHSMsignals}
-% \end{table}
-
-% \begin{comment}
-% \subsection{Update of nominal Predictions}
-% The nominal predictions for $q\bar{q}$-initiated production processes have been
-% simulated at NLO accuracy using \POWHEG+\texttt{MiNLO}+\PYTHIA8. The \mbb\ and
-% \ptv\ shapes were compared between \PYTHIA8 and \POWHEG+\texttt{MiNLO}+\PYTHIA8
-% and are shown in Figures \ref{fig:smvh_nom_mBB} and \ref{fig:smvh_nom_pTV}
-% respectively. The shape difference between the \ptv\ distributions is shown to
-% be negligible whereas shape differences can be seen in the \mbb\ distributions.
-% These are not used as a systematic uncertainty, they are purely to document the
-% changes between the samples.
-
-
-% \begin{figure}[htbp!]
-%   \centering
-%   \subfigure[\Zhtovvbb, 0 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_0leptons_0jets_shapes.pdf}} 
-%   \subfigure[\Zhtovvbb, 0 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_0leptons_1jets_shapes.pdf}} 
-%   \subfigure[\Whtolvbb, 1 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_1leptons_0jets_shapes.pdf}} 
-%   \subfigure[\Whtolvbb, 1 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_1leptons_1jets_shapes.pdf}}
-%   \subfigure[\Zhtollbb, 2 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_2leptons_0jets_shapes.pdf}}
-%   \subfigure[\Zhtollbb, 2 lepton, $\geq 3$ jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_mBB_2leptons_1jets_shapes.pdf}}\\
-%   \caption{ Shape comparison of the $m_(bb)$ distributions for each $VH$ process, i.e. lepton channel and each number of jets category, inclusive in \ptv\. Shown is a comparison between \PYTHIA8 (red) and \POWHEG+\texttt{MiNLO}+\PYTHIA8 (black). The ratio between the two samples is shown in the lower panel of the plot.}
-%   \label{fig:smvh_nom_mBB}
-% \end{figure}
-
-% \begin{figure}[htbp!]
-%   \centering
-%   \subfigure[\Zhtovvbb, 0 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_0leptons_0jets_shapes_log.pdf}} 
-%   \subfigure[\Zhtovvbb, 0 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_0leptons_1jets_shapes_log.pdf}} 
-%   \subfigure[\Whtolvbb, 1 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_1leptons_0jets_shapes_log.pdf}} 
-%   \subfigure[\Whtolvbb, 1 lepton, 3 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_1leptons_1jets_shapes_log.pdf}}
-%   \subfigure[\Zhtollbb, 2 lepton, 2 jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_2leptons_0jets_shapes_log.pdf}}
-%   \subfigure[\Zhtollbb, 2 lepton, $\geq 3$ jets]{\includegraphics[width=0.47\textwidth]{figures/smvhSignal/Nomcomp_pTV_2leptons_1jets_shapes_log.pdf}}\\
-%   \caption{ Shape comparison of the \ptv\ distributions for each $VH$ process,
-%     i.e. lepton channel and each number of jets category, inclusive in \ptv\.
-%     Shown is a comparison between \PYTHIA8 (red) and
-%     \POWHEG+\texttt{MiNLO}+\PYTHIA8 (black). The ratio between the two samples
-%     is shown in the lower panel of the plot.}
-  
-%   \label{fig:smvh_nom_pTV}
-% \end{figure}
-% \end{comment}
-
-% \subsection{Alternative Monte Carlo Samples}
-% \label{subsec:SMaltMC}
-
-% In order to cross check the signal modelling and study uncertainties, the
-% nominal \POWHEG+\texttt{MiNLO}+\PYTHIA8 samples are compared to the following
-% alternative samples:
-
-
-% \begin{itemize}
-% \item \POWHEG+\texttt{MiNLO}+\HERWIG7, for the underlying event and parton
-%   shower models;
-% \item \POWHEG+\PYTHIA8 with variations of the multiple parton interaction (MPI)
-%   cut-off parameter between 1.91 GeV and 2.05 GeV (compared to the nominal value
-%   of 2.00 GeV);
-  
-% \item \POWHEG+\PYTHIA8 with 6 variations of $\mu_{R}$ and $\mu_{F}$ by a factor
-%   of two around the nominal value (avoiding anti-correlated variations) for the
-%   parton shower final state radiation (FSR) emission;
-  
-% \item \POWHEG+\PYTHIA8, with variations of 2 sets of eigentunes for the AZNLO
-%   parton shower tune covering primordial $k_{T}$ and initial state radiation
-%   (ISR) cut-off variations, (described in Table 4 from Ref.~\cite{Aad:2014xaa})
-  
-% \end{itemize}
 
 % \subsection{Cross-Section}
 % \label{subsec:SMsignalXS}

@@ -250,11 +250,13 @@ If the statistical uncertainty of the newly formed bin is larger than 20~\% step
 % $N^{\text{exp}}_b(\mu,\mathbf{k},{\bm\theta})$ events in a certain bin
 % $i$:
 
-% \begin{equation}
-%   L(\mu,{\bm{k},\bm{\theta}}) =
-%   \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}}) \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!}
-%   \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
-% \end{equation}
+\begin{equation}
+  L(\mu,{\bm{k},\bm{\theta}}) =
+  \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})
+    \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!}
+  \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
+  \label{eq:likelihood}
+\end{equation}
 
 % In this likelihood, the number of predicted events is made dependent on three
 % sets of parameters: the signal strength $\mu$, the scale factors

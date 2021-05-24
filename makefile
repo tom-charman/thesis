@@ -5,7 +5,7 @@
 
 # The first rule in a Makefile is the one executed by default ("make"). It
 # should always be the "all" rule, so that "make" and "make all" are identical.
-all: thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf systematics.pdf strategy.pdf recon.pdf fit.pdf results.pdf conclusion.pdf all clean directories
+all: thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf systematics.pdf strategy.pdf recon.pdf results.pdf conclusion.pdf all clean directories
 
 # OPTIONS
 
@@ -25,12 +25,11 @@ ML            = -jobname=BUILD/machine-learning 04-machine-learning/machine-lear
 RECON         = -jobname=BUILD/recon 05-reconstruction-and-selection/reconstruction-and-selection.tex
 STRATEGY      = -jobname=BUILD/strategy 06-analysis-strategy/strategy.tex
 SYSTEMATICS     = -jobname=BUILD/systematics 07-systematic-errors/systematics.tex
-#FIT           = -jobname=BUILD/fit 08-fit-models/fit-models.tex
 RESULTS       = -jobname=BUILD/results 08-results/results.tex
 CONCLUSION    = -jobname=BUILD/conclusion 09-conclusion/conclusion.tex
 
 # TIDYING
-CLEAN     = -C thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf recon.pdf fit.pdf systematics.pdf results.pdf conclusion.pdf strategy.pdf
+CLEAN     = -C thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf recon.pdf systematics.pdf results.pdf conclusion.pdf strategy.pdf
 MKDIR = mkdir -p
 OUT_DIR = BUILD
 
@@ -63,9 +62,6 @@ strategy.pdf: 06-analysis-strategy/strategy.tex directories
 
 systematics.pdf: 07-systematic-errors/systematics.tex directories
 	$(LATEXMK) $(OPTIONS) $(SYSTEMATICS) && mv BUILD/systematics.pdf .
-
-#fit.pdf: 08-fit-models/fit-models.tex directories
-#	$(LATEXMK) $(OPTIONS) $(FIT) && mv BUILD/fit.pdf .
 
 results.pdf: 08-results/results.tex directories
 	$(LATEXMK) $(OPTIONS) $(RESULTS) && mv BUILD/results.pdf .

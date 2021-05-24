@@ -74,15 +74,6 @@ compile_systematics:
       - systematics.pdf  # instruct GitLab to keep the main.pdf file
     expire_in: 5 minutes
 
-#compile_fit:
-#  stage: compile
-#  image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
-#  script: make clean fit.pdf  # build the pdf just as you would on your computer
-#  artifacts:
-#    paths: 
-#      - fit.pdf  # instruct GitLab to keep the main.pdf file
-#    expire_in: 5 minutes
-
 compile_results:
   stage: compile
   image: texlive/texlive  # use a Docker image for LaTeX from https://hub.docker.com/
@@ -116,7 +107,6 @@ collect_all:
     - job: compile_reco
     - job: compile_strategy
     - job: compile_systematics
-#    - job: compile_fit
     - job: compile_results
     - job: compile_conclusion
       artifacts: true

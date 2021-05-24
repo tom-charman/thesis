@@ -25,9 +25,9 @@ ML            = -jobname=BUILD/machine-learning 04-machine-learning/machine-lear
 RECON         = -jobname=BUILD/recon 05-reconstruction-and-selection/reconstruction-and-selection.tex
 STRATEGY      = -jobname=BUILD/strategy 06-analysis-strategy/strategy.tex
 SYSTEMATICS     = -jobname=BUILD/systematics 07-systematic-errors/systematics.tex
-FIT           = -jobname=BUILD/fit 08-fit-models/fit-models.tex
-RESULTS       = -jobname=BUILD/results 09-results/results.tex
-CONCLUSION    = -jobname=BUILD/conclusion 10-conclusion/conclusion.tex
+#FIT           = -jobname=BUILD/fit 08-fit-models/fit-models.tex
+RESULTS       = -jobname=BUILD/results 08-results/results.tex
+CONCLUSION    = -jobname=BUILD/conclusion 09-conclusion/conclusion.tex
 
 # TIDYING
 CLEAN     = -C thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf recon.pdf fit.pdf systematics.pdf results.pdf conclusion.pdf strategy.pdf
@@ -64,13 +64,13 @@ strategy.pdf: 06-analysis-strategy/strategy.tex directories
 systematics.pdf: 07-systematic-errors/systematics.tex directories
 	$(LATEXMK) $(OPTIONS) $(SYSTEMATICS) && mv BUILD/systematics.pdf .
 
-fit.pdf: 08-fit-models/fit-models.tex directories
-	$(LATEXMK) $(OPTIONS) $(FIT) && mv BUILD/fit.pdf .
+#fit.pdf: 08-fit-models/fit-models.tex directories
+#	$(LATEXMK) $(OPTIONS) $(FIT) && mv BUILD/fit.pdf .
 
-results.pdf: 09-results/results.tex directories
+results.pdf: 08-results/results.tex directories
 	$(LATEXMK) $(OPTIONS) $(RESULTS) && mv BUILD/results.pdf .
 
-conclusion.pdf: 10-conclusion/conclusion.tex directories
+conclusion.pdf: 09-conclusion/conclusion.tex directories
 	$(LATEXMK) $(OPTIONS) $(CONCLUSION) && mv BUILD/conclusion.pdf .
 
 clean:

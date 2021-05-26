@@ -215,12 +215,6 @@ to achieve a finer binning in the high BDT output score region which has, as
 expected, the best signal to background ratio with respect to the rest of the
 distribution.
 
-% While for the $VZ$ BDT, due to the limited statistics of the diboson samples,
-% the chosen value of $z_{b}$ and $z_{s}$ are both 5 in signal region with
-% $p_{\text{T}}^V<$\SI{250}{\GeV} (total bin number is 10) and are 3 and 2 in
-% signal region with $p_{\text{T}}^V>$\SI{250}{\GeV} (total bin number is 5),
-% respectively.
-
 The pre-transformation BDT score distribution has 500 equidistant bins between
 -1 and 1. The re-binning is then conducted using the following procedure:
 \begin{enumerate}
@@ -241,70 +235,62 @@ If the statistical uncertainty of the newly formed bin is larger than 20~\% step
 
 \section{Profile Likelihood Fit}%
 \label{sec:plf}
-\subsection{Likelihood Function Definition}
-\label{sec:lhoodDef}
-% The statistical analysis of the data uses a binned likelihood function which
-% maximum correspond to the best description of data. It is defined as the product
-% over all bins of the Poisson probability to observe $N^{\text{obs}}_b$ data
-% events given a prediction of
-% $N^{\text{exp}}_b(\mu,\mathbf{k},{\bm\theta})$ events in a certain bin
-% $i$:
 
+Ultimately the results of the analysis come from a profile-likelihood fit. This
+fit uses a binned likelihood function whose maximum corresponds to the best
+agreement between data and the prediction. The likelihood is defined as the
+product over all bins of the Poisson probability to observe $N^{\text{obs}}_i$ data
+events given a prediction of $N^{\text{pred}}_i(\mu,\bm{k},{\bm\theta})$
+events in a given bin $i$,
 \begin{equation}
-  L(\mu,{\bm{k},\bm{\theta}}) =
-  \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})
+  \mathcal{L}(\mu,{\bm{k},\bm{\theta}}) =
+  \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})
     \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!}
-  \cdot e^{-N_{i}^{\text{exp}}(\mu,{\bm{k,\theta}})}
+  \cdot e^{-N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})}.
   \label{eq:likelihood}
 \end{equation}
+The number of predicted events $N^{\text{pred}}_i$  is dependent on three sets of
+parameters, the signal strength $\mu$, the scale factors $\bm{k}=\left\{k_1,
+  ...,k_j\right\}$, and the nuisance parameters  $\bm{\theta} =
+\left\{\theta_1,...,\theta_l\right\}$, as follows
+\begin{equation}
+  N_{i}^{\text{pred}}(\mu,\bm{k},\bm{\theta}) =
+  \mu \cdot N_{i,\text{sig}}^{\text{pred}}(\bm{\theta}) +
+  \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{pred}}(\bm{\theta}).
+\end{equation}
+The ratio between the measured and the expected signal cross-sections
+$\mu=\sigma/\sigma_{\text{SM}}$, known as the signal strength, is the parameter
+of interest in the nominal fit. It is common to all analysis regions that enter
+into the fit. Each of the scale factors $k_j$ and the signal strength scale
+either the associated background or the signal linearly without any prior
+constraint or penalty in the likelihood function, in further sections these
+parameters will be referred to as floating. Each nuisance parameter $\theta_i$
+encodes the dependence of the prediction on systematic uncertainties into
+continuous parameters in the likelihood. Prior knowledge of the uncertainty that
+these parameters encode for is expressed as a Gaussian penalty term
+$\mathcal{G}(0\,|\,\theta_i,1)$ added to the likelihood for each uncertainty.
+The parameters $\theta_i$ are therefore expressed as a number of standard
+deviations of a unit Gaussian in the subsequent sections. These penalties
+results in a log-normal, or normal dependence of the predicted yields or shapes
+on the displayed parameter values.
 
-% In this likelihood, the number of predicted events is made dependent on three
-% sets of parameters: the signal strength $\mu$, the scale factors
-% $\mathbf{k}=\left\{k_1, ...,k_j\right\}$, and the nuisance parameters
-% $\bm{\theta} = \left\{\theta_1,...,\theta_l\right\}$, as follows
-
-% \begin{equation}
-%   N_{i}^{\text{exp}}(\mu,\mathbf{k},\bm{\theta}) = \mu \cdot N_{i,\text{sig}}^{\text{exp}}(\bm{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{exp}}(\bm{\theta})
-% \end{equation}
-% The parameter of interest $\mu=\sigma/\sigma_{\text{SM}}$ is common to all
-% channels and category and is the ratio between the measured and the expected
-% signal cross-sections.
-
-% As each scale factor does for it associated background component, the signal
-% strength scales the amount of signal linearly without any prior constraint, or
-% penalty in the likelihood function.
-
-
-% The nuisance parameters (NP) $\theta_i$ encode the dependence of the prediction
-% on systematic uncertainties into continuous parameters in the likelihood.
-
-% The prior knowledge on these parameters is reflected by a Gaussian penalty term
-% $\text{Gauss}(0\,|\,\theta_i,1)$ added to the likelihood for each NP, rending
-% displacement of these parameters depreciated.
-
-% The parameters $\theta_i$ are therefore expressed in standard deviation in the
-% following.
-
-% It results in a log-normal (normal) dependence of the predicted rates (shapes)
-% on the displayed parameter values.
-
-
-% The nominal fit result in terms of $\mu$ and $\sigma_{\mu}$ is obtained by
-% maximizing the likelihood function with respect to all parameters.  This is
-% referred to as the maximized log-likelihood value, MLL. The profile likelihood
-% ratio test statistic, $q_\mu$, is then constructed as follows:
-
-% \begin{equation}
-%   q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}}, \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu}, \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
-% \end{equation}
-% where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
-% likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
-% $\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
-% likelihood for a given $\mu$. This test statistic is used to measure the
-% compatibility of the background-only model with the observed data, extracting
-% the local $p_0$ value, and, if no hint of a signal is found in this procedure,
-% for the derivation of exclusion intervals using the $CL_s$
-% method~\cite{Cowan:2010js,Read:2002hq}.
+The nominal fit result in terms of $\mu$ and $\sigma_{\mu}$ is obtained by
+maximizing the likelihood function with respect to all parameters.  This is
+referred to as the maximized log-likelihood value, MLL. The profile likelihood
+ratio test statistic, $q_\mu$, is then constructed as follows:
+\begin{equation}
+  q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}},
+    \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu},
+    \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
+\end{equation}
+where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
+likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
+$\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
+likelihood for a given $\mu$. This test statistic is used to measure the
+compatibility of the background-only model with the observed data, extracting
+the local $p_0$ value, and, if no hint of a signal is found in this procedure,
+for the derivation of exclusion intervals using the $CL_s$
+method~\cite{Cowan:2010js,Read:2002hq}.
 
 % \paragraph{Shape systematic Uncertainties post-processing} 
 

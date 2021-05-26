@@ -11,7 +11,7 @@ all: thesis.pdf introduction.pdf theory.pdf detector.pdf machine-learning.pdf sy
 
 DIR           = $(shell pwd)
 LATEXMK       = latexmk
-OPTIONS       = -pdf -pdflatex="lualatex" -interaction=nonstopmode -use-make -f
+OPTIONS       = -pdf -pdflatex="lualatex" -use-make 
 
 # MAIN
 

@@ -4,14 +4,20 @@
 At the top level events are required to have one Higgs boson candidate and one
 vector boson candidate. In all cases a Higgs boson candidate is comprised of two
 b-tagged jets. More on the jet collection and b-tagging strategy used in
-section~\ref{sec:jets}. Vector boson candidates are defined by a number of
+section~\ref{sec:jets}. Vector boson candidates are characterised by a number of
 different decay products defined in section~\ref{sec:lepton}, these decay
-products are triggered on, specific triggers used are discussed in
-section~\ref{sec:triggers}. Reconstruction of basic quantities as well as higher
-level algorithms such as overlap removal are handled by Athena and the CxAOD
-Framework, more on these in section~\ref{sec:cxaod}. Finally with all quantities
-reconstructed events are categorised in different analysis regions, these are
-described in section~\ref{sec:ana-regions}.
+products trigger the recording of events, specific triggers used are discussed
+in section~\ref{sec:triggers}. Reconstruction of basic quantities as well as
+higher level algorithms such as overlap removal are handled by Athena and the
+CxAOD Framework, more on these in section~\ref{sec:cxaod}. Finally with all
+quantities reconstructed events are categorised in different analysis regions,
+these are described in section~\ref{sec:ana-regions}.
+
+My contributions to the reconstruction and selection include maintenance of the
+CxAOD Framework, running production campaigns to produce new datasets when
+impactful changes have been made further up the analysis chain, and implementing
+new systematic uncertainties in the CxAOD Framework (not discussed until
+chapter~\ref{ch:systematics}).
 
 \section{Athena and the CxAOD Framework}
 \label{sec:cxaod}
@@ -22,56 +28,55 @@ Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
 be seen in the figure Athena processes both data recorded from collisions and
 Monte-Carlo simulated predictions. Steps up until and including reconstruction
 are required to transform the raw or simulated read-out of the detector into
-what are known as physics objects. These physics objects correspond to UV and IR
-safe descriptions particles and hadron showers e.g. leptons and jets. Given the
-initial transverse energy of the collisions (zero) any missing transverse energy
-($E^T_{miss}$) is also reconstructed based on the sum of the transverse energy
-of all objects in an event, this missing energy indicates the presence of
-particles in the event that cannot be detector by any of ATLAS subsystems. The
-only particles in the Standard Model for which this is expected are neutrinos.
-The files containing the reconstructed physics objects adhere to the ATLAS Event
-Data Model (EDM) and are referred to as Analysis Object Data (xAOD). After
-reconstruction a part of Athena called the derivation framework is used to
-produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The reduction
-of these files is carried out based on a loose selection criteria.
+what are known as physics objects. These physics objects correspond to
+ultra-violet and infra-red safe descriptions particles and hadron showers e.g.
+leptons and jets. Given the initial transverse energy of the collisions (zero)
+any missing transverse energy ($E^T_{miss}$) is also reconstructed based on the
+sum of the transverse energy of all objects in an event, this missing energy
+indicates the presence of particles in the event that cannot be detected by any
+of the ATLAS subsystems. The only particles in the Standard Model for which this
+is expected are neutrinos. The files containing the reconstructed physics objects
+adhere to the ATLAS Event Data Model and are referred to as Analysis Object Data
+(xAOD). After reconstruction a part of Athena called the derivation framework is
+used to produce skimmed and slimmed xAODs known as Derived xAODs (DxAODs). The
+reduction of these files is carried out based on a loose selection criteria.
 
 DxAODs are the usual starting point for analysis level software, in the case of
-this analysis the CxAOD Framework. Of course xAODs can also be used as the
-starting point for analysis they are just larger.
+this analysis the CxAOD Framework. As in in figure~\ref{fig:cxaod-flow}
 \input{05-reconstruction-and-selection/cxaod-flow}
-As in in figure~\ref{fig:cxaod-flow} The CxAOD Framework has two major
-components the Maker and the Reader. The job of the maker is to further slim the
-data by performing pre-selection cuts and also to apply calibrations which will
-be detailed below, the output of the Maker is called a Calibrated xAOD (CxAOD).
-The Reader takes a CxAOD as input and performs the analysis event selection, it
-can output histograms or nTuples.
+The CxAOD Framework has two major modules the Maker and the Reader. The job of
+the Maker is to further slim the data by performing pre-selection cuts and also
+to apply calibrations which will be detailed below, the output of the Maker is
+called a Calibrated xAOD (CxAOD). The Reader takes a CxAOD as input and performs
+the analysis event selection, it can output histograms or $N$-tuples.
 
-The Maker applies selections the selections of each of the three analysis
-channels, defined in section~\ref{sec:selection}. CxAODs are produced separately
-for each of the three channels as the different background compositions and
-signal signatures require different optimisation. Pre-selection is performed on
-jets based on application of requirements on transverse momentum and
-pseudo-rapidity. A tool known as the Jet Vertex Tagger (JVT) is used to remove
-jets resulting from pileup from events.
+The Maker applies the selections of each of the three analysis channels, defined
+in section~\ref{sec:selection}. CxAODs are produced separately for each of the
+three channels as the different background compositions and signal signatures
+require different optimisation. Pre-selection is performed on jets based on
+requirements of transverse momentum and pseudo-rapidity. A tool known as the Jet
+Vertex Tagger (JVT) is used to remove jets resulting from pileup from events.
 
 \section{Leptons}%
 \label{sec:lepton}
 
-The channels of the VH(bb) analysis are defined by the number of observed
-charged leptons ($e$ or $\mu$) in the decay of the vector boson. There is one
-channel for the study of WH(bb) decays where the leptonic decay $W \rightarrow
-\ell\nu$ yields a single charged lepton. There are two channels for the study of
-ZH(bb), the zero lepton channel, $Z \rightarrow \nu\nu$, and the two lepton
-channel, $Z \rightarrow \ell\ell$. 
+The channels of the $VH \to b\bar{b}$ analysis are defined by the number of
+observed charged leptons ($e$ or $\mu$) in the decay of the vector boson. There
+is one channel for the study of $WH \to b\bar{b}$ decays where the leptonic
+decay $W \rightarrow \ell\nu$ yields a single charged lepton, the 1--lepton
+channel. There are two channels for the study of $ZH \to b\bar{b}$ decays, the
+0--lepton channel where $Z \rightarrow \nu\nu$, and the 2--lepton channel where
+$Z \rightarrow \ell\ell$.
 
 Two classifications of lepton are defined in order to categorise events into the
-individual channels of the analysis, these are called VH-loose and VH-signal
-leptons, channels are kept orthogonal by requiring different numbers of both
-lepton categories. These classifications are defined in
+individual channels of the analysis, these are called $VH$-loose and $VH$-signal
+leptons, channels are defined as disjoint sets by requiring different numbers of
+both lepton categories. These classifications are defined in
 table~\ref{tab:vh-leptons}. The characteristics of the fake lepton background
-from QCD multi-jet processes differs between the 1 and 2 lepton channels hence
-the reason for two different categorisations. In general to suppress this kind
-of background leptons are required to be isolated from other detector activity.
+from QCD multi-jet processes differs between the 1-- and 2--lepton channels
+hence the reason for two different categorisations. In general to suppress this
+kind of background leptons are required to be isolated from other detector
+activity.
 \input{05-reconstruction-and-selection/vh-leptons}
 
 \subsection{Electrons}
@@ -450,7 +455,7 @@ calculation of any $E_T^{miss}$ related variables.
 
 The vector boson candidate in the 0--lepton channel is a Z boson decaying to two
 neutrinos. In order to select events for this candidate a large amount of
-$E_T^{miss}$ is required (> 150 \GeV) and there must be exactly 0 VH-loose
+$E_T^{miss}$ is required (> 150 \GeV) and there must be exactly 0 $VH$-loose
 leptons in the event. Whilst events with lower $E_T^{miss}$ may come from the
 physical process we desire to measure the $E_T^{miss}$ trigger thresholds
 require setting the cut at it's value, the efficiency is ~90\% for events
@@ -501,7 +506,7 @@ the electron channel.
 \label{sec:2lep-selection}
 
 The vector boson candidate in the 1--lepton channel is a W boson decaying to two
-charged leptons. Exactly two VH-loose leptons of the same lepton flavour are
+charged leptons. Exactly two $VH$-loose leptons of the same lepton flavour are
 required, additionally one of the leptons must pass the ZH-signal requirements.
 For events with two muons, it is required that the muons are of opposite charge.
 Electron reconstruction suffers from a higher rate of charge misidentification

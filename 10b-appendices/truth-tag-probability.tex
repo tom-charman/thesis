@@ -1,0 +1,28 @@
+\chapter{Truth Tagging Probability}
+\label{app:truth-tag-probability}
+
+Given an event with $m$ jets and $n$ tagged jets required, the possible
+combinations of tagged and non-tagged jets are $\binom{m}{n}$. For a given
+tagged configuration, referred to as the $i^{th}$ combination and denoted as
+$\binom{m}{n}_i$, the total number of remaining configurations is
+$\overline{\binom{m}{n}} = \binom{m}{n} - \binom{m}{n}_i$. The efficiency and
+inefficiency products are
+\begin{align}                             
+  \varepsilon \Bigg( \binom{m}{n}_i, x, f \Bigg)
+  & = \prod_{j \in n} \epsilon_x^f(j) \\
+  \varepsilon_{in} \Bigg( \overline{\binom{m}{n}}_i, x, f \Bigg)
+  & = \prod_{j \in m-n} (1 - \epsilon_x^f(j))
+\end{align}
+with $ \epsilon_x^f(j)$ the tagging efficiency of jet $j$ of flavour $f$ at an
+efficiency working point $x$, and where $j \in m-n $ refers to the pool of non
+tagged jets. The total event weight is
+\begin{equation}
+  w_{TT}(x) = \sum_i^{\lvert \binom{m}{n} \rvert} \varepsilon
+  \Bigg(  \binom{m}{n}_i, x \Bigg)  \cdot \varepsilon_{in}
+  \Bigg(  \overline{\binom{m}{n}}_i, x \Bigg),
+\end{equation}
+with a probability to choose a specific combination equal to
+\begin{equation}
+  P_{i}(x) = \frac{\varepsilon \big(  \binom{m}{n}_i, x \big) \cdot
+    \varepsilon_{in} \big(  \overline{ \binom{m}{n}}_i, x \big) }{w_{TT}}.
+\end{equation}

@@ -2,28 +2,28 @@
 \label{ch:ml}
 
 The next chapter is somewhat of a diversion from the physics discussed so far.
-It will focus on techniques in machine learning which are often referred to in
-High Energy Physics as a Multi-variate Analysis (MVA). The reason for this
-diversion is that these techniques have become very widespread in the field,
-they are used in several of the reconstruction and selection algorithms that are
-used to obtain the events on which the analysis is performed. Furthermore an MVA
-is used to obtain the distribution that acts as the final discriminant for the
-analysis, and machine learning techniques are also used to model the
-backgrounds. Given how widespread the use of these techniques is in the analysis
-it makes sense to describe them before diving into the details.
+It will focus on techniques in machine learning which are referred to
+interchangeably as a Multi-variate Analyses (MVA). These techniques have become
+very widespread in the field, they are used in several of the reconstruction
+algorithms that are used to obtain the events on which the analysis is
+performed. Furthermore an MVA is used to obtain the distribution that acts as
+the final discriminant for the analysis, and machine learning techniques are
+also used to quantify systematic uncertainties on background modelling. The
+algorithms at the core of these techniques are described here before diving into
+specific applications.
 
 The two main algorithms used are Boosted Decision Trees (BDTs) and Neural
-Networks (NNs) which will be described in sections~\ref{sec:bdts}
+Networks (NNs), which will be described in sections~\ref{sec:bdts}
 and~\ref{sec:neural-networks} respectively. These algorithms are used in many
-places outside High Energy Physics and so rather than referring to individual
-pieces of data that enter into the algorithm as an event, in this chapter they
-will be referred to as an example. This terminology comes from the fact that in
+places outside of physics and so rather than referring to individual pieces of
+data that enter into the algorithm as an event, in this chapter they will be
+referred to as an example. This terminology comes from the fact that in
 general these algorithms must be shown a large number of examples before they
-are suitable ``trained'' for their purpose, and that in general those examples
+are suitably ``trained'' for their purpose, and that in general those examples
 could be data that represent anything. Both of these algorithms can be operated
 in classification or regression modes. The main difference between these modes
 is that classification mode provides a score for each of a given number of
-classes which can be interpreted as a probability that a given example belongs
+classes, which can be interpreted as a probability that a given example belongs
 to the given class, whereas regression outputs a single number per example whose
 interpretation depends on the problem.
 
@@ -46,16 +46,15 @@ according to the given algorithm. It is therefore vital that firstly these truth
 labels are available for the data on which one wants to train (e.g. train on
 simulated predictions rather than real data) and secondly that the examples are
 split into a training and testing set so that the set which is used to
-iteratively update weights is not the same set that performance is evaluated on.
-This avoids over-fitting to any noise in a given set, though this problem is not
-circumvented entirely and over-fitting will be addressed for specific algorithms
-in the sections ahead.
+iteratively update weights is not the same set on which performance is
+evaluated. This avoids over-fitting to noise in a given set, though this
+problem is not circumvented entirely.
 
 \section{Boosted Decision Trees}%
 \label{sec:bdts}
-We will start by discussing a decision tree for a classification problem.
-Decision trees have a structure as in figure~\ref{fig:bdt}, which shows a tree
-dividing examples into two classes, red and blue.
+We will start by discussing a decision tree for a classification problem with
+two classes. Decision trees have a structure as in figure~\ref{fig:bdt}, which
+shows a tree dividing examples into two classes, red and blue.
 \input{04-machine-learning/bdt}
 Each circular node in the tree represents a cut on one of a number of variables
 provided as input to the algorithm. The tree is read top to bottom with each
@@ -70,27 +69,24 @@ common separation criteria is the Gini index,
   G = p(1-p),
   \label{eq:gini}
 \end{equation}
-where p is the purity of a chosen class that one wants to maximise.
+where $p$ is the purity of a chosen class that one wants to maximise.
 
-A decision tree by itself is able to separate examples into a number of classes,
-however a single tree is prone to over--training. Over--training is the term
-used to describe the phenomena where a classifier learns from statistical
-fluctuations in the data rather learning a generalised separation boundary
-between classes. The reason that decision trees are susceptible to this is that
-if two variables yield a similar separation criteria then a fluctuation in the
-training data may lead to the choice of one variable over another for a
-particular node, this choice will lead to a very different tree structure than
-if the fluctuation were not present.
+A decision tree by itself is able to separate examples into a two classes,
+however a single tree is prone to over-fitting.  The reason that decision trees
+are susceptible to this is that if two variables yield a similar separation
+criteria then a fluctuation in the training data may lead to the choice of one
+variable over another for a particular node, this choice will lead to a very
+different tree structure than if the fluctuation were not present.
 
-In order to mitigate the over--training tendencies of decision trees they are
+In order to mitigate the over-fitting tendencies of decision trees they are
 often used in an ensemble algorithm such as bagging~\cite{Bagging}
 or boosting~\cite{Boosting}. Here only boosting will be discussed. Ensembles of
 decision trees are often referred to as random forests. Boosting works by
-training a sequence of trees, weighting misclassified events from a tree so that
-they have more influence over the structure of the next tree in the sequence.
-The final classification of any given example is a weighted average over all
-trees, this can be weighted by the overall accuracy of each tree, but in general
-can take any weighted average.
+training a sequence of trees and then weighting misclassified events from a tree
+so that they have more influence over the structure of the next tree in the
+sequence. The final classification of any given example is a weighted average
+over all trees, this can be weighted by the overall accuracy of each tree, but
+in general can take any weighted average.
 
 \subsection{Gradient Boosting}
 
@@ -127,20 +123,20 @@ at a given iteration and is evolved by the addition of a single decision tree as
 the decision tree which is added is found by taking the negative gradient of the
 loss computed at the previous iteration
 \begin{equation}
-  d{\vec{x}} = - \frac{\partial \mathcal{L}(F_i, \vec{t} \,)}{\partial F}.
+  d(\vec{x}) = - \frac{\partial \mathcal{L}(F_i, \vec{t} \,)}{\partial F}.
 \end{equation}
 This is process is known as gradient boosting. Each decision tree is known as a
 weak learner, by evolving the overall model by stepping in the direction of the
-negative gradient of the loss calculated on the predictions of the model at the
-current stage the algorithm aims to correct for past mistakes.
+negative gradient of the loss at the current step the algorithm aims to correct
+for mistakes of each weak leaner.
 
 The aforementioned hyper-parameters that control the properties of the model
 come in a few forms for the BDT. They include but are not limited to, the
-maximum tree depth and the number of weak learners to train. These hyper
-parameters change the structure of the model in a way that would be obvious when
-drawing a visual representation. The choice of boosting algorithm can also be
-considered a hyper-parameter, in this work gradient boosting is chosen in
-general which is a change from the previously popular AdaBoost~\cite{AdaBoost}. 
+maximum tree depth and the number of weak learners to train. The choice of
+boosting algorithm can also be considered a hyper-parameter, gradient boosting
+is chosen for the analysis MVA, which is a change from the previously used
+AdaBoost~\cite{AdaBoost} that is still used in some of the reconstruction
+algorithms.
 
 \section{Neural Networks}%
 
@@ -162,8 +158,8 @@ constructions are called activations. It would be remiss of me to cite the works
 of Fisher without condemning his participation in the field of eugenics, but I
 leave the citation here as a reminder that as scientists we have a
 responsibility to society to pursue causes for good. Neural network models are
-inspired by neurons in the brain, who fire when some threshold of
-neuro--transmitting chemical is reached~\cite{neuron} and are linked up in
+inspired by neurons in the brain, that fire when some threshold of
+neuro-transmitting chemical is reached~\cite{neuron} and are linked up in
 intricate ways to manifest complex behaviours. In order to take activations and
 give them a behaviour similar to neurons they must be passed through an
 activation function, denoted $\mathcal{H}$, which gives the threshold effect
@@ -175,34 +171,34 @@ These are similar to Rosenblatt's original perceptron~\cite{Rosenblatt} with the
 difference that $\mathcal{H}$ must be differentiable whereas the perceptron used
 a step function.
 
-All neural networks are made of layers, and have an input layer which is a
-vector of input data and an output layer, a vector whose size relates to the
-predictions being made. Layers inbetween these two are called hidden layers and
-are made of the units $h_j$ (known as hidden units). The most simple neural
-network has a single hidden layer. This model can be written as
+All neural networks  have an input layer which is a vector of input data and an
+output layer, a vector whose size relates to the predictions being made. Layers
+inbetween these are called hidden layers and are made of units $h_j$, known as
+hidden units. The most simple neural network has a single hidden layer. This
+model can be written as
 \begin{equation}
-F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}^{(2)}
-\mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji}^{(1)} x_{i} + w_{j0}^{(1)} \Bigg) + w_{k0}^{(2)} \Bigg).
+F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}
+\mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji} x_{i} + w_{j0} \Bigg) + w_{k0} \Bigg).
 \label{eq:basicnn}
 \end{equation}
-where the superscript number in brackets labels the layer to which parameters
-belong. The hyper-parameters $\vec{\theta}$ here are the choice of activation
-function $\mathcal{H}$, output function $\mathcal{O}$, number of hidden units
-$m$ and the number of hidden layers (just one here).
-
+ The hyper-parameters here are the choice of activation function $\mathcal{H}$,
+ output function $\mathcal{O}$, number of hidden units $m$ and the number of
+ hidden layers.
+ 
 The output function $\mathcal{O}$ must have properties that allow us to
-interpret the outputs of the network as probabilistic. A common choice of output
-function for classification problems is the softmax function
+interpret the outputs of the network as probabilistic i.e. the sum of elements
+in the output must equal 1. A common choice of output function for
+classification problems is the softmax function
 \begin{equation}
-  \mathcal{O}(z)_k = p(k|\vec{x}) = \frac{exp(z_k)}{\sum_{i=1}^kexp(z_i)}
+  \mathcal{O}(z)_c = p(c|\vec{x}) = \frac{exp(z_c)}{\sum_{i=1}^kexp(z_i)}
   \label{eq:softmax}
 \end{equation}
 where $z$ merely denotes the argument of the output function. This function
-gives the probability of being an example belonging to class $k$ given the data
-$\vec{x}$ where there are $k$ possible classes.
+gives the probability that an example represented by data $\vec{x}$ belongs to
+class $c$ where there are $k$ possible classes.
 
 By controlling the hyper-parameters a network of any size and shape can be
-built, in the network function can be written in general as the cumbersome
+built, the network function can be written in general as the cumbersome
 \begin{equation}
   F(\vec{x}, \vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
   \mathcal{H}_{n} \Bigg( \dots \mathcal{H}_2  \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} 
@@ -211,33 +207,33 @@ built, in the network function can be written in general as the cumbersome
 \end{equation}
 This behaves in a similar way to the network with one hidden layer but now each
 layer's width and activation must be chosen individually, though often they are
-set to the same values. A diagram of an arbitrary sized neural network is shown
-in figure~\ref{fig:nn}.
+set to the same values. A diagram of an arbitrarily sized neural network is
+shown in figure~\ref{fig:nn}.
 \input{04-machine-learning/nn}
 It is clear that the number of parameters that need to be learned $\vec{w}$ and
 the number that need to be set by hand to tune the model to a given problem
-$\vec{theta}$ are much larger than in the BDT algorithm. For this reason
+$\vec{\theta}$ are much larger than in the BDT algorithm. For this reason
 adoption of neural networks is sometimes hampered by lack of data or sufficient
 time to tune the hyper-parameters to achieve satisfactory performance.
 
-Re-write the below:
-Loss functions:
+The loss has not been discussed in detail here but two common choices of
+function are the mean squared error
 \begin{equation}
-E(\vec{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\vec{x}_n, \vec{w}) - t_n)^2
-\label{eq:sumofsquares}
+E(\vec{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\vec{x}_n, \vec{w}) - t_n)^2,
+\label{eq:MSE}
 \end{equation}
-where $t_n$ are the targets for the given data entries $\vec{x}_n$.
-Minimising this function with some algorithm does work in practice, however it
-has been shown that, using
+where $t_n$ are the labels for the given data entries $\vec{x}_n$ and the
+generally superior cross-entropy~\cite{XEntropySimard}
 \begin{equation}
-E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg)
+E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg).
 \label{eq:xentropy}
 \end{equation}
-known as cross-entropy, is faster and more generalised \cite{XEntropySimard}.
 
-Optimisers:
-The particular training algorithm that will be used to update parameters in this
-report is known as adaptive moment estimation or ADAM~\cite{ADAMOpt}. ADAM is a
+Likewise the choice of optimiser has not been discussed, a large number are
+available though in general the choice of optimiser depends on what is available
+in the software that one is using. For this reason minuit~\cite{minuit} is often
+used in this work. In general it would be preferred to use something more
+modern such as adaptive moment estimation or ADAM~\cite{ADAMOpt}. ADAM is a
 variant of the gradient descent algorithm, which is widely used and has spawned
 many other variants~\cite{GDOverview}.
 

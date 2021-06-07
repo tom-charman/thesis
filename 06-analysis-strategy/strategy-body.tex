@@ -1,17 +1,17 @@
 \chapter{Analysis Strategy}%
 \label{ch:strategy}
-In the previous chapter the process of reconstruction and selection was
-described. With the objects required for this analysis reconstructed and an
-event selection in place an analysis strategy is formed in order to maximise the
-signal strength of the VH(bb) process and yield a robust result that is well
-understood in terms of modelling and systematic errors. In this chapter that
-strategy will be detailed, first the categorisation into analysis regions will
-be defined, next the multi-variate algorithm that is used to generate some of
-the distributions entering into the profile-likelihood fit will be explained.
-Plots of the data versus Monte-Carlo prediction will then be shown in order to
-build a picture of the pre-fit status of the agreement. Finally a series of
-cross-checks which are used to validate the methods of the analysis will be
-explained.
+With the objects required for this analysis reconstructed and an event selection
+in place an analysis strategy is formed in order to maximise the signal strength
+of the \VHbb process and yield a robust result that is well understood in terms
+of modelling and systematic errors. In this chapter that strategy will be
+detailed, first the categorisation into analysis regions will be defined, next
+the multi-variate algorithm that is used to generate some of the distributions
+entering into the profile-likelihood fit will be explained. Then the fit itself
+will be explained, including a definition of the likelihood function and
+systematic uncertainty model. Plots of the data versus Monte-Carlo prediction
+will then be shown in order to build a picture of the pre-fit status of the
+agreement. Finally a series of cross-checks which are used to validate the
+methods of the analysis will be explained.
 
 The author's contributions include studying the behaviour of the
 profile-likelihood fit with the inclusion of these regions, which are new in
@@ -25,16 +25,16 @@ with respect to the previous version of the algorithm.
 
 Events which pass the selection detailed in table~\ref{tab:event-selection} are
 categorised into several regions for analysis. Firstly they are split into what
-are known as medium ($75 - 150 \GeV$), high ($150 - 250 \GeV$) and extreme ($ >
-250 \GeV$) $p_T^{V}$. Events are further categorised by jet multiplicity, all
+are known as medium ($75 -- 150\ \GeV$), high ($150 -- 250\ \GeV$) and extreme ($ >
+250\ \GeV$) $p_T^{V}$. Events are further categorised by jet multiplicity, all
 jets are required by the selection to have at least two jets, categories are
 defined for events with exactly two, or exactly three jets. In the 2--lepton
 channel there is a requirement of three or more jets but when referring to all
-three channels at once categorisation is referred to as simply 3-jet or 2-jet.
+three channels at once categorisation is referred to as simply 3--jet or 2--jet.
 
-Furthermore events are categorised into a so-called signal region which is
-straddled either side by two control regions. This categorisation is achieved
-via continuous cuts defined in the $\Delta R(b, \bar{b})$~---~$p_T^{V}$ plane,
+Furthermore events are categorised into a signal region which is straddled
+either side by two control regions. This categorisation is achieved via
+continuous cuts defined in the $\Delta R(b, \bar{b})$~--~$p_T^{V}$ plane,
 they are chosen to maximise the signal purity in the signal region and are shown
 for the 1--lepton channel in figure~\ref{fig:drbb-crs}.
 \input{06-analysis-strategy/drbb-cuts}
@@ -42,29 +42,22 @@ The regions either side of the signal region are known as the
 high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ control regions,
 shortened to CRHigh and CRLow respectively.
 
-A 3D representation of the regions defined when combining these three
-categorisations can be seen in figure~\ref{fig:analysis-categories}.
-\input{06-analysis-strategy/analysis-cube}
-Note that not all regions of the cube are populated with events in every channel, the medium
-$p_T^V$ region is only filled for the 2--lepton channel.
-
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} Control Region}%
 \label{sec:topemucr}
 
 One more region exists only in the 2--lepton channel, it is obtained by
-inverting the requirement of two same flavour leptons, requiring two opposite
-flavour leptons instead, and keeping all other selection criteria the same. This
-region contains almost all $t\bar{t}$ and single top processes (whose Feynman
-diagrams belong to the same sum) matching very closely the number of expected
-events of each of these backgrounds in the 2--lepton channel. This region is
-therefore called the top $e \mu$ control region. The data from this control
-region can be used as a prediction for the number of top process events in the
-2--lepton channel once multiplied by a scale factor which accounts for
-differences in normalisation. Since data are used as the prediction for these
-events modelling of shape or migration between control regions becomes
-unnecessary.
-
-Plots of top e-mu control region
+requiring two opposite flavour leptons instead of two same flavour leptons, and
+keeping all other selection criteria the same. This region contains almost all
+$t\bar{t}$ and single top processes (whose Feynman diagrams belong to the same
+sum) matching very closely the number of expected events of each of these
+backgrounds in the 2--lepton channel. This region is therefore called the top $e
+\mu$ control region. The data from this control region can be used as a
+prediction for the number of top process events in the 2--lepton channel once
+multiplied by a scale factor which accounts for differences in normalisation.
+Since data are used as the prediction for these events modelling of shape or
+migration between control regions becomes unnecessary. Given that this region
+exists purely to model systematic uncertainties it will explored in more detail
+in the subsequent chapter in section~\ref{sec:ttbar_DD}.
 
 \section{Composition of Analysis Regions}
 \label{sec:composition}
@@ -77,89 +70,82 @@ and \textsc{Powheg}~+~\textsc{Pythia~8} for gluon initiated processes as can be
 seen in table~\ref{tab:sigMC}.
 \input{06-analysis-strategy/signal-MC}
 
-The 0--lepton channel contains the  Z+ jets, W + jets, top quark and diboson
-backgrounds. The Z + jets background dominates the mixture in the 2-jet category
-across signal and control regions. In the 3-jet category the top-quark processes
-dominate apart from in CRLow. There is very little signal contamination in the
-control regions. As can be seen in table~\ref{tab:bkgMC} V + jets events are
-generated using \textsc{Sherpa~2.2.1}, top quark events are generated using
-\textsc{Powheg}~+~\textsc{Pythia~8} and diboson events are generated also using
-\textsc{Sherpa~2.2.1}, this is true for these backgrounds across all channels
-where a Monte-Carlo prediction is used.
+The 0--lepton channel contains the  $Z$ + jets, $W$ + jets, top quark and
+diboson backgrounds. The $Z$ + jets background dominates the mixture in the
+2--jet category across signal and control regions. In the 3--jet category the
+top-quark processes dominate apart from in CRLow. There is very little signal
+contamination in the control regions. As can be seen in table~\ref{tab:bkgMC}
+$V$ + jets events are generated using \textsc{Sherpa~2.2.1}, top quark events
+are generated using \textsc{Powheg}~+~\textsc{Pythia~8} and diboson events are
+generated also using \textsc{Sherpa~2.2.1}, this is true for these backgrounds
+across all channels where a Monte-Carlo prediction is used.
 \input{06-analysis-strategy/background-MC}
 
-The 1--lepton channel contains the W + jets, Z+ jets, top quark, diboson and multijet
-backgrounds where multijet is the name given to backgrounds arising from QCD
-processes. The channel is dominated by a mixture of W + jets and top quark
-processes, CRHigh has a higher purity of top quark processes whereas CRLow has a
-high purity of W + jets background. Contribution from multijet and Z + jets is
-small across all regions, and similarly to in the 0--lepton channel the diboson
-background is almost all contained in the signal region.
+The 1--lepton channel contains the $W$ + jets, $Z$ + jets, top quark, diboson
+and multijet backgrounds where multijet is the name given to backgrounds arising
+from QCD processes. The channel is dominated by a mixture of $W$ + jets and top
+quark processes, CRHigh has a higher purity of top quark processes whereas CRLow
+has a high purity of $W$ + jets background. Contribution from multijet and $Z$ +
+jets is small across all regions.
 
-The 2--lepton channel contains the Z + jets, top quark and diboson backgrounds.
-The Z + jets background dominates across all regions particularly in both
-$\Delta R(b, \bar{b})$ control regions. Predictions for the top quark processes
-are taken from the top $e \mu$ control region described in
+The 2--lepton channel contains the $Z$ + jets, top quark and diboson
+backgrounds. The $Z$ + jets background dominates across all regions particularly
+in both $\Delta R(b, \bar{b})$ control regions. Predictions for the top quark
+processes are taken from the top $e \mu$ control region described in
 section~\ref{sec:topemucr}. Given that these predictions come from data, the
-importance of a good understanding of the remaining large background, Z + jets,
-is crucial to the performance of the analysis.
+importance of a good understanding of the remaining large background, $Z$ +
+jets, is crucial to the performance of the analysis.
+
+In all channels the diboson background is contained almost entirely within the
+signal region.
 
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
 
 The signal regions in all channels enter into the profile-likelihood fit as
 distributions generated by a multi-variate analysis. The multi-variate algorithm
-used to generate this distribution is a BDT trained to separate
-$VH~\rightarrow~b\bar{b}$ from events coming from any other source. Although in
-the profile-likelihood fit only the signal region is input as a distribution of
-BDT scores, the BDT itself is trained on the combination of all $\Delta R(b,
-\bar{b})$ regions and takes place before the categorisation into ranges of
-$p_T^V$. Apart from this all of the analysis selection criteria defined in
+used to generate this distribution is a BDT trained to separate \VHbb from all
+other events. Only the signal region enters into the fit as a distribution of
+BDT scores, despite this, the BDT itself is trained on the combination of all
+$\Delta R(b, \bar{b})$ regions and takes place before the categorisation into
+$p_T^V$ bins. All other analysis selection criteria defined in
 section~\ref{sec:selection} are applied before training. Training is carried out
 separately for each lepton channel and jet multiplicity, a single split at
 $150~\GeV$ is used in the 2--lepton channel resulting in eight separate regions
-for training as in table~\ref{tab:training-regions}. Trainings were tested with
-$p_T^V$ splitting that matched that of the analysis regions, however performance
-was not shown to differ between the full splitting and the partial splitting
-shown here, additionally in the $p_T^V > 250$~\GeV region a low number events
-results in poor statistical power and so that region alone is prone to
-over-training.
+for training as in table~\ref{tab:training-regions}. The impact of the
+difference between the fit regions and those that go into training the BDT on
+its performance have been studied~\cite{VHMainNote2019}, and in general the
+mitigation of over-fitting resulting from having more events to train on
+outweighs any change in performance.
 \input{06-analysis-strategy/training-regions}
-Training regions do not match the signal regions in terms of selection in order
-to ensure that the training is as robust as possible to statistical
-fluctuations. In tests it has been shown that there is significant evidence of
-over-training when training is performed on the signal region.
+In tests it has been shown that there is significant evidence of
+over-training when training is performed on the signal region alone.
 
 The BDT is trained on all of the samples listed in tables~\ref{tab:sigMC}
 and~\ref{tab:bkgMC}, this includes the $t\bar{t}$ and single top Monte-Carlo
 predictions that are not used in the final fit in the 2--lepton channel as
-previously discussed. The event numbers are used to split the background and
-signal inputs into two different datasets, the splitting is done based on
-whether or not the event number is even or odd (ensuring no overlap between
-datasets). The model trained on the odd numbered events is evaluated on the even
-numbered evens and vice versa, to ensure that training and evaluation take place
-on statistically independent datasets but to also ensure that we have as many
-events to train on as possible. The final discriminant is constructed by summing
-the results from the even and odd trainings.
+previously discussed. The inputs are split into two datasets based on whether or
+not the event number is even or odd. The model trained on the odd numbered
+events is evaluated on the even numbered events and vice versa, this ensures
+that training and evaluation take place on statistically independent datasets
+but also that as many events are trained on as possible. The final discriminant
+is constructed by summing the results from both trainings.
 
 The BDT inputs differ from the final analysis distributions further in that the
-b-tagging which is applied is not the hybrid tagging discussed in
+$b$-tagging which is applied is not the hybrid tagging discussed in
 section~\ref{subsec:hybrid-tagging} but rather just the truth tagging described
 in section~\ref{subsec:truth-tagging}. This gives the highest number of events
 possible given all of the tagging strategies available and thus gives the most
 statistically robust training. The differences between hybrid-tagged and
 truth-tagged distributions is small when considering only the sum of all
-backgrounds and thus training on truth tagged events is not expected to impact
-the physics (studies available).
+backgrounds and thus the impact of this decision is small.
 
-The nature of BDT algorithms mean that only fairly coarse cuts on the input
-variables, therefore it is necessary to deal with distributions that have very
-long tails so that cuts are not place in those tails. To combat this problem an
-artificial limit is out on the maximum value of each input distribution that
-corresponds to the remaining distribution containing 99~\% of signal events.
+It is necessary to deal with distributions that have very long tails so that
+cuts are not placed by the BDT in those tails. This is achieved by placing an
+artificial limit on the maximum value of each input distribution that
+corresponds to leaving 99~\% of signal events in the remaining distribution.
 This increases the reproducibility of the training as fewer cuts are wasted by
-being place in long tails, bearing in mind that the number of total cuts is
-constrained by the parameter maximum tree depth.
+being placed in long tails.
 
 Table~\ref{tab:MVAinputs} shows the choices of variables used as inputs to the
 algorithm in each analysis channel. Inputs are carefully chosen in order to
@@ -171,11 +157,11 @@ analysis which is built into \textsc{ROOT}~\cite{ROOT}, and was used for
 training this algorithm.
 \input{06-analysis-strategy/bdt-hps}
 
-Distributions of the inputs to the BDT in 2-jet, high $p_T^V$ region are shown
+Distributions of the inputs to the BDT in 2--jet, high $p_T^V$ region are shown
 in
 figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
 for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
-seen that a high level separation power in one dimension can be obtained from
+seen that a high level of separation power in one dimension can be obtained from
 the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ distributions which are
 correlated. In the 0--lepton channel a moderate level of separation can be
 obtained from the $\Delta \eta(b, \bar{b})$, $E_T^{miss}$ and $p_T(b_2)$ also.
@@ -185,53 +171,13 @@ channel it is the $\cos{\theta(\ell^-,Z)}$, $E_T^{miss}\text{--significance}$,
 $\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
 
-The BDT is designed to maximise the separation between the two classes of inputs
-it is provided with, in this case signal and background Monte-Carlo predictions.
-This does not take into account the statistical error on the quantities of each
-bin in the discriminant distribution. To mitigate this issue a transformation is
-applied according to the following.
-
-Consider the function:
-\begin{equation}
-  Z = z_{s}\frac{n_{s}}{N_{s}} + z_{b}\frac{n_{b}}{N_{b}}.
-\end{equation}
-where
-\begin{itemize}
-\item $I[k,l]$ is an interval of the histograms, containing the bins between bin
-  $k$ and bin $l$;
-\item $N_{s}$ is the total number of signal events in the histogram;
-\item $N_{b}$ is the total number of background events in the histogram;
-\item $n_{s}(I[k,l])$ is the total number of signal events in the interval
-  $I[k,l]$;
-\item $n_{b}(I[k,l])$ is the total number of background events in the interval
-  $I[k,l]$;
-\item $z_{s}$ and $z_{b}$ are parameters used to tune the algorithm.
-\end{itemize}
-The values for $z_{b}$ and $z_{s}$ are chosen such that the total number of bins
-in the signal regions with $p_{\text{T}}^V<$\SI{250}{\GeV} is 15 ($z_{s}=10$,
-$z_{b}=5$) and 8 ($z_{s}=5$, $z_{b}=3$) in signal regions with
-$p_{\text{T}}^V>$\SI{250}{\GeV}. The values are chosen such that $z_{s} > Z_{b}$
-to achieve a finer binning in the high BDT output score region which has, as
-expected, the best signal to background ratio with respect to the rest of the
-distribution.
-
-The pre-transformation BDT score distribution has 500 equidistant bins between
--1 and 1. The re-binning is then conducted using the following procedure:
-\begin{enumerate}
-\item Starting from the last bin on the right of the original histogram,
-  increase the range of the interval $I(k, last)$ by adding, one after the other,
-  the bins from the right to the left;
-\item Calculate the value of Z at each step;
-\item Once $Z(I[k_{0}, last]) > 1$, rebin all the bins in the interval $I(k_{0},
-  last)$ into a single bin;
-\item Repeat steps 1-3, starting this time from the last bin on the right, not
-  included in the previous remap (the new last is $k_{0}-1$), until $k_{0}$ in
-  the first bin.
-\end{enumerate}
-If the statistical uncertainty of the newly formed bin is larger than 20~\% step
-2 is extended until the statistical uncertainty is below 20~\%.
-
-- What is the performance like?
+The BDT is designed to maximise the separation between signal and background
+Monte-Carlo predictions. This does not take into account the statistical error
+on the quantities of each bin in the discriminant distribution. To mitigate this
+issue a transformation is applied, details of which are found in
+appendix~\ref{app:bdt-transform}. The performance of the algorithm in terms of
+over-fitting is found to be robust~\cite{VHMainNote2019} and the separation
+between categories can be seen in section~\ref{sec:prefit}.
 
 \section{Profile Likelihood Fit}%
 \label{sec:plf}
@@ -262,12 +208,12 @@ The ratio between the measured and the expected signal cross-sections
 $\mu=\sigma/\sigma_{\text{SM}}$, known as the signal strength, is the parameter
 of interest in the nominal fit. It is common to all analysis regions that enter
 into the fit. Each of the scale factors $k_j$ and the signal strength scale
-either the associated background or the signal linearly without any prior
-constraint or penalty in the likelihood function, in further sections these
-parameters will be referred to as floating. Each nuisance parameter $\theta_i$
-encodes the dependence of the prediction on systematic uncertainties into
-continuous parameters in the likelihood. Prior knowledge of the uncertainty that
-these parameters encode for is expressed as a Gaussian penalty term
+either their associated quantity linearly without any prior constraint or
+penalty in the likelihood function, in further sections these parameters will be
+referred to as floating. Each nuisance parameter $\theta_i$ encodes the
+dependence of the prediction on systematic uncertainties into continuous
+parameters in the likelihood. Prior knowledge of the uncertainty that these
+parameters encode for is expressed as a Gaussian penalty term
 $\mathcal{G}(0\,|\,\theta_i,1)$ added to the likelihood for each uncertainty.
 The parameters $\theta_i$ are therefore expressed as a number of standard
 deviations of a unit Gaussian in the subsequent sections. These penalties
@@ -287,10 +233,7 @@ where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
 likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
 $\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
 likelihood for a given $\mu$. This test statistic is used to measure the
-compatibility of the background-only model with the observed data, extracting
-the local $p_0$ value, and, if no hint of a signal is found in this procedure,
-for the derivation of exclusion intervals using the $CL_s$
-method~\cite{Cowan:2010js,Read:2002hq}.
+compatibility of the background only model with the observed data.
 
 % \paragraph{Shape systematic Uncertainties post-processing} 
 
@@ -438,19 +381,21 @@ method~\cite{Cowan:2010js,Read:2002hq}.
 
 This section shows the pre-fit distributions of the Monte-Carlo prediction
 versus the data in every analysis region that enters into the profile-likelihood
-fit. Figures~\ref{fig:0lep-2jet-prefit},~\ref{fig:0lep-3jet-prefit} show the
+fit. Figures~\ref{fig:0lep-2jet-prefit} and \ref{fig:0lep-3jet-prefit} show the
 distributions in the 0--lepton channel in the 2--jet and 3--jet regions
-respectively. Figures~\ref{fig:1lep-2jet-prefit},~\ref{fig:1lep-3jet-prefit} show the
-distributions in the 1--lepton channel in the 2--jet and 3--jet regions
-respectively. Figures~\ref{fig:2lep-2jet-prefit},~\ref{fig:2lep-3pjet-prefit} show the
-distributions in the 2--lepton channel in the 2--jet and 3+--jet regions
-respectively.
+respectively. Figures~\ref{fig:1lep-2jet-prefit} and \ref{fig:1lep-3jet-prefit}
+show the distributions in the 1--lepton channel in the 2--jet and 3--jet regions
+respectively. Figures~\ref{fig:2lep-2jet-prefit} and \ref{fig:2lep-3pjet-prefit}
+show the distributions in the 2--lepton channel in the 2--jet and $geq$3--jet
+regions respectively.
 \input{06-analysis-strategy/0lep-2jet-prefit}
 \input{06-analysis-strategy/0lep-3jet-prefit}
 \input{06-analysis-strategy/1lep-2jet-prefit}
 \input{06-analysis-strategy/1lep-3jet-prefit}
 \input{06-analysis-strategy/2lep-2jet-prefit}
 \input{06-analysis-strategy/2lep-3pjet-prefit}
+\clearpage
+\newpage
 
 \section{Analysis Cross-checks}
 
@@ -471,4 +416,6 @@ case are being treated as a standard candle~\footnote{A standard candle is an
 methodology produces a measurement of the diboson process that is in agreement
 with the Standard Model prediction, and therefore existing measurements, then
 the methodology itself has not introduced unexpected effects on the result.
+Results of these cross-checks imply both of these tests have been
+passed~\cite{VHMainNote2019}.
 

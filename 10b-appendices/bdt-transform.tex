@@ -1,0 +1,41 @@
+\chapter{BDT Transformation}
+\label{app:bdt-transform}
+Consider the function:
+\begin{equation}
+  Z = z_{s}\frac{n_{s}}{N_{s}} + z_{b}\frac{n_{b}}{N_{b}}.
+\end{equation}
+where
+\begin{itemize}
+\item $I[k,l]$ is an interval of the histograms, containing the bins between bin
+  $k$ and bin $l$;
+\item $N_{s}$ is the total number of signal events in the histogram;
+\item $N_{b}$ is the total number of background events in the histogram;
+\item $n_{s}(I[k,l])$ is the total number of signal events in the interval
+  $I[k,l]$;
+\item $n_{b}(I[k,l])$ is the total number of background events in the interval
+  $I[k,l]$;
+\item $z_{s}$ and $z_{b}$ are parameters used to tune the algorithm.
+\end{itemize}
+The values for $z_{b}$ and $z_{s}$ are chosen such that the total number of bins
+in the signal regions with $p_{\text{T}}^V<$\SI{250}{\GeV} is 15 ($z_{s}=10$,
+$z_{b}=5$) and 8 ($z_{s}=5$, $z_{b}=3$) in signal regions with
+$p_{\text{T}}^V>$\SI{250}{\GeV}. The values are chosen such that $z_{s} > Z_{b}$
+to achieve a finer binning in the high BDT output score region which has, as
+expected, the best signal to background ratio with respect to the rest of the
+distribution.
+
+The pre-transformation BDT score distribution has 500 equidistant bins between
+-1 and 1. The re-binning is then conducted using the following procedure:
+\begin{enumerate}
+\item Starting from the last bin on the right of the original histogram,
+  increase the range of the interval $I(k, last)$ by adding, one after the other,
+  the bins from the right to the left;
+\item Calculate the value of Z at each step;
+\item Once $Z(I[k_{0}, last]) > 1$, rebin all the bins in the interval $I(k_{0},
+  last)$ into a single bin;
+\item Repeat steps 1-3, starting this time from the last bin on the right, not
+  included in the previous remap (the new last is $k_{0}-1$), until $k_{0}$ in
+  the first bin.
+\end{enumerate}
+If the statistical uncertainty of the newly formed bin is larger than 20~\% step
+2 is extended until the statistical uncertainty is below 20~\%.

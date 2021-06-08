@@ -269,9 +269,9 @@ The CP group recommendations for the lepton triggers can be found
 in~\cite{VHObjectNote2019}. The group provide a tool for determining the lepton
 trigger systematic error which is implemented in the CxAOD Framework (mentioned
 in section~\ref{sec:cxaod}). The nuisance parameter
-\texttt{EL\_EFF\_{\mathrm{T}}rigger\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
+\texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
 uncertainty on the electron trigger. For the muons, the tool returns two components
-\texttt{MUON\_EFF\_{\mathrm{T}}rigSystUncertainty} and \texttt{MUON\_EFF\_{\mathrm{T}}rigStatUncertainty}
+\texttt{MUON\_EFF\_TrigSystUncertainty} and \texttt{MUON\_EFF\_TrigStatUncertainty}
 which account for the systematic error and the statistical error on scale factor
 respectively. An up and down variation of 1-$\sigma$ are used for all of the
 aforementioned nuisance parameters.
@@ -291,9 +291,9 @@ for $p_{\mathrm{T}}>150$~\GeV\ that are unity due to the available sample being 
 statistics to measure a scale factor~\footnote{Check if this is for all electron
   systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
 150~\GeV\ to over this shortcoming. The above uncertainties are controlled by
-\texttt{EL\_EFF\_ID\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR},
-\texttt{EL\_EFF\_Reco\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR}, and
-\texttt{EL\_EFF\_Iso\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
+\texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
+\texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR}, and
+\texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
 
 \subsubsection{Electron Energy Scale and Resolution Uncertainties}
 
@@ -324,7 +324,7 @@ uncertainties to the isolation scale factor are controlled by
 \texttt{MUON\_EFF\_ISO\_STAT} and \texttt{MUON\_EFF\_ISO\_SYS} respectively.
 They are supported in the range of $10 < p_{\mathrm{T}} < 500$~\GeV. For muons outside of
 this range, a scale factor of 1$\pm$0.05 is used.
-\texttt{MUON\_EFF\_{\mathrm{T}}TVA\_STAT} and \texttt{MUON\_EFF\_{\mathrm{T}}TVA\_SYS} control the
+\texttt{MUON\_EFF\_TTVA\_STAT} and \texttt{MUON\_EFF\_TTVA\_SYS} control the
 systematic uncertainty on the scale factor of the cuts on the impact parameter
 significance and the $|z_0\sin\theta|$ which estimate the error on
 track-to-vertex association. All of the above systematic uncertainties are
@@ -350,9 +350,9 @@ for the charge dependence of the of the momentum scale uncertainty
 Taus are not crucial to the analysis and therefore the systematic uncertainties
 on the measurement of taus does not have a large effect on the result. The
 systematic uncertainties considered in the analysis relating to taus are
-\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_DETECTOR},
-\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_INSITU} and
-\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_MODEL}, which all account for different
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR},
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} and
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL}, which all account for different
 sources of energy scale uncertainty.
 
 \subsection{Jets}

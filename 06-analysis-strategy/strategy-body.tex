@@ -27,7 +27,7 @@ with respect to the previous version of the algorithm.
 Events which pass the selection detailed in table~\ref{tab:event-selection} are
 categorised into several regions for analysis. Firstly they are split into what
 are known as medium (75--150~\GeV), high (150--250~\GeV) and extreme (>250~\GeV)
-$p_T^{V}$. Events are further categorised by jet multiplicity, all jets are
+$p_{\mathrm{T}}^{V}$. Events are further categorised by jet multiplicity, all jets are
 required by the selection to have at least two jets, categories are defined for
 events with exactly two, or exactly three jets. In the 2--lepton channel there
 is a requirement of three or more jets but when referring to all three channels
@@ -35,7 +35,7 @@ at once categorisation is referred to as simply 3--jet or 2--jet.
 
 Furthermore events are categorised into a signal region which is straddled
 either side by two control regions. This categorisation is achieved via
-continuous cuts defined in the $\Delta R(b, \bar{b})$~--~$p_T^{V}$ plane,
+continuous cuts defined in the $\Delta R(b, \bar{b})$~--~$p_{\mathrm{T}}^{V}$ plane,
 they are chosen to maximise the signal purity in the signal region and are shown
 for the 1--lepton channel in figure~\ref{fig:drbb-crs}.
 \input{06-analysis-strategy/drbb-cuts}
@@ -109,7 +109,7 @@ used to generate this distribution is a BDT trained to separate \VHbb\ from all
 other events. Only the signal region enters into the fit as a distribution of
 BDT scores, despite this, the BDT itself is trained on the combination of all
 $\Delta R(b, \bar{b})$ regions and takes place before the categorisation into
-$p_T^V$ bins. All other analysis selection criteria defined in
+$p_{\mathrm{T}}^V$ bins. All other analysis selection criteria defined in
 section~\ref{sec:selection} are applied before training. Training is carried out
 separately for each lepton channel and jet multiplicity, a single split at
 $150~\GeV$ is used in the 2--lepton channel resulting in eight separate regions
@@ -159,18 +159,18 @@ analysis which is built into \textsc{ROOT}~\cite{ROOT}, and was used for
 training this algorithm.
 \input{06-analysis-strategy/bdt-hps}
 
-Distributions of the inputs to the BDT in 2--jet, high $p_T^V$ region are shown
+Distributions of the inputs to the BDT in 2--jet, high $p_{\mathrm{T}}^V$ region are shown
 in
 figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
 for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
 seen that a high level of separation power in one dimension can be obtained from
 the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ distributions which are
 correlated. In the 0--lepton channel a moderate level of separation can be
-obtained from the $\Delta \eta(b, \bar{b})$, $E_T^{miss}$ and $p_T(b_2)$ also.
+obtained from the $\Delta \eta(b, \bar{b})$, $E_{\mathrm{T}}^{miss}$ and $p_{\mathrm{T}}(b_2)$ also.
 In the 1--lepton channel $\min(\Delta\phi(\ell,jet))$, $m_{\text{top}}$ and
-$p_T(b_2)$ provide the next best one dimensional separation. In the 2--lepton
-channel it is the $\cos{\theta(\ell^-,Z)}$, $E_T^{miss}\text{--significance}$,
-$\Delta \eta(V, H)$ and $p_T(b_2)$ that provide next best separation.
+$p_{\mathrm{T}}(b_2)$ provide the next best one dimensional separation. In the 2--lepton
+channel it is the $\cos{\theta(\ell^-,Z)}$, $E_{\mathrm{T}}^{miss}\text{--significance}$,
+$\Delta \eta(V, H)$ and $p_{\mathrm{T}}(b_2)$ that provide next best separation.
 \input{06-analysis-strategy/2jet-150pTV-input-distributions}
 
 The BDT is designed to maximise the separation between signal and background
@@ -241,23 +241,23 @@ compatibility of the background only model with the observed data.
 
 % In the current systematic model, independent normalization factors are employed
 % for the main backgrounds (\ttbar, $\Wboson +$HF and $\Zboson +$HF) independently
-% in $2$ and $3(+)$-jet, above or below $$p_T^V$ = 150~\GeV\$. Therefore, the
+% in $2$ and $3(+)$-jet, above or below $$p_{\mathrm{T}}^V$ = 150~\GeV\$. Therefore, the
 % extrapolation uncertainty is already accounted for at these boundaries. Most of
-% the systematic uncertainties are computed in total $$p_T^V$$ phase space
+% the systematic uncertainties are computed in total $$p_{\mathrm{T}}^V$$ phase space
 % ($\geq75~\GeV$) in $2$-jet and $3$-jet events independently to avoid
 % double-counting to the best possible. However, migrations at the $pTV=150~\GeV$
 % are still possible, and differences in BDTr training and application setup or
 % correlations could induce a small uncertainty componant accross jet bins. When
 % visible, these effects are reduced with post-processing. The overall component
-% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF $p_T^V$
+% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF $p_{\mathrm{T}}^V$
 % uncertainties in the different jet bins, as well as in the bins
-% $75~\GeV<$p_T^V$<150~\GeV$ and $$p_T^V$>150~\GeV$ is removed that way. \\
+% $75~\GeV<$p_{\mathrm{T}}^V$<150~\GeV$ and $$p_{\mathrm{T}}^V$>150~\GeV$ is removed that way. \\
 
 
 % Signal \mbb~shape uncertainty follow a similar but more refined treatment. In
 % fact, the \VH\ signal is meant to have independent floating parameters in each
 % STXS bin. Therefore, \\VH~\mbb uncertainties are treated to have no overall
-% impact in each jet and $p_T^V$ analysis bin, and act only as a shape on the
+% impact in each jet and $p_{\mathrm{T}}^V$ analysis bin, and act only as a shape on the
 % discriminant, or as an extrapolation between signal and control regions. The
 % same approach is adopted for di-boson \mbb uncertainties.
 
@@ -306,10 +306,10 @@ compatibility of the background only model with the observed data.
 % % \begin{figure}[h]
 % %   \centering
 % %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_T2_L0_distmva_J2_\VHSTXS_SysMET_SoftTrk_ResoPara.png}
+%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_{\mathrm{T}}2_L0_distmva_J2_\VHSTXS_SysMET_SoftTrk_ResoPara.png}
 % %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_T2_L0_distmBB_J3_\VHSTXS_SysJET_CR_JET_EtaIntercalibration_Modelling.png}
-% %      \caption{The variation in 0 lepton channel, 150\,\GeV$< p^{V}_{\mathrm{T}
+%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_{\mathrm{T}}2_L0_distmBB_J3_\VHSTXS_SysJET_CR_JET_EtaIntercalibration_Modelling.png}
+% %      \caption{The variation in 0 lepton channel, 150\,\GeV$< p^{V}_{\mathrm{T}}
 % <$250\,\GeV region of the MET track-based soft term systematic in the
 % multi-variate analysis (top) and the jet energy scale on eta-intercalibration
 % systematic in the cut-based analysis (bottom). The dashed lines represent the

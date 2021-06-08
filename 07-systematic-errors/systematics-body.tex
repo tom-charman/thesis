@@ -210,7 +210,7 @@ generators. A second nuisance parameter arising from the factorised variable
 therefore at least allows the profile-likelihood fit to control more precisely
 the histograms relating to that variable. The choice of factorised variable is
 also relevant to the choice of using the hybrid method, for example in the fit
-the histograms entering in the control regions are of $P_T^V$ and so it may be
+the histograms entering in the control regions are of $P_{\mathrm{T}}^V$ and so it may be
 sensible to give the fit a parameter to directly control the shape of this
 variable.
 
@@ -247,20 +247,20 @@ respectively~\cite{puTWiki}.
 \subsection{Triggers}
 \label{sec:trigsys}
 
-\subsubsection{\texorpdfstring{$E_T^{\text{miss}}$}{MET} Triggers}
+\subsubsection{\texorpdfstring{$E_{\mathrm{T}}^{\text{miss}}$}{MET} Triggers}
 
-Scale factors are derived for the $E_T^{\text{miss}}$ triggers using
+Scale factors are derived for the $E_{\mathrm{T}}^{\text{miss}}$ triggers using
 $W(\mu,\nu)$ + jets events as outlined in~\cite{VHObjectNote2019}.
 
 Three uncertainties are taken into account, the statistical error on the dataset
 used to derived the scale factor \texttt{METTrigStat}, a parameter used to
 account for the choice of physics process and the effect that might have on the
 determination of the scale factor \texttt{METTrigTop} and \texttt{METTrigSumPt}
-which aims to account for dependence of the offline $S_T$ (as defined
+which aims to account for dependence of the offline $S_{\mathrm{T}}$ (as defined
 in~\ref{sec:0lep-selection}) on the trigger efficiency. The uncertainty
 \texttt{METTrigTop} is named as such because it is derived from a comparison of
 the scale factors as calculated with a $t\bar{t}$ sample and compared to the
-nominal sample. The uncertainty relating to $S_T$ is only applied to events
+nominal sample. The uncertainty relating to $S_{\mathrm{T}}$ is only applied to events
 recorded in 2017 due to a specific trigger used in this year.
 
 \subsubsection{Lepton trigger}
@@ -269,9 +269,9 @@ The CP group recommendations for the lepton triggers can be found
 in~\cite{VHObjectNote2019}. The group provide a tool for determining the lepton
 trigger systematic error which is implemented in the CxAOD Framework (mentioned
 in section~\ref{sec:cxaod}). The nuisance parameter
-\texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
+\texttt{EL\_EFF\_{\mathrm{T}}rigger\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
 uncertainty on the electron trigger. For the muons, the tool returns two components
-\texttt{MUON\_EFF\_TrigSystUncertainty} and \texttt{MUON\_EFF\_TrigStatUncertainty}
+\texttt{MUON\_EFF\_{\mathrm{T}}rigSystUncertainty} and \texttt{MUON\_EFF\_{\mathrm{T}}rigStatUncertainty}
 which account for the systematic error and the statistical error on scale factor
 respectively. An up and down variation of 1-$\sigma$ are used for all of the
 aforementioned nuisance parameters.
@@ -284,16 +284,16 @@ The efficiency of the electron reconstruction and identification (discussed
 in~\ref{subsec:electrons}) has a systematic uncertainty provided by the relevant
 CP group called \texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki}.
 These have been calculated using the full run 2 data. Reconstruction is 97-99\%
-efficient across the full $p_T$~spectrum. Identification has an efficiency scale
-factor is available from $p_T>7$~\GeV. An isolation efficiency scale factor is
+efficient across the full $p_{\mathrm{T}}$~spectrum. Identification has an efficiency scale
+factor is available from $p_{\mathrm{T}}>7$~\GeV. An isolation efficiency scale factor is
 also included. The latest uncertainties that are available include scale factors
-for $p_T>150$~\GeV\ that are unity due to the available sample being to small in
+for $p_{\mathrm{T}}>150$~\GeV\ that are unity due to the available sample being to small in
 statistics to measure a scale factor~\footnote{Check if this is for all electron
   systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
 150~\GeV\ to over this shortcoming. The above uncertainties are controlled by
-\texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
-\texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR}, and
-\texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
+\texttt{EL\_EFF\_ID\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR},
+\texttt{EL\_EFF\_Reco\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR}, and
+\texttt{EL\_EFF\_Iso\_{\mathrm{T}}otal\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
 
 \subsubsection{Electron Energy Scale and Resolution Uncertainties}
 
@@ -311,20 +311,20 @@ considered which are called \texttt{EG\_RESOLUTION\_ALL} and
 Samples of $Z \to \mu\mu$ and $J/\psi \to \mu\mu$ events from the full 2015
 dataset (corresponding to 3.2~fb$^{-1}$) are used to calculate scale factors to
 account for uncertainties in the reconstruction, isolation and track-to-vertex
-association~\cite{muonTWiki}. These scale factors are valid in the full $p_T$
+association~\cite{muonTWiki}. These scale factors are valid in the full $p_{\mathrm{T}}$
 spectrum with the $J/psi$ measurement providing more accurate determination in
-the $p_T$<15~\GeV\ region and the Z measurement being more accurate in the
-$p_T$>15~\GeV\ region. Four independent systematic uncertainties are considered
+the $p_{\mathrm{T}}$<15~\GeV\ region and the Z measurement being more accurate in the
+$p_{\mathrm{T}}$>15~\GeV\ region. Four independent systematic uncertainties are considered
 which are called \texttt{MUON\_EFF\_RECO\_STAT},
 
 \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
 \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on whether or not
-they come from the high or low $p_T$ measurement. Statistical and systematic
+they come from the high or low $p_{\mathrm{T}}$ measurement. Statistical and systematic
 uncertainties to the isolation scale factor are controlled by
 \texttt{MUON\_EFF\_ISO\_STAT} and \texttt{MUON\_EFF\_ISO\_SYS} respectively.
-They are supported in the range of $10 < p_T < 500$~\GeV. For muons outside of
+They are supported in the range of $10 < p_{\mathrm{T}} < 500$~\GeV. For muons outside of
 this range, a scale factor of 1$\pm$0.05 is used.
-\texttt{MUON\_EFF\_TTVA\_STAT} and \texttt{MUON\_EFF\_TTVA\_SYS} control the
+\texttt{MUON\_EFF\_{\mathrm{T}}TVA\_STAT} and \texttt{MUON\_EFF\_{\mathrm{T}}TVA\_SYS} control the
 systematic uncertainty on the scale factor of the cuts on the impact parameter
 significance and the $|z_0\sin\theta|$ which estimate the error on
 track-to-vertex association. All of the above systematic uncertainties are
@@ -336,8 +336,8 @@ Similarly to the electron energy scale and resolution uncertainties described
 above the muon momentum scale and resolution uncertainties are provided by the
 relevant CP group~\cite{muonTWiki}. Measurements of muons have been calibrated
 using a sample of  $Z\rightarrow \mu\mu$ events in the region with
-$p_T$~>~20~\GeV\ and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
-with $p_T$~<~20~\GeV. The nuisance parameters control the uncertainties due to
+$p_{\mathrm{T}}$~>~20~\GeV\ and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
+with $p_{\mathrm{T}}$~<~20~\GeV. The nuisance parameters control the uncertainties due to
 the inner detector, muon system and the overall momentum scale, they are called
 \texttt{MUONS\_ID}, \texttt{MUONS\_MS} and \texttt{MUONS\_SCALE} respectively.
 These systematic uncertainties are derived by varying the momentum scale and the
@@ -350,9 +350,9 @@ for the charge dependence of the of the momentum scale uncertainty
 Taus are not crucial to the analysis and therefore the systematic uncertainties
 on the measurement of taus does not have a large effect on the result. The
 systematic uncertainties considered in the analysis relating to taus are
-\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR},
-\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} and
-\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL}, which all account for different
+\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_DETECTOR},
+\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_INSITU} and
+\texttt{TAUS\_{\mathrm{T}}RUEHADTAU\_SME\_{\mathrm{T}}ES\_MODEL}, which all account for different
 sources of energy scale uncertainty.
 
 \subsection{Jets}
@@ -364,7 +364,7 @@ between a number of different schemes, the choice for the \VHbb\ analysis is to
 use a reduced set of 23 nuisance parameters comi
 ng from a reduction using
 principal component analysis of the baseline set of parameters. The baseline set
-accounts for effects due to eta calibration, high-$p_T$ jets, pile-up, flavour
+accounts for effects due to eta calibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
 composition, flavour response, $b$-jets, and punch-through jets. The 23 nuisance
 parameters and a short description of each are displayed in
 table~\ref{tab:expSyst} under the category jets and $b$-tagging where all of the
@@ -377,13 +377,13 @@ energy scale and the jet energy resolution. The determination of the former is
 documented in~\cite{JetCalibration2015} and the latter is determined from data
 versus Monte-Carlo prediction comparisons.
 
-\subsection{$E_T^{\text{miss}}$}
+\subsection{$E_{\mathrm{T}}^{\text{miss}}$}
 
-Once again $E_T^{\text{miss}}$ systematic uncertainties are implemented via a
+Once again $E_{\mathrm{T}}^{\text{miss}}$ systematic uncertainties are implemented via a
 centrally available tool written by the relevant CP group and interfaced in the
 CxAOD Framework. The tool is configured to account for calorimeter and track
 based jets, the uncertainties considered in this analysis are under the heading
-$E_T^{\text{miss}}$ in table~\ref{tab:expSyst} and start with \texttt{MET}.
+$E_{\mathrm{T}}^{\text{miss}}$ in table~\ref{tab:expSyst} and start with \texttt{MET}.
 
 \subsection{Flavour Tagging}
 
@@ -418,7 +418,7 @@ named \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
 \texttt{FT\_EFF\_Eigen\_C2}.
 
 Two additional systematic uncertainties irrespective of reduction scheme are
-considered that relate to the $p_T$ extrapolation~\cite{BTaggingExtrap2015} and
+considered that relate to the $p_{\mathrm{T}}$ extrapolation~\cite{BTaggingExtrap2015} and
 charm-to-bottom quark extrapolation, they are called
 \texttt{FT\_EFF\_Eigen\_extrapolation}, and
 \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} respectively.
@@ -450,30 +450,30 @@ element, in the version used. Massive quarks can be produced in the parton
 shower and heavy flavours (quarks as heavy or heavier than a c-quark) can be
 produced directly in the scattering process of the underlying event.
 
-The analysis gains a lot of sensitivity from high $p_T^V$ regions of phase
+The analysis gains a lot of sensitivity from high $p_{\mathrm{T}}^V$ regions of phase
 space, and also has the requirement of two b-tagged jets in the event selection
 as mentioned in section~\ref{sec:selection}. It is therefore important to ensure
 that a large statistical sample in these regions is available such that
 fluctuations are smaller than those that would be found in the data. In order to
 achieve this two methods are used, firstly samples are simulated in specific
-slices of the larger of the $p_T$ of the vector boson or the $H_T$ of the event.
+slices of the larger of the $p_{\mathrm{T}}$ of the vector boson or the $H_{\mathrm{T}}$ of the event.
 Events are simulated in the following slices
 \begin{equation}
-  \text{max}(p_T^V, H_T) = [0\text{--}70, 70\text{--}140, 140\text{--}280, 280\text{--}500, 500\text{--}1000, >1000]~\GeV.
+  \text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}}) = [0\text{--}70, 70\text{--}140, 140\text{--}280, 280\text{--}500, 500\text{--}1000, >1000]~\GeV.
 \end{equation}
-The dedicated slices at high $\text{max}(p_T^V, H_T)$ ensure a large number of
-events are simulated in the high $p_T^V$ region of phase space. Secondly filters
+The dedicated slices at high $\text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}})$ ensure a large number of
+events are simulated in the high $p_{\mathrm{T}}^V$ region of phase space. Secondly filters
 are applied on the flavour of the jets that produced in association with the
 vector boson.  The filters used for these samples are shown in
 table~\ref{tab:bc-filters}.
 \input{07-systematic-errors/bc-filters}
-The filters are not applied to the highest slices in $\text{max}(p_T^V, H_T)$.
+The filters are not applied to the highest slices in $\text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}})$.
 The filtering strategy for $Z\nu\nu$ samples differs in the mc16e campaign using
-a combination of $p_T^Z$ and $m_{jj}$ to better populate the region above the
+a combination of $p_{\mathrm{T}}^Z$ and $m_{jj}$ to better populate the region above the
 MET trigger thresholds, and VBF phase spaces with high $m_{jj}$. These samples
 also use a tighter b-filter compared to their mc16a/d counterpart which is also
 described in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
-corresponding max($H_T$,$p_T^V$) slices and flavour filters are listed in
+corresponding max($H_{\mathrm{T}}$,$p_{\mathrm{T}}^V$) slices and flavour filters are listed in
 tables~\ref{tabular:mc_samples_Wjets} \ref{tabular:mc_samples_Zlljets}, and
 \ref{tabular:mc_samples_Zvvjets} in the appendices.
 +
@@ -591,7 +591,7 @@ uncertainty. The magnitude of the prior is calculated as the quadrature sum of
 the difference between the nominal prediction and \textsc{MadGraph} as well as
 the scale and parton density function variations included in \textsc{Sherpa}.
 There is no dedicated nuisance parameter to control the migration between the
-$p_T^V$ regions of the analysis as this migration is controlled by the $p_T^V$
+$p_{\mathrm{T}}^V$ regions of the analysis as this migration is controlled by the $p_{\mathrm{T}}^V$
 shape uncertainty.
 
 \subsubsection{Flavour Composition Uncertainties}
@@ -620,8 +620,8 @@ imposed.
 The hybrid $(N-1)$--dimensional parametrisation technique described
 in~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
 the distributions of the $W+$jets background. The variable that has been
-factorised out is $p_T^V$ and so there are nuisance parameters which control the
-$p_T^V$ shape in each of the 2-- and 3--jet categories as well as a nuisance
+factorised out is $p_{\mathrm{T}}^V$ and so there are nuisance parameters which control the
+$p_{\mathrm{T}}^V$ shape in each of the 2-- and 3--jet categories as well as a nuisance
 parameter that controls the multi-variate shape uncertainty across all regions
 and jet multiplicities. These nuisance parameters are summarised in
 table~\ref{tab:wjets-shapes}.
@@ -633,14 +633,14 @@ the $W+$jets backgrounds are not considered as they account for less than 1~\%
 of all background events in any region.
 
 In all regions the initial 1--dimensional re-weighting is performed by comparing
-the ratio of the nominal \textsc{Sherpa}~2.2.1 $(p_T^V, E_T^{\text{miss}})$
-prediction with that of \textsc{MadGraph}. The requirement of $p_T^V~>~75$~\GeV\
+the ratio of the nominal \textsc{Sherpa}~2.2.1 $(p_{\mathrm{T}}^V, E_{\mathrm{T}}^{\text{miss}})$
+prediction with that of \textsc{MadGraph}. The requirement of $p_{\mathrm{T}}^V~>~75$~\GeV\
 is applied to all distributions in the 1--lepton channel and in the 0--lepton
-channel the requirement of $E_T^{\text{miss}}~>~150$~\GeV\~is imposed instead.
+channel the requirement of $E_{\mathrm{T}}^{\text{miss}}~>~150$~\GeV\~is imposed instead.
 
 Figures~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr}
 and~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} show the comparison between
-\textsc{Sherpa} and \textsc{MadGraph} in the  $p_T^V$ variable in the 2-- and
+\textsc{Sherpa} and \textsc{MadGraph} in the  $p_{\mathrm{T}}^V$ variable in the 2-- and
 3--jet categories, respectively. 
 \input{07-systematic-errors/wjets-1lep-ptv-shapes}
 The systematic uncertainties on the shape are shown in the ratio panel at the
@@ -650,29 +650,29 @@ The low number of events available in the 0--lepton channel mean that it is not
 statistically viable to generate a parametrisation in that channel, therefore
 the shapes derived in the 1--lepton channel are also used in the 0--lepton
 channel. Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr}
-and~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} show a comparison of the $p_T^V$
+and~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} show a comparison of the $p_{\mathrm{T}}^V$
 shapes derived in the 1--lepton channel compared with the equivalent systematic
-derived in the 0--lepton channel in the $E_T^{\text{miss}}$ variable for the 2--
+derived in the 0--lepton channel in the $E_{\mathrm{T}}^{\text{miss}}$ variable for the 2--
 and 3--jet categories, respectively.
 \input{07-systematic-errors/wjets-01lep-ptv-shapes}
 It can be seen the two shapes mostly agree within the statistical error which is
 of course very large for the 0--lepton systematic. Furthermore
 figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} shows  a comparison in
-which both the $p_T^V$ and the $E_T^{\text{miss}}$ shapes in the 2--jet region
-have been normalised to unit area in the $(p_T^V, E_T^{\text{miss}}) > 150$~\GeV\
+which both the $p_{\mathrm{T}}^V$ and the $E_{\mathrm{T}}^{\text{miss}}$ shapes in the 2--jet region
+have been normalised to unit area in the $(p_{\mathrm{T}}^V, E_{\mathrm{T}}^{\text{miss}}) > 150$~\GeV\
 range where it can be seen that agreement is event better further supporting the
 validity of this choice.
 \input{07-systematic-errors/wjets-01lep-ptv-shapes-norm}
 
 As per the methodology of the factorised BDTr technique the nominal
-\textsc{Sherpa}~2.2.1 events are re-weighted by the $p_T^V$ ratio with the
-alternative prediction as was just discussed. The $p_T^V$ shape uncertainty is
+\textsc{Sherpa}~2.2.1 events are re-weighted by the $p_{\mathrm{T}}^V$ ratio with the
+alternative prediction as was just discussed. The $p_{\mathrm{T}}^V$ shape uncertainty is
 therefore factorised out of the BDTr shape uncertainty. The re-weighted
 \textsc{Sherpa}~2.2.1 events are then trained against the \textsc{MadGraph}
 prediction in a BDT classifier that uses the input variables detailed in
 table~\ref{tab:MVAinputs}. A separate training is performed in each jet category
 and for each sub-component of the W + hf process in congruence with the 8
-regions that the $p_T^V$ shape was derived in. Considering the output of the
+regions that the $p_{\mathrm{T}}^V$ shape was derived in. Considering the output of the
 classifier the ratio of the scores of the nominal and alternative predictions
 enter into the profile-likelihood fit as a nuisance parameter called
 \texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only W +
@@ -691,8 +691,8 @@ the shapes of the alternative inputs then the method is considered to be valid.
 Indeed upon inspection one can see that this is largely the case across the
 board apart from small levels of disagreement. These small levels of
 disagreement are disregarded as the two most important variables in the
-determination of the analysis BDT score, $m(b, \bar{b})$, $p_T^V$ and
-$E_T^{\text{miss}}$ have good levels of agreement.
+determination of the analysis BDT score, $m(b, \bar{b})$, $p_{\mathrm{T}}^V$ and
+$E_{\mathrm{T}}^{\text{miss}}$ have good levels of agreement.
 
 The actual effect of the factorised BDTr systematic uncertainty on the analysis
 BDT score is shown in figures~\ref{fig:wjets_1lep_FullRun2MVA_BDTrClosure}
@@ -702,7 +702,7 @@ channels respectively.
 \input{07-systematic-errors/wjets-bdt-shapes-mva-0lep}
 Tables~\ref{tab:wjets-extrapolation_uncertainties_pTV}
 and~\ref{tab:wjets-extrapolation_uncertainties_BDTr} in the appendix show the
-extrapolation uncertainties induced by the $p_T^V$ and factorised BDTr shape
+extrapolation uncertainties induced by the $p_{\mathrm{T}}^V$ and factorised BDTr shape
 systematic uncertainties respectively.
 \clearpage
 \newpage
@@ -742,7 +742,7 @@ size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1
 and\textsc{MadGraph} is similar to the size as calculated by examining the
 \textsc{Sherpa} internal weights.
 
-The nuisance parameter that controls the $Z+$jets $p_T^V$ uncertainty,
+The nuisance parameter that controls the $Z+$jets $p_{\mathrm{T}}^V$ uncertainty,
 \texttt{SysZPTV} (see section~\ref{sec:zjets-shapes}), is also allowed to
 control the relative number of events between analysis regions. This choice is
 made as the magnitude of the extrapolation uncertainties shown in
@@ -756,7 +756,7 @@ of the different available predictions. Therefore this systematic uncertainty is
 applied as a shape effect only and an additional nuisance parameter is
 introduced to cover the migration between analysis regions. As will be explained
 in section~\ref{sec:zjets-shapes} it is necessary to de-correlate the $m_{bb}$
-shape systematic in the lowest $p_T^V$ bin of the analysis. It is therefore the
+shape systematic in the lowest $p_{\mathrm{T}}^V$ bin of the analysis. It is therefore the
 case that the nuisance parameter controlling the migration between analysis
 regions in the $m_{bb}$ variable is also de-correlated in that bin. These
 acceptance uncertainties are applied to the CR$_{\text{high}}$ and
@@ -805,7 +805,7 @@ remaining backgrounds contribute a very small amount to the region and so even
 with large uncertainties on their template the method is still sufficiently
 accurate.
 
-This method is used to derived shape uncertainties on the $p_T^V$ and $m_{bb}$
+This method is used to derived shape uncertainties on the $p_{\mathrm{T}}^V$ and $m_{bb}$
 variables as they are considered to be the most important in the analysis. The
 uncertainty is used in the 0--lepton channel which adds an additional
 complication. As mentioned in section~\ref{sec:2lep-selection} a kinematic fit
@@ -825,7 +825,7 @@ contain signal events, or events from the diboson cross-check, events with
 The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{fig:zjets-mbb-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the $Z+$jets background in
 the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and
-CR$_{\text{high}}$ plotted against the subtracted data in the $p_T^V$ and GSC
+CR$_{\text{high}}$ plotted against the subtracted data in the $p_{\mathrm{T}}^V$ and GSC
 $m_{bb}$ variables respectively.
 \input{07-systematic-errors/zjets-mbb-shape-plots}
 \input{07-systematic-errors/zjets-ptv-shape-plots}
@@ -833,7 +833,7 @@ The subtracted data is the data with a template comprised of the data from the
 top $e\mu$ CR and the nominal predictions of all backgrounds other than $Z+$jets
 subtracted from it. Plots are shown in the 2--jet, $\geq$3--jet and $\geq$2--jet
 categories (the sum of the two jet multiplicity based categories in the
-analysis) and are plotted across all $p_T^V$ bins of the analysis. The shape
+analysis) and are plotted across all $p_{\mathrm{T}}^V$ bins of the analysis. The shape
 uncertainty is derived by taking a fit to the ratio in the bottom pane of each
 plot, the fit defines the 1-$\sigma$ up variation of the Gaussian constrained
 nuisance parameter, the symmetrised version of the fit (not displayed) defines
@@ -846,7 +846,7 @@ be seen by inspection of figure~\ref{fig:zjets-mbb-shapes} the fitted shape does
 not cover the discrepancy between the subtracted data and the prediction at low
 values of $m_{bb}$. Investigating the plots in
 figure~\ref{fig:zjets-mbb-shape-ptv-range} shows that this discrepancy is coming
-from the $75~\GeV < p_T^V < 150~\GeV$ analysis bin, therefore the aforementioned
+from the $75~\GeV < p_{\mathrm{T}}^V < 150~\GeV$ analysis bin, therefore the aforementioned
 nuisance parameters are decorrelated in this bin.
 \input{07-systematic-errors/zjets-mbb-shapes-ptv-range}
 The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
@@ -922,7 +922,7 @@ floating normalisation in 2-- and 3--jet categories independently. The nuisance
 parameters tracking this normalisation are \texttt{norm\_ttbar\_J2} and
 \texttt{norm\_ttbar\_J3} respectively. In terms of acceptance uncertainties,
 most of the potential migrations such as migration between analysis regions and
-$p_T^V$ bins are covered by the shape uncertainties. There is one nuisance
+$p_{\mathrm{T}}^V$ bins are covered by the shape uncertainties. There is one nuisance
 parameter, \texttt{SysTTbarNorm\_L0} which is implemented to cover migrations
 between the 1-- and 0-- lepton channels, it is implemented in the combination of
 the 2-- and 3--jet categories, applied to events in the 0--lepton channel and
@@ -946,13 +946,13 @@ uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
 
 The $(N-1)$--dimensional parametrisation is used to estimate the shape
 uncertainties on $t\bar{t}$ events. As in the $W+$jets the variable that is
-factorised out of the multi-dimensional parametrisation is $p_T^V$ which is
+factorised out of the multi-dimensional parametrisation is $p_{\mathrm{T}}^V$ which is
 chosen for the same reasons as mentioned before. The shape systematic is not as
 correlated over as many of the analysis bins as in the $W+$jets case. The
-$p_T^V$ shape uncertainty is correlated across 0-- and 1--lepton channels but
+$p_{\mathrm{T}}^V$ shape uncertainty is correlated across 0-- and 1--lepton channels but
 decorrelated in jet multiplicity as \texttt{SysTTbarPtV\_J2} and
 \texttt{SysTTbarPtV\_J3} for the 2-- and 3--jet categories respectively. The
-$p_T^V$ shapes used are coming from the largest variation when considering all
+$p_{\mathrm{T}}^V$ shapes used are coming from the largest variation when considering all
 samples which turns out to be the comparison of
 \textsc{Powheg}~+~\textsc{Pythia}~8 and
 \textsc{MadGraph}~5~\textsc{\_aMC@NLO}~+~\textsc{Pythia}~8. The BDTr shape
@@ -963,7 +963,7 @@ correlated in leptonic channel but decorrelated in 2-- and 3--jet categories as
 \texttt{SysBDTr\_ttbar\_ME\_J2} and \texttt{SysBDTr\_ttbar\_ME\_J3}
 respectively. For the parton shower variation the uncertainties are correlated
 in jet multiplicity but decorrelated in leptonic channel and also in the
-1--lepton channel decorrelated in $p_T^V$ bin, the nuisance parameters in
+1--lepton channel decorrelated in $p_{\mathrm{T}}^V$ bin, the nuisance parameters in
 question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 \texttt{SysBDTr\_ttbar\_PS\_Bmin150\_L1}, and \texttt{SysBDTr\_ttbar\_PS}.
 
@@ -1005,7 +1005,7 @@ comparison can be found in figure~\ref{fig:ttbar-mbb}.
 In order to see how the shape is modelled the scale factors controlling
 normalisation of the other backgrounds have been taken from the previous
 iteration of the analysis and applied, in this iteration there was no boundary
-at 250~\GeV and therefore $p_T^V$ bins 75--150~\GeV and $\geq$150~\GeV are
+at 250~\GeV and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV and $\geq$150~\GeV are
 shown. The previous iteration also did not categorise events into $\Delta R(b,
 b)$ based regions and therefore the so-called SROld is shown which is the sum of
 all the $\Delta R(b, b)$ regions in this version of the analysis. It can be seen
@@ -1051,7 +1051,7 @@ t-channel and Wt-channel single top decays individually. Acceptances in the
 2--jet and 3--jet categories are considered for the t- and Wt-channels where the
 Wt-channel has a parameter for $bb$ and Oth flavour sub-components where Oth is
 defined as in~\ref{sec:ttbar-systs}. Shape uncertainties are considered for the
-$p_T^V$ and $m_{bb}$ variables for the t- and Wt-channels totally four
+$p_{\mathrm{T}}^V$ and $m_{bb}$ variables for the t- and Wt-channels totally four
 parameters controlling the shapes.
 
 \subsection{Diboson}
@@ -1071,7 +1071,7 @@ to the veto based on the total number of jets in any $VZ$ event, and one that
 controls the acceptance of $gg$ initiated $ZZ$ events. Four shape uncertainties
 are considered, one for variations due to the matrix element calculation and one
 for variations due to the underlying events and parton shower calculations, for
-the $p_T^V$ and $m_{bb}$ variables.
+the $p_{\mathrm{T}}^V$ and $m_{bb}$ variables.
 
 \section{Systematic Uncertainties on the Signal Process}
 
@@ -1098,7 +1098,7 @@ A summary of the systematic uncertainties considered on the signal samples can
 be found in table~\ref{tab:sig_systematics}.
 \input{07-systematic-errors/signal-table.tex}
 The majority of these uncertainties account for migration between STXS bins
-(which are defined in $p_T^V$) due to the QCD scale uncertainty. Parameters are
+(which are defined in $p_{\mathrm{T}}^V$) due to the QCD scale uncertainty. Parameters are
 decorrelated for each STXS bin boundary (75, 150, 250, 400)~\GeV and for the
 $q\bar{q}$ and $gg$ initiated processes. Similarly there are parameters that
 control for migration at the relevant $N_{\text{jet}} - N_{H\text{jet}}$
@@ -1108,6 +1108,6 @@ $q\bar{q}$ and $gg$ processes due to the QCD scale uncertainty. More parameters
 control uncertainties arising from the choice of PDF set which control both
 shape and normalisation. A single parameter controls for the uncertainty of the
 branching ratio of the $H \to b{\bar{b}}$ decay. Finally several parameters
-control  $p_T^V$ and $m_{bb}$ shape variations due to NLO EW corrections and
+control  $p_{\mathrm{T}}^V$ and $m_{bb}$ shape variations due to NLO EW corrections and
 underlying event and parton shower calculations, with the latter also being
 decorrelated based on sub-process. 

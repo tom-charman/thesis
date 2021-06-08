@@ -36,7 +36,7 @@ plots in section~\ref{sec:prefit}, they impact the sub-processes split by
 flavour of the decay products individually. A heavy flavour process is defined as
 one where the two leading jets have flavour (b,~b), (b,~c), (b,~l), or (c,~c),
 this categorisation is often written as hf for short for example when
-considering all heavy flavour sub-process of the V + jets background one could
+considering all heavy flavour sub-process of the $V+$jets background one could
 write V + hf. Flavour composition uncertainties affect the normalisation of one
 of the flavour sub-processes with respect to one of the others, specific details
 will follow under the sections relating to the relevant backgrounds.
@@ -45,7 +45,7 @@ The rest of this chapter will detail the sources of systematic error broken down
 into groups of similar origin. Before breaking down each group of systematic
 errors a technique called the Boosted Decision Tree Re-weighting method will be
 explained as it used across a number of the different groups. The author's
-contributions include the determination of all of the Z + jets systematic
+contributions include the determination of all of the $Z+$jets systematic
 errors, determination of systematic errors relating to the flavour composition
 of simulated top process events, and development and testing of the Boosted
 Decision Tree Re-weighting method.
@@ -422,14 +422,14 @@ charm-to-bottom quark extrapolation, they are called
 \texttt{FT\_EFF\_Eigen\_extrapolation}, and
 \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} respectively.
 
-\section{Systematic Uncertainties on V + jets Events}
+\section{Systematic Uncertainties on $V+$jets Events}
 \label{sec:vjets}
-Whilst the physics of the W and Z + jets processes leads to them being in
+Whilst the physics of the W and $Z+$jets processes leads to them being in
 different channels and needing to be treated differently in the analysis, the
 underlying theory means that simulation of these processes is coupled,
 particularly as they are simulated with the same software.
 
-The V + jets processes are simulated with
+The $V+$jets processes are simulated with
 \textsc{Sherpa}~2.2.1~\cite{1126-6708-2009-02-007} as mentioned in
 section~\ref{sec:composition}, which is interfaced with the
 NNPDFs~\cite{Ball:2012cx} for both the matrix element calculation and the parton shower
@@ -471,7 +471,7 @@ The filtering strategy for $Z\nu\nu$ samples differs in the mc16e campaign using
 a combination of $p_T^Z$ and $m_{jj}$ to better populate the region above the
 MET trigger thresholds, and VBF phase spaces with high $m_{jj}$. These samples
 also use a tighter b-filter compared to their mc16a/d counterpart which is also
-described in table~\ref{tab:bc-filters}. All nominal V + jets samples with the
+described in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
 corresponding max($H_T$,$p_T^V$) slices and flavour filters are listed in
 tables~\ref{tabular:mc_samples_Wjets} \ref{tabular:mc_samples_Zlljets}, and
 \ref{tabular:mc_samples_Zvvjets} in the appendices.
@@ -496,13 +496,13 @@ but has a merging scale of $Q_{cut} = 30$~\GeV. For the LO ME calculation the
 NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.  Similarly to
 \textsc{Sherpa}~2.2.1, also \textsc{MadGraph}~adopts a full 5-flavour scheme
 with massless quarks in the ME calculation, while massive quarks can be produced
-by the parton shower. All alternative V + jets samples are listed in
+by the parton shower. All alternative $V+$jets samples are listed in
 tables~\ref{tabular:zjetsAlternativeSamples} and
 \ref{tabular:wjetsAlternativeSamples} in the appendices.
 
 As well as using an alternative Monte-Carlo generator the nominal generator,
 \textsc{Sherpa}, includes systematic variations internally. Every
-\textsc{Sherpa}~2.2.1 V + jets sample has an event weight corresponding to each
+\textsc{Sherpa}~2.2.1 $V+$jets sample has an event weight corresponding to each
 of the variations detailed in table~\ref{tab:sherpa-variations}\footnote{Some of
 the variations cannot be produced by \textsc{Sherpa}~2.2.1 and so
 \textsc{Sherpa}~2.1 is used instead. For these variations half of the variation
@@ -510,15 +510,15 @@ in each direction is taken as the uncertainty rather than comparing to the
 central value of the \textsc{Sherpa}~2.2.1 prediction.}.
 \input{07-systematic-errors/vjets-sherpa-vars.tex}
 
-\subsubsection{V + jets Cross Section}
-The V + jets cross sections are known at NNLO (QCD)~\cite{Butterworth:1287902},
+\subsubsection{$V+$jets Cross Section}
+The $V+$jets cross sections are known at NNLO (QCD)~\cite{Butterworth:1287902},
 the higher order cross sections are used to normalise the V+jets samples in the
-analysis. For the W + jets samples the total cross section from \textsc{Sherpa} or
+analysis. For the $W+$jets samples the total cross section from \textsc{Sherpa} or
 from \textsc{MadGraph}, averaged across all 3 lepton flavours taking into account the
 different hadron filter efficiencies, is scaled to the NNLO prediction obtaining
 scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
 
-For Z + jets some subtleties must be considered. For $Z \to \ell\ell$ + jets the
+For $Z+$jets some subtleties must be considered. For $Z \to \ell\ell$ + jets the
 cut at generator level, $m_{\ell\ell}>40$ \GeV, must be taken into account. The
 NNLO calculation uses a cut of $66<m_{\ell\ell}<116$ \GeV, which can be applied
 at truth level to the samples of this analysis in order to get the scaling
@@ -539,11 +539,11 @@ necessarily expected that the scaling factors should be different for $Z \to
 two processes in their generators compared with those used by the higher order
 theoretical calculations.
 
-\subsection{Systematic Uncertainties on W + jets Events}
+\subsection{Systematic Uncertainties on $W+$jets Events}
 A number of nuisance parameters are introduced to account for modelling
-uncertainties on the W + jets background process. These uncertainties are
+uncertainties on the $W+$jets background process. These uncertainties are
 considered and derived in the 0-- and 1-- lepton channels only as the amount of
-W + jets background present in the 2--lepton channel is negligible. A summary of
+$W+$jets background present in the 2--lepton channel is negligible. A summary of
 all of the uncertainties for this background can be found in
 table~\ref{tab:wjets_systematics}.
 
@@ -595,7 +595,7 @@ shape uncertainty.
 
 \subsubsection{Flavour Composition Uncertainties}
 
-As introduced at the start of this chapter the W + jets background has a W + hf
+As introduced at the start of this chapter the $W+$jets background has a W + hf
 component that is comprised of the $bb$, $bc$, $bl$ and $cc$ sub-components. The
 fractional contribution of each of these sub-components is detailed in
 table~\ref{tab:whf-comp}.
@@ -618,7 +618,7 @@ imposed.
 
 The hybrid $(N-1)$--dimensional parametrisation technique described
 in~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
-the distributions of the W + jets background. The variable that has been
+the distributions of the $W+$jets background. The variable that has been
 factorised out is $p_T^V$ and so there are nuisance parameters which control the
 $p_T^V$ shape in each of the 2-- and 3--jet categories as well as a nuisance
 parameter that controls the multi-variate shape uncertainty across all regions
@@ -628,7 +628,7 @@ table~\ref{tab:wjets-shapes}.
 
 Shapes are derived in regions split by leptonic channel and heavy flavour
 sub-component, yielding eight regions total. The W + l and W + cl components of
-the W + jets backgrounds are not considered as they account for less than 1~\%
+the $W+$jets backgrounds are not considered as they account for less than 1~\%
 of all background events in any region.
 
 In all regions the initial 1--dimensional re-weighting is performed by comparing
@@ -676,7 +676,7 @@ classifier the ratio of the scores of the nominal and alternative predictions
 enter into the profile-likelihood fit as a nuisance parameter called
 \texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only W +
 bb events as this is the dominant and most important component of the W + hf
-process and indeed the W + jets background in the analysis.
+process and indeed the $W+$jets background in the analysis.
 
 In order to check the validity of the method the re-weighted nominal predictions
 of key inputs to the analyisis MVA are plotted against the nominal and
@@ -706,7 +706,7 @@ systematic uncertainties respectively.
 \clearpage
 \newpage
 
-\subsection{Systematic Uncertainties on Z + jets Events}
+\subsection{Systematic Uncertainties on $Z+$jets Events}
 \label{sec:zjets-systs}
 
 Systematic uncertainties are considered in the 0-- and 2--lepton channels only
@@ -727,13 +727,13 @@ The Z + hf process has a large normalisation uncertainty and so therefore the
 decision is made to have separate nuisance parameters for the 2--jet and 3--jet
 regions, these are called \texttt{norm\_Zbb\_J2} and \texttt{norm\_Zbb\_J3}
 respectively. These parameters are heavily constrained in the fit due to a very
-large number of Z + jets events in the 0-- and 2--lepton signal regions and due
-to high Z + jets purity particularly in the 2--lepton control regions.
+large number of $Z+$jets events in the 0-- and 2--lepton signal regions and due
+to high $Z+$jets purity particularly in the 2--lepton control regions.
 
 Nuisance parameters are introduced to the model migration of events between
 regions. The priors for these parameters are calculated using the double ratio
 in equation~\ref{eq:acceptance-dr}. Firstly a parameter is introduced in order
-to account for the difference in the number of Z + jets in the 0-- and 2--lepton
+to account for the difference in the number of $Z+$jets in the 0-- and 2--lepton
 channels, is it called \texttt{SysZbbNorm\_0L} and is applied to Z + hf events
 in the 0--lepton channel as the 2--lepton channel has a higher purity of Z +
 jets events and therefore yields a better constraint on the normalisation. The
@@ -741,7 +741,7 @@ size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1
 and\textsc{MadGraph} is similar to the size as calculated by examining the
 \textsc{Sherpa} internal weights.
 
-The nuisance parameter that controls the Z + jets $p_T^V$ uncertainty,
+The nuisance parameter that controls the $Z+$jets $p_T^V$ uncertainty,
 \texttt{SysZPTV} (see section~\ref{sec:zjets-shapes}), is also allowed to
 control the relative number of events between analysis regions. This choice is
 made as the magnitude of the extrapolation uncertainties shown in
@@ -787,7 +787,7 @@ prediction and the alternative \textsc{MadGraph} prediction.
 \subsubsection{Shape Uncertainties}
 \label{sec:zjets-shapes}
 
-The shape uncertainties for the Z + jets process are derived using the
+The shape uncertainties for the $Z+$jets process are derived using the
 1--dimensional parametrisation approach detailed in
 section~\ref{sec:1D-reweight} with one notable difference. Instead of a ratio of
 predictions generated with different parameters, the ratio in this case is of
@@ -796,9 +796,9 @@ valid this method has a number of requirements, the first of which is that the
 region of interest must have a high purity of the background for which the
 uncertainty is derived. In the case of the 2--lepton channel the sidebands of
 the region which contains both the \VHbb\ signal and the $V\!Z\! \to\! b\bar{b}$
-process is quite pure in $Z$ + jets events. The purity can be enhanced by
+process is quite pure in $Z+$jets events. The purity can be enhanced by
 subtracting from the data the top quark background events which contribute
-second to the $Z$ + jets events, this can be done with a high degree of
+second to the $Z+$jets events, this can be done with a high degree of
 certainty over the template as the data from the top $e\mu$ CR can be used. The
 remaining backgrounds contribute a very small amount to the region and so even
 with large uncertainties on their template the method is still sufficiently
@@ -822,14 +822,14 @@ contain signal events, or events from the diboson cross-check, events with
 80~\GeV < GSC $m_{bb}$ < 140~\GeV are removed from all distributions considered.
 
 The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{fig:zjets-mbb-shapes}
-show the nominal \textsc{Sherpa}~2.2.1 prediction of the Z + jets background in
+show the nominal \textsc{Sherpa}~2.2.1 prediction of the $Z+$jets background in
 the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and
 CR$_{\text{high}}$ plotted against the subtracted data in the $p_T^V$ and GSC
 $m_{bb}$ variables respectively.
 \input{07-systematic-errors/zjets-mbb-shape-plots}
 \input{07-systematic-errors/zjets-ptv-shape-plots}
 The subtracted data is the data with a template comprised of the data from the
-top $e\mu$ CR and the nominal predictions of all backgrounds other than Z + jets
+top $e\mu$ CR and the nominal predictions of all backgrounds other than $Z+$jets
 subtracted from it. Plots are shown in the 2--jet, $\geq$3--jet and $\geq$2--jet
 categories (the sum of the two jet multiplicity based categories in the
 analysis) and are plotted across all $p_T^V$ bins of the analysis. The shape
@@ -838,7 +838,7 @@ plot, the fit defines the 1-$\sigma$ up variation of the Gaussian constrained
 nuisance parameter, the symmetrised version of the fit (not displayed) defines
 the 1-$\sigma$ down variation. The $\geq$2--jet region is used to calculate the
 prior for the systematic uncertainties \texttt{SysZPtV} and \texttt{SysZMbb}
-that are applied to all Z + jets events in the 0-- and 2--lepton channels.
+that are applied to all $Z+$jets events in the 0-- and 2--lepton channels.
 
 The nuisance parameters are correlated across leptonic channels, however as can
 be seen by inspection of figure~\ref{fig:zjets-mbb-shapes} the fitted shape does
@@ -849,7 +849,7 @@ from the $75~\GeV < p_T^V < 150~\GeV$ analysis bin, therefore the aforementioned
 nuisance parameters are decorrelated in this bin.
 \input{07-systematic-errors/zjets-mbb-shapes-ptv-range}
 The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
-\texttt{SysMbb\_BMin75\_L2}. A summary of the Z + jets shape uncertainties is
+\texttt{SysMbb\_BMin75\_L2}. A summary of the $Z+$jets shape uncertainties is
 found in table~\ref{tab:zjets-shapes}.
 \input{07-systematic-errors/zjets-shape-table}
 
@@ -944,10 +944,10 @@ uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
 \paragraph{Shape Uncertainties}
 
 The $(N-1)$--dimensional parametrisation is used to estimate the shape
-uncertainties on $t\bar{t}$ events. As in the W + jets the variable that is
+uncertainties on $t\bar{t}$ events. As in the $W+$jets the variable that is
 factorised out of the multi-dimensional parametrisation is $p_T^V$ which is
 chosen for the same reasons as mentioned before. The shape systematic is not as
-correlated over as many of the analysis bins as in the W + jets case. The
+correlated over as many of the analysis bins as in the $W+$jets case. The
 $p_T^V$ shape uncertainty is correlated across 0-- and 1--lepton channels but
 decorrelated in jet multiplicity as \texttt{SysTTbarPtV\_J2} and
 \texttt{SysTTbarPtV\_J3} for the 2-- and 3--jet categories respectively. The

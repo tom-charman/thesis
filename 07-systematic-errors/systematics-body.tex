@@ -644,49 +644,48 @@ as there is a negligible contribution of this background in the 1--lepton channe
 Several normalisation and acceptance uncertainties are considered for the Z +
 jets background, they are summarised in table~\ref{tab:zjetsnorm}.
 \input{07-systematic-errors/zjets-norm-table}
-One nuisance parameter is used for each of the Z + l and Z + cl components as
+One nuisance parameter is used for each of the $Z+l$ and $Z+cl$ components as
 they are sub-dominant accounting for less than 1~\% of the total background in
-any region due to the requirement of two b-tags, they are called
+any region due to the requirement of two $b$-jets, they are called
 \texttt{SysZlNorm} and \texttt{SysZclNorm} respectively. These normalisations
 are each correlated across all regions.
 
-The Z + hf process has a large normalisation uncertainty and so therefore the
-decision is made to have separate nuisance parameters for the 2--jet and 3--jet
-regions, these are called \texttt{norm\_Zbb\_J2} and \texttt{norm\_Zbb\_J3}
-respectively. These parameters are heavily constrained in the fit due to a very
-large number of $Z+$jets events in the 0-- and 2--lepton signal regions and due
-to high $Z+$jets purity particularly in the 2--lepton control regions.
+The $Z+$hf process has a large normalisation uncertainty and so separate
+nuisance parameters are used for the 2--jet and 3--jet regions, these are called
+\texttt{norm\_Zbb\_J2} and \texttt{norm\_Zbb\_J3} respectively. These parameters
+are heavily constrained in the fit due to a very large number of $Z+$jets events
+in the 0-- and 2--lepton signal regions and due to high $Z+$jets purity
+particularly in the 2--lepton control regions.
 
 Nuisance parameters are introduced to the model migration of events between
 regions. The priors for these parameters are calculated using the double ratio
 in equation~\ref{eq:acceptance-dr}. Firstly a parameter is introduced in order
 to account for the difference in the number of $Z+$jets in the 0-- and 2--lepton
-channels, is it called \texttt{SysZbbNorm\_0L} and is applied to Z + hf events
+channels, is it called \texttt{SysZbbNorm\_0L} and is applied to $Z+$hf events
 in the 0--lepton channel as the 2--lepton channel has a higher purity of Z +
 jets events and therefore yields a better constraint on the normalisation. The
-size of these priors as calculated by comparing \textsc{Sherpa}~2.2.1
-and\textsc{MadGraph} is similar to the size as calculated by examining the
+size of the prior as calculated by comparing \textsc{Sherpa}~2.2.1 and
+\textsc{MadGraph} is similar to the size as calculated by examining the
 \textsc{Sherpa} internal weights.
 
-The nuisance parameter that controls the $Z+$jets $p_{\mathrm{T}}^V$ uncertainty,
-\texttt{SysZPTV} (see section~\ref{sec:zjets-shapes}), is also allowed to
-control the relative number of events between analysis regions. This choice is
-made as the magnitude of the extrapolation uncertainties shown in
+The nuisance parameter that controls the $Z+$jets $p_{\mathrm{T}}^V$
+uncertainty, \texttt{SysZPTV} (see section~\ref{sec:zjets-shapes}), is also
+allowed to control the relative number of events between analysis regions. This
+choice is made as the magnitude of the extrapolation uncertainties shown in
 table~\ref{tab:zjets-ptv-extrap} are similar in size to the largest variations
-one would obtain by comparing the nominal prediction to the alternatives.
-\input{07-systematic-errors/zjets-shape-yield-effect}
+one would obtain by comparing the nominal prediction to the
+alternatives.\input{07-systematic-errors/zjets-shape-yield-effect}
 
-In the case of $m_{bb}$ the uncertainty on the normalisations that would be
-induced by the shape does not cover the differences that arise from comparison
-of the different available predictions. Therefore this systematic uncertainty is
-applied as a shape effect only and an additional nuisance parameter is
-introduced to cover the migration between analysis regions. As will be explained
-in section~\ref{sec:zjets-shapes} it is necessary to de-correlate the $m_{bb}$
-shape systematic in the lowest $p_{\mathrm{T}}^V$ bin of the analysis. It is therefore the
-case that the nuisance parameter controlling the migration between analysis
-regions in the $m_{bb}$ variable is also de-correlated in that bin. These
-acceptance uncertainties are applied to the CR$_{\text{high}}$ and
-CR$_{\text{low}}$ separately, the nuisance parameters involved are
+Induced normalisation effects by the $m_{bb}$ shape are smaller than those
+arising from comparison of the different available predictions. Therefore this
+systematic uncertainty is applied as a shape effect only and an additional
+nuisance parameter is introduced to cover the migration between analysis
+regions. As will be explained in section~\ref{sec:zjets-shapes} it is necessary
+to de-correlate the $m_{bb}$ shape systematic in the lowest $p_{\mathrm{T}}^V$
+bin of the analysis. The nuisance parameter controlling the migration between
+analysis regions in the $m_{bb}$ variable is also de-correlated in that bin.
+These acceptance uncertainties are applied to the CR$_{\text{high}}$ and
+CR$_{\text{low}}$ separately, the nuisance parameter are
 \texttt{SysZbbCRSRExtrapolation\_CRLow}, de-correlated as
 \texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRLow} and
 \texttt{SysZbbCRSRExtrapolation\_CRHigh} de-correlated as
@@ -696,9 +695,9 @@ for these nuisance parameters is dominated by the difference between
 
 \subsubsection{Flavour Composition Uncertainties}
 
-The Z + hf process breaks down in the exact same way as the $W+$hf process, into
+The $Z+$hf process breaks down in the exact same way as the $W+$hf process, into
 $(b,b)$, $(b, c)$, $(b, l)$ and $(c, c)$ sub-components. Uncertainties on the
-fraction that each of these makes up of the Z + hf process are found in
+fraction that each of these makes up of the $Z+$hf process are found in
 table~\ref{tab:zjets-flavour-comp}.
 \input{07-systematic-errors/zjets-flavour-comp}
 They are calculated using equation~\ref{eq:acceptance-dr} and applied to the
@@ -722,31 +721,32 @@ the nominal \textsc{Sherpa}~2.2.1 prediction and the data itself. In order to be
 valid this method has a number of requirements, the first of which is that the
 region of interest must have a high purity of the background for which the
 uncertainty is derived. In the case of the 2--lepton channel the sidebands of
-the region which contains both the \VHbb\ signal and the $V\!Z\! \to\! b\bar{b}$
-process is quite pure in $Z+$jets events. The purity can be enhanced by
-subtracting from the data the top quark background events which contribute
-second to the $Z+$jets events, this can be done with a high degree of
-certainty over the template as the data from the top $e\mu$ CR can be used. The
-remaining backgrounds contribute a very small amount to the region and so even
-with large uncertainties on their template the method is still sufficiently
-accurate.
+the region which contains both the \VHbb\ signal and the $V\!Z\!\to\! b\bar{b}$
+background, defined as  $80 \GeV < m_{bb} < 140 \GeV$, is quite pure in $Z+$jets
+events. The purity can be enhanced by subtracting from the data the top quark
+background events which contribute second to the $Z+$jets events, this can be
+done with a high degree of certainty over the template as the data from the top
+$e\mu$ CR can be used. The remaining backgrounds contribute a very small amount
+to the region and so even with large uncertainties on their template the method
+is still sufficiently accurate. Neither the signal or diboson background are
+subtracted from the data as they ought to have been removed by the veto of the
+aforementioned range in $m_{bb}$ and the veto is applied to the selection so
+that events in the range are removed from all distributions considered.
 
 This method is used to derived shape uncertainties on the $p_{\mathrm{T}}^V$ and $m_{bb}$
 variables as they are considered to be the most important in the analysis. The
 uncertainty is used in the 0--lepton channel which adds an additional
 complication. As mentioned in section~\ref{sec:2lep-selection} a kinematic fit
-is used in order to correct the b-jet momentum and these corrected jets are then
-used in the formulation of $m_{bb}$ in the 2--lepton channel only (as there are
-two visible leptons). This means that $m_{bb}$ in the 0-- and 2--lepton channels
-refers to a different quantity and so a shape uncertainty derived on one may not
-be suitable to use on the other. In order to get around this issue the shape
-uncertainty for $m_{bb}$ is derived on a variable that is calculated using
-globally sequentially e
-calibrated (GSC) jets and is called GSC $m_{bb}$, these jets have not undergone
-the kinematic fit procedure and so ought to match more closely between the two
-leptonic channels. In order for the region where this method is applied to not
-contain signal events, or events from the diboson cross-check, events with
-80~\GeV < GSC $m_{bb}$ < 140~\GeV are removed from all distributions considered.
+is used in order to correct the $b$-jet momentum and these corrected jets are then
+used in the formulation of $m_{bb}$ in the 2--lepton channel. This means that
+$m_{bb}$ in the 0-- and 2--lepton channels refers to a different quantity and so
+a shape uncertainty derived on one may not be suitable to use on the other. In
+order to get around this issue the shape uncertainty for $m_{bb}$ is derived on
+a variable that is calculated using globally sequentially calibrated (GSC) jets
+and is called GSC $m_{bb}$, these jets have not undergone the kinematic fit
+procedure and so ought to match more closely between the two leptonic channels.
+The aforementioned veto on events in the range $80 \GeV < m_{bb} < 140 \GeV$ is
+therefore actually applied based on GSC $m_{bb}$.
 
 The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{fig:zjets-mbb-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the $Z+$jets background in
@@ -780,10 +780,15 @@ The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
 found in table~\ref{tab:zjets-shapes}.
 \input{07-systematic-errors/zjets-shape-table}
 
-- Shapes derived in CR$_{\text{high}}$ + SR + CR$_{\text{low}}$.
-- List of subtracted backgrounds
-- What happens to pTV shape when you remove mbb window
-- Specifically mention the fit functional form, binning choice, etc. 
+The fits to the ratios of the relevant quantities are performed on data in the
+0--1~\TeV\ range. The functional form of the fit to the $ p_{\mathrm{T}}^V$
+ratio is logarithmic, whereas the GSC $m_{bb}$ ratio is linear and it's value at
+300~\GeV\ is levelled to the end of the range. This is to make sure that the
+shape uncertainty is not overly influenced by events far from the Higgs mass.
+Similarly the binning of the GSC $m_{bb}$ histograms is chosen to give the fit
+more data points close the Higgs mass. The binning of the $p_{\mathrm{T}}^V$
+distributions is chosen as to put more points where there are more available
+events.
 
 \section{Systematic Uncertainties on \texorpdfstring{$t\bar{t}$}{tt} Events}
 \label{sec:ttbar-systs}

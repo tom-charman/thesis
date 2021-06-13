@@ -1,50 +1,52 @@
-\begin{table}[hb]
-  \resizebox{\textwidth}{!}{
-    \begin{tabular}{lllll}
-      \toprule
-      {\bfseries Nuisance Parameter} & {\bfseries Description} & {\bfseries Categories} & {\bfseries Value} & {\bfseries Effect}  \\
-      \midrule
-      {\bfseries Multi-jet}&&&\\
-      \texttt{SysMJNorm\_2J\_El}    & multi-jet normalization 	&  1--lepton channel, 2-jet, $e$ 	& +200\% - 100\% 	&Normalization\\
-      \texttt{SysMJNorm\_3J\_El}    & multi-jet normalization 	&  1--lepton channel, 3-jet, $e$ 	& +100\% - 100\% 	&Normalization\\
-      \texttt{SysMJNorm\_2J\_Mu}    & multi-jet normalization 	&  1--lepton channel, 2-jet, $\mu$       & +47\% -  29\% 	&Normalization\\
-      \texttt{SysMJNorm\_3J\_Mu}    & multi-jet normalization 	&  1--lepton channel, 3-jet, $\mu$       & +100\% - 100\% 	&Normalization\\
-      \texttt{SysMJReduced} & multi-jet shape change with isolation criteria & 1--lepton, $e$ and $\mu$ channel & - & Shape \\
-      \texttt{SysMJSFsCR} & multi-jet shape change with $W +$HF/Top scaling & 1--lepton, $e$ and $\mu$ channel & - & Shape \\
-      {\bfseries Single top}&&&&\\
-      \texttt{stopsNorm}    & single-top ($s$-channel) normalization 	&  all regions	& 4.6\%	&Normalization\\
-      \texttt{stoptNorm}    & single-top ($t$-channel) normalization 	&  all regions	& 4.4\%	&Normalization\\
-      \texttt{stopWtNorm}   & single-top ($Wt$-channel) normalization &  all regions	& 6.2\%	&Normalization\\
-      \texttt{stoptAcc}     & single-top ($t$-channel) acceptance 	&  all regions & 17\% (2jets), 20\% (3jets)	&Normalization\\
-      \texttt{StopWtbbAcc} 	& single-top ($Wt$ channel $Wt\rightarrow b\bar{b}$) acceptance &  all regions	& 54.9\% (2jets), 50.7\% (3jets)	&Normalization\\
-      \texttt{StopWtothAcc} 	& single-top ($Wt$ channel $Wt\rightarrow oth.$) acceptance &  all regions	& 24.1\% (2jets), 21.2\% (3jets)	&Normalization\\
-      \texttt{StoptPTV} & single-top ($t$-channel) $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape\\
-      \texttt{StoptMBB} & single-top ($t$-channel) $m_{bb}$\ shape & all regions & - & Migration+Shape\\
-      \texttt{StopWtPTV} & single-top ($Wt$-channel) $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape\\
-      \texttt{StopWtMBB} & single-top ($Wt$-channel) $m_{bb}$\ shape & all regions & - & Migration+Shape\\
-      {\bfseries Diboson}&&&&\\
-      \texttt{SysZZNorm}    & $ZZ$ normalization 	&  all regions  & 20\%	&Normalization\\
-      \texttt{SysWZNorm}    & $WZ$ normalization 	&  all regions	& 26\%	&Normalization\\
-      \texttt{SysWWNorm}    & $WW$ normalization 	&  all regions	& 25\%	&Normalization\\
-      \texttt{SysVZUEPSAcc} & UEPS acceptance: overall variation &  all regions & $WZ\ell\nu b\bar{b}$: 3.9\%, $ZZ\ell\ell b\bar{b}$: 5.8\%, $ZZ\nu\nu b\bar{b}$: 5.6\% & Normalization\\
-      \texttt{SysVZUEPS\_J3} & UEPS acceptance: $2$- to $3$(+)-jet ratio & 3(+)jet regions & $WZ\ell\nu b\bar{b}$: 10.8\%, $ZZ\ell\ell b\bar{b}$: 3.1\%, $ZZ\nu\nu b\bar{b}$: 7.3\% & Normalization\\
-      \texttt{SysWZUEPSResid\_L0} & $WZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 11.0\% & Normalization\\
-      \texttt{SysZZUEPSResid\_L0} & $ZZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 6.0\% & Normalization\\
-      \texttt{SysVZQCDscale\_J2} & $2$-jet QCD scale acceptance variation & 2-jet regions & $WZ\ell\nu b\bar{b}$: 12.7\%, $ZZ\ell\ell b\bar{b}$: 11.9\%, $ZZ\nu\nu b\bar{b}$: 10.3\% & Normalization\\
-      \texttt{SysVZQCDscale\_J3}
-            & $2$- to $3$(+) jet QCD scale acceptance ratio & 2-jet regions   & $WZ\ell\nu b\bar{b}$: -17.7\%, $ZZ\ell\ell b\bar{b}$: -16.4\%, $ZZ\nu\nu b\bar{b}$: -15.2\% & Normalization\\
-                                     &  & 3(+)-jet regions & $WZ\ell\nu b\bar{b}$: 21.2\%, $ZZ\ell\ell b\bar{b}$: 10.1\%, $ZZ\nu\nu b\bar{b}$: 17.4\% & Normalization\\
-      \texttt{SysVZQCDscale\_JVeto} & $4^{\text{th}}$-jet veto QCD scale acceptance variation & 3-jet, 0- and 1--lepton & $WZ \ell \nu b \bar{b}$: 19.0\%, $ZZ\nu \nu b\bar{b}$: 18.2\% & Normalization\\
-      \texttt{SysggZZQCDscale} & $gg\to ZZ$ QCD scale acceptance variation & all regions & 59\% & Normalization\\
-      \texttt{SysVVPTVME} & di-boson $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape \\ 
-      \texttt{SysVVMbbME} & di-boson $m_{bb}$\ shape & all regions & - & Migration+Shape \\ 
-      \texttt{SysVVPTVUEPS} & di-boson $p_{\mathrm{T}}^V$\ shape variation & all regions & - & Migration+Shape \\
-      \texttt{SysVVMbbUEPS} & di-boson $m_{bb}$\ shape variation & all regions & - & Migration+Shape\\
-      \bottomrule
-    \end{tabular}
-  }
-  \caption[A summary of systematic uncertainties on sub-dominant backgrounds of
-  the analysis.]{A summary of systematic uncertainties on sub-dominant
-    backgrounds of the analysis.}
-  \label{tab:small_bkg_systematics}
-\end{table}
+\begin{landscape}
+  \begin{table}[hb]
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{lllll}
+        \toprule
+        {\bfseries Nuisance Parameter} & {\bfseries Description} & {\bfseries Categories} & {\bfseries Value} & {\bfseries Effect}  \\
+        \midrule
+        {\bfseries Multi-jet}&&&\\
+        \texttt{SysMJNorm\_2J\_El}    & multi-jet normalization 	&  1--lepton channel, 2-jet, $e$ 	& +200\% - 100\% 	&Normalization\\
+        \texttt{SysMJNorm\_3J\_El}    & multi-jet normalization 	&  1--lepton channel, 3-jet, $e$ 	& +100\% - 100\% 	&Normalization\\
+        \texttt{SysMJNorm\_2J\_Mu}    & multi-jet normalization 	&  1--lepton channel, 2-jet, $\mu$       & +47\% -  29\% 	&Normalization\\
+        \texttt{SysMJNorm\_3J\_Mu}    & multi-jet normalization 	&  1--lepton channel, 3-jet, $\mu$       & +100\% - 100\% 	&Normalization\\
+        \texttt{SysMJReduced} & multi-jet shape change with isolation criteria & 1--lepton, $e$ and $\mu$ channel & - & Shape \\
+        \texttt{SysMJSFsCR} & multi-jet shape change with $W +$HF/Top scaling & 1--lepton, $e$ and $\mu$ channel & - & Shape \\
+        {\bfseries Single top}&&&&\\
+        \texttt{stopsNorm}    & single-top ($s$-channel) normalization 	&  all regions	& 4.6\%	&Normalization\\
+        \texttt{stoptNorm}    & single-top ($t$-channel) normalization 	&  all regions	& 4.4\%	&Normalization\\
+        \texttt{stopWtNorm}   & single-top ($Wt$-channel) normalization &  all regions	& 6.2\%	&Normalization\\
+        \texttt{stoptAcc}     & single-top ($t$-channel) acceptance 	&  all regions & 17\% (2jets), 20\% (3jets)	&Normalization\\
+        \texttt{StopWtbbAcc} 	& single-top ($Wt$ channel $Wt\rightarrow b\bar{b}$) acceptance &  all regions	& 54.9\% (2jets), 50.7\% (3jets)	&Normalization\\
+        \texttt{StopWtothAcc} 	& single-top ($Wt$ channel $Wt\rightarrow oth.$) acceptance &  all regions	& 24.1\% (2jets), 21.2\% (3jets)	&Normalization\\
+        \texttt{StoptPTV} & single-top ($t$-channel) $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape\\
+        \texttt{StoptMBB} & single-top ($t$-channel) $m_{bb}$\ shape & all regions & - & Migration+Shape\\
+        \texttt{StopWtPTV} & single-top ($Wt$-channel) $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape\\
+        \texttt{StopWtMBB} & single-top ($Wt$-channel) $m_{bb}$\ shape & all regions & - & Migration+Shape\\
+        {\bfseries Diboson}&&&&\\
+        \texttt{SysZZNorm}    & $ZZ$ normalization 	&  all regions  & 20\%	&Normalization\\
+        \texttt{SysWZNorm}    & $WZ$ normalization 	&  all regions	& 26\%	&Normalization\\
+        \texttt{SysWWNorm}    & $WW$ normalization 	&  all regions	& 25\%	&Normalization\\
+        \texttt{SysVZUEPSAcc} & UEPS acceptance: overall variation &  all regions & $WZ\ell\nu b\bar{b}$: 3.9\%, $ZZ\ell\ell b\bar{b}$: 5.8\%, $ZZ\nu\nu b\bar{b}$: 5.6\% & Normalization\\
+        \texttt{SysVZUEPS\_J3} & UEPS acceptance: $2$- to $3$(+)-jet ratio & 3(+)jet regions & $WZ\ell\nu b\bar{b}$: 10.8\%, $ZZ\ell\ell b\bar{b}$: 3.1\%, $ZZ\nu\nu b\bar{b}$: 7.3\% & Normalization\\
+        \texttt{SysWZUEPSResid\_L0} & $WZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 11.0\% & Normalization\\
+        \texttt{SysZZUEPSResid\_L0} & $ZZ$ UEPS acceptance: $0$-lep residual & $0$-lepton & 6.0\% & Normalization\\
+        \texttt{SysVZQCDscale\_J2} & $2$-jet QCD scale acceptance variation & 2-jet regions & $WZ\ell\nu b\bar{b}$: 12.7\%, $ZZ\ell\ell b\bar{b}$: 11.9\%, $ZZ\nu\nu b\bar{b}$: 10.3\% & Normalization\\
+        \texttt{SysVZQCDscale\_J3}
+                                       & $2$- to $3$(+) jet QCD scale acceptance ratio & 2-jet regions   & $WZ\ell\nu b\bar{b}$: -17.7\%, $ZZ\ell\ell b\bar{b}$: -16.4\%, $ZZ\nu\nu b\bar{b}$: -15.2\% & Normalization\\
+                                       &  & 3(+)-jet regions & $WZ\ell\nu b\bar{b}$: 21.2\%, $ZZ\ell\ell b\bar{b}$: 10.1\%, $ZZ\nu\nu b\bar{b}$: 17.4\% & Normalization\\
+        \texttt{SysVZQCDscale\_JVeto} & $4^{\text{th}}$-jet veto QCD scale acceptance variation & 3-jet, 0- and 1--lepton & $WZ \ell \nu b \bar{b}$: 19.0\%, $ZZ\nu \nu b\bar{b}$: 18.2\% & Normalization\\
+        \texttt{SysggZZQCDscale} & $gg\to ZZ$ QCD scale acceptance variation & all regions & 59\% & Normalization\\
+        \texttt{SysVVPTVME} & di-boson $p_{\mathrm{T}}^V$\ shape & all regions & - & Migration+Shape \\ 
+        \texttt{SysVVMbbME} & di-boson $m_{bb}$\ shape & all regions & - & Migration+Shape \\ 
+        \texttt{SysVVPTVUEPS} & di-boson $p_{\mathrm{T}}^V$\ shape variation & all regions & - & Migration+Shape \\
+        \texttt{SysVVMbbUEPS} & di-boson $m_{bb}$\ shape variation & all regions & - & Migration+Shape\\
+        \bottomrule
+      \end{tabular}
+    }
+    \caption[A summary of systematic uncertainties on sub-dominant backgrounds of
+    the analysis.]{A summary of systematic uncertainties on sub-dominant
+      backgrounds of the analysis.}
+    \label{tab:small_bkg_systematics}
+  \end{table}
+\end{landscape}

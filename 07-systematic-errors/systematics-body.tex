@@ -790,25 +790,27 @@ more data points close the Higgs mass. The binning of the $p_{\mathrm{T}}^V$
 distributions is chosen as to put more points where there are more available
 events.
 
+\clearpage
+\newpage
+
 \section{Systematic Uncertainties on \texorpdfstring{$t\bar{t}$}{tt} Events}
 \label{sec:ttbar-systs}
 Modelling of $t\bar{t}$ events differs between the leptonic channels of the
 analysis. Like many of the differences between channels that have been discussed
 already the reason for this ultimately boils down to there being two visible
-charged leptons in the final state of the 2--lepton channel, which come from the
-vector boson. Using these charged leptons two regions can be defined in the
-2--lepton channel, the same flavour region which breaks down into the usual
-CR$_{\text{low}}$, SR and CR$_{\text{high}}$ and the opposite flavour region
-known as the top $e\mu$ control region. These regions can be used to get a data
-driven estimate of the background from top quark processes in the 2--lepton
-channel, described in section~\ref{sec:ttbar_DD} but as they don't exist in the
-0-- and 1--lepton channel Monte-Carlo generator predictions and theoretical
-uncertainties are used instead. A summary of the nuisance parameters the control
-the $t\bar{t}$ systematic uncertainties can be found in
-table~\ref{tab:ttbar-systs}.
+charged leptons in the final state of the 2--lepton channel. Using these charged
+leptons two regions can be defined in the 2--lepton channel, the same flavour
+region which breaks down into the usual CR$_{\text{low}}$, SR and
+CR$_{\text{high}}$ and the opposite flavour region known as the top $e\mu$
+control region. These regions can be used to get a data driven estimate of the
+background from top quark processes in the 2--lepton channel, described in
+section~\ref{sec:ttbar_DD}. In the 0-- and 1--lepton channel Monte-Carlo
+predictions and theoretical uncertainties are used instead. A summary of the
+nuisance parameters that control the $t\bar{t}$ systematic uncertainties can be
+found in table~\ref{tab:ttbar-systs}.
 \input{07-systematic-errors/ttbar-table.tex}
 
-\paragraph{Nominal and alternative predictions}
+\subsubsection{Nominal and alternative predictions}
 
 The nominal Monte-Carlo prediction for the $t\bar{t}$ process is
 \textsc{Powheg}~+~\textsc{Pythia}~8 with the \textsc{Powheg} NLO matrix element
@@ -822,35 +824,28 @@ parton showering respectively~\cite{ATL-PHYS-PUB-2016-020}.
 Details of the samples making up the nominal $t\bar{t}$ prediction can be found
 in table~\ref{tab:ttbar-nominal} these include the high and low radiation
 variations called  RadHi and RadLo respectively, the samples making up the
-alternative prediction can be found in table~\ref{tab:ttbar-alternative}. As
-well as accounting for variations in radiation, samples are simulated with
-\textsc{Powheg}~+~\textsc{Herwig}~7 to vary the parton shower model and
-\textsc{MadGraph}~5\textsc{\_aMC@NLO}+\textsc{Pythia}~8 to vary the matrix
-element calculation. 
+alternative prediction can be found in table~\ref{tab:ttbar-alternative}.
+Samples are simulated with \textsc{Powheg}~+~\textsc{Herwig}~7 to vary the
+parton shower model and \textsc{MadGraph}~5\textsc{\_aMC@NLO}+\textsc{Pythia}~8
+to vary the matrix element calculation.
 
+\subsubsection{Cross section}
 
-\paragraph{Cross section}
-
-The $t\bar{t}$ cross section relevant to this analysis is calculated for
-proton-proton collisions at a centre of mass energy of $\sqrt{s} = 13$~\TeV and
-using a top quark mass of 172.5~\GeV is $831.76^{+40}_{-46}$~pb. The
-calculation is  at next-to-next-to leading order in QCD including re-summation
-of next-to-next-to-leading logarithmic (NNLL) soft gluon terms with
+The $t\bar{t}$ cross section relevant to this analysis is calculated for a top
+quark mass of 172.5~\GeV\ and is $831.76^{+40}_{-46}$~pb. The calculation is  at
+NNLO in QCD including re-summation of NNLL soft gluon terms with
 \textsc{top++2.0}~\cite{Beneke2012695,Cacciari2012612,PhysRevLett.109.132001,NNLOcorr,NNLOcorrNLO,PhysRevLett.110.252004,Czakon:2011xx}.
 The PDF and $\alpha_S$ uncertainties are calculated using the PDF4LHC
 prescription ~\cite{Botje:2011sn} with the MSTW2008~68\% CL
 NNLO~\cite{PDFLHC,alphasunc}, CT10
 NNLO~\cite{PhysRevD.82.074024,PhysRevD.89.033009} and NNPDF2.3 5f
 FFN~\cite{Ball:2012cx} PDF sets, added in quadrature to the scale uncertainty.
-PDFs uncertainties alone correspond to an error of $\pm 35.06$~pb, while
-the $\alpha_s$ variations correspond to an error of
-$^{+19.77}_{-29.20}$~pb.
 
-\paragraph{Normalisation and Acceptance}
+\subsubsection{Normalisation and Acceptance}
 
 In all fit regions the normalisation of the $t\bar{t}$ background is kept as a
 floating normalisation in 2-- and 3--jet categories independently. The nuisance
-parameters tracking this normalisation are \texttt{norm\_ttbar\_J2} and
+parameters relevant to this normalisation are \texttt{norm\_ttbar\_J2} and
 \texttt{norm\_ttbar\_J3} respectively. In terms of acceptance uncertainties,
 most of the potential migrations such as migration between analysis regions and
 $p_{\mathrm{T}}^V$ bins are covered by the shape uncertainties. There is one nuisance
@@ -860,7 +855,7 @@ the 2-- and 3--jet categories, applied to events in the 0--lepton channel and
 has a prior calculated using the usual formula in
 equation~\ref{eq:acceptance-dr}.
 
-\paragraph{Flavour Composition}
+\subsubsection{Flavour Composition}
 
 Flavour composition uncertainties are derived using ratios of flavour
 sub-components as for other backgrounds, however given that only the $bb$ and
@@ -873,7 +868,7 @@ in turn, in total the nuisance parameters controlling flavour composition
 uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
 \texttt{SysTTbarOthMeACC}, \texttt{SysTTbarOthPSACC}.
 
-\paragraph{Shape Uncertainties}
+\subsubsection{Shape Uncertainties}
 
 The $(N-1)$--dimensional parametrisation is used to estimate the shape
 uncertainties on $t\bar{t}$ events. As in the $W+$jets the variable that is
@@ -904,7 +899,7 @@ question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 As mentioned in section~\ref{sec:topemucr} the top $e\mu$ control region is
 constructed and studied in the analysis in order to get a handle on top quark
 backgrounds in the 2--lepton channel. Due to the flavour symmetry of the
-$t\bar{t}$ and $Wt$ processes the shape of the top quark backgrounds in the top
+$t\bar{t}$ and $$Wt$$ processes the shape of the top quark backgrounds in the top
 $e\mu$ control region and the SR ought to be the same. In order to correct for
 any differences in normalisation a scale factor $\alpha$ is derived as follows
 \begin{align}
@@ -920,12 +915,10 @@ Once that factor is applied then the data from the top $e\mu$ control region can
 be used as a template for top quark backgrounds in the SR.
 
 Using the data driven estimate of the background eliminates the need to apply
-the experimental systematics detailed in section~\ref{sec:experimental-systs}
-which are related to detector performance, jet reconstruction and flavour
-tagging. It also means we don't have to consider theoretical modelling
-uncertainties associated with any Monte-Carlo generator. Note that systematic
-uncertainties on the Monte-Carlo prediction used to derive the scale factor
-$\alpha$ cancel.
+the experimental systematics detailed in section~\ref{sec:experimental-systs}.
+It also means we don't have to consider theoretical modelling uncertainties
+associated with any Monte-Carlo generator. Note that systematic uncertainties on
+the Monte-Carlo prediction used to derive the scale factor $\alpha$ cancel.
 
 In order to check the validity of this approach a data versus prediction check
 was carried out as part of series of wider checks~\cite{VHModellingNote2019}.
@@ -936,12 +929,12 @@ comparison can be found in figure~\ref{fig:ttbar-mbb}.
 In order to see how the shape is modelled the scale factors controlling
 normalisation of the other backgrounds have been taken from the previous
 iteration of the analysis and applied, in this iteration there was no boundary
-at 250~\GeV and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV and $\geq$150~\GeV are
-shown. The previous iteration also did not categorise events into $\Delta R(b,
-b)$ based regions and therefore the so-called SROld is shown which is the sum of
-all the $\Delta R(b, b)$ regions in this version of the analysis. It can be seen
-in the ratio panels that the data and prediction agree well and therefore the
-prediction from the top $e\mu$ control region are considered to be accurate.
+at 250~\GeV and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV\ and
+$\geq$150~\GeV\ are shown. The previous iteration also did not categorise events
+into $\Delta R(b,b)$ based regions and therefore the sum of all the $\Delta
+R(b,b)$ regions is shown. It can be seen in the ratio panels that the data and
+prediction agree well and therefore the prediction from the top $e\mu$ control
+region is considered to be accurate.
 
 \clearpage
 \newpage
@@ -951,9 +944,9 @@ prediction from the top $e\mu$ control region are considered to be accurate.
 This section details the systematic uncertainties on sub-dominant backgrounds.
 None of these background processes dominate in any region of any channel of the
 analysis and so they are not considered to have as large of an impact on the
-analysis as the rest of the backgrounds. These descriptions will be briefer than
-for the other backgrounds. All of the uncertainties of sub-dominant backgrounds
-are summarised in table~\ref{tab:small_bkg_systematics}.
+analysis as the rest of the backgrounds. All of the uncertainties of
+sub-dominant backgrounds are summarised in
+table~\ref{tab:small_bkg_systematics}.
 \input{07-systematic-errors/small-bkg-table.tex}
 All of these systematic uncertainties are based on the comparison of different
 Monte-Carlo predictions, details of the nominal predictions for multi-jet,
@@ -964,6 +957,7 @@ multi-jet doesn't have a data-driven component).
 
 
 \subsection{Multi-Jet}
+
 Systematic uncertainties on the multi-jet background due to QCD are considered
 only in the 1--lepton channel. This is due to heavy suppression of multi-jet
 processes in the 0-- and 2--lepton channels. The uncertainties considered are on
@@ -975,17 +969,18 @@ criteria described in section~\ref{sec:lepton} and altering the scaling with
 respect to the $W+$hf and top quark processes. 
 
 \subsection{Single Top}
+
 Systematic uncertainties on the single top process are applied to all regions of
 the analysis and include parameters controlling the normalisation, acceptance
 effects and shape effects. Normalisation is considered for the s-channel,
-t-channel and Wt-channel single top decays individually. Acceptances in the
-2--jet and 3--jet categories are considered for the t- and Wt-channels where the
-Wt-channel has a parameter for $bb$ and Oth flavour sub-components where Oth is
-defined as in~\ref{sec:ttbar-systs}. Shape uncertainties are considered for the
-$p_{\mathrm{T}}^V$ and $m_{bb}$ variables for the t- and Wt-channels totally four
-parameters controlling the shapes.
+t-channel and $Wt$-channel single top decays individually. Acceptances in the
+2--jet and 3--jet categories are considered for the t- and $Wt$-channels, where the
+$Wt$-channel has a parameter for $bb$ and Oth flavour sub-components. Shape
+uncertainties are considered for the $p_{\mathrm{T}}^V$ and $m_{bb}$ variables
+for the t- and $Wt$-channels totally four parameters controlling the shapes.
 
 \subsection{Diboson}
+
 Systematic uncertainties on the diboson process are considered in all regions of
 the analysis and include normalisation, acceptance and shape uncertainties.
 There is one parameter controlling normalisation for each of the $WW$, $ZZ$ and
@@ -993,16 +988,16 @@ $WZ$ processes. A number of parameters controlling acceptance uncertainty due to
 the underlying event and parton shower variations are introduced. There are two
 for the $VZ$ process controlling the overall variation and the acceptance
 between categories in jet multiplicity. There is one parameter for each of the
-$WZ$ and $ZZ$ process that controls the acceptance in the 0--lepton channel.
+$WZ$ and $ZZ$ processes that controls the acceptance in the 0--lepton channel.
 Additionally there are four parameters controlling acceptance uncertainty
 originating from the chosen QCD strength parameter, there is one for acceptance
 of $VZ$ events in the 2--jet category, one to control migration of $VZ$ events
 between the 2-- and 3--jet categories, one that controls acceptance changes due
 to the veto based on the total number of jets in any $VZ$ event, and one that
-controls the acceptance of $gg$ initiated $ZZ$ events. Four shape uncertainties
-are considered, one for variations due to the matrix element calculation and one
-for variations due to the underlying events and parton shower calculations, for
-the $p_{\mathrm{T}}^V$ and $m_{bb}$ variables.
+controls the acceptance of $gg$ initiated $ZZ$ events. Shape uncertainties are
+considered, for variations due to the matrix element calculation and for
+variations due to the underlying events and parton shower calculations, for the
+$p_{\mathrm{T}}^V$ and $m_{bb}$ variables, totalling four parameters.
 
 \section{Systematic Uncertainties on the Signal Process}
 
@@ -1029,16 +1024,16 @@ A summary of the systematic uncertainties considered on the signal samples can
 be found in table~\ref{tab:sig_systematics}.
 \input{07-systematic-errors/signal-table.tex}
 The majority of these uncertainties account for migration between STXS bins
-(which are defined in $p_{\mathrm{T}}^V$) due to the QCD scale uncertainty. Parameters are
-decorrelated for each STXS bin boundary (75, 150, 250, 400)~\GeV and for the
-$q\bar{q}$ and $gg$ initiated processes. Similarly there are parameters that
-control for migration at the relevant $N_{\text{jet}} - N_{H\text{jet}}$
-boundaries that are decorrelated in the same way. Additionally there are
-parameters that control the uncertainty of the overall cross-section of the
-$q\bar{q}$ and $gg$ processes due to the QCD scale uncertainty. More parameters
-control uncertainties arising from the choice of PDF set which control both
-shape and normalisation. A single parameter controls for the uncertainty of the
-branching ratio of the $H \to b{\bar{b}}$ decay. Finally several parameters
-control  $p_{\mathrm{T}}^V$ and $m_{bb}$ shape variations due to NLO EW corrections and
-underlying event and parton shower calculations, with the latter also being
-decorrelated based on sub-process. 
+(which are defined in $p_{\mathrm{T}}^V$) due to the QCD scale uncertainty.
+Parameters are decorrelated for each STXS bin boundary (75, 150, 250, 400)~\GeV\
+and for the $q\bar{q}$ and $gg$ initiated processes. Similarly there are
+parameters that control for migration at the relevant $N_{\text{jet}} -
+N_{H\text{jet}}$ boundaries that are decorrelated in the same way. Additionally
+there are parameters that control the uncertainty of the overall cross-section
+of the $q\bar{q}$ and $gg$ processes due to the QCD scale uncertainty. More
+parameters control uncertainties arising from the choice of PDF set which
+control both shape and normalisation. A single parameter controls for the
+uncertainty of the branching ratio of the $H \to b{\bar{b}}$ decay. Finally
+several parameters control  $p_{\mathrm{T}}^V$ and $m_{bb}$ shape variations due
+to NLO EW corrections and underlying event and parton shower calculations, with
+the latter also being decorrelated based on sub-process.

@@ -32,6 +32,7 @@
 \usepackage{bigdelim}
 \usepackage{rotating}
 \usepackage{tabularx}
+\usepackage{ragged2e}
 \usepackage[detect-all]{siunitx}
 \usepackage[freestanding]{hepunits}
 
@@ -100,7 +101,8 @@ dup
 0.4
 }
 
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -113,3 +115,4 @@ dup
 \newcommand{\VH}{$V\!H$}
 \newcommand{\WH}{$W\!H$}
 \newcommand{\ZH}{$Z\!H$}
+\newcommand{\PDF}{$\mathfrak{PDF}$}

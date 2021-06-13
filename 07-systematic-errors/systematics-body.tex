@@ -1,66 +1,63 @@
 \chapter{Systematic Uncertainties}%
 \label{ch:systematics}
 
-So far the only errors considered are the random statistical errors on the data
-and Monte-Carlo predictions. Systematic errors enter into the analysis in a
-large number of places, in this chapter the systematic errors considered in the
-analysis are detailed. In general the systematic errors come in one of two
-forms, either a shape effect or a normalisation effect. Normalisation effects
-alter the number of events in a given sample across the entire sample simply
-changing the total number of events. Shape effects change where events lie in a
-given distribution causing events to migrate between bins of a histogram, and
+Systematic uncertainties considered in the analysis come in one of two forms,
+either a shape effect or a normalisation effect. Normalisation effects alter the
+number of events in a given sample across the entire sample simply changing the
+total number of events. Shape effects change where events lie in a given
+distribution causing events to migrate between bins of a histogram, and
 potentially across boundaries that are used to define analysis regions described
-in~\ref{sec:ana-regions}.
+in~\ref{sec:ana-regions}. Each systematic uncertainty is controlled by a
+nuisance parameter in the profile-likelihood fit. For all Gaussian penalty terms
+the prior is estimated in advance.
 
 A sub-category of normalisation effect is the acceptance effect which deals with
 the normalisation in a particular region or set of regions. The purpose of the
 acceptance uncertainties is to account for any mismodelling in the theoretical
 prediction of the quantities used to categorise events into regions be it the
-leptonic channel, jet multiplicity or an analysis region. Nuisance parameters in
-the profile likelihood fit are used to control the acceptance, they are
-implemented as Gaussian probability densities whose priors are estimated in
-advance. The priors of all of these so called acceptance uncertainties are
-calculated using the double ratio
+leptonic channel, jet multiplicity or an analysis region. The priors of these so
+called acceptance uncertainties are calculated using the double ratio, unless
+stated otherwise,
 \begin{equation}
   \left. \dfrac{N_{A}^{\text{nominal}}}{N_{B}^{\text{nominal}}} \middle/
     \dfrac{N_{A}^{\text{alternative}}}{N_{B}^{\text{alternative}}} \right.,
   \label{eq:acceptance-dr}
 \end{equation}
 where the formula has been written agnostic of the specific application so
-$N_{A}^{nominal}$ is the number of  events in the nominal prediction in some
+$N_{A}^{\text{nominal}}$ is the number of  events in the nominal prediction in some
 region or category called $A$ and so on.
 
 Another variant of the normalisation effect are the flavour composition
 uncertainties. Rather than impacting the normalisation of an entire background
-in terms of how they are categorised in the analysis plots, for example in the
-plots in section~\ref{sec:prefit}, they impact the sub-processes split by
-flavour of the decay products individually. A heavy flavour process is defined as
-one where the two leading jets have flavour (b,~b), (b,~c), (b,~l), or (c,~c),
+in terms of how they are categorised in the analysis plots, for example in
+section~\ref{sec:prefit}, they impact the sub-processes split by flavour of the
+decay products individually. A heavy flavour process is defined as one where the
+two leading jets have flavour $(b,~b)$, $(b,~c)$, $(b,~l)$, or $(c,~c)$,
 this categorisation is often written as hf for short for example when
 considering all heavy flavour sub-process of the $V+$jets background one could
-write V + hf. Flavour composition uncertainties affect the normalisation of one
+write $V+$hf. Flavour composition uncertainties affect the normalisation of one
 of the flavour sub-processes with respect to one of the others, specific details
 will follow under the sections relating to the relevant backgrounds.
 
 The rest of this chapter will detail the sources of systematic error broken down
 into groups of similar origin. Before breaking down each group of systematic
-errors a technique called the Boosted Decision Tree Re-weighting method will be
-explained as it used across a number of the different groups. The author's
-contributions include the determination of all of the $Z+$jets systematic
-errors, determination of systematic errors relating to the flavour composition
-of simulated top process events, and development and testing of the Boosted
-Decision Tree Re-weighting method.
+uncertainties, a technique called the Boosted Decision Tree Re-weighting (BDTr)
+method will be explained as it used across a number of the different groups. The
+author's contributions include the determination of all of the $Z+$jets
+systematic uncertainties, determination of systematic uncertainties relating to
+the flavour composition of simulated top process events, and development and
+testing of the BDTr method.
 
 \section{Parametrising Variance Due To Shape Uncertainties}
 \label{sec:re-weighting}
 
 The predictions entering into the profile-likelihood fit of the analysis can be
-written as a probability density $p(\vec{x}|\vec{\theta})$, where $\vec{x} =
-[x_{1},..., x_{i}]$ is a vector of observable quantities, with $N$ elements and
-$\vec{\theta}$ represents the theoretical parameters of the model. The
-parameters may come from the Standard Model theory or phenomenological
-considerations that must be taken into account to turn that theory into a usable
-prediction.
+written as a probability density function (\PDF) $p(\vec{x}|\vec{\theta})$,
+where $\vec{x} = [x_{1},..., x_{i}]$ is a vector of observable quantities, with
+$N$ elements and $\vec{\theta}$ represents the theoretical parameters of the
+model. The parameters may come from the Standard Model theory or
+phenomenological considerations that must be taken into account to turn that
+theory into a usable prediction.
 
 As described above, shape effects may impact the prediction of a given
 Monte-Carlo generator that has a particular set of parameters. The choice of
@@ -71,15 +68,13 @@ the variance of a particular generator is therefore to literally vary these
 choices by picking an alternative generator and drawing a comparison to the
 alternative prediction. This method is flawed in ways which will be discussed
 but is nonetheless fairly common and often one of the few choices available to
-analysers when they are trying to get an idea of what the systematic errors on
-the modelling of complex physics processes are. Two such methods of comparison
-will be detailed here as they are used in this analysis, they the single
-dimension parameterisation described in section~\ref{sec:1D-reweight} and a
+analysers when they are trying to get an idea of what the systematic
+uncertainties on the modelling of complex physics processes are. Two such
+methods of comparison will be detailed here, the single dimension
+parameterisation described in section~\ref{sec:1D-reweight} and a
 multi-dimensional parameterisation described in section~\ref{sec:ND-reweight}.
 Following this a hybrid approach which uses both methods will be described in
-section~\ref{sec:hybrid-reweight}. These methods are described here in general
-and then the specific implementations are discussed later under sections
-relevant to the systematic errors they are used to calculate.
+section~\ref{sec:hybrid-reweight}.
 
 \subsection{Single Dimension Parameterisation}
 \label{sec:1D-reweight}
@@ -103,24 +98,18 @@ chosen from the vector $\vec{x}$. The ratio then becomes
   \label{eq:1D-ratio}
 \end{equation}
 which can in turn be calculated for as many or as few as the elements of
-$\vec{x}$ as is desired. It should be noted that when the ratio is calculated
-using only a single variable it can still be used to map the $N$ dimensional
-nominal prediction to the alternative, however the mapping is only guaranteed to
-be successful in the dimension chosen to calculate the ratio and in general
-agreement between the two predictions in the other variables can not be relied
-upon.
+$\vec{x}$ as is desired. When the ratio is calculated using only a single
+variable it can still be used to map the $N$ dimensional nominal prediction to
+the alternative, however the mapping is only guaranteed to be successful in the
+dimension chosen to calculate the ratio. In general agreement between the two
+predictions in the other variables can not be relied upon.
 
-Figure~\ref{fig:1d-rw-illustration} shows a graphical illustration of how this
-single dimensional ratio is calculated. In practice the ratio is used to derive
-a systematic shape uncertainty by weighting each event in the nominal
-prediction as a function of the variable $x_{i}$ whose distribution was used to
-calculate the ratio. Limitations on the sample size of each prediction mean that
-in practice it is better to smooth the ratio via the use of a parametric fit in
-order to mitigate any large statistical fluctuations in a single bin of the
-ratio (arising from a large fluctuation in one of the predictions in that bin).
-In figure~\ref{fig:1d-rw-illustration} the parametric fit is represented by the
-solid line in the ratio.
-\input{07-systematic-errors/re-weighting-illustration}
+In practice the ratio is used to derive a systematic shape uncertainty by
+weighting each event in the nominal prediction as a function of the variable
+$x_{i}$ whose distribution was used to calculate the ratio. Limitations on the
+sample size of each prediction mean that in practice it is better to smooth the
+ratio via the use of a parametric fit in order to mitigate any large statistical
+fluctuations in a single bin of the ratio.
 
 \subsection{$N$-dimensional Parametrisation}
 \label{sec:ND-reweight}
@@ -129,32 +118,32 @@ As already alluded to in the previous section there are issues with the
 parametrisation in a single dimension. Not only is the mapping only guaranteed
 to work in a single dimension but if the technique is applied sequentially on
 one variable after another the mapping from the first step can be undone by the
-second. That is to say that if one calculates the ratio~\ref{eq:1D-ratio} with
-$i=1$ and $i=2$ the re-weighting by $r(x_2)$ will not preserve the agreement
-between the two predictions that would be achieved by the re-weighting with
-$r(x_1)$. It is clear that this is because a ratio for a given $x_i$ only encode
-information relating to the PDFs $p(x_i|\theta_0)$ and $p(x_i|\theta_1)$ whereas
-what is wanted is something that encodes the multi-variate distributions
-$p(\vec{x}|\theta_0)$ and $p(\vec{x}|\theta_1)$.
+second. That is to say that if one calculates the ratio in
+equation~\ref{eq:1D-ratio} with $i=1$ and $i=2$ the re-weighting by $r(x_2)$
+will not preserve the agreement between the two predictions that would be
+achieved by the re-weighting with $r(x_1)$. It is clear that this is because a
+ratio for a given $x_i$ only encode information relating to the \PDF s
+$p(x_i|\theta_0)$ and $p(x_i|\theta_1)$ whereas an encoding of the multi-variate
+distributions $p(\vec{x}|\theta_0)$ and $p(\vec{x}|\theta_1)$ is desired.
 
-A function capable of providing compression of the full multi-variate
-distribution has already been discussed, these are the functions that one
-obtains when training a machine learning algorithm such as those mentioned
-in chapter~\ref{ch:ml}. Functions of the form given in
-equation~\ref{eq:ml-general} can encode information from the multi-variate
-input $\vec{x}$ into a lower dimensional $\vec{y}$ that captures the
-correlations between the different elements of the inputs $\vec{x}$.
-Specifically for this parametrisation the model is trained to classify events as
-coming from either the Monte-Carlo generator with parameters $\theta_0$ or
-$\theta_1$, the output is therefore written as $\vec{y} = [y_0, y_1]$ where each
-term in the vector represents the probability that an event comes from
-$p(\vec{x} | \theta_0)$ or $p(\vec{x} | \theta_1)$ respectively. Note that the
-choice of output function in the model ensure that probability is conserved,
-i.e. $y_0 + y_1 = 1$. This technique has been demonstrated in the
+A function capable of providing a univariate representation of the full
+multi-variate distribution has already been discussed, these are the functions
+that one obtains when training a machine learning classifier such as those
+mentioned in chapter~\ref{ch:ml}. Functions of the form given in
+equation~\ref{eq:ml-general} can encode information from the multi-variate input
+$\vec{x}$ into a lower dimensional $\vec{y}$ that captures the correlations
+between the different elements of the input $\vec{x}$. Specifically for this
+parametrisation the model is trained to classify events as coming from either
+the Monte-Carlo generator with parameters $\theta_0$ or $\theta_1$, the output
+is therefore written as $\vec{y} = [y_0, y_1]$ where each term in the vector
+represents the probability that an event comes from $p(\vec{x} | \theta_0)$ or
+$p(\vec{x} | \theta_1)$ respectively. Note that the choice of output function in
+the model must ensure that probability is conserved, i.e. $y_0 + y_1 = 1$. This
+technique has been demonstrated in the
 literature~\cite{cranmer2016approximating} where the mathematical details are
 discussed in more detail.
 
-Our setup allows to create the following approximation
+Our setup allows us to create the following approximation
 \begin{equation}
   r(\vec{x}) =  \frac{p(\vec{x}|\vec{\theta}_{1})}{p(\vec{x}|\vec{\theta}_{0})}
   \approx \frac{F(\vec{x}, \vec{w})[1]}{F(\vec{x}, \vec{w})[0]},
@@ -163,29 +152,25 @@ Our setup allows to create the following approximation
 where $F$ is our trained model whose hyper-parameters we can considered fixed
 and drop from the notation (previously denoted $\vec{\theta}$ in
 chapter~\ref{ch:ml}). The numbers in the square brackets indicate which element
-of the $\vec{y}$ is being selected. Once the above approximation is made the
-steps to generate weights and perform a parameterisation of the difference in
-shape between two predictions is the same as in the one dimensional case. By
-placing certain restrictions on $F$ one can turn the approximation into an
+of the $\vec{y}$ is being selected. Once the above approximation is made, the
+steps to generate weights and perform a parameterisation of the shape
+discrepancy between two predictions is the same as in the one dimensional case.
+By placing certain restrictions on $F$ one can turn the approximation into an
 equivalence, this is discussed in~\cite{VHModellingNote2019}, however for what
-is considered here the approximation will be the focus.
-Figure~\ref{fig:nd-rw-illustration} shows an illustration of the
-$N$--dimensional parametrisation procedure.
-\input{07-systematic-errors/nd-reweighting-illustration}
-This parametrisation will be referred to in the analysis as the BDTr method
-short for BDT re-weighting as the choice of classifier is a BDT.
+is considered here the approximation will be the focus. As mentioned this
+parametrisation will be referred to in the analysis as the BDTr method.
 
 \subsection{Hybrid $\mathbf{(N - 1)}$--Dimensional Parametrisation}
 \label{sec:hybrid-reweight}
 
-It is possible to combine the aforementioned parametrisation strategies into a
-single strategy. This is achieved by first re-weighting using the 1--dimensional
-technique and then training the classifier on the re-weighted distributions and
-proceeding with the $N$--dimensional parametrisation as usual. In principle the
-1--dimensional re-weighting can be performed a number of times sequentially
-before training the classifier and so therefore a general $(N-k)$--dimensional
-strategy can be formed, however in this analysis the 1--dimensional re-weighting
-is only applied once before training.
+It is possible to combine the two aforementioned parametrisation strategies into
+a single strategy. This is achieved by first re-weighting using the
+1--dimensional technique and then training the classifier on the re-weighted
+distributions and proceeding with the $N$--dimensional parametrisation as usual.
+In principle the 1--dimensional re-weighting can be performed a number of times
+sequentially before training the classifier and so therefore a general
+$(N-k)$--dimensional strategy can be formed, however in this analysis the
+1--dimensional re-weighting is only applied once before training.
 
 The hybrid approach yields two parametrisations one that parametrising the
 difference between the two samples in the single variable used in the
@@ -198,21 +183,18 @@ factored out.
 
 There are a number of reasons why one might want to factor out a single variable
 from the multi-dimensional procedure that naively looks superior in every way to
-the 1--dimensional approach. One must considered that when comparing two
-Monte-Carlo based generators internal parameters may be used in one of those
-generators that are not used in other, this is one reason why a smooth
-interpolation between generators may not actually exist. Given that the
-parametrisation generated by any of these methods will be input into a
-profile-likelihood fit as a Gaussian constrained nuisance parameter that is
-varied in a smooth and continuous manner there is therefore incongruity between
-the nature of the nuisance parameter and the underlying mapping between
-generators. A second nuisance parameter arising from the factorised variable
-therefore at least allows the profile-likelihood fit to control more precisely
-the histograms relating to that variable. The choice of factorised variable is
-also relevant to the choice of using the hybrid method, for example in the fit
-the histograms entering in the control regions are of $P_{\mathrm{T}}^V$ and so it may be
-sensible to give the fit a parameter to directly control the shape of this
-variable.
+the 1--dimensional approach. Internal parameters of two predictions models need
+not obey a one-to-one mapping, therefore a smooth interpolation between them is
+not guaranteed to exist. This reveals an incongruity between the nature of the
+Gaussian penalty term used to control the shape uncertainty in the fit, which is
+varied smoothly and continuously, and the underlying mapping that it aims to
+characterise.  A second nuisance parameter arising from the factorised variable
+therefore at least allows the profile-likelihood fit to control in more
+well defined way the histograms relating to that variable. The inclusion of a
+factorised variable may also be desirable as particular variables have increased
+importance to the analysis, for example the histograms entering in the control
+regions are of $p_{\mathrm{T}}^V$ and so giving the fit a parameter to control
+directly the shape of this variable is considered to aid interpretability.
 
 \section{Experimental Systematic Uncertainties}
 \label{sec:experimental-systs}
@@ -222,9 +204,9 @@ limitations of the hardware discussed in chapter~\ref{ch:detector} and
 reconstruction algorithms described in chapter~\ref{ch:recon}. All of these
 uncertainties are provided by different combined performance (CP) groups and
 made centrally available to members of the ATLAS collaboration, this ensures a
-consistent understanding of the performance of the detector and centrally
-provided reconstruction algorithms in Athena. A summary of all of the
-experimental systematic uncertainties used in the analysis can be found in
+consistent understanding of the performance of the detector and the
+reconstruction algorithms of Athena. A summary of all of the experimental
+systematic uncertainties used in the analysis can be found in
 table~\ref{tab:expSyst}.
 \input{07-systematic-errors/experimental-table.tex}
 

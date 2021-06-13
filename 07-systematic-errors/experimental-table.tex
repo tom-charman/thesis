@@ -1,83 +1,82 @@
 \begin{table}
-  \resizebox{\textwidth}{!}{
-    \begin{tabular}{ll}
-      \toprule
-      {\bfseries Systematic uncertainty} & {\bfseries Short description} \\
-      \midrule
-      {\bfseries Event} & \\
-      Luminosity & uncertainty on total integrated luminosity \\
-      Pileup Re-weighting & uncertainty on pileup re-weighting \\
-      {\bfseries Triggers} & \\
-      \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} &  electron trigger efficiency uncertainty\\
-      \texttt{MUON\_EFF\_TrigStatUncertainty} &  \multirow{2}{*}{muon trigger efficiency uncertainty} \\
-      \texttt{MUON\_EFF\_TrigSystUncertainty} & \\
-      \texttt{METTrigStat}  &  \multirow{2}{*}{$E_{\mathrm{T}}^{\text{miss}}$trigger efficiency uncertainty} \\
-      \texttt{METTrigTop/Z} & \\
-      \texttt{METTrigSumpt} & \\
-      {\bfseries Electrons}&\\%&\\
-      \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR} &  reconstruction efficiency uncertainty \\
-      \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR} &  ID efficiency uncertainty \\
-      \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} &  isolation efficiency uncertainty \\
-      \texttt{EG\_SCALE\_ALL} &        energy scale uncertainty \\
-      \texttt{EG\_RESOLUTION\_ALL} &    energy resolution uncertainty \\
-      {\bfseries Muons}&\\
-      \texttt{MUON\_EFF\_RECO\_STAT} &  \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_{\mathrm{T}}$\ $>$ 15 \GeV} \\
-      \texttt{MUON\_EFF\_RECO\_SYS} &  \\
-      \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT} & \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_{\mathrm{T}}$\ $<$ 15 \GeV} \\
-      \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT} &  \\
-      \texttt{MUON\_EFF\_TTVA\_STAT} &  \multirow{2}{*}{track-to-vertex association efficiency uncertainty} \\
-      \texttt{MUON\_EFF\_TTVA\_SYS} &                      \\
-      \texttt{MUON\_ISO\_STAT} &  \multirow{2}{*}{isolation efficiency uncertainty} \\
-      \texttt{MUON\_ISO\_SYS} &                     \\
-      \texttt{MUON\_ID} & momentum resolution uncertainty from inner detector        \\
-      \texttt{MUON\_MS} &  momentum resolution uncertainty from muon system        \\
-      \texttt{MUON\_SCALE} &   momentum scale uncertainty         \\
-      \texttt{MUON\_SAGITTA\_RHO} & \multirow{2}{*}{charge dependent momentum scale uncertainty} \\
-      \texttt{MUON\_SAGITTA\_RESBIAS} &  \\
-      {\bfseries Jets and $\bm{b}$-tagging}&\\
-      \texttt{JET\_CR\_JET\_EffectiveNP\_Detector1,2} & energy scale uncertainty from the in situ analyses (detector) \\
-      \texttt{JET\_CR\_JET\_EffectiveNP\_Modelling1,...,4} & energy scale uncertainty from the in situ analyses (modelling) \\
-      \texttt{JET\_CR\_JET\_EffectiveNP\_Statistical1,...,6} & energy scale uncertainty from the in situ analyses (stat) \\
-      \texttt{JET\_CR\_JET\_EffectiveNP\_Mixed1,2,3} & energy scale uncertainty from the in situ analyses (mixed terms) \\
-      \texttt{JET\_CR\_JET\_EtaIntercalibration\_Modeling} & energy scale uncertainty on eta-intercalibration (modelling)\\
-      \texttt{JET\_CR\_JET\_EtaIntercalibration\_TotalStat} & energy scale uncertainty on eta-intercalibrations (statistics/method) \\
-      \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_highE} & \multirow{3}{*}{energy scale uncertainty on eta-intercalibrations (non-closure)} \\
-      \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_negEta} &\\
-      \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_posEta} &\\
-      \texttt{JET\_CR\_JET\_BJES\_Response} &  \\
-      \texttt{JET\_CR\_JET\_Flavor\_Composition} & energy scale uncertainty on $V\!V$ and \VH\ sample's flavour composition \\
-                                         & {$\rightarrow$ Independent NP for : "\texttt{\_Top}", "\texttt{\_Vjets}", "\texttt{\_VV}" processes } \\
-      \texttt{JET\_CR\_JET\_Flavor\_Response} & energy scale uncertainty on samples' flavor response \\
-      \texttt{JET\_CR\_JET\_Pileup\_OffsetMu} & energy scale uncertainty on pile-up (Mu dependent) \\
-      \texttt{JET\_CR\_JET\_Pileup\_OffsetNPV} & energy scale uncertainty on pile-up (NPV dependent) \\
-      \texttt{JET\_CR\_JET\_Pileup\_PtTerm} & energy scale uncertainty on pile-up (pt term) \\
-      \texttt{JET\_CR\_JET\_Pileup\_RhoTopology} & energy scale uncertainty on pile-up (density $\rho$) \\
-      \texttt{JET\_CR\_JET\_PunchThrough\_MC16} & energy scale uncertainty for punch-through jets \\
-      \texttt{JET\_CR\_JET\_SingleParticle\_HighPt} & energy scale uncertainty from the behavior of high-pT jets \\
-      \texttt{JET\_CR\_JET\_JER\_EffectivNP\_1,...6,7restTerm} & energy resolution uncertainty split into 7 components \\
-      \texttt{JET\_CR\_JET\_JER\_DataVsMC} & energy resolution additional uncertainty difference between data than MC resolutions \\
-      \texttt{JET\_JvtEfficiency} & JVT efficiency uncertainty \\
-      \texttt{FT\_EFF\_Eigen\_B0,...,45} & \multirow{3}{*}{\parbox{11cm}{$b$-tagging efficiency uncertainties (``BTAG\_LOOSE'') in continuous mode: 45 components for $b$ jets, 20 for $c$ jets and 20 for light jets}} \\
-      \texttt{FT\_EFF\_Eigen\_C0,...,20} &\\
-      \texttt{FT\_EFF\_Eigen\_L0,...,20} &\\
-      \texttt{FT\_EFF\_Eigen\_extrapolation} & $b$-tagging efficiency uncertainty on the extrapolation to high-$p_{\mathrm{T}}$\ jets \\
-      \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} & $b$-tagging efficiency uncertainty on tau jets \\
-      {\bfseries $E_{\mathrm{T}}^{\text{miss}}$}&\\
-      \texttt{MET\_SoftTrk\_ResoPara} & track-based soft term related longitudinal resolution uncertainty \\
-      \texttt{MET\_SoftTrk\_ResoPerp} &  track-based soft term related transverse resolution uncertainty \\
-      \texttt{MET\_SoftTrk\_Scale} & track-based soft term related longitudinal scale uncertainty \\
-      \texttt{MET\_JetTrk\_Scale} & track MET scale uncertainty due to tracks in jets \\
-      {\bfseries Taus}&\\
-      \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR} & energy scale uncertainty: single-particle response + threshold \\
-      \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} & energy scale uncertainty: total from in-situ measurement \\
-      \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL} & energy scale uncertainty: modelling + closure \\
-      \bottomrule
-    \end{tabular}
-  }
-  \caption[A summary of experimental systematic uncertainties.]{A summary of the
-    experimental systematic uncertainties considered in the analysis. They are
-    listed by the name of the nuisance parameter entering into the
-    profile-likelihood fit and a short description is provided of each
-    uncertainty.}
-  \label{tab:expSyst}
+  \begin{tabularx}{\textwidth}{@{}LL{}@}
+    \toprule
+    {\bfseriesseries Systematic uncertainty} & {\bfseries Short description} \\
+    \midrule
+    {\bfseries Event} & \\
+    Luminosity & uncertainty on total integrated luminosity \\
+    Pileup Re-weighting & uncertainty on pileup re-weighting \\
+    {\bfseries Triggers} & \\
+    \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} &  electron trigger efficiency uncertainty\\
+    \texttt{MUON\_EFF\_TrigStatUncertainty} &  \multirow{2}{*}{muon trigger efficiency uncertainty} \\
+    \texttt{MUON\_EFF\_TrigSystUncertainty} & \\
+    \texttt{METTrigStat}  &  \multirow{2}{*}{$E_{\mathrm{T}}^{\text{miss}}$trigger efficiency uncertainty} \\
+    \texttt{METTrigTop/Z} & \\
+    \texttt{METTrigSumpt} & \\
+    {\bfseries Electrons}&\\%&\\
+    \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR} &  reconstruction efficiency uncertainty \\
+    \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR} &  ID efficiency uncertainty \\
+    \texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} &  isolation efficiency uncertainty \\
+    \texttt{EG\_SCALE\_ALL} &        energy scale uncertainty \\
+    \texttt{EG\_RESOLUTION\_ALL} &    energy resolution uncertainty \\
+    {\bfseries Muons}&\\
+    \texttt{MUON\_EFF\_RECO\_STAT} &  \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_{\mathrm{T}}$\ $>$ 15 \GeV} \\
+    \texttt{MUON\_EFF\_RECO\_SYS} &  \\
+    \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT} & \multirow{2}{*}{reconstruction and ID efficiency uncertainty for muons with $p_{\mathrm{T}}$\ $<$ 15 \GeV} \\
+    \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT} &  \\
+    \texttt{MUON\_EFF\_TTVA\_STAT} &  \multirow{2}{*}{track-to-vertex association efficiency uncertainty} \\
+    \texttt{MUON\_EFF\_TTVA\_SYS} &                      \\
+    \texttt{MUON\_ISO\_STAT} &  \multirow{2}{*}{isolation efficiency uncertainty} \\
+    \texttt{MUON\_ISO\_SYS} &                     \\
+    \texttt{MUON\_ID} & momentum resolution uncertainty from inner detector        \\
+    \texttt{MUON\_MS} &  momentum resolution uncertainty from muon system        \\
+    \texttt{MUON\_SCALE} &   momentum scale uncertainty         \\
+    \texttt{MUON\_SAGITTA\_RHO} & \multirow{2}{*}{charge dependent momentum scale uncertainty} \\
+    \texttt{MUON\_SAGITTA\_RESBIAS} &  \\
+    {\bfseries Jets and $\bm{b}$-tagging}&\\
+    \texttt{JET\_CR\_JET\_EffectiveNP\_Detector1,2} & energy scale uncertainty from the in situ analyses (detector) \\
+    \texttt{JET\_CR\_JET\_EffectiveNP\_Modelling1,...,4} & energy scale uncertainty from the in situ analyses (modelling) \\
+    \texttt{JET\_CR\_JET\_EffectiveNP\_Statistical1,...,6} & energy scale uncertainty from the in situ analyses (stat) \\
+    \texttt{JET\_CR\_JET\_EffectiveNP\_Mixed1,2,3} & energy scale uncertainty from the in situ analyses (mixed terms) \\
+    \texttt{JET\_CR\_JET\_EtaIntercalibration\_Modeling} & energy scale uncertainty on eta-intercalibration (modelling)\\
+    \texttt{JET\_CR\_JET\_EtaIntercalibration\_TotalStat} & energy scale uncertainty on eta-intercalibrations (statistics/method) \\
+    \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_highE} & \multirow{3}{*}{energy scale uncertainty on eta-intercalibrations (non-closure)} \\
+    \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_negEta} &\\
+    \texttt{JET\_CR\_JET\_EtaIntercalibration\_NonClosure\_posEta} &\\
+    \texttt{JET\_CR\_JET\_BJES\_Response} &  \\
+    \texttt{JET\_CR\_JET\_Flavor\_Composition} & energy scale uncertainty on $V\!V$ and \VH\ sample's flavour composition \\
+    & {$\rightarrow$ Independent NP for : "\texttt{\_Top}", "\texttt{\_Vjets}", "\texttt{\_VV}" processes } \\
+    \texttt{JET\_CR\_JET\_Flavor\_Response} & energy scale uncertainty on samples' flavor response \\
+    \texttt{JET\_CR\_JET\_Pileup\_OffsetMu} & energy scale uncertainty on pile-up (Mu dependent) \\
+    \texttt{JET\_CR\_JET\_Pileup\_OffsetNPV} & energy scale uncertainty on pile-up (NPV dependent) \\
+    \texttt{JET\_CR\_JET\_Pileup\_PtTerm} & energy scale uncertainty on pile-up (pt term) \\
+    \texttt{JET\_CR\_JET\_Pileup\_RhoTopology} & energy scale uncertainty on pile-up (density $\rho$) \\
+    \texttt{JET\_CR\_JET\_PunchThrough\_MC16} & energy scale uncertainty for punch-through jets \\
+    \texttt{JET\_CR\_JET\_SingleParticle\_HighPt} & energy scale uncertainty from the behavior of high-pT jets \\
+    \texttt{JET\_CR\_JET\_JER\_EffectivNP\_1,...6,7restTerm} & energy resolution uncertainty split into 7 components \\
+    \texttt{JET\_CR\_JET\_JER\_DataVsMC} & energy resolution additional uncertainty difference between data than MC resolutions \\
+    \texttt{JET\_JvtEfficiency} & JVT efficiency uncertainty \\
+    \texttt{FT\_EFF\_Eigen\_B0,...,45} & \multirow{3}{*}{\parbox{11cm}{$b$-tagging efficiency uncertainties (``BTAG\_LOOSE'') in continuous mode: 45 components for $b$ jets, 20 for $c$ jets and 20 for light jets}} \\
+    \texttt{FT\_EFF\_Eigen\_C0,...,20} &\\
+    \texttt{FT\_EFF\_Eigen\_L0,...,20} &\\
+    \texttt{FT\_EFF\_Eigen\_extrapolation} & $b$-tagging efficiency uncertainty on the extrapolation to high-$p_{\mathrm{T}}$\ jets \\
+    \texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} & $b$-tagging efficiency uncertainty on tau jets \\
+    {\bfseries $\bm{E_{\mathrm{T}}^{\text{miss}}}$}&\\
+    \texttt{MET\_SoftTrk\_ResoPara} & track-based soft term related longitudinal resolution uncertainty \\
+    \texttt{MET\_SoftTrk\_ResoPerp} &  track-based soft term related transverse resolution uncertainty \\
+    \texttt{MET\_SoftTrk\_Scale} & track-based soft term related longitudinal scale uncertainty \\
+    \texttt{MET\_JetTrk\_Scale} & track MET scale uncertainty due to tracks in jets \\
+    {\bfseries Taus}&\\
+    \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR} & energy scale uncertainty: single-particle response + threshold \\
+    \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} & energy scale uncertainty: total from in-situ measurement \\
+    \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL} & energy scale uncertainty: modelling + closure \\
+    \bottomrule
+  \end{tabularx}
+}
+\caption[A summary of experimental systematic uncertainties.]{A summary of the
+  experimental systematic uncertainties considered in the analysis. They are
+  listed by the name of the nuisance parameter entering into the
+  profile-likelihood fit and a short description is provided of each
+  uncertainty.}
+\label{tab:expSyst}
 \end{table}

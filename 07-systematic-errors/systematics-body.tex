@@ -246,163 +246,133 @@ events recorded in 2017 due to a specific trigger used in this year.
 
 \subsubsection{Lepton trigger}
 
-The CP group recommendations for the lepton triggers can be found
-in~\cite{VHObjectNote2019}. The group provide a tool for determining the lepton
-trigger systematic error which is implemented in the CxAOD Framework (mentioned
-in section~\ref{sec:cxaod}). The nuisance parameter
-\texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is used to control the overall
-uncertainty on the electron trigger. For the muons, the tool returns two components
-\texttt{MUON\_EFF\_TrigSystUncertainty} and \texttt{MUON\_EFF\_TrigStatUncertainty}
-which account for the systematic error and the statistical error on scale factor
-respectively. An up and down variation of 1-$\sigma$ are used for all of the
-aforementioned nuisance parameters.
+The nuisance parameter \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is
+used to control the overall uncertainty on the electron trigger. For the muons,
+the two components are considered \texttt{MUON\_EFF\_TrigSystUncertainty} and
+\texttt{MUON\_EFF\_TrigStatUncertainty}, which account for the systematic error
+and the statistical error on scale factor respectively. An up and down variation
+of 1-$\sigma$ are used for all of the aforementioned nuisance parameters.
 
 \subsection{Electrons}
 
 \subsubsection{Electron Efficiency Uncertainties}
 
-The efficiency of the electron reconstruction and identification (discussed
-in~\ref{subsec:electrons}) has a systematic uncertainty provided by the relevant
-CP group called \texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki}.
-These have been calculated using the full run 2 data. Reconstruction is 97-99\%
-efficient across the full $p_{\mathrm{T}}$~spectrum. Identification has an efficiency scale
-factor is available from $p_{\mathrm{T}}>7$~\GeV. An isolation efficiency scale factor is
+The efficiency of the electron reconstruction and identification has a
+systematic uncertainty called
+\texttt{ElectronEfficiencyCorrection}~\cite{electronTWiki} calculated using the
+full run 2 data. Reconstruction is 97-99\% efficient across the full
+$p_{\mathrm{T}}$~spectrum. Identification has an efficiency scale factor
+available from $p_{\mathrm{T}}>7$~\GeV. An isolation efficiency scale factor is
 also included. The latest uncertainties that are available include scale factors
-for $p_{\mathrm{T}}>150$~\GeV\ that are unity due to the available sample being to small in
-statistics to measure a scale factor~\footnote{Check if this is for all electron
-  systs}. An additional systematic uncertainty of $\pm 2\%$ is assigned above
-150~\GeV\ to over this shortcoming. The above uncertainties are controlled by
-\texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
+for $p_{\mathrm{T}}>150$~\GeV\ that are unity due to a lack of enough data to
+measure a scale factor. An additional systematic uncertainty of $\pm 2\%$ is
+assigned above 150~\GeV\ to mitigate this shortcoming. The above uncertainties
+are controlled by \texttt{EL\_EFF\_ID\_Total\_1NPCOR\_PLUS\_UNCOR},
 \texttt{EL\_EFF\_Reco\_Total\_1NPCOR\_PLUS\_UNCOR}, and
-\texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR} in the profile-likelihood fit.
+\texttt{EL\_EFF\_Iso\_Total\_1NPCOR\_PLUS\_UNCOR}.
 
 \subsubsection{Electron Energy Scale and Resolution Uncertainties}
 
-Energy scale and resolution systematic uncertainties have been provided by the
-relevant CP group~\cite{EgammaCalibTWiki}. Whilst there are a large number of
-uncertainties provided by the group, this analysis is not very sensitive to the
-energy scale or resolution of electrons and therefore only two uncertainties are
-considered which are called \texttt{EG\_RESOLUTION\_ALL} and
-\texttt{EG\_SCALE\_ALL}.
+A large number of electron energy scale and resolution systematic uncertainties
+are available~\cite{EgammaCalibTWiki}. The analysis is not very sensitive to
+these quantities and therefore only two uncertainties are considered which are
+called \texttt{EG\_RESOLUTION\_ALL} and \texttt{EG\_SCALE\_ALL}.
 
 \subsection{Muons}
 
 \subsubsection{Muon Efficiency Systematic Uncertainties}
 
-Samples of $Z \to \mu\mu$ and $J/\psi \to \mu\mu$ events from the full 2015
+Samples of $Z\to\mu\mu$ and $J/\psi\to\mu\mu$ events from the full 2015
 dataset (corresponding to 3.2~fb$^{-1}$) are used to calculate scale factors to
 account for uncertainties in the reconstruction, isolation and track-to-vertex
 association~\cite{muonTWiki}. These scale factors are valid in the full $p_{\mathrm{T}}$
-spectrum with the $J/psi$ measurement providing more accurate determination in
-the $p_{\mathrm{T}}$<15~\GeV\ region and the Z measurement being more accurate in the
+spectrum with the $J/\psi$ measurement providing more accurate determination in
+the $p_{\mathrm{T}}$<15~\GeV\ region and the $Z$ measurement being more accurate in the
 $p_{\mathrm{T}}$>15~\GeV\ region. Four independent systematic uncertainties are considered
 which are called \texttt{MUON\_EFF\_RECO\_STAT},
-
 \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
-\texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on whether or not
-they come from the high or low $p_{\mathrm{T}}$ measurement. Statistical and systematic
-uncertainties to the isolation scale factor are controlled by
-\texttt{MUON\_EFF\_ISO\_STAT} and \texttt{MUON\_EFF\_ISO\_SYS} respectively.
-They are supported in the range of $10 < p_{\mathrm{T}} < 500$~\GeV. For muons outside of
-this range, a scale factor of 1$\pm$0.05 is used.
-\texttt{MUON\_EFF\_TTVA\_STAT} and \texttt{MUON\_EFF\_TTVA\_SYS} control the
-systematic uncertainty on the scale factor of the cuts on the impact parameter
-significance and the $|z_0\sin\theta|$ which estimate the error on
-track-to-vertex association. All of the above systematic uncertainties are
-derived using $\pm 1\sigma$ variations in the relevant samples.
+\texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on the
+$p_{\mathrm{T}}$ measurement. Statistical and systematic uncertainties on the
+isolation scale factor are controlled by \texttt{MUON\_EFF\_ISO\_STAT} and
+\texttt{MUON\_EFF\_ISO\_SYS} respectively. They are supported in the range of
+$10 < p_{\mathrm{T}} < 500$~\GeV. For muons outside of this range, a scale
+factor of 1$\pm$0.05 is used. \texttt{MUON\_EFF\_TTVA\_STAT} and
+\texttt{MUON\_EFF\_TTVA\_SYS} control the systematic uncertainty on the scale
+factor of the cuts on the impact parameter significance and the
+$|z_0\sin\theta|$ which estimate the error on track-to-vertex association. All
+of the above systematic uncertainties are derived using $\pm 1\sigma$ variations
+in the relevant samples.
 
 \subsubsection{Muon Momentum Scale and Resolution Uncertainties}
 
-Similarly to the electron energy scale and resolution uncertainties described
-above the muon momentum scale and resolution uncertainties are provided by the
-relevant CP group~\cite{muonTWiki}. Measurements of muons have been calibrated
-using a sample of  $Z\rightarrow \mu\mu$ events in the region with
-$p_{\mathrm{T}}$~>~20~\GeV\ and with a sample of $J/\psi\rightarrow \mu\mu$ events in region
-with $p_{\mathrm{T}}$~<~20~\GeV. The nuisance parameters control the uncertainties due to
-the inner detector, muon system and the overall momentum scale, they are called
-\texttt{MUONS\_ID}, \texttt{MUONS\_MS} and \texttt{MUONS\_SCALE} respectively.
-These systematic uncertainties are derived by varying the momentum scale and the
-track position in the detector by $\pm 1\sigma$. Two parameters which account
-for the charge dependence of the of the momentum scale uncertainty
-\texttt{MUON\_SAGITTA\_RHO} and \texttt{MUON\_SAGITTA\_RESBIAS} are also included.
+Muon momentum scale and resolution uncertainties that are
+considered~\cite{muonTWiki} have been calibrated using a sample of  $Z\to\mu\mu$
+events in the region with $p_{\mathrm{T}}$~>~20~\GeV\ and with a sample of
+$J/\psi\rightarrow \mu\mu$ events in region with $p_{\mathrm{T}}$~<~20~\GeV.
+Parameters exist to control uncertainties due to the inner detector, muon system
+and the overall momentum scale, they are called \texttt{MUONS\_ID},
+\texttt{MUONS\_MS} and \texttt{MUONS\_SCALE} respectively. These systematic
+uncertainties are derived by varying the momentum scale and the track position
+in the detector by $\pm 1\sigma$. Two parameters which account for the charge
+dependence of the of the momentum scale uncertainty \texttt{MUON\_SAGITTA\_RHO}
+and \texttt{MUON\_SAGITTA\_RESBIAS} are also included.
 
 \subsection{Taus}
 
-Taus are not crucial to the analysis and therefore the systematic uncertainties
-on the measurement of taus does not have a large effect on the result. The
-systematic uncertainties considered in the analysis relating to taus are
-\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR},
+Uncertainties on the measurement of taus do not have a large effect
+on the analysis. \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_DETECTOR},
 \texttt{TAUS\_TRUEHADTAU\_SME\_TES\_INSITU} and
-\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL}, which all account for different
-sources of energy scale uncertainty.
+\texttt{TAUS\_TRUEHADTAU\_SME\_TES\_MODEL}, are considered, which all account
+for different sources of energy scale uncertainty.
 
 \subsection{Jets}
 
-As with the other reconstructed objects discussed so far the systematic
-uncertainties for jets are provided through a central tool written by the
-relevant CP group that is interfaced in the CxAOD Framework. Analyses may choose
-between a number of different schemes, the choice for the \VHbb\ analysis is to
-use a reduced set of 23 nuisance parameters comi
-ng from a reduction using
-principal component analysis of the baseline set of parameters. The baseline set
-accounts for effects due to eta calibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
+A baseline set of parameters controlling uncertainties on jets is available
+however in the analysis a set which is reduced to 23 nuisance parameters using
+principal component analysis~\cite{PCA} is used. The baseline set accounts for
+effects due to eta calibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
 composition, flavour response, $b$-jets, and punch-through jets. The 23 nuisance
 parameters and a short description of each are displayed in
 table~\ref{tab:expSyst} under the category jets and $b$-tagging where all of the
 relevant nuisance parameters start with \texttt{JET} and
 \texttt{JET\_CR\_Flavour\_Composition} represents three independent nuisance
-parameters as explained in its short description.
-
-The largest source of uncertainty amongst the chosen set come from the jet
-energy scale and the jet energy resolution. The determination of the former is
-documented in~\cite{JetCalibration2015} and the latter is determined from data
-versus Monte-Carlo prediction comparisons.
+parameters as explained in its short description. The largest source of
+uncertainty amongst the chosen set come from the jet energy scale and the jet
+energy resolution. The determination of the former is documented
+in~\cite{JetCalibration2015} and the latter is determined from data versus
+Monte-Carlo prediction comparisons.
 
 \subsection{$E_{\mathrm{T}}^{\text{miss}}$}
 
-Once again $E_{\mathrm{T}}^{\text{miss}}$ systematic uncertainties are implemented via a
-centrally available tool written by the relevant CP group and interfaced in the
-CxAOD Framework. The tool is configured to account for calorimeter and track
-based jets, the uncertainties considered in this analysis are under the heading
-$E_{\mathrm{T}}^{\text{miss}}$ in table~\ref{tab:expSyst} and start with \texttt{MET}.
+Systematic uncertainties considered account for calorimeter and track based
+jets, and can be found under the heading $E_{\mathrm{T}}^{\text{miss}}$ in
+table~\ref{tab:expSyst}.
 
 \subsection{Flavour Tagging}
 
-The uncertainties relating to the flavour tagging procedure detailed
-in~\ref{sec:btagging} are very important to consider in the analysis as the
-tagging itself has a central role in selecting events in all of the leptonic
-channels. Each event that has been passed through the tagging algorithms has
-event weights that encode the systematic error on the tagging. The following
-describes how these scale factors are calculated with reference to the tool
-provided by the relevant CP group. For each signal events apply the scale factor
-from the CP tool if it has been tagged as a $b$-jet, otherwise apply the
-inefficiency scale factor provided by the same tool (which yields the nominal
-event weight). For each of the systematic uncertainties considered vary the
-scale factor and inefficiency scale factor by the variations provided by the CP
-tool and repeat the previous method (note the varied inefficiency scale factor
-will no longer yield the nominal event weight). For all histograms that would
-enter the profile-likelihood fit a separate histogram is created for each
-systematic uncertainty (both an up and down variation where the uncertainties
-are two-sided).
+Uncertainties relating to flavour tagging are expected to have a large impact on
+the analysis. Systematic uncertainties on the tagging are implemented as scale
+factors. The procedure is such that for each event the scale factor is applied
+if it is determined to contain a $b$-jet by the tagger, otherwise the
+inefficiency scale factor is applied, which yields the nominal event weight. For
+each of uncertainties considered the scale factor and inefficiency scale factor
+are varired and applied as above, note the varied inefficiency scale factor will
+no longer yield the nominal event weight.
 
 Similarly to in the determination of the systematic uncertainties on the jets, a
 large number of individual systematics are available (about 40 per jet flavour)
 and so in order to have a smaller set to work with a principle component
-analysis of the full set is performed by the CP group. For the working point
-(70~\%) and reduction scheme chosen in this analysis there are 3 variations for
-$b$-jets, 3 variations for $c$-jets and 5 variations for light-jets. These are
-named \texttt{FT\_EFF\_Eigen\_Light0}, \texttt{FT\_EFF\_Eigen\_Light1},
-\texttt{FT\_EFF\_Eigen\_Light2}, \texttt{FT\_EFF\_Eigen\_Light3},\\
-\texttt{FT\_EFF\_Eigen\_Light4}, \texttt{FT\_EFF\_Eigen\_B0},
-\texttt{FT\_EFF\_Eigen\_B1}, \texttt{FT\_EFF\_Eigen\_B2},
-\texttt{FT\_EFF\_Eigen\_C0}, \texttt{FT\_EFF\_Eigen\_C1} and
-\texttt{FT\_EFF\_Eigen\_C2}.
+analysis of the full set is performed. For the working point and reduction
+scheme chosen in this analysis there are 3 variations for $b$-jets, 3 variations
+for $c$-jets and 5 variations for light-jets. These are shown in
+table~\ref{tab:expSysts}, they all start with \texttt{FT} and end with a
+descriptor of which jet flavour they apply to e.g. \texttt{B0}.
 
 Two additional systematic uncertainties irrespective of reduction scheme are
 considered that relate to the $p_{\mathrm{T}}$ extrapolation~\cite{BTaggingExtrap2015} and
-charm-to-bottom quark extrapolation, they are called
-\texttt{FT\_EFF\_Eigen\_extrapolation}, and
-\texttt{FT\_EFF\_Eigen\_extrapolation\_from\_charm} respectively.
+charm-to-bottom quark extrapolation, they are called also listed in
+table~\ref{tab:expSysts}, start with \texttt{FT} and contain the descriptor
+\texttt{extrapolation}.
 
 \section{Systematic Uncertainties on $V+$jets Events}
 \label{sec:vjets}

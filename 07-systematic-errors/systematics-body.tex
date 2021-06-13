@@ -567,20 +567,20 @@ table~\ref{tab:wjets-shapes}.
 \input{07-systematic-errors/wjets-shapes-table}
 
 Shapes are derived in regions split by leptonic channel and heavy flavour
-sub-component, yielding eight regions total. The W + l and W + cl components of
+sub-component, yielding eight regions total. The $W+l$ and $W+cl$ components of
 the $W+$jets backgrounds are not considered as they account for less than 1~\%
 of all background events in any region.
 
 In all regions the initial 1--dimensional re-weighting is performed by comparing
-the ratio of the nominal \textsc{Sherpa}~2.2.1 $(p_{\mathrm{T}}^V, E_{\mathrm{T}}^{\text{miss}})$
-prediction with that of \textsc{MadGraph}. The requirement of $p_{\mathrm{T}}^V~>~75$~\GeV\
-is applied to all distributions in the 1--lepton channel and in the 0--lepton
-channel the requirement of $E_{\mathrm{T}}^{\text{miss}}~>~150$~\GeV\~is imposed instead.
-
+the ratio of the nominal \textsc{Sherpa}~2.2.1 $(p_{\mathrm{T}}^V,
+E_{\mathrm{T}}^{\text{miss}})$ prediction with that of \textsc{MadGraph}. The
+requirement of $p_{\mathrm{T}}^V>75$~\GeV\ is applied to all distributions in
+the 1--lepton channel and in the 0--lepton channel the requirement of
+$E_{\mathrm{T}}^{\text{miss}}>150$~\GeV\ is imposed instead.
 Figures~\ref{fig:wjets_1lep_2jet_SysWPtVBDTr}
 and~\ref{fig:wjets_1lep_3jet_SysWPtVBDTr} show the comparison between
-\textsc{Sherpa} and \textsc{MadGraph} in the  $p_{\mathrm{T}}^V$ variable in the 2-- and
-3--jet categories, respectively. 
+\textsc{Sherpa} and \textsc{MadGraph} in the  $p_{\mathrm{T}}^V$ variable in the
+2-- and 3--jet categories, respectively.
 \input{07-systematic-errors/wjets-1lep-ptv-shapes}
 The systematic uncertainties on the shape are shown in the ratio panel at the
 bottom of each plot in green.
@@ -588,39 +588,26 @@ bottom of each plot in green.
 The low number of events available in the 0--lepton channel mean that it is not
 statistically viable to generate a parametrisation in that channel, therefore
 the shapes derived in the 1--lepton channel are also used in the 0--lepton
-channel. Figure~\ref{fig:wjets_01lep_2jet_SysWPtVBDTr}
-and~\ref{fig:wjets_01lep_3jet_SysWPtVBDTr} show a comparison of the $p_{\mathrm{T}}^V$
-shapes derived in the 1--lepton channel compared with the equivalent systematic
-derived in the 0--lepton channel in the $E_{\mathrm{T}}^{\text{miss}}$ variable for the 2--
-and 3--jet categories, respectively.
-\input{07-systematic-errors/wjets-01lep-ptv-shapes}
-It can be seen the two shapes mostly agree within the statistical error which is
-of course very large for the 0--lepton systematic. Furthermore
-figure~\ref{fig:wjets_01lep_2jet_bl_SysWPtVBDTr_From150} shows  a comparison in
-which both the $p_{\mathrm{T}}^V$ and the $E_{\mathrm{T}}^{\text{miss}}$ shapes in the 2--jet region
-have been normalised to unit area in the $(p_{\mathrm{T}}^V, E_{\mathrm{T}}^{\text{miss}}) > 150$~\GeV\
-range where it can be seen that agreement is event better further supporting the
-validity of this choice.
-\input{07-systematic-errors/wjets-01lep-ptv-shapes-norm}
+channel, a comparison of the two approaches has been
+studied~\cite{VHModellingNote2019}.
 
 As per the methodology of the factorised BDTr technique the nominal
-\textsc{Sherpa}~2.2.1 events are re-weighted by the $p_{\mathrm{T}}^V$ ratio with the
-alternative prediction as was just discussed. The $p_{\mathrm{T}}^V$ shape uncertainty is
-therefore factorised out of the BDTr shape uncertainty. The re-weighted
-\textsc{Sherpa}~2.2.1 events are then trained against the \textsc{MadGraph}
-prediction in a BDT classifier that uses the input variables detailed in
-table~\ref{tab:MVAinputs}. A separate training is performed in each jet category
-and for each sub-component of the $W+$hf process in congruence with the 8
-regions that the $p_{\mathrm{T}}^V$ shape was derived in. Considering the output of the
-classifier the ratio of the scores of the nominal and alternative predictions
-enter into the profile-likelihood fit as a nuisance parameter called
+\textsc{Sherpa}~2.2.1 events are re-weighted by the $p_{\mathrm{T}}^V$ ratio
+with the alternative prediction. The re-weighted \textsc{Sherpa}~2.2.1 events
+are then trained against the \textsc{MadGraph} prediction in a BDT classifier
+that uses the input variables detailed in table~\ref{tab:MVAinputs}. A separate
+training is performed in each jet category and for each sub-component of the
+$W+$hf process in congruence with the 8 regions that the $p_{\mathrm{T}}^V$
+shape was derived in. Considering the output of the classifier the ratio of the
+scores of the nominal and alternative predictions enter into the
+profile-likelihood fit as a nuisance parameter called
 \texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only
 $W+bb$ events as this is the dominant and most important component of the $W+$hf
 process and indeed the $W+$jets background in the analysis.
 
 In order to check the validity of the method the re-weighted nominal predictions
-of key inputs to the analyisis MVA are plotted against the nominal and
-alternative predictions in figures~\ref{fig:wjets_1lep_2jet_BDTrClosure_1}
+of inputs to the analysis MVA are plotted against the nominal and alternative
+predictions in figures~\ref{fig:wjets_1lep_2jet_BDTrClosure_1}
 and~\ref{fig:wjets_0lep_2jet_BDTrClosure_1} for the 1-- and 0--lepton channels
 respectively in the 2--jet category.
 \input{07-systematic-errors/wjets-bdt-shapes-1lep2jet}
@@ -641,8 +628,8 @@ channels respectively.
 \input{07-systematic-errors/wjets-bdt-shapes-mva-0lep}
 Tables~\ref{tab:wjets-extrapolation_uncertainties_pTV}
 and~\ref{tab:wjets-extrapolation_uncertainties_BDTr} in the appendix show the
-extrapolation uncertainties induced by the $p_{\mathrm{T}}^V$ and factorised BDTr shape
-systematic uncertainties respectively.
+extrapolation uncertainties induced by the $p_{\mathrm{T}}^V$ and factorised
+BDTr shape systematic uncertainties respectively.
 \clearpage
 \newpage
 

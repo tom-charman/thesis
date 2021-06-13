@@ -376,65 +376,55 @@ table~\ref{tab:expSysts}, start with \texttt{FT} and contain the descriptor
 
 \section{Systematic Uncertainties on $V+$jets Events}
 \label{sec:vjets}
-Whilst the physics of the W and $Z+$jets processes leads to them being in
-different channels and needing to be treated differently in the analysis, the
-underlying theory means that simulation of these processes is coupled,
-particularly as they are simulated with the same software.
 
 The $V+$jets processes are simulated with
 \textsc{Sherpa}~2.2.1~\cite{1126-6708-2009-02-007} as mentioned in
 section~\ref{sec:composition}, which is interfaced with the
 NNPDFs~\cite{Ball:2012cx} for both the matrix element calculation and the parton shower
-tuning. Events with many additional jets produced in association with the vector
-boson largely contribute to the background in this analysis, therefore a feature
-of \textsc{Sherpa}~2.2.1 is used in which it provides a combination of matrix
-elements with different parton multiplicities. Up to 2 extra partons are
-included in the next-to-leading order matrix element, and 3 or 4 extra partons
-are included at leading order in QCD. In order to combine different patron
-multiplicities a matching scheme based on the CKKW-L~\cite{Lonnblad:2001iq,
-  Lavesson:2005xu} merging technique is used, with a merging scale of $Q_{cut} =
-20$~\GeV. Simulation of events with more than 4 extra partons relies on the
-parton shower algorithm of \textsc{Sherpa}. The parton shower and underlying
-events models are included in \textsc{Sherpa} whose generator adopts a full
-5--flavour scheme with b- and c-quarks being treated as massless in the matrix
-element, in the version used. Massive quarks can be produced in the parton
-shower and heavy flavours (quarks as heavy or heavier than a c-quark) can be
-produced directly in the scattering process of the underlying event.
+tuning. A feature of \textsc{Sherpa}~2.2.1 is used which provides a combination
+of matrix elements with different parton multiplicities in order to simulate
+events with many additional jets, which contribute significantly to the
+background. Up to 2 extra partons are included in the next-to-leading order
+matrix element, and 3 or 4 extra partons are included at leading order in QCD.
+Different parton multiplicities are combined using  a matching scheme based on
+the CKKW-L~\cite{Lonnblad:2001iq, Lavesson:2005xu} merging technique, with a
+merging scale of $Q_{\text{cut}}=20$~\GeV. Simulation of events with more than 4
+extra partons rely on the parton shower algorithm of \textsc{Sherpa}. The parton
+shower and underlying event models are included in \textsc{Sherpa} whose
+generator adopts a full 5--flavour scheme with $b$- and $c$-quarks being treated
+as massless in the matrix element. Massive quarks can be produced in the parton
+shower and heavy flavours can be produced directly in the scattering process of
+the underlying event.
 
-The analysis gains a lot of sensitivity from high $p_{\mathrm{T}}^V$ regions of phase
-space, and also has the requirement of two b-tagged jets in the event selection
-as mentioned in section~\ref{sec:selection}. It is therefore important to ensure
-that a large statistical sample in these regions is available such that
-fluctuations are smaller than those that would be found in the data. In order to
-achieve this two methods are used, firstly samples are simulated in specific
-slices of the larger of the $p_{\mathrm{T}}$ of the vector boson or the $H_{\mathrm{T}}$ of the event.
-Events are simulated in the following slices
-\begin{equation}
-  \text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}}) = [0\text{--}70, 70\text{--}140, 140\text{--}280, 280\text{--}500, 500\text{--}1000, >1000]~\GeV.
-\end{equation}
-The dedicated slices at high $\text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}})$ ensure a large number of
-events are simulated in the high $p_{\mathrm{T}}^V$ region of phase space. Secondly filters
-are applied on the flavour of the jets that produced in association with the
-vector boson.  The filters used for these samples are shown in
-table~\ref{tab:bc-filters}.
+The analysis gains a lot of sensitivity from high $p_{\mathrm{T}}^V$ regions
+with two $b$-jets. Therefore it is desirable to have a dataset of predictions
+of these events such that statistical fluctuations are smaller in the data. In
+order to achieve this samples are simulated in specific slices of
+max$(p_{\mathrm{T}}^V, H_{\mathrm{T}})$, which is the larger of the
+$p_{\mathrm{T}}$ of the vector boson or the $H_{\mathrm{T}}$ of the event.
+The following slices are used
+\begin{equation*}
+  \text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}}) =
+  [0\text{--}70, 70\text{--}140, 140\text{--}280,
+  280\text{--}500, 500\text{--}1000, >1000]~\GeV.
+\end{equation*}
+Also filters are applied on the flavour of jets in the event. The filters used
+are shown in table~\ref{tab:bc-filters}, and are not applied to the highest
+slice in max$(p_{\mathrm{T}}^V, H_{\mathrm{T}})$.
 \input{07-systematic-errors/bc-filters}
-The filters are not applied to the highest slices in $\text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}})$.
-The filtering strategy for $Z\nu\nu$ samples differs in the mc16e campaign using
+The filtering strategy for $Z\to\nu\nu$ samples differs in the mc16e campaign using
 a combination of $p_{\mathrm{T}}^Z$ and $m_{jj}$ to better populate the region above the
-MET trigger thresholds, and VBF phase spaces with high $m_{jj}$. These samples
-also use a tighter b-filter compared to their mc16a/d counterpart which is also
-described in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
-corresponding max($H_{\mathrm{T}}$,$p_{\mathrm{T}}^V$) slices and flavour filters are listed in
-tables~\ref{tabular:mc_samples_Wjets} \ref{tabular:mc_samples_Zlljets}, and
-\ref{tabular:mc_samples_Zvvjets} in the appendices.
-+
-A set of alternative predictions are used for a number of purposes in the
-analysis, one such purpose is to investigate any discrepancies that may arise
-between data and the nominal prediction. If the same discrepancy is present when
-comparing he alternative prediction to data then the discrepancy may arise from
-experimental error rather than weaknesses in the modelling. One kind of
-modelling uncertainty also relies on the comparison of two predictions, for
-example the nominal versus the alternative.
+$E_{\mathrm{T}}^{\text{miss}}$ trigger thresholds. These samples also use a
+tighter $b$-filter compared to their mc16a/d counterpart which is also described
+in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
+corresponding max($H_{\mathrm{T}}$,$p_{\mathrm{T}}^V$) slices and flavour
+filters are listed in tables~\ref{tabular:mc_samples_Wjets}
+\ref{tabular:mc_samples_Zlljets}, and
+\ref{tabular:mc_samples_Zvvjets} in the appendices. A set of alternative
+predictions are used for study and determination of priors of systematic
+uncertainties. If a discrepancy is common to a nominal versus data and an
+alternative versus data comparison then the discrepancy may arise from
+experimental uncertainty rather than a shortcoming of the modelling.
 
 The alternative samples are generated using
 \textsc{MadGraph}~5~\cite{MADGRAPH5_aMC@NLO} interfaced to \textsc{Pythia}~8 for
@@ -442,10 +432,9 @@ the modelling of the parton shower and the underlying event. The
 \textsc{MadGraph}~5 v2 generator provides a LO (QCD) description of these
 processes, merging together matrix-element calculations with different parton
 multiplicities, up to 4 additional jets, higher jet multiplicities are modelled
-by the parton shower algorithm. The merging scheme applied to combine different
-parton multiplicities is the same as for the nominal samples, the CKKW-L scheme,
-but has a merging scale of $Q_{cut} = 30$~\GeV. For the LO ME calculation the
-NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.  Similarly to
+by the parton shower algorithm. The merging scheme is the same as for the nominal samples,
+but has a merging scale of $Q_{\text{cut}} = 30$~\GeV. For the LO ME calculation
+the NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.  Similarly to
 \textsc{Sherpa}~2.2.1, also \textsc{MadGraph}~adopts a full 5-flavour scheme
 with massless quarks in the ME calculation, while massive quarks can be produced
 by the parton shower. All alternative $V+$jets samples are listed in
@@ -463,6 +452,7 @@ central value of the \textsc{Sherpa}~2.2.1 prediction.}.
 \input{07-systematic-errors/vjets-sherpa-vars.tex}
 
 \subsubsection{$V+$jets Cross Section}
+
 The $V+$jets cross sections are known at NNLO (QCD)~\cite{Butterworth:1287902},
 the higher order cross sections are used to normalise the V+jets samples in the
 analysis. For the $W+$jets samples the total cross section from \textsc{Sherpa} or
@@ -470,26 +460,26 @@ from \textsc{MadGraph}, averaged across all 3 lepton flavours taking into accoun
 different hadron filter efficiencies, is scaled to the NNLO prediction obtaining
 scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
 
-For $Z+$jets some subtleties must be considered. For $Z \to \ell\ell$ + jets the
+For $Z+$jets some subtleties must be considered. For $Z\to\ell\ell +$jets the
 cut at generator level, $m_{\ell\ell}>40$ \GeV, must be taken into account. The
 NNLO calculation uses a cut of $66<m_{\ell\ell}<116$ \GeV, which can be applied
-at truth level to the samples of this analysis in order to get the scaling
-correct as follows:
+at before reconstruction to the samples of this analysis in order to get the
+scaling correct as follows
 \begin{equation}
-  k_{\text{NNLO}}^{\text{QCD}} = \frac{\sigma_{\text{NNLO}}(66<m_{\ell\ell}<116\,{\GeV})}{\sigma_{\textsc{Sherpa},\textsc{MadGraph}}(66<m_{\ell\ell}<116\,{\GeV})},
+  k_{\text{NNLO}}^{\text{QCD}} =
+  \frac{\sigma_{\text{NNLO}}(66<m_{\ell\ell}<116\,{\GeV})}%
+  {\sigma_{\textsc{Sherpa},\textsc{MadGraph}}(66<m_{\ell\ell}<116\,{\GeV})},
   \label{eq:nnlo-vjets-k}
 \end{equation}
 hence the scaling factor is found to be $0.9751$. For $Z \to \nu\nu$ +jets the
 NNLO no theoretical cross section is available. Values from the
 Particle Data Group (PDG)~\cite{PDG} are used to correct for the difference
-between the BR($Z \to \nu\nu$) and BR($Z \to \ell\ell$), and the NNLO cross
-section is used without any mass cuts and with the $Z/\gamma^*$ interference
-removed. The scaling factor is therefore calculated to be $0.9728$. It is not
-necessarily expected that the scaling factors should be different for $Z \to
-\ell \ell$ and $Z \to \nu \nu$ events but this can be explained as both
-\textsc{Sherpa} and \textsc{MadGraph} used different branching ratios for these
-two processes in their generators compared with those used by the higher order
-theoretical calculations.
+between the $Z \to \nu\nu$ and $Z \to \ell\ell$ branching ratios, and the NNLO
+cross section is used without any mass cuts and with the $Z/\gamma^*$
+interference removed. The scaling factor is therefore calculated to be $0.9728$.
+The discrepancy in the factors for $Z\to\ell\ell$ and $Z\to\nu\nu$ events can be
+explained by the fact the two generators use different branching ratios for
+these processes compared with those used by the theoretical calculations.
 
 \subsection{Systematic Uncertainties on $W+$jets Events}
 A number of nuisance parameters are introduced to account for modelling

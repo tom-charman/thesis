@@ -493,34 +493,32 @@ The nominal and alternative predictions described in~\ref{sec:vjets} are used to
 in the determination of all of the values described in the following. 
 
 \subsubsection{Normalisation and Acceptance Uncertainties}
-
 A summary of the normalisation uncertainties is shown in
 table~\ref{tab:wjetsnorm}.
 \input{07-systematic-errors/wjets-norm-table}
-A single nuisance parameter is introduced for each of the W + cl and W + l
+A single nuisance parameter is introduced for each of the $W+cl$ and $W+l$
 processes which are both heavily suppressed by the analysis requirement of two
-b-tagged jets. There is a large mismodelling of the normalisation of the W + hf
+b-tagged jets. There is a large mismodelling of the normalisation of the $W+$hf
 process and so floating normalisations are used separately in the 2--jet and
 3--jet categories. Priors for several acceptance uncertainties are calculated using
 equation~\ref{eq:acceptance-dr}\footnote{Whilst the priors are obtained with the
   double ratio formula involving two regions, the effect of the uncertainty is
-  applied to only one of the two regions. This does not affect the result but
-  only the interpretation of the resulting acceptance factor.} which are used to
+  applied to only one of the two regions.}, which are used to
 control the migration of events between the 0-- and 1--lepton channels and the
 migration between the $\Delta R(b, \bar{b})$ regions.
 
-The parameter controlling migration between the two leptonic channels
-\texttt{SysWbbNorm\_L0} is applied to both the 2--jet and 3--jet regions of the
+A parameter controlling migration between the two channels considered,
+\texttt{SysWbbNorm\_L0}, is applied to both the 2--jet and 3--jet regions of the
 0--lepton channel. The choice to apply to the 0--lepton channel and not the
 1--lepton channel is made because the 1--lepton channel provides a better
-constraint on the W + hf process. Whilst all alternative predictions are
+constraint on the $W+$hf process. Whilst all alternative predictions are
 considered the size of this prior is dominated by the difference between the
 nominal prediction and \textsc{MadGraph}.
 
 Migration between the $\Delta R(b, \bar{b})$ control regions and the signal
 region is controlled by one parameter per control region. Named
-\texttt{SysWbbCRSRextrap} it can be seen in table~\ref{tab:wjetsnorm} that it is
-applied in each of the control regions, it is also correlated across jet
+\texttt{SysWbbCRSRextrap}, it can be seen in table~\ref{tab:wjetsnorm} that it is
+applied in each of the control regions, and is also correlated across jet
 multiplicity and leptonic channel. The shape uncertainty which uses the BDTr
 method discussed in section~\ref{sec:ND-reweight} induces migration effects
 across the analysis regions, however in order to increase the degrees of freedom
@@ -532,12 +530,12 @@ uncertainty. The magnitude of the prior is calculated as the quadrature sum of
 the difference between the nominal prediction and \textsc{MadGraph} as well as
 the scale and parton density function variations included in \textsc{Sherpa}.
 There is no dedicated nuisance parameter to control the migration between the
-$p_{\mathrm{T}}^V$ regions of the analysis as this migration is controlled by the $p_{\mathrm{T}}^V$
-shape uncertainty.
+$p_{\mathrm{T}}^V$ regions of the analysis as this migration is controlled by
+the $p_{\mathrm{T}}^V$ shape uncertainty.
 
 \subsubsection{Flavour Composition Uncertainties}
 
-As introduced at the start of this chapter the $W+$jets background has a W + hf
+As introduced at the start of this chapter the $W+$jets background has a $W+$hf
 component that is comprised of the $bb$, $bc$, $bl$ and $cc$ sub-components. The
 fractional contribution of each of these sub-components is detailed in
 table~\ref{tab:whf-comp}.
@@ -545,15 +543,15 @@ table~\ref{tab:whf-comp}.
 Flavour composition uncertainties are computed using
 equation~\ref{eq:acceptance-dr} for each sub-component, the calculated priors
 are summarised in tables~\ref{tab:wjets-flavour-comp} separately in the 0-- and
-1--lepton channels~\footnote{Whilst these numbers were calculated using the
-  categorisation and samples of this analysis, due to incomplete availability of
-  \textsc{Sherpa} internal variations a set of numbers calculated in a previous
-  iteration of the analysis are displayed and used.}.
+1--lepton channels\footnote{Whilst these numbers were calculated in this
+  iteration of the analysis, incomplete availability of \textsc{Sherpa} internal
+  variations lead to a set of numbers from a previous iteration being used,
+  those are displayed in this work.}.
 \input{07-systematic-errors/wjets-flavour-comp}
 The flavour composition uncertainties are dominated by the difference between
 \textsc{Sherpa} and \textsc{MadGraph}. Individual uncertainties for different
 jet multiplicities or analysis regions are not considered necessary due to a
-small amount of non-$bb$ events remaining after the 2 b-tag requirement is
+small amount of non-$bb$ events remaining after the 2 $b$-jet requirement is
 imposed.
 
 \subsubsection{Shape Uncertainties}
@@ -612,12 +610,12 @@ therefore factorised out of the BDTr shape uncertainty. The re-weighted
 \textsc{Sherpa}~2.2.1 events are then trained against the \textsc{MadGraph}
 prediction in a BDT classifier that uses the input variables detailed in
 table~\ref{tab:MVAinputs}. A separate training is performed in each jet category
-and for each sub-component of the W + hf process in congruence with the 8
+and for each sub-component of the $W+$hf process in congruence with the 8
 regions that the $p_{\mathrm{T}}^V$ shape was derived in. Considering the output of the
 classifier the ratio of the scores of the nominal and alternative predictions
 enter into the profile-likelihood fit as a nuisance parameter called
-\texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only W +
-bb events as this is the dominant and most important component of the W + hf
+\texttt{SysBDTr\_W\_SHtoMG5}. All of the following plots shown contain only
+$W+bb$ events as this is the dominant and most important component of the $W+$hf
 process and indeed the $W+$jets background in the analysis.
 
 In order to check the validity of the method the re-weighted nominal predictions
@@ -711,7 +709,7 @@ for these nuisance parameters is dominated by the difference between
 
 \subsubsection{Flavour Composition Uncertainties}
 
-The Z + hf process breaks down in the exact same way as the W + hf process, into
+The Z + hf process breaks down in the exact same way as the $W+$hf process, into
 $(b,b)$, $(b, c)$, $(b, l)$ and $(c, c)$ sub-components. Uncertainties on the
 fraction that each of these makes up of the Z + hf process are found in
 table~\ref{tab:zjets-flavour-comp}.
@@ -982,7 +980,7 @@ is introduced for each category in jet multiplicity and each channel ($e$ or
 $\mu$) of the multi-jet process, totalling four parameters. Two parameters
 control the shape uncertainty which are associated to altering the isolation
 criteria described in section~\ref{sec:lepton} and altering the scaling with
-respect to the W + hf and top quark processes. 
+respect to the $W+$hf and top quark processes. 
 
 \subsection{Single Top}
 Systematic uncertainties on the single top process are applied to all regions of

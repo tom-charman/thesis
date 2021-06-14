@@ -365,13 +365,13 @@ and so in order to have a smaller set to work with a principle component
 analysis of the full set is performed. For the working point and reduction
 scheme chosen in this analysis there are 3 variations for $b$-jets, 3 variations
 for $c$-jets and 5 variations for light-jets. These are shown in
-table~\ref{tab:expSysts}, they all start with \texttt{FT} and end with a
+table~\ref{tab:expSyst}, they all start with \texttt{FT} and end with a
 descriptor of which jet flavour they apply to e.g. \texttt{B0}.
 
 Two additional systematic uncertainties irrespective of reduction scheme are
 considered that relate to the $p_{\mathrm{T}}$ extrapolation~\cite{BTaggingExtrap2015} and
 charm-to-bottom quark extrapolation, they are called also listed in
-table~\ref{tab:expSysts}, start with \texttt{FT} and contain the descriptor
+table~\ref{tab:expSyst}, start with \texttt{FT} and contain the descriptor
 \texttt{extrapolation}.
 
 \section{Systematic Uncertainties on $V+$jets Events}
@@ -924,12 +924,12 @@ In order to check the validity of this approach a data versus prediction check
 was carried out as part of series of wider checks~\cite{VHModellingNote2019}.
 This check includes the data from the top $e\mu$ control region as the
 prediction for both $t\bar{t}$ and single top events. The plots showing the
-comparison can be found in figure~\ref{fig:ttbar-mbb}.
+comparison can be found in figure~\ref{fig:ttbardd-mbb}.
 \input{07-systematic-errors/ttbar-data-driven-check}
 In order to see how the shape is modelled the scale factors controlling
 normalisation of the other backgrounds have been taken from the previous
 iteration of the analysis and applied, in this iteration there was no boundary
-at 250~\GeV and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV\ and
+at 250~\GeV\ and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV\ and
 $\geq$150~\GeV\ are shown. The previous iteration also did not categorise events
 into $\Delta R(b,b)$ based regions and therefore the sum of all the $\Delta
 R(b,b)$ regions is shown. It can be seen in the ratio panels that the data and
@@ -949,12 +949,11 @@ sub-dominant backgrounds are summarised in
 table~\ref{tab:small_bkg_systematics}.
 \input{07-systematic-errors/small-bkg-table.tex}
 All of these systematic uncertainties are based on the comparison of different
-Monte-Carlo predictions, details of the nominal predictions for multi-jet,
-single top and diboson are found in tables~\ref{tab:mj-nom}, \ref{tab:st-nom},
-\ref{tab:diboson-nom} respectively, with the alternative predictions found in
-tables~\ref{tab:mj-alt}, \ref{tab:st-alt} and \ref{tab:diboson-alt}. (Check
-multi-jet doesn't have a data-driven component).
-
+Monte-Carlo predictions, apart from in the case of the multi-jet background
+which is estimated using a data-driven process, details of the nominal
+predictions for diboson are found in table~\ref{tab:diboson-nom}, and the
+alternative predictions are found in table~\ref{tab:diboson-alt}. Details of all
+single-top predictions are found in table~\ref{tab:st-nom-alt}.
 
 \subsection{Multi-Jet}
 

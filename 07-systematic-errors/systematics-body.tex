@@ -24,8 +24,8 @@ stated otherwise,
   \label{eq:acceptance-dr}
 \end{equation}
 where the formula has been written agnostic of the specific application so
-$N_{A}^{\text{nominal}}$ is the number of  events in the nominal prediction in some
-region or category called $A$ and so on.
+$N_{A}^{\text{nominal}}$ is the number of  events in the nominal prediction in
+some region or category called $A$ and so on.
 
 Another variant of the normalisation effect are the flavour composition
 uncertainties. Rather than impacting the normalisation of an entire background
@@ -285,23 +285,23 @@ called \texttt{EG\_RESOLUTION\_ALL} and \texttt{EG\_SCALE\_ALL}.
 Samples of $Z\to\mu\mu$ and $J/\psi\to\mu\mu$ events from the full 2015
 dataset (corresponding to 3.2~fb$^{-1}$) are used to calculate scale factors to
 account for uncertainties in the reconstruction, isolation and track-to-vertex
-association~\cite{muonTWiki}. These scale factors are valid in the full $p_{\mathrm{T}}$
-spectrum with the $J/\psi$ measurement providing more accurate determination in
-the $p_{\mathrm{T}}$<15~\GeV\ region and the $Z$ measurement being more accurate in the
-$p_{\mathrm{T}}$>15~\GeV\ region. Four independent systematic uncertainties are considered
-which are called \texttt{MUON\_EFF\_RECO\_STAT},
-\texttt{MUON\_EFF\_RECO\_STAT\_LOWPT}, \texttt{MUON\_EFF\_RECO\_SYS},
-\texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are split based on the
-$p_{\mathrm{T}}$ measurement. Statistical and systematic uncertainties on the
-isolation scale factor are controlled by \texttt{MUON\_EFF\_ISO\_STAT} and
-\texttt{MUON\_EFF\_ISO\_SYS} respectively. They are supported in the range of
-$10 < p_{\mathrm{T}} < 500$~\GeV. For muons outside of this range, a scale
-factor of 1$\pm$0.05 is used. \texttt{MUON\_EFF\_TTVA\_STAT} and
-\texttt{MUON\_EFF\_TTVA\_SYS} control the systematic uncertainty on the scale
-factor of the cuts on the impact parameter significance and the
-$|z_0\sin\theta|$ which estimate the error on track-to-vertex association. All
-of the above systematic uncertainties are derived using $\pm 1\sigma$ variations
-in the relevant samples.
+association~\cite{muonTWiki}. These scale factors are valid in the full
+$p_{\mathrm{T}}$ spectrum with the $J/\psi$ measurement providing more accurate
+determination in the $p_{\mathrm{T}}$<15~\GeV\ region and the $Z$ measurement
+being more accurate in the $p_{\mathrm{T}}$>15~\GeV\ region. Four independent
+systematic uncertainties are considered which are called
+\texttt{MUON\_EFF\_RECO\_STAT}, \texttt{MUON\_EFF\_RECO\_STAT\_LOWPT},
+\texttt{MUON\_EFF\_RECO\_SYS}, \texttt{MUON\_EFF\_RECO\_SYS\_LOWPT}, which are
+split based on the $p_{\mathrm{T}}$ measurement. Statistical and systematic
+uncertainties on the isolation scale factor are controlled by
+\texttt{MUON\_EFF\_ISO\_STAT} and \texttt{MUON\_EFF\_ISO\_SYS} respectively.
+They are supported in the range of $10 < p_{\mathrm{T}} < 500$~\GeV. For muons
+outside of this range, a scale factor of 1$\pm$0.05 is used.
+\texttt{MUON\_EFF\_TTVA\_STAT} and \texttt{MUON\_EFF\_TTVA\_SYS} control the
+systematic uncertainty on the scale factor of the cuts on the impact parameter
+significance and the $|z_0\sin\theta|$ which estimate the error on
+track-to-vertex association. All of the above systematic uncertainties are
+derived using $\pm 1\sigma$ variations in the relevant samples.
 
 \subsubsection{Muon Momentum Scale and Resolution Uncertainties}
 
@@ -369,10 +369,10 @@ table~\ref{tab:expSyst}, they all start with \texttt{FT} and end with a
 descriptor of which jet flavour they apply to e.g. \texttt{B0}.
 
 Two additional systematic uncertainties irrespective of reduction scheme are
-considered that relate to the $p_{\mathrm{T}}$ extrapolation~\cite{BTaggingExtrap2015} and
-charm-to-bottom quark extrapolation, they are called also listed in
-table~\ref{tab:expSyst}, start with \texttt{FT} and contain the descriptor
-\texttt{extrapolation}.
+considered that relate to the $p_{\mathrm{T}}$
+extrapolation~\cite{BTaggingExtrap2015} and charm-to-bottom quark extrapolation,
+they are called also listed in table~\ref{tab:expSyst}, start with \texttt{FT}
+and contain the descriptor \texttt{extrapolation}.
 
 \section{Systematic Uncertainties on $V+$jets Events}
 \label{sec:vjets}
@@ -380,10 +380,10 @@ table~\ref{tab:expSyst}, start with \texttt{FT} and contain the descriptor
 The $V+$jets processes are simulated with
 \textsc{Sherpa}~2.2.1~\cite{1126-6708-2009-02-007} as mentioned in
 section~\ref{sec:composition}, which is interfaced with the
-NNPDFs~\cite{Ball:2012cx} for both the matrix element calculation and the parton shower
-tuning. A feature of \textsc{Sherpa}~2.2.1 is used which provides a combination
-of matrix elements with different parton multiplicities in order to simulate
-events with many additional jets, which contribute significantly to the
+NNPDFs~\cite{Ball:2012cx} for both the matrix element calculation and the parton
+shower tuning. A feature of \textsc{Sherpa}~2.2.1 is used which provides a
+combination of matrix elements with different parton multiplicities in order to
+simulate events with many additional jets, which contribute significantly to the
 background. Up to 2 extra partons are included in the next-to-leading order
 matrix element, and 3 or 4 extra partons are included at leading order in QCD.
 Different parton multiplicities are combined using  a matching scheme based on
@@ -413,10 +413,10 @@ are shown in table~\ref{tab:bc-filters}, and are not applied to the highest
 slice in max$(p_{\mathrm{T}}^V, H_{\mathrm{T}})$.
 \input{07-systematic-errors/bc-filters}
 The filtering strategy for $Z\to\nu\nu$ samples differs in the mc16e campaign using
-a combination of $p_{\mathrm{T}}^Z$ and $m_{jj}$ to better populate the region above the
-$E_{\mathrm{T}}^{\text{miss}}$ trigger thresholds. These samples also use a
-tighter $b$-filter compared to their mc16a/d counterpart which is also described
-in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
+a combination of $p_{\mathrm{T}}^Z$ and $m_{jj}$ to better populate the region
+above the $E_{\mathrm{T}}^{\text{miss}}$ trigger thresholds. These samples also
+use a tighter $b$-filter compared to their mc16a/d counterpart which is also
+described in table~\ref{tab:bc-filters}. All nominal $V+$jets samples with the
 corresponding max($H_{\mathrm{T}}$,$p_{\mathrm{T}}^V$) slices and flavour
 filters are listed in tables~\ref{tabular:mc_samples_Wjets}
 \ref{tabular:mc_samples_Zlljets}, and
@@ -432,9 +432,10 @@ the modelling of the parton shower and the underlying event. The
 \textsc{MadGraph}~5 v2 generator provides a LO (QCD) description of these
 processes, merging together matrix-element calculations with different parton
 multiplicities, up to 4 additional jets, higher jet multiplicities are modelled
-by the parton shower algorithm. The merging scheme is the same as for the nominal samples,
-but has a merging scale of $Q_{\text{cut}} = 30$~\GeV. For the LO ME calculation
-the NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.  Similarly to
+by the parton shower algorithm. The merging scheme is the same as for the
+nominal samples, but has a merging scale of $Q_{\text{cut}} = 30$~\GeV. For the
+LO ME calculation the NNPDF2.3 LO PDFs are used, with $\alpha_S = 1.3$.
+Similarly to
 \textsc{Sherpa}~2.2.1, also \textsc{MadGraph}~adopts a full 5-flavour scheme
 with massless quarks in the ME calculation, while massive quarks can be produced
 by the parton shower. All alternative $V+$jets samples are listed in
@@ -445,20 +446,20 @@ As well as using an alternative Monte-Carlo generator the nominal generator,
 \textsc{Sherpa}, includes systematic variations internally. Every
 \textsc{Sherpa}~2.2.1 $V+$jets sample has an event weight corresponding to each
 of the variations detailed in table~\ref{tab:sherpa-variations}\footnote{Some of
-the variations cannot be produced by \textsc{Sherpa}~2.2.1 and so
-\textsc{Sherpa}~2.1 is used instead. For these variations half of the variation
-in each direction is taken as the uncertainty rather than comparing to the
-central value of the \textsc{Sherpa}~2.2.1 prediction.}.
+  the variations cannot be produced by \textsc{Sherpa}~2.2.1 and so
+  \textsc{Sherpa}~2.1 is used instead. For these variations half of the
+  variation in each direction is taken as the uncertainty rather than comparing
+  to the central value of the \textsc{Sherpa}~2.2.1 prediction.}.
 \input{07-systematic-errors/vjets-sherpa-vars.tex}
 
 \subsubsection{$V+$jets Cross Section}
 
 The $V+$jets cross sections are known at NNLO (QCD)~\cite{Butterworth:1287902},
 the higher order cross sections are used to normalise the V+jets samples in the
-analysis. For the $W+$jets samples the total cross section from \textsc{Sherpa} or
-from \textsc{MadGraph}, averaged across all 3 lepton flavours taking into account the
-different hadron filter efficiencies, is scaled to the NNLO prediction obtaining
-scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
+analysis. For the $W+$jets samples the total cross section from \textsc{Sherpa}
+or from \textsc{MadGraph}, averaged across all 3 lepton flavours taking into
+account the different hadron filter efficiencies, is scaled to the NNLO
+prediction obtaining scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
 
 For $Z+$jets some subtleties must be considered. For $Z\to\ell\ell +$jets the
 cut at generator level, $m_{\ell\ell}>40$ \GeV, must be taken into account. The
@@ -500,10 +501,10 @@ A single nuisance parameter is introduced for each of the $W+cl$ and $W+l$
 processes which are both heavily suppressed by the analysis requirement of two
 b-tagged jets. There is a large mismodelling of the normalisation of the $W+$hf
 process and so floating normalisations are used separately in the 2--jet and
-3--jet categories. Priors for several acceptance uncertainties are calculated using
-equation~\ref{eq:acceptance-dr}\footnote{Whilst the priors are obtained with the
-  double ratio formula involving two regions, the effect of the uncertainty is
-  applied to only one of the two regions.}, which are used to
+3--jet categories. Priors for several acceptance uncertainties are calculated
+using equation~\ref{eq:acceptance-dr}\footnote{Whilst the priors are obtained
+  with the double ratio formula involving two regions, the effect of the
+  uncertainty is applied to only one of the two regions.}, which are used to
 control the migration of events between the 0-- and 1--lepton channels and the
 migration between the $\Delta R(b, \bar{b})$ regions.
 
@@ -517,8 +518,8 @@ nominal prediction and \textsc{MadGraph}.
 
 Migration between the $\Delta R(b, \bar{b})$ control regions and the signal
 region is controlled by one parameter per control region. Named
-\texttt{SysWbbCRSRextrap}, it can be seen in table~\ref{tab:wjetsnorm} that it is
-applied in each of the control regions, and is also correlated across jet
+\texttt{SysWbbCRSRextrap}, it can be seen in table~\ref{tab:wjetsnorm} that it
+is applied in each of the control regions, and is also correlated across jet
 multiplicity and leptonic channel. The shape uncertainty which uses the BDTr
 method discussed in section~\ref{sec:ND-reweight} induces migration effects
 across the analysis regions, however in order to increase the degrees of freedom
@@ -559,11 +560,11 @@ imposed.
 The hybrid $(N-1)$--dimensional parametrisation technique described
 in~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
 the distributions of the $W+$jets background. The variable that has been
-factorised out is $p_{\mathrm{T}}^V$ and so there are nuisance parameters which control the
-$p_{\mathrm{T}}^V$ shape in each of the 2-- and 3--jet categories as well as a nuisance
-parameter that controls the multi-variate shape uncertainty across all regions
-and jet multiplicities. These nuisance parameters are summarised in
-table~\ref{tab:wjets-shapes}.
+factorised out is $p_{\mathrm{T}}^V$ and so there are nuisance parameters which
+control the $p_{\mathrm{T}}^V$ shape in each of the 2-- and 3--jet categories as
+well as a nuisance parameter that controls the multi-variate shape uncertainty
+across all regions and jet multiplicities. These nuisance parameters are
+summarised in table~\ref{tab:wjets-shapes}.
 \input{07-systematic-errors/wjets-shapes-table}
 
 Shapes are derived in regions split by leptonic channel and heavy flavour
@@ -733,8 +734,10 @@ subtracted from the data as they ought to have been removed by the veto of the
 aforementioned range in $m_{bb}$ and the veto is applied to the selection so
 that events in the range are removed from all distributions considered.
 
-This method is used to derived shape uncertainties on the $p_{\mathrm{T}}^V$ and $m_{bb}$
-variables as they are considered to be the most important in the analysis. The
+This method is used to derived shape uncertainties on the $p_{\mathrm{T}}^V$ and
+$m_{bb}$ variables as they are considered to be the most important in the
+analysis. The
+
 uncertainty is used in the 0--lepton channel which adds an additional
 complication. As mentioned in section~\ref{sec:2lep-selection} a kinematic fit
 is used in order to correct the $b$-jet momentum and these corrected jets are then

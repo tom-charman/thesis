@@ -14,11 +14,31 @@ fit, i.e. what do we prune, state that there is smoothing and cite)
 \input{08-results/pullcomp}
 
 \subsection{Breakdown and Ranking of Uncertainties}
-Show the breakdown and ranking of the uncertainties, explain briefly the physics
-reasons why things appear where they do. Then later in conc. refer to how to
-improve the analysis with reference to the breakdown.
+Table~\ref{tab:breakdown_012L_MVAVH} shows a breakdown of the impact of the
+systematic uncertainties on the signal strength measurement.
 \input{08-results/comb-breakdown}
+It can be seen that the total statistical uncertainty (DataStat) has a smaller
+impact that the uncertainties due to modelling and experimental sources
+(FullSyst). Considering the systematic uncertainties, those coming from
+experimental sources have a greater impact than those coming from the modelling
+of the signal, which in turn have a greater impact  that those coming from the
+modelling of the background. Further scrutiny of uncertainties on the signal
+strength comes in the form of the ranking shown in
+figure~\ref{fig:Rank_012L_MVAVH}.
 \input{08-results/ranking}
+It can be seen in the post-fit ranking that the top 15 is dominated by
+uncertainties on the signal. The post-fit ranking which omits signal
+uncertainties is largely dominated by flavour tagging uncertainties and scale
+factors for normalisation and acceptance between analysis regions. The highest
+ranked uncertainty in both cases is the $b$-tagging efficiency, this is
+unsurprising as $b$-tagging plays a crucial role in the analysis selection.
+
+Notably the $Z+$jets shape uncertainties do not appear in the top 15 sources of
+uncertainty, naively this is unexpected as the background dominates in a
+sensitive channel of the analysis. Improvements to the separation of the
+$Z+$jets background and the signal in the analysis MVA due to the inclusion of
+the $Z+$jets polarisation information is likely the reason for the shape
+uncertainties not being as impactful as might be expected. 
 
 \subsection{Post-fit Data Versus Predictions}
 Describe agreement here.

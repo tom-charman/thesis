@@ -238,146 +238,19 @@ $\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
 likelihood for a given $\mu$. This test statistic is used to measure the
 compatibility of the background only model with the observed data.
 
-% \paragraph{Shape systematic Uncertainties post-processing} 
+\subsection{STXS Measurements}
 
-% In the current systematic model, independent normalization factors are employed
-% for the main backgrounds (\ttbar, $\Wboson +$HF and $\Zboson +$HF) independently
-% in $2$ and $3(+)$-jet, above or below $$p_{\mathrm{T}}^V$ = 150~\GeV\$. Therefore, the
-% extrapolation uncertainty is already accounted for at these boundaries. Most of
-% the systematic uncertainties are computed in total $$p_{\mathrm{T}}^V$$ phase space
-% ($\geq75~\GeV$) in $2$-jet and $3$-jet events independently to avoid
-% double-counting to the best possible. However, migrations at the $pTV=150~\GeV$
-% are still possible, and differences in BDTr training and application setup or
-% correlations could induce a small uncertainty componant accross jet bins. When
-% visible, these effects are reduced with post-processing. The overall component
-% of \ttbar ME, ttbar PS and \ttbar, $\Wboson +$HF, $\Zboson +$HF $p_{\mathrm{T}}^V$
-% uncertainties in the different jet bins, as well as in the bins
-% $75~\GeV<$p_{\mathrm{T}}^V$<150~\GeV$ and $$p_{\mathrm{T}}^V$>150~\GeV$ is removed that way. \\
-
-
-% Signal \mbb~shape uncertainty follow a similar but more refined treatment. In
-% fact, the \VH\ signal is meant to have independent floating parameters in each
-% STXS bin. Therefore, \\VH~\mbb uncertainties are treated to have no overall
-% impact in each jet and $p_{\mathrm{T}}^V$ analysis bin, and act only as a shape on the
-% discriminant, or as an extrapolation between signal and control regions. The
-% same approach is adopted for di-boson \mbb uncertainties.
-
-% \subsubsection{Smoothing of the Systematic Uncertainties}
-% \label{sec:smooth}
-% The uncertainties on reconstructed objects are propagated in the analysis in two
-% different ways: by shifting weights, or by modifying the kinematic properties of
-% the relevant objects and re-running the analysis chain. For flavour tagging,
-% where a scale factor (SF) is used to correct efficiencies in the simulations to
-% match those of data, the event weight is varied according to an upward
-% (downward) shift of the SF and the change in the final distribution is noted as
-% the +1 (-1) $\sigma$ uncertainties. For jet energy scale (JES) uncertainties,
-% the jet energies are varied directly. Therefore events can migrate in and out of
-% the analysis acceptance. Again the difference in the final discriminant is noted
-% as the 1 $\sigma$ error. However, in the case of small variations and/or limited
-% available MC statistics, the MC statistical uncertainty can make up a
-% substantial part of this supposed systematic difference. Given that independent
-% NP are introduce in the analysis to account for the MC statistical
-% uncertainties, the inflation of systematic uncertainties due to limited
-% statistic should be smoothed out.
-
-% Two so-called ``smoothing'' algorithms are used to mitigate these effects. They
-% have been developed for the Run 1 analysis and are based on the merging of
-% consecutive bins in MC templates. Systematics templates are built as the ratios
-% of varied to nominal MC templates. First, bins from one extremum to the next are
-% merged until no local extrema remain in the BDT systematics template for the
-% multi-variate analysis, or at most one extremum in the mbb systematics template
-% for the cut-based analysis and well as the jet energy resolution systematics in
-% the multi-variate analysis. This is an iterative process in which the merging
-% performed at each step is chosen as the one for which the difference between
-% merged and unmerged templates is smallest. Second, the bins resulting from this
-% first algorithm are sequentially merged, starting from the upper end of the
-% distribution, until the statistical uncertainty in each of the merged bins,
-% calculated in the nominal template, is smaller than 5\%. In each of these merged
-% bins, the nominal and systematically shifted contents are compared to give the
-% $\pm1\sigma$ variation. This value is then used as the associated uncertainty
-% for all the nominal bins in the corresponding merged bin.
-
-
-% The smoothing procedure is applied to the uncertainties associated to:
-% $e\gamma$, MET, muons, taus, jvt, jet, PRW and multi-jet modelling shapes. An
-% example of the MET and JES systematics can be found in
-% Figure~\ref{fig:Smoothing_Example}. The result of smoothing systematic
-% uncertainties is checked to ensure that this is behaving as expected.
-
-% % \begin{figure}[h]
-% %   \centering
-% %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_{\mathrm{T}}2_L0_distmva_J2_\VHSTXS_SysMET_SoftTrk_ResoPara.png}
-% %
-%   \includegraphics[width=0.65\linewidth]{figures/stat/Smoothing/Region_BMax250_BMin150_Y6051_DSR_{\mathrm{T}}2_L0_distmBB_J3_\VHSTXS_SysJET_CR_JET_EtaIntercalibration_Modelling.png}
-% %      \caption{The variation in 0 lepton channel, 150\,\GeV$< p^{V}_{\mathrm{T}}
-% <$250\,\GeV region of the MET track-based soft term systematic in the
-% multi-variate analysis (top) and the jet energy scale on eta-intercalibration
-% systematic in the cut-based analysis (bottom). The dashed lines represent the
-% systematic shape before smoothing and the solid lines represent the systematic
-% shape after smoothing.}
-% % \label{fig:Smoothing_Example}
-
-% % \end{figure}
-
-
-% \subsubsection{Pruning of the Systematic Uncertainties}
-% \label{sec:smooth_prune}
-
-% Several of the uncertainties described in Section~\ref{sec:npdefs} have a
-% negligible effect on the distributions entering in the fit.  In addition,
-% limited statistics in the MC nominal distributions can produce systematic
-% templates with large fluctuations, introducing artificial variations in the fit.
-% Therefore, following the Run 1 strategy, uncertainties are removed following a
-% ``pruning'' procedure, which is carried out for each category/sub-channel in
-% each region.
-
-% Pruning is performed as follows: 
-% \begin{itemize}
-% \item Neglect the normalization uncertainty for a given sample in a region if either of the
-%   following is true:
- 
-%  \begin{itemize}
-%   \item the variation is less than 0.5\%
-%   \item both up and down variations have the same sign
-    
-%  \end{itemize}
-
-% \item Neglect the shape uncertainty for a given sample in a given region if the
-%   following is true:
-  
-%  \begin{itemize}
-%   \item not one single bin has a deviation over 0.5\% after the overall
-%     normalization is removed
-    
-%   \item if only the up or the down variation is non-zero and passed the previous
-%     pruning steps
-    
-%  \end{itemize}
-
-% \item An additional pruning is made to remove systematic effects on small
-%   samples in all regions. In any given region, that pruning is only applied to
-%   samples contributing to less than $1\%$ of the total background and reads as
-%   follow:
-  
-%  \begin{itemize}
-%   \item in low sensitivity regions (no bin with $S/B>2\%$), normalization
-%     effects below $5$ per mille of the total backgrounds and shapes varying no
-%     bin by more than $5$ per mille of the total backgrounds are pruned
-    
-%   \item in regions where at least one bin has a signal contribution $>2\%$ of
-%     the total background, shape and normalization effects are pruned if they
-%     generate yield variations in these bins smaller than $2\%$ of the signal
-%     yields in these bins
-    
-%  \end{itemize}
-% \end{itemize}
-
-% The list of pruned uncertainties is regularly checked to ensure that this is
-% behaving as expected. The value of the threshold is also tested and compared to
-% no-threshold for each stable iteration of the fit. This to ensure no
-% over-pruning is made and the analysis sensitivity is not artificially
-% increased.
+As well as the single parameter of interest mode described above the fit can
+also be run in a multiple parameter of interest paradigm. The purpose of this
+fit is to measure the cross-section of the \WH\ and \ZH\ processes in a number
+of well defined regions of phase space. In order to achieve this a simplified
+template cross-section (STXS) scheme is used. As in the previous
+measurement~\cite{STXSpaper} the STXS bins are split into many categories before
+being merged down to include $p_{\mathrm{T}}^V$ bins of 75--150~\GeV,
+150--250~\GeV\ and >250~\GeV. The 75--150~\GeV\ bin does not include a
+measurement of \WH\ as there is no 75--150~\GeV\ bin available in the 1--lepton
+channel and so there ought not to be any signal events present in this region of
+phase space.
 
 \section{Pre-fit Data Versus Prediction}
 \label{sec:prefit}

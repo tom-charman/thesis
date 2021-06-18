@@ -3,15 +3,15 @@
 In this chapter the results of the \VHbb\ multi-variate discriminant fit are
 shown. Other results such as those for the cross-checks of the analysis can be
 found in~\cite{VHMainNote2019}. The fit is performed in accordance with the
-asymptotic approximation~\cite{Cowan:2010js} for calculating the $p_0$ values
+asymptotic approximation~\cite{Cowan:2010js} for calculating the $p_0$ values,
 which are converted to statistical significances expressed in terms of standard
-deviations. The Asimov dataset conditional on $\mu=1$, which is generated for
-use in the above approximation, is used in a fit whose nuisance parameter pulls
-are compared with the unconditional fit to the data that is used to generate the
-final results. As per the prescription of the asymptotic approximation the
-results will be discussed in the context of a hypothesis test comparing the null
-hypothesis, the background only model, with the alternative hypothesis, the
-background plus signal model.
+deviations. An Asimov dataset conditional on $\mu=1$  is generated for use in
+the above approximation and is used in a fit whose nuisance parameter pulls are
+compared with those coming from the unconditional fit to the data that is used
+to generate the final results. As per the prescription of the asymptotic
+approximation the results will be discussed in the context of a hypothesis test
+comparing the null hypothesis, the background only model, with the alternative
+hypothesis, the background plus signal model.
 
 My contributions to the results are as already stated in other chapters plus
 running the combined, and 2--lepton channel fits to generate and study the
@@ -24,20 +24,23 @@ from the combined profile-likelihood fit for the $W+$jets, $Z+$jets and top
 process backgrounds.
 \input{08-results/pullcomp}
 The other nuisance parameter pulls have been omitted but have been
-studied~\cite{VHMainNote2019}. Observation of the pull on \texttt{SysZMbb} shows
-that it is pulled towards the $+1\sigma$ value which meets the expectations
-based on the shapes derived in section~\ref{sec:zjets-shapes}. The uncorrelated
-component of the shape is also pulled in that direction but to a lesser degree
-this also matches expectations. Several of the nuisance parameters relating to
-the BDTr shape uncertainties are pulled to either $+1\sigma$ or $-1\sigma$ as
-would be expected, whilst several have not been pulled much which goes against
-naive expectations. There could be many explanations for this but as the phase
-space is split up into many different regions limiting the statistical power of
-the method it is best not to over-interpret. In order to understand the
-behaviour of the modelling uncertainties on the $V+$jets processes previously
-discussed these must be looked at in combination with the correlations between
-nuisance parameter pulls shown in figure~\ref{fig:np-corrs}.
+studied~\cite{VHMainNote2019}, and the \texttt{Sys} has been dropped from the
+names of the parameters displayed. Observation of the pull on \texttt{SysZMbb}
+shows that it is pulled towards the $+1\sigma$ value which meets the
+expectations based on the shapes derived in section~\ref{sec:zjets-shapes}. The
+uncorrelated component of the shape is also pulled in that direction but to a
+lesser degree this also matches expectations. Several of the nuisance parameters
+relating to the BDTr shape uncertainties are pulled to either $+1\sigma$ or
+$-1\sigma$ as would be expected, whilst several have not been pulled much which
+goes against naive expectations. There could be many explanations for this but
+as the phase space is split up into many different regions limiting the
+statistical power of the method it is best not to over-interpret. In order to
+understand the behaviour of the uncertainties, the correlations between nuisance
+parameter pulls, shown in figure~\ref{fig:np-corrs}, must be studied.
 \input{08-results/np-corrs}
+There are no nuisance parameters that are correlated in a manner which causes
+suspicion as to the relationship between the quantities the parameters are
+supposed to be affecting in the fit compared with expectations.
 \clearpage
 \section{Breakdown and Ranking of Uncertainties}
 Table~\ref{tab:breakdown_012L_MVAVH} shows a breakdown of the impact of the
@@ -64,13 +67,10 @@ flavour tagging uncertainties and scale factors for normalisation and acceptance
 between analysis regions. The highest ranked uncertainty in both cases is the
 $b$-tagging efficiency, this is unsurprising as $b$-tagging plays a crucial role
 in the analysis selection. Notably the $Z+$jets shape uncertainties do not
-appear in the top 15 sources of uncertainty, naively this is unexpected as the
-background dominates in a sensitive channel of the analysis. Improvements to the
-separation of the $Z+$jets background and the signal in the analysis MVA due to
-the inclusion of the $Z+$jets polarisation information is likely the reason for
-the shape uncertainties not being as impactful as might be expected.
-
-\clearpage
+appear in the top sources of uncertainty, naively this is unexpected as the
+background dominates in a sensitive channel of the analysis, however it appears
+that other modelling uncertainties which are described with multi-variate
+techniques have a greater impact.
 
 \section{Post-fit Data Versus Predictions}
 Figures~\ref{fig:0lep2jet-postfit}, \ref{fig:0lep3jet-postfit},
@@ -100,7 +100,7 @@ the background plus signal hypothesis broken down by analysis channel.
 \input{08-results/channel-sig}
 The expected significances were determined using an Asimov dataset conditional
 on $\mu=1$. All channels are approaching the 5$\sigma$ threshold to claim
-discovery and the combined fit is well above the discovery threshold in
+discovery and the combined fit is well above the discovery threshold, in
 agreement with the previous result~\cite{vhbb-obs}. Figure~\ref{fig:channel-mus}
 shows the best fit values for the signal strength in each channel and in the
 combined paradigm.
@@ -110,7 +110,6 @@ the composition and values of the uncertainties affecting each channel are
 similar with the 2--lepton channel being slightly more impacted by statistical
 rather than systematic uncertainty.
 %\input{08-results/uncorrelated-mus}
-\clearpage
 \subsection{\WH\ and \ZH\ Signal Strength Measurements}
 Table~\ref{tab:sig_WZH} shows the expected and observed significances for
 the background plus signal hypothesis for the \WH\, \ZH\ and \VH measurements.
@@ -119,8 +118,8 @@ The expected significances were determined using an Asimov dataset conditional
 on $\mu=1$. The \WH\ stand alone measurement is approaching the 5$\sigma$
 threshold to claim discovery. The \ZH\ stand alone measurement has surpassed the
 threshold and the paper associated with this measurement is first proof of
-discovery published. Figure~\ref{fig:WZH-mus}
-shows the best fit values for the signal strength for each measurement.
+discovery~\ref{final-paper}. Figure~\ref{fig:WZH-mus} shows the best fit values
+for the signal strength for each measurement.
 \input{08-results/WH-ZH-mus}
 All measurements are compatible with the standard model prediction of $\mu=1$,
 the composition and values of the uncertainties affecting each channel are very
@@ -129,10 +128,10 @@ similar.
 
 \subsection{Simplified Template Cross-section Measurements}
 Table~\ref{tab:sig_stxs} shows the expected and observed significances for
-the \VHbb\ cross=section measurement in the each STXS bin. All bins show a high
-degree of statistical significance. Figure~\ref{fig:5POI-mus} shows the best fit
-values for the cross-section times branching ratio ($\sigma \times B$) in each
-of the STXS bins.
+the \VHbb\ cross-section measurement in the each STXS bin. All bins have an
+observed statistical significance in line with what was expected.
+Figure~\ref{fig:5POI-mus} shows the best fit values for the cross-section times
+branching ratio ($\sigma \times B$) in each of the STXS bins.
 \input{08-results/stxs-sig}
 All measurements are compatible with the standard model predictions and are
 weakly limited by statistical uncertainty. The theoretical uncertainty on the

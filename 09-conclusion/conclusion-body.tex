@@ -2,15 +2,43 @@
 \label{ch:conclusion}
 The \VHbb\ analysis has been presented with it's many categorisations and
 carefully chosen techniques to maximise the signal sensitivity and robustness of
-the analysis. The results of the analysis agree with the Standard Model
-predictions across the board and many efforts have been made to ensure that each
-element of the analysis is well understood.
+the analysis. The analysis used 139~fb$^-1$ of data from proton-proton
+collisions at a centre of mass energy of $\sqrt{S} = 13 \TeV$ recorded by the
+ATLAS detector and provided by the LHC. Measurements of the \WH\, \ZH\, and \VH\
+signal strengths have been made along with cross-sections measurements using the
+so-called simplified template cross-section paradigm. 
 
-The $V+$jets and top process modelling is performed using a multi-variate
-technique which more completely captures the difference between two datasets for
-comparison than the traditional univariate approach. Where a univariate
-approach has been used, in the $Z+$jets modelling, comparisons have been made to
-data. These comparisons to data are favourable to comparing two different
+The results of the measurements of signal strengths agree with the Standard
+Model predictions within the uncertainties. Signal strengths are measured to be
+$\mu_{WH}^{bb} = 0.95^{+0.27}_{-0.25}$, $\mu_{ZH}^{bb} = 1.08^{+0.25}_{-0.23}$,
+and $\mu_{VH}^{bb} = 1.02^{+0.18}_{-0.17}$ normalised to the Standard Model
+prediction and for a $m_H = 125 \GeV$.
+
+The cross-section measurements took place for \WH\ and \ZH\. For both processes
+measurements were made in a number of different $p_{\mathrm{T}}^{V}$ bins,
+namely the 75--150~\GeV, 150--250~\Gev\ and >250~\GeV\ bins where the first bin
+includes only a \ZH\ measurement. A measurement of \WH\ in the lowest
+$p_{\mathrm{T}}^{V}$ bin would be desirable and could have been achieved with
+the inclusion of a 75--150~\GeV\ bin in the 1--lepton channel. Such an inclusion
+was planned but had to be dropped from the analysis due to a poor understand of
+the effects of systematic uncertainties in the necessary bin. Results in all of
+the STXS bins agree with the Standard Model prediction for cross-section times
+branching ratio within the uncertainties.
+
+Modelling of background and signal processes as well of estimation of systematic
+uncertainties has been carried out using a wide variety of techniques. All
+checks indicate that the uncertainty model covers all discrepancies between data
+and the Monte-Carlo predictions. The breakdown of uncertainties shows that the
+precision of the measurement on the signal strength is limited more by the
+systematic than the statistical uncertainties. For this reason it is more
+important than ever to consider how these uncertainties can be better understood
+and reduced. 
+
+Efforts to model the $V+$jets and top processes include using a multi-variate
+technique, which more completely captures the difference between two datasets
+for than the traditional univariate approach. Where a univariate approach has
+been used, in the $Z+$jets modelling, comparisons have been made to data. These
+comparisons to data are favourable to comparing two different Monte-Carlo
 predictions as there is no guarantee that the true nature of the data lies
 anywhere within the smooth interpolation between the two predictions. Both of
 these improvements over the previous iteration of the analysis increase
@@ -18,16 +46,9 @@ confidence in the approach to estimating systematic uncertainties which
 inherently relies on some prior assumptions and is therefore potentially the
 area of the analysis in which confidence is most needed.
 
-
-% Conclude that the analysis has many moving parts that effect the result, most of
-% these parts are quite mature and so the analysis is general well understood.
-
-% Highlight again the areas that I worked on and their impact on the analysis.
-% Make note that Zjets systematics are still significant but have a smaller impact
-% on the analysis than in previous rounds due to a number of things... namely a
-% higher stats sample in which to derive the uncertainty, a better method for
-% deriving the uncertainty, the introduction of cos theta lep in the MVA which
-% helps separate Zjets and Higgs events better.
+It is clear from the ranking of uncertainties that an improvement to the
+procedure for $b$-tagging would enhance the precision with which the signal
+strength could be measured.
 
 \section{Future studies}%
 \label{sec:future}
@@ -49,11 +70,16 @@ a parameter that allows the network to be predictive on datasets that differ
 from those in the training by some choice of internal
 parameters~\cite{param-hep, param-hep-2}.
 
+Improvements to the truth tagging strategy discussed in
+section~\ref{subsec:truth-tagging} could enhance the capabilities of the
+analysis due to the key role of $b$-jets in the process being studied. It has
+been shown that neural networks can provide a better efficiency map than the
+current two dimensional maps that are used~\cite{nn-truth-tagging}, allowing for
+better agreement between the truth and direct tagged samples.
 
-
-% Refer to the method that can be used to address the gap in the zjets modelling
-% phase space caused by the mbb veto and therefore would allow a mutli-variate
-% data driven approach, essentially combining the current wjets and zjets
-% modelling strategies.
-
-% Refer to systematics that could be improved in order to get a better result.
+Further measurements of the \VHbb\ process are currently underway by members of
+the ATLAS collaboration. These measurements aim to combine the event selection
+of this analysis referred to as the resolved analysis (due to the inclusion of
+two resolved $b$-jets in each event), with that of a similar analysis which
+studies a higher $p_T$ phase space in which the two $b$-jets are merged into a
+large radius jet, and a measurement of the \VHcc process. 

@@ -1,21 +1,59 @@
 \chapter{Conclusion}%
 \label{ch:conclusion}
-Conclude that the analysis has many moving parts that effect the result, most of
-these parts are quite mature and so the analysis is general well understood.
+The \VHbb\ analysis has been presented with it's many categorisations and
+carefully chosen techniques to maximise the signal sensitivity and robustness of
+the analysis. The results of the analysis agree with the Standard Model
+predictions across the board and many efforts have been made to ensure that each
+element of the analysis is well understood.
 
-Highlight again the areas that I worked on and their impact on the analysis.
-Make note that Zjets systematics are still significant but have a smaller impact
-on the analysis than in previous rounds due to a number of things... namely a
-higher stats sample in which to derive the uncertainty, a better method for
-deriving the uncertainty, the introduction of cos theta lep in the MVA which
-helps separate Zjets and Higgs events better.
+The $V+$jets and top process modelling is performed using a multi-variate
+technique which more completely captures the difference between two datasets for
+comparison than the traditional univariate approach. Where a univariate
+approach has been used, in the $Z+$jets modelling, comparisons have been made to
+data. These comparisons to data are favourable to comparing two different
+predictions as there is no guarantee that the true nature of the data lies
+anywhere within the smooth interpolation between the two predictions. Both of
+these improvements over the previous iteration of the analysis increase
+confidence in the approach to estimating systematic uncertainties which
+inherently relies on some prior assumptions and is therefore potentially the
+area of the analysis in which confidence is most needed.
+
+
+% Conclude that the analysis has many moving parts that effect the result, most of
+% these parts are quite mature and so the analysis is general well understood.
+
+% Highlight again the areas that I worked on and their impact on the analysis.
+% Make note that Zjets systematics are still significant but have a smaller impact
+% on the analysis than in previous rounds due to a number of things... namely a
+% higher stats sample in which to derive the uncertainty, a better method for
+% deriving the uncertainty, the introduction of cos theta lep in the MVA which
+% helps separate Zjets and Higgs events better.
 
 \section{Future studies}%
 \label{sec:future}
 
-Refer to the method that can be used to address the gap in the zjets modelling
-phase space caused by the mbb veto and therefore would allow a mutli-variate
-data driven approach, essentially combining the current wjets and zjets
-modelling strategies.
+A combination of the multi-variate and data-driven approaches to modelling would
+further enhance confidence in the estimation of $Z+$jets systematic
+uncertainties. This would involve using either the $N$-dimensional
+parametrisation or the hybrid $N-1$-dimensional parametrisation, discussed in
+sections~\ref{sec:ND-reweight} and~\ref{sec:hybrid-reweight}, with the nominal
+prediction being trained against the data in the classifier. In order for this
+to possible the gap in the phase space due to the $80--140$~\GeV\ veto must be
+addressed. A BDT is an inappropriate algorithm for training on data with any
+gaps in the input features due to it's inherently cut based nature discussed in
+section~\ref{sec:bdts}. Neural networks, discussed in
+section~\ref{sec:neural-networks} are more appropriate for this application as
+they can smoothly interpolate along a single dimension of the input space. It
+has been shown in the literature that neural networks can be trained to include
+a parameter that allows the network to be predictive on datasets that differ
+from those in the training by some choice of internal
+parameters~\cite{param-hep, param-hep-2}.
 
-Refer to systematics that could be improved in order to get a better result.
+
+
+% Refer to the method that can be used to address the gap in the zjets modelling
+% phase space caused by the mbb veto and therefore would allow a mutli-variate
+% data driven approach, essentially combining the current wjets and zjets
+% modelling strategies.
+
+% Refer to systematics that could be improved in order to get a better result.

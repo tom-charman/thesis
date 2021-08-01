@@ -1,30 +1,32 @@
 \chapter{Introduction}%
 \label{ch:intro}
 
-In 2012 the Higgs boson was discovered by the ATLAS and CMS collaborations at
-the Large Hadron Collider~\cite{DiscoHiggsATLAS, DiscoHiggsCMS}. It was said to
-form the last piece of the Standard Model of Particle Physics, a framework that
-describes three of the four fundamental forces of nature. Despite the theory
-being apparently complete, it does not describe gravity, the fourth of the known
-fundamental forces of nature. The theory also has other shortcomings, it cannot
-explain the presence of dark matter~\cite{DM-ev-sloan, DM-ev-nucleosynth,
-  DM-ev-supernova, DM-ev-scaffold, DM-ev-direct, DM-ev-strong-lens,
-  DM-ev-candidates, DM-ev-PDG, DM-ev-Zwicky, DM-ev-nonbaryonic, DM-ev-particle}
-or a number of other observed phenomena~\cite{anom-BD-branching,
-  anom-Dtau-excess, anom-g-2, anom-proton-radius, anom-bsll-trans}. So far the
-model has stood up to all experimental tests~\cite{EWtests, 1998-SMtests}
-concerning its own predictions but there are still parameters of the model that
-have not been measured. Given the theory's understood shortcomings, it is hoped
-that continued scrutiny of the models predictions will yield unexpected results,
-perhaps hinting at a new way forwards in terms of a theory that describes all
-matter and forces in the universe or simply exposing further gaps in our
-knowledge. For this reason it is more important than ever to study in detail the
-most recently discovered piece of the model, the Higgs boson.
+In 2012 the Higgs boson~\cite{Brout-Englert, Higgs:1964, Kibble} was discovered
+by the ATLAS and CMS collaborations at the Large Hadron
+Collider~\cite{DiscoHiggsATLAS, DiscoHiggsCMS}. It was said to form the last
+piece of the Standard Model of Particle Physics~\cite{Glashow:1959m Salam:1959,
+Weinberg:1967, Gell-Mann:1962yej}, a framework that describes three of the four
+fundamental forces of nature. Despite the theory being apparently complete, it
+does not describe gravity, the fourth of the known fundamental forces of nature.
+The theory also has other shortcomings, it cannot explain the presence of dark
+matter~\cite{DM-ev-sloan, DM-ev-nucleosynth, DM-ev-supernova, DM-ev-scaffold,
+DM-ev-direct, DM-ev-strong-lens, DM-ev-candidates, DM-ev-PDG, DM-ev-Zwicky,
+DM-ev-nonbaryonic, DM-ev-particle} or a number of other observed
+phenomena~\cite{anom-BD-branching, anom-Dtau-excess, anom-g-2,
+anom-proton-radius, anom-bsll-trans}. So far the model has stood up to all
+experimental tests~\cite{EWtests, 1998-SMtests} concerning its own predictions
+but there are still parameters of the model that have not been measured. Given
+the theory's understood shortcomings, it is hoped that continued scrutiny of the
+models predictions will yield unexpected results, perhaps hinting at a new way
+forward in terms of a theory that describes all matter and forces in the
+universe or simply exposing further gaps in our knowledge. For this reason it is
+more important than ever to study in detail the most recently discovered piece
+of the model, the Higgs boson.
 
-This work focuses on studying a vector boson associated Higgs boson decaying to
-two bottom quarks, denoted \VHbb. This decay mode is of importance as it is
-currently the only decay mode of the Higgs decaying to quarks that has been
-observed~\cite{vhbb-obs}.
+This work focuses on studying Higgs boson particles that decay into two bottom
+quarks and are produced alongside a vector boson, denoted \VHbb. This decay mode
+is of importance as it is currently the only decay mode of the Higgs decaying to
+quarks that has been observed~\cite{vhbb-obs}.
 
 The data used to study this decay mode was collected using the ATLAS detector by
 members of the ATLAS collaboration. The collection of this data is only made
@@ -32,32 +34,36 @@ possible by their hard work and by the hard work of everyone working on the
 Large Hadron Collider at CERN.
 
 A rough blueprint of this analysis is shown in figure~\ref{fig:roadmap}.%
-\input{01-introduction/analysis-roadmap}
-The blueprint starts with the theory of the Standard Model of Particle Physics,
-described in chapter~\ref{ch:theory}. The theory's predictions inform the
-design of the ATLAS detector which is detailed in chapter~\ref{ch:detector}.
-Furthermore, the theory aids the choice of particles to collide, which events to
-analyse, and allows us to generate predictions of what should happen in the
-collisions. Chapter~\ref{ch:ml} gives an overview of two machine learning
-algorithms that are used throughout the analysis. Events must be reconstructed
-before they can be analysed, a selection process is used on the reconstructed
-objects to filter events not relevant to the analysis. The reconstruction and
-selection process is described in chapter~\ref{ch:recon}. Events in data must
-be categorised into those that are signal-like and those that are
-background-like in order to extract the most signal sensitivity from the
-analysis. This is achieved with a number of strategies including a multi-variate
-algorithm which is trained on the simulations. This categorisation process is
-described in chapter~\ref{ch:strategy}, along with the overall analysis
-strategy including the details of the profile-likelihood fit. A choice is made
-of simulated events that well model the data. Considering the modelling, the
-theory and the shortcomings of the detector a set of systematic uncertainties
-are estimated, these are detailed in~\ref{ch:systematics}. The results of the
-analysis are shown in chapter~\ref{ch:results} and conclusions are drawn in
+\input{01-introduction/analysis-roadmap} The blueprint starts with the theory of
+the Standard Model of Particle Physics, described in chapter~\ref{ch:theory}.
+The theory's predictions inform the design of the ATLAS detector which is
+detailed in chapter~\ref{ch:detector}. Furthermore, the theory aids the choice
+of particles to collide, which events to analyse, and allows us to generate
+predictions of what should happen in the collisions. Chapter~\ref{ch:ml} gives
+an overview of two machine learning algorithms that are used throughout the
+analysis. Events must be reconstructed before they can be analysed, a selection
+process is used on the reconstructed objects to filter events not relevant to
+the analysis. The reconstruction and selection process is described in
+chapter~\ref{ch:recon}. Events in data must be categorised into those that are
+signal-like and those that are background-like in order to extract the most
+signal sensitivity from the analysis. This is achieved with a number of
+strategies including a multi-variate algorithm which is trained on the
+simulations.
+
+This categorisation process is described in chapter~\ref{ch:strategy}, along
+with the overall analysis strategy including the details of the
+profile-likelihood fit. A choice is made of simulated events that well model the
+data. Considering the modelling, the theory and the shortcomings of the detector
+a set of systematic uncertainties are estimated, these are detailed
+in~\ref{ch:systematics}. The results of the analysis are shown in
+chapter~\ref{ch:results} and conclusions are drawn in
 chapter~\ref{ch:conclusion}.
 
 My contributions to the \VHbb\ analysis published in 2021 have been numerous and
 spanned a number of different areas of the analysis. At the beginning of each
 chapter I will aim to make clear which content represents my work and which is
-that of my colleagues. In short, my main contributions have been to operation and
-maintenance of the analysis framework, the study and estimation of systematic
-uncertainties and the study of the behaviour of the profile-likelihood fit.
+that of my colleagues. In short, my main contributions have been to study and
+estimate systematic uncertainties as well as the behaviour of the
+profile-likelihood fit. Additionally I was responsible with maintaining and
+operating the analysis software framework.
+

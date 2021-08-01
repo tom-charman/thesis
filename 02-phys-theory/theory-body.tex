@@ -2,8 +2,8 @@
 \label{ch:theory}
 
 The following chapter outlines the physics theory that informs and guides the
-experimental process of searching for new particles or making measurements at
-a particle collider. Not only are the physics theories described here useful in
+experimental process of searching for new particles or making measurements at a
+particle collider. Not only are the physics theories described here useful in
 that context but they also provide an almost complete picture of the universe at
 certain scales. This chapter was written with the aid of notes taken at the
 annual STFC High Energy Physics Summer School, and with the aid of several
@@ -15,19 +15,17 @@ all elementary particles and three of the fundamental forces of nature. Notably
 the only force that is not described by the theory is gravity. Particles
 described by the model are listed in table~\ref{tab:sm} with a white gap
 separating the matter particles (fermions) from the force carrying particles
-(bosons). Fermions, which make up solid matter obey Fermi-Dirac
-statistics~\cite{Fermi-stat, Dirac-stat} whereas bosons obey Bose-Einstein
-statistics~\cite{Bose-Einstein}. The Higgs boson is special in that as far as we
-know it does not carry a force in the conventional sense, instead it is
-responsible for giving fundamental particles mass, discussed in more detail in
-section~\ref{sec:higgs-mech}. In the table of particles quarks (blue) and
-leptons (red) are ordered in columns by increasing mass, apart from the
-neutrinos, which are massless in the theory.
+(bosons). Fermions, which make up solid matter obey
+Fermi-Dirac~\cite{Fermi-stat, Dirac-stat} statistics whereas bosons obey
+Bose-Einstein~\cite{Bose-Einstein} statistics. The Higgs boson is special in
+that as far as we know it does not carry a force in the conventional sense,
+instead it is responsible for giving fundamental particles mass, discussed in
+more detail in section~\ref{sec:higgs-mech}. In the table of particles quarks
+(blue) and leptons (red) are ordered in columns by increasing mass, apart from
+the neutrinos, which are massless in the theory. \input{02-phys-theory/sm-table}
 
-\input{02-phys-theory/sm-table}
-
-As mentioned the model describes forces as being mediated by certain particles,
-the photon ($\gamma$) mediates the electromagnetic force, particles experiencing
+The model describes forces as being mediated by certain particles, the photon
+($\gamma$) mediates the electromagnetic force, particles experiencing
 electromagnetic repulsion or attraction are described as exchanging photons. The
 strength and direction of the force experienced is proportional to the
 electromagnetic charge of particles involved. The Standard Model is a theory of
@@ -37,26 +35,21 @@ something known as a coupling constant. It is natural to assume that the
 strength of the interaction between photons and charged particles is related to
 the electromagnetic charge of the particles involved. Indeed this is the case
 consider the Coulomb force between two protons,
+\begin{equation} F = \frac{e^2}{4\pi\epsilon_0r},
+\end{equation} where $e$ is the elementary charge, $\epsilon_0$ is the electric
+constant and $r$ is the distance between the two protons in question and also
+the energy of a photon given by
+\begin{equation} E = \frac{hc}{\lambda},
+\end{equation} where $h$ is Planck's constant, $c$ is the speed of light and
+$\lambda$ is the wavelength of the photon. The value of the ratio of these two
+quantities
 \begin{equation}
-  F = \frac{e^2}{4\pi\epsilon_0r},
-\end{equation}
-where $e$ is the elementary charge, $\epsilon_0$ is the electric constant and
-$r$ is the distance between the two protons in question and also the
-energy of a photon given by
-\begin{equation}
-  E = \frac{hc}{\lambda},
-\end{equation}
-where $h$ is Planck's constant, $c$ is the speed of light and $\lambda$ is the
-wavelength of the photon. The value of the ratio of these two quantities
-\begin{equation}
-  \label{eq:fine-structure}
-  \alpha = \frac{e^{2}\lambda}{4\pi\epsilon_{0}rhc},
-\end{equation}
-known as the fine structure constant, is the coupling constant that describes
-the strength of the interactions between the photon field and fields of
-particles with electromagnetic charge. So as is now clear this coupling constant
-does indeed depend on the electromagnetic charge of the objects involved and so
-it is not in fact constant.
+  \label{eq:fine-structure} \alpha = \frac{e^{2}\lambda}{4\pi\epsilon_{0}rhc},
+\end{equation} known as the fine structure constant, is the coupling constant
+that describes the strength of the interactions between the photon field and
+fields of particles with electromagnetic charge. So as is now clear this
+coupling constant does indeed depend on the electromagnetic charge of the
+objects involved and so it is not constant.
 
 As well as the electromagnetic force the Standard Model describes the strong
 nuclear force and the weak nuclear force, shortened to just the strong and weak
@@ -71,36 +64,32 @@ allowed (anti-red, anti-green, anti-blue). Unlike with the electromagnetic
 charge, particles with colour charge are not found freely in nature. Instead we
 find particles known as hadrons which are bound states of quarks and anti-quarks
 (e.g. the proton). The phenomenon of coloured particles being bound in such a
-manner is known as colour confinement, and the bound states are described by the
-quantum numbers isospin ($I$) and hypercharge ($Y_c$). It is commonly assumed
-that all free particles in nature are colour singlets e.g. for a hadron the
-state could be written as
+manner is known as colour confinement~\cite{colour-confinement}, and the bound
+states are described by the quantum numbers isospin ($I$) and hypercharge
+($Y_c$). It is commonly assumed that all free particles in nature are colour
+singlets e.g. for a hadron the state could be written as
 \begin{equation}
-  \label{eq:hadron-colour}
-  \frac{(r\bar{r} + b\bar{b} + g\bar{g})}{\sqrt{3}},
-\end{equation}
-where $r$, $b$ and $g$ represent red, blue and green charges respectively. This
-phenomenon is known as quark confinement. Gluons carry colour and anti-colour
-indicating that there should be nine possible quantum mechanical states for the
-gluon given the available number of colour/anti-colour combinations, however
-when one considers that the strong force is exclusively short range, and
-therefore that there should be no free gluons (disallowing colour singlet
-gluons) the number of possible states is reduced to eight. The state of a
-particle, as far as its description with respect to the strong force is
-concerned, is given by a vector which lives in a vector space, in which elements
-of the Lie group $SU(3)_C$ act as unitary operators, where the $C$ denotes that
-the group is associated with the colour charge. The $SU(3)$ group is the group
-of $3~\times~3$ unitary matrices whose determinant is one. These correspond to
-the eight generators of $SU(3)$ where in general for a group $SU(N)$ the number
-of generators is given by $N^2 - 1$.
+  \label{eq:hadron-colour} \frac{(r\bar{r} + b\bar{b} + g\bar{g})}{\sqrt{3}},
+\end{equation} where $r$, $b$ and $g$ represent red, blue and green charges
+respectively. This phenomenon is known as quark confinement. Gluons carry colour
+and anti-colour indicating that there should be nine possible quantum mechanical
+states for the gluon given the available number of colour/anti-colour
+combinations, however when one considers that the strong force is exclusively
+short range, and therefore that there should be no free gluons (disallowing
+colour singlet gluons) the number of possible states is reduced to eight. The
+state of a particle, as far as its description with respect to the strong force
+is concerned, is given by a vector which lives in a vector space, in which
+elements of the Lie group $SU(3)_C$ act as unitary operators, where the $C$
+denotes that the group is associated with the colour charge. The $SU(3)$ group
+is the group of $3~\times~3$ unitary matrices whose determinant is one.
 
-Describing the weak force requires introducing further quantum numbers weak
+Describing the weak force requires introducing further quantum numbers: weak
 isospin $T$ and weak hypercharge $Y_W$. The state of a particle with regards to
 the weak force is given by a vector which lives in a vector space in which
 elements of $SU(2)_L \times $U(1)$_{Y_{W}}$ act as unitary operators where the
 $L$ denotes that only particles in left-handed chiral states interact with the
 weak force~\footnote{More specifically only left-handed chiral particles
-  participate in weak charged current interactions.}. Left-handed fermions are
+participate in weak charged current interactions.}. Left-handed fermions are
 represented as doublets in the theory with weak isospin $T = 1/2$ whilst
 right-handed fermions are singlets with weak isospin $T = 0$.
 
@@ -130,47 +119,42 @@ inconsistent theories of Maxwell's electromagnetism and Newtonian mechanics. The
 result of Einstein's work was a theory of motion which agreed with the
 predictions of Newtonian mechanics at velocities much smaller than the speed of
 light but whose predictions were accurate also at much higher velocities (for
-which Newtonian predictions fail). Arguably, the most far reaching consequence of
-special relativity is that it demands that any equation of motion must be
-invariant under Lorentz transformations, at least in terms of the formulation of
-new theories is concerned. Many physical phenomena predicted by special
-relativity could be considered of higher consequence in general, for example the
-phenomena of length contraction, time dilation, energy-mass equivalence and the
-universal speed limit (equal to the speed of light in vacuum), all of which are
-extensively scrutinised experimentally ~\cite{sr-tests-1, sr-tests-2,
-  sr-tests-3, sr-tests-4, sr-tests-5, sr-tests-6, sr-tests-7}. It is the Lorentz
+which Newtonian predictions fail). A consequence of special relativity is that
+it demands that any equation of motion must be invariant under Lorentz
+transformations, at least in terms of the formulation of new theories is
+concerned. Many physical phenomena predicted by special relativity could be
+considered of higher consequence in general, for example the phenomena of length
+contraction, time dilation, energy-mass equivalence and the universal speed
+limit (equal to the speed of light in vacuum), all of which are extensively
+scrutinised experimentally ~\cite{sr-tests-1, sr-tests-2, sr-tests-3,
+sr-tests-4, sr-tests-5, sr-tests-6, sr-tests-7}. It is the Lorentz
 transformation however that should be kept in mind for the following discussion,
 the transformation may be written as
 \begin{equation}
   \begin{split}
-    \begin{aligned}[t]
-      &t'&=&\;\;\;\gamma(t -vx/c^{2})\\
-      &x'&=&\;\;\;\gamma(x - vt)\\
-      \text{with } &\gamma&=&\;\;\;\frac{1}{\sqrt{1 - v^{2}/c^{2}}},
+    \begin{aligned}[t] &t'&=&\;\;\;\gamma(t -vx/c^{2})\\ &x'&=&\;\;\;\gamma(x -
+vt)\\ \text{with } &\gamma&=&\;\;\;\frac{1}{\sqrt{1 - v^{2}/c^{2}}},
     \end{aligned}
   \end{split}
   \label{eq:lorentz-transform}
-\end{equation}
-in a single dimension of space $x$ and one of time $t$ where $v$ represents the
-velocity of the system described by the primed coordinates relative to the
-unprimed coordinates and $c$ is the speed of light in vacuum.  
+\end{equation} in a single dimension of space $x$ and one of time $t$ where $v$
+represents the velocity of the system described by the primed coordinates
+relative to the unprimed coordinates and $c$ is the speed of light in vacuum.
 
 Twenty years after Einstein introduced the ideas of special relativity Erwin
 Schr\"odinger postulated new ideas regarding the motion of quantum mechanical
 systems~\cite{Schrodinger}. Though he knew his new equation was not invariant
 under Lorentz transformations, and therefore incomplete, Schr\"odinger's
 formulation of quantum mechanics changed the way physicists thought about the
-universe for ever. His famous equation
+universe forever. His famous equation
 \begin{equation}
-  \label{eq:schrodinger}
-  i\hbar\frac{\partial}{\partial t}\Psi(\vec{x}, t) =
-  \Bigg(\frac{-\hbar^{2}}{2m}\nabla^{2} + V(\vec{x}, t)  \Bigg)\Psi(\vec{x}, t),
-\end{equation}
-describes the states of particles as wave-functions $\Psi$ which can only be
-interpreted in a probabilistic manner and contains Planck's constant the quantum
-of action. This work had many consequences including the quantisation of the
-values of measured observables (meaning they can only take discrete values) and
-the descriptions of particles as waves.
+  \label{eq:schrodinger} i\hbar\frac{\partial}{\partial t}\Psi(\vec{x}, t) =
+\Bigg(\frac{-\hbar^{2}}{2m}\nabla^{2} + V(\vec{x}, t) \Bigg)\Psi(\vec{x}, t),
+\end{equation} describes the states of particles as wave-functions $\Psi$ which
+can only be interpreted in a probabilistic manner and contains Planck's constant
+the quantum of action. This work had many consequences including the
+quantisation of the values of measured observables (meaning they can only take
+discrete values) and the descriptions of particles as waves.
 
 It was the aim of Paul Dirac to make the Schr\"odinger equation Lorentz
 invariant and thus provide a more complete description of quantum systems. Along
@@ -180,11 +164,10 @@ and the introduction of matrices known now as the Dirac matrices (labeled
 $\gamma^{\mu} \text{ with } \mu=0,1,2,4$) was required. Though not the form he
 originally wrote down Dirac's Lagrangian density takes the form
   \begin{equation}
-    \label{eq:dirac}
-    \mathcal{L}_{Dirac} = \bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi,
-  \end{equation}
-where the repeated up and down indices are implicitly summed over
-($\partial_{\mu}$ represents the partial derivative taken with respect to a
+    \label{eq:dirac} \mathcal{L}_{Dirac} =
+\bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi,
+  \end{equation} where the repeated up and down indices are implicitly summed
+over ($\partial_{\mu}$ represents the partial derivative taken with respect to a
 spatial coordinate $\mu = 1,2,3$ or time $\mu = 0$).
 
 \section{Quantum Electrodynamics}
@@ -195,99 +178,86 @@ consider a $U(1)$ gauge transformation of the Dirac spinor and it's adjoint
 \begin{equation}
   \label{eq:u1trans}
   \begin{split}
-    \begin{aligned}[t]
-      \psi \rightarrow &\psi' &=&\;\; e^{i\alpha(x)}\psi,\\
-      \bar{\psi} \rightarrow &\bar{\psi'} &=&\;\; e^{-i\alpha(x)}\bar{\psi},
+    \begin{aligned}[t] \psi \rightarrow &\psi' &=&\;\; e^{i\alpha(x)}\psi,\\
+\bar{\psi} \rightarrow &\bar{\psi'} &=&\;\; e^{-i\alpha(x)}\bar{\psi},
     \end{aligned}
   \end{split}
-\end{equation}
-with $\bar{\psi} \equiv \psi^{\dagger}\gamma^{0}$ and where $\alpha(x)$ is a
-local phase. Under this transformation the Lagrangian transforms as
+\end{equation} with $\bar{\psi} \equiv \psi^{\dagger}\gamma^{0}$ and where
+$\alpha(x)$ is a local phase. Under this transformation the Lagrangian
+transforms as
 \begin{equation}
-  \label{eq:diracu1}
-  \mathcal{L}_{Dirac} \rightarrow \mathcal{L}'_{Dirac} =
-  \bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi -
-  \bar{\psi}\gamma^{\mu}\alpha(x)\psi
-\end{equation}
-which is not equivalent to the original due to the factor resulting from the
-derivative of the transformed spinor. Instead let us change the derivative to
-the gauge covariant derivative
+  \label{eq:diracu1} \mathcal{L}_{Dirac} \rightarrow \mathcal{L}'_{Dirac} =
+\bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi -
+\bar{\psi}\gamma^{\mu}\alpha(x)\psi
+\end{equation} which is not equivalent to the original due to the factor
+resulting from the derivative of the transformed spinor. Instead let us change
+the derivative to the gauge covariant derivative
 \begin{equation}
-  \label{eq:covariant-em}
-  D_\mu = \partial_{\mu} + ieA_{\mu}
-\end{equation}
-where we interpret $A_{\mu}$ as the photon field, with coupling constant $e$,
-parametrising the interaction strength. The field is also referred to as the
-electromagnetic gauge field since it arrives during the process of making the
-Lagrangian invariant under the $U(1)$ group, the gauge group of
+  \label{eq:covariant-em} D_\mu = \partial_{\mu} + ieA_{\mu}
+\end{equation} where we interpret $A_{\mu}$ as the photon field, with coupling
+constant $e$, parametrising the interaction strength. The field is also referred
+to as the electromagnetic gauge field since it arrives during the process of
+making the Lagrangian invariant under the $U(1)$ group, the gauge group of
 electromagnetism. Note that here what we have labeled $e$ is nothing more than
 the fine structure constant previously denoted $\alpha$ in eq.
 \ref{eq:fine-structure}. The transformation of the new field under the action of
 the gauge is defined as
 \begin{equation}
-  \label{eq:em-field-gauge}
-  A_{\mu} \rightarrow A'_{\mu} \equiv A_{\mu} - \frac{1}{e}\partial_{\mu}\alpha(x).
-\end{equation}
-This means that the action of the gauge covariant derivative on the spinor
-transforms as
+  \label{eq:em-field-gauge} A_{\mu} \rightarrow A'_{\mu} \equiv A_{\mu} -
+\frac{1}{e}\partial_{\mu}\alpha(x).
+\end{equation} This means that the action of the gauge covariant derivative on
+the spinor transforms as
 \begin{equation}
-  \label{eq:cov-trans}
-  D_{\mu}\psi \rightarrow D'_{\mu}\psi' = e^{i\alpha(x)}D_{\mu}\psi
-\end{equation}
-which means that the new Lagrangian
+  \label{eq:cov-trans} D_{\mu}\psi \rightarrow D'_{\mu}\psi' =
+e^{i\alpha(x)}D_{\mu}\psi
+\end{equation} which means that the new Lagrangian
 \begin{equation}
-  \label{eq:dirac-cov}
-  \mathcal{L} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi
-\end{equation}
-is invariant under the action of the gauge as desired. What remains in order to
-write a description of QED is to write down a kinetic term for the photon field.
-An appropriately gauge and Lorentz invariant term is
+  \label{eq:dirac-cov} \mathcal{L} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi
+\end{equation} is invariant under the action of the gauge as desired. What
+remains in order to write a description of QED is to write down a kinetic term
+for the photon field. An appropriately gauge and Lorentz invariant term is
 \begin{equation}
-  \label{eq:em-kinetic}
-  -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-\end{equation}
-where the electromagnetic tensor is defined as
+  \label{eq:em-kinetic} -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{equation} where the electromagnetic tensor is defined as
 \begin{equation}
-  \label{eq:em-tensor}
-  F_{\mu\nu} \equiv \partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}.
+  \label{eq:em-tensor} F_{\mu\nu} \equiv \partial_{\mu}A_{\nu} -
+\partial_{\nu}A_{\mu}.
 \end{equation}
 
 Putting everything together we can define the Lagrangian for QED as
 \begin{equation}
-  \label{eq:qed}
-  \mathcal{L}_{QED} =
-  \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} 
+  \label{eq:qed} \mathcal{L}_{QED} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi
+-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 \end{equation}
 
 \section{Quantum Chromodynamics}
 
-Quantum Chromodynamics (QCD) is the theory of the strong force. It's mathematical
-formulation is similar to that of QED. Except the gauge group for QCD is
-$SU(3)_C$ where the $C$ denotes that the force is associated with colour charge.
-As previously discussed the eight generators of the group are associated with
-the eight gluons of the Standard Model. The generators are present in the form
-of the transformation of a fermion field under an element of $SU(3)$
+Quantum Chromodynamics (QCD) is the theory of the strong force. It's
+mathematical formulation is similar to that of QED. Except the gauge group for
+QCD is $SU(3)_C$ where the $C$ denotes that the force is associated with colour
+charge. As previously discussed the eight generators of the group are associated
+with the eight gluons of the Standard Model. The generators are present in the
+form of the transformation of a fermion field under an element of $SU(3)$
 \begin{equation}
-  \label{eq:su3-trans}
-  \psi \rightarrow \psi' =
-  \exp\Big({i\alpha_{a}(x)\cdot\frac{\lambda_{a}}{2}}\Big)\psi,
-\end{equation}
-where the $\lambda_a$ are the Gell-Mann matrices, generators of $SU(3)$.
-A key difference between the strong force and the other forces described by
-the Standard Model is that it increases in strength with range. This property
-leads to a phenomena known as quark confinement which has been discussed
-previously. Quark confinement is the reason for many of the complications that
-arise when trying to detect certain particles in a particle detector such as
-ATLAS. Specifically, quarks that are produced in collisions undergo a process
-called hadronisation whereby they transition from their coloured states to
-colour singlets. Excess energy present in this process results in the creation
-of lots of different states, some which decay to leptons, with the overall
-process producing a roughly conical shower of particles known as a jet.
+  \label{eq:su3-trans} \psi \rightarrow \psi' =
+\exp\Big({i\alpha_{a}(x)\cdot\frac{\lambda_{a}}{2}}\Big)\psi,
+\end{equation} where the $\lambda_a$ are the Gell-Mann matrices, generators of
+$SU(3)$. A key difference between the strong force and the other forces
+described by the Standard Model is that it increases in strength with range.
+This property leads to a phenomena known as quark confinement which has been
+discussed previously. Quark confinement is the reason for many of the
+complications that arise when trying to detect certain particles in a particle
+detector such as ATLAS. Specifically, quarks and gluons that are produced in
+collisions undergo a process called hadronisation whereby they transition from
+their coloured states to colour singlets. Energy present in this process results
+in the creation of lots of different states, some which decay to leptons, with
+the overall process producing a roughly conical shower of particles known as a
+jet.
 
 \section{Electroweak theory}
 
 The Glashow-Salam-Weinberg model of electroweak interactions~\cite{Glashow:1959,
-  Salam:1959, Weinberg:1967} describes the weak force and electromagnetism as a
+Salam:1959, Weinberg:1967} describes the weak force and electromagnetism as a
 quantum field theory, which is gauge invariant under transformations that are
 elements of $SU{(2)}_{L} \times U{(1)}_{Y_{W}}$. As previously mentioned the $L$
 and $Y_{W}$ subscripts denote that the gauge groups in the direct product that
@@ -296,105 +266,89 @@ respectively. The association with weak hypercharge distinguishes this $U(1)$
 group with the $U(1)$ group from QED. The transformation of the fermion fields
 under $SU(2)$ is given by
 \begin{equation}
-  \label{eq:su2-trans}
-  \psi \rightarrow \psi' =
-  \exp\Big({i\vec{\alpha}(x)\cdot\frac{\vec{\sigma}}{2}}\Big)\psi,
-\end{equation}
-where $\vec{\sigma}$ is a vector of the Pauli matrices $\sigma_i\text{ with
-}i=1,2,3$, a familiar representation of $SU(2)$ generators. Constructing a gauge
-covariant derivative for the full transformation under $SU(2) \times U(1)$
-requires the addition of new fields analogous to the photon field from QED, the
-new derivative takes the form
+  \label{eq:su2-trans} \psi \rightarrow \psi' =
+\exp\Big({i\vec{\alpha}(x)\cdot\frac{\vec{\sigma}}{2}}\Big)\psi,
+\end{equation} where $\vec{\sigma}$ is a vector of the Pauli matrices
+$\sigma_i\text{ with }i=1,2,3$, a familiar representation of $SU(2)$ generators.
+Constructing a gauge covariant derivative for the full transformation under
+$SU(2) \times U(1)$ requires the addition of new fields analogous to the photon
+field from QED, the new derivative takes the form
 \begin{equation}
-  \label{eq:ew-derivative}
-  D_{\mu} =
-  \partial_{\mu} - i \frac{g_1}{2}Y_{W}B_{\mu} -
-  i\frac{g_2}{2}\sigma_{i}W_{\mu}^{i},
-\end{equation}
-where coupling constants $g_1$ and $g_2$ parametrise the strength of
-interactions with each field. The index $i$ runs over the three Pauli
+  \label{eq:ew-derivative} D_{\mu} = \partial_{\mu} - i
+\frac{g_1}{2}Y_{W}B_{\mu} - i\frac{g_2}{2}\sigma_{i}W_{\mu}^{i},
+\end{equation} where coupling constants $g_1$ and $g_2$ parametrise the strength
+of interactions with each field. The index $i$ runs over the three Pauli
 matrices and three new fields $W^i_{\mu}\text{ with }i=1,2,3$ which are
 associated with the $SU(2)$ gauge. The $B_{\mu}$ field is associated with the
 $U(1)_{Y_{W}}$ gauge and is obtained in the same way as the photon field in QED
 but is given a new symbol as it is \emph{not} the photon field.
 
-In fact none of the fields added here are the physical fields that we have
+In fact, none of the fields added here are the physical fields that we have
 access to in nature associated with the electromagnetic force or the weak
 currents. In order to obtain the physical fields for the weak charged current
 one can simply take the linear superposition
 \begin{equation}
-  \label{eq:weak-charged-current}
-  W_\mu^\pm = \frac{1}{\sqrt{2}}\big(W_\mu^{1} \mp iW_\mu^2\big).
-\end{equation}
-In order to recover the photon field and reveal the field for the weak neutral
-current the idea of weak mixing must be introduced. Weak mixing was introduced
-to theory after the discovery of parity violation~\cite{wu-parity}. Parity is
-equivalent to chirality for massless particles, however for particles with mass
-a Lorentz boost can always be appear to flip the chirality of the particles
-state whereas parity is a fundamental property of a particle. A fermion field
-with left or right handed chirality can be obtained by multiplication with one
-of two corresponding projection operators defined as
+  \label{eq:weak-charged-current} W_\mu^\pm = \frac{1}{\sqrt{2}}\big(W_\mu^{1}
+\mp iW_\mu^2\big).
+\end{equation} In order to recover the photon field and reveal the field for the
+weak neutral current the idea of weak mixing must be introduced. Weak mixing was
+introduced to the theory after the discovery of parity
+violation~\cite{wu-parity}. Parity is an intrinsic property of a particle which
+is similar to chirality. Chirality is not intrinsic to particles as a Lorentz
+boost can always be appear to flip the chirality of the particles state. For
+particles that are massless and therefore travelling at the speed of light this
+cannot occur, for such particles chirality will always be equivalent to parity.
+A fermion field with left or right handed chirality can be obtained by
+multiplication with one of two corresponding projection operators defined as
 \begin{equation}
   \begin{split}
-    \begin{aligned}[t]
-      P_L = {(1 - \gamma^{5})}^{2} / 2, \\
-      P_R = {(1 + \gamma^{5})}^{2} / 2,
+    \begin{aligned}[t] P_L = {(1 - \gamma^{5})}^{2} / 2, \\ P_R = {(1 +
+\gamma^{5})}^{2} / 2,
     \end{aligned}
   \end{split}
-\end{equation}
-with $\gamma^{5} = i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$, where
-$\gamma^{\mu}$ are the Dirac matrices, like so
+\end{equation} with $\gamma^{5} = i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$,
+where $\gamma^{\mu}$ are the Dirac matrices, like so
 \begin{equation}
   \label{eq:chiral-fermions}
   \begin{split}
-    \begin{aligned}[t]
-      \psi_{L} = P_{L}\psi,\\
-      \psi_{R} = P_{R}\psi.
+    \begin{aligned}[t] \psi_{L} = P_{L}\psi,\\ \psi_{R} = P_{R}\psi.
     \end{aligned}
   \end{split}
-\end{equation}
-It is known that the weak neutral current and indeed the electromagnetic force
-both interact with particles of left and right handed chirality. Spontaneous
-symmetry breaking, theorised to have occurred due to an electroweak phase
-transition in the early universe, has the effect of rotating the plane defined
-by the $B_\mu$ and $W_\mu^3$ fields into the physical fields we see in nature
+\end{equation} It is known that the weak neutral current and the electromagnetic
+force both interact with particles of left and right handed chirality.
+Spontaneous symmetry breaking, has the effect of rotating the plane defined by
+the $B_\mu$ and $W_\mu^3$ fields into the physical fields we see in nature
 today. The mixing of the fields due to this rotation takes the form
 \begin{equation}
   \label{eq:ew-mixing}
-  \begin{pmatrix}
-    A_\mu \\
-    Z_\mu
+  \begin{pmatrix} A_\mu \\ Z_\mu
+  \end{pmatrix} =
+  \begin{pmatrix} \cos{\theta_W} & \sin{\theta_W} \\ -\sin{\theta_W} &
+\cos{\theta_W}
   \end{pmatrix}
-  =
-  \begin{pmatrix}
-    \cos{\theta_W} & \sin{\theta_W} \\
-    -\sin{\theta_W} & \cos{\theta_W}
-  \end{pmatrix}
-  \begin{pmatrix}
-    B_\mu \\
-    W_\mu^3
+  \begin{pmatrix} B_\mu \\ W_\mu^3
   \end{pmatrix},
-\end{equation}
-where $\theta_W$ the Weinberg angle parametrises the amount of mixing. This
-picture shows that unification of QED and a description of the weak force has
-been achieved. Although it at first seems like the $U(1)_{EM}$ gauge group is
-not present in $SU(2)_{L} \times U(1)_{Y_{W}}$ gauge group of electroweak theory
-it has been shown that the QED gauge symmetry is recovered by spontaneous
+\end{equation} where $\theta_W$ the Weinberg angle parametrises the amount of
+mixing. This picture shows that unification of QED, up to the inclusion of the
+two coupling constants, and a description of the weak force has been achieved.
+Although it at first seems like the $U(1)_{EM}$ gauge group is not present in
+$SU(2)_{L} \times U(1)_{Y_{W}}$ gauge group of electroweak theory it has been
+shown~\cite{halzen} that the QED gauge symmetry is recovered by spontaneous
 symmetry breaking. Also the $Y_W$ subscript in the gauge group represents weak
-hypercharge which is related to electric charge $Q$ by the following relationship
-\begin{equation}
-  Y_W = 2(Q - T^3),
-\end{equation}
-where $T^3$ is the third component of isospin, the component that is conserved.
+hypercharge which is related to electric charge $Q$ by the following
+relationship
+\begin{equation} Y_W = 2(Q - T^3),
+\end{equation} where $T^3$ is the third component of isospin, the component that
+must be conserved in weak interactions according to the theory.
 
 The particles associated with the weak neutral and charged currents are observed
 to have masses in nature~\cite{w-ua1, w-ua2, z-ua1, z-ua2} therefore one would
 naively like to write mass terms of the form
-\begin{align}
-  \mathcal{L}_{mass} &\propto M^{2}_{B}B^{\mu}B_{\mu} \\   &+ M^{2}_{W}W^{\mu}_{a}W^{a}_{\mu}.
-\end{align}
-The above mass terms are however not gauge invariant therefore another solution
-is required, one which will be discussed in the next section.
+\begin{align} \mathcal{L}_{mass} &\propto M^{2}_{B}B^{\mu}B_{\mu} \\ &+
+M^{2}_{W}W^{\mu}_{a}W^{a}_{\mu}.
+\end{align} The above mass terms are however not gauge invariant therefore
+another solution is required, as the masses as observables which would be have
+ambiguous predictions were they to change under gauge transformation.
 
 
 \section{The Brout-Englert-Higgs Mechanism}%
@@ -421,7 +375,7 @@ that direction is special and so some of the symmetry was spontaneously broken.
 It can be noted though that a preserved symmetry still exists as rotations about
 the axis defined by the direction of the spins would leave the sphere invariant.
 In the Standard Model the symmetry that breaks is that of the complex scalar
-Higgs field. Consider a Lagrangian involving the field $\phi$ of the form
+Higgs potential. Consider a Lagrangian involving the field $\phi$ of the form
 \begin{gather} \mathcal{L} = T - V ( \phi ) = \partial_{\mu} \phi^{\dagger}
 \partial^{\mu} \phi - \mu^{2} \phi^{\dagger} \phi + \lambda {( \phi^{\dagger}
 \phi)}^{2}, \\ \text{with}~\phi =\frac{1}{\sqrt{2}}(\phi_{1} + i\phi_{2}).
@@ -439,37 +393,36 @@ $\mu^2$.
 %
 Higgs bosons are produced at the LHC in a number of different ways, the four
 most common of which are shown in figure~\ref{fig:feyn-higgs-prod}.
-\input{02-phys-theory/feyn-higgs-prod} The prevalence of these processes with
-respect to the centre of mass energy of the proton-proton collision is shown in
-figure~\ref{fig:higgs-br} (a). It can be seen the gluon-gluon fusion
-(fig~\ref{fig:feyn-higgs-prod}~a) is by far the dominate contributor occurring
-over an order of magnitude more than the next highest process which is quark
-associated production (fig~\ref{fig:feyn-higgs-prod}~b). The next highest
+\input{02-phys-theory/feyn-higgs-prod} The production cross-section of these
+processes with respect to the centre of mass energy of the proton-proton
+collision is shown in figure~\ref{fig:higgs-br} (a). It can be seen gluon-gluon
+fusion (fig~\ref{fig:feyn-higgs-prod}~a) is by far the dominate contributor
+occurring over an order of magnitude more than the next highest process which is
+quark associated production (fig~\ref{fig:feyn-higgs-prod}~b). The next highest
 production channel with respect to cross section is vector boson associated
 (fig~\ref{fig:feyn-higgs-prod}~c) which will be the focus of the rest of this
-report. Finally top quark associated production
+report. Finally, top quark associated production
 (fig~\ref{fig:feyn-higgs-prod}~d) has the smallest cross section of these
-processes.  The Higgs boson is predicted by the Standard Model to decay in a
+processes. The Higgs boson is predicted by the Standard Model to decay in a
 number of different ways depending on its mass, a free parameter of the model.
 In figure~\ref{fig:higgs-br} (b) the branching ratios of the Higgs can be seen,
 plotted with respect to Higgs mass. The decay that will be focused on for the
-rest of this report is $H~\rightarrow~b\bar{b}$.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.45\textwidth]{Plot_Escan_H125_xsec}%
-  \includegraphics[width=.45\textwidth]{HiggsBR_mhscan}
+rest of this report is a Higgs boson decaying to a pair of $b$-quarks, denoted
+\Hbb$.
+\begin{figure}[ht] \centering
+\includegraphics[width=.45\textwidth]{Plot_Escan_H125_xsec}%
+\includegraphics[width=.45\textwidth]{HiggsBR_mhscan}
 
   \caption[Higgs boson production cross sections and branching ratios.]{Higgs
-    boson production cross-sections (left), and branching ratios (right) for a
-    range of centre of meass energies and Higgs boson masses
-    respectively~\cite{CERN-yellow-4}.}%
+boson production cross-sections (left), and branching ratios (right) for a range
+of centre of meass energies and Higgs boson masses
+respectively~\cite{CERN-yellow-4}.}%
   \label{fig:higgs-br}
-\end{figure}%
-Given that the focus here is on vector boson associated production of a Higgs
-boson it is also important to consider the decay of the vector boson. Three
-possible scenarios are represented in figure~\ref{fig:feyn-vhbb}, namely the
-situations where the vector boson decays to 1, 2 or 3 charged leptons and the
-appropriate number of neutrinos. \input{02-phys-theory/feyn-vhbb} It is in fact
+\end{figure}% Given that the focus here is on vector boson associated production
+of a Higgs boson it is also important to consider the decay of the vector boson.
+Three possible scenarios are represented in figure~\ref{fig:feyn-vhbb}, namely
+the situations where the vector boson decays to 1, 2 or 3 charged leptons and
+the appropriate number of neutrinos. \input{02-phys-theory/feyn-vhbb} It is
 these leptonic decay modes that motivate the reason for studying this production
 mechanism as opposed to one of the more common ones. The issue with looking at
 the other production modes is that very large QCD generated backgrounds are

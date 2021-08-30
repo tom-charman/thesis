@@ -17,25 +17,25 @@ LHCb~\cite{lhcb-loi}, ALICE~\cite{ALICE-loi}, MoEDAL~\cite{MoEDAL-loi},
 TOTEM~\cite{TOTEM-loi} and LHCf~\cite{lhcf-loi}.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.7\textwidth]{lhc-accelerator}
+  \includegraphics[width=.9\textwidth]{lhc-accelerator}
   \caption[The CERN accelerator complex]{The CERN accelerator
     complex~\cite{LHC-acc-fig}.}%
   \label{fig:lhc-acc}
 \end{figure}
 
-The Lorentz force is fundamental to the LHC's accelerator technologies and
-detectors. Expressed as
-\begin{equation}
-  \label{eq:lorentz}
-  \vec{F} = q(\vec{E} + \vec{v} \times \vec{B}),
-\end{equation}
-it is clear that the force due to an electric field $\vec{E}$ on a particle with
-charge $q$ acts in the direction of the velocity of the field whereas the force
-due to a magnetic field $\vec{B}$ acts perpendicular to both the field and the
-velocity of the particle $\vec{v}$. It is therefore clear that an electric field
-may be used to accelerate and give energy to a charged particle whereas a
-magnetic field will alter the trajectory of a particle whilst keeping its energy
-constant.
+% The Lorentz force is fundamental to the LHC's accelerator technologies and
+% detectors. Expressed as
+% \begin{equation}
+%   \label{eq:lorentz}
+%   \vec{F} = q(\vec{E} + \vec{v} \times \vec{B}),
+% \end{equation}
+% it is clear that the force due to an electric field $\vec{E}$ on a particle with
+% charge $q$ acts in the direction of the velocity of the field whereas the force
+% due to a magnetic field $\vec{B}$ acts perpendicular to both the field and the
+% velocity of the particle $\vec{v}$. It is therefore clear that an electric field
+% may be used to accelerate and give energy to a charged particle whereas a
+% magnetic field will alter the trajectory of a particle whilst keeping its energy
+% constant.
 
 The LHC is a synchrotron, an accelerator that uses magnets in a dipole
 configuration, such as in figure~\ref{fig:dipole}, to bend the path of charged
@@ -65,14 +65,13 @@ highest energy, and therefore velocity, possible.
 \input{03-detector/dipole}
 
 The force which accelerates the particles is provided by radio-frequency
-cavities such as in figure~\ref{fig:rf-cavity}, of which the LHC has
-16~\cite{LHC-dr} The electric field in the radio-frequency cavity forms a
-standing wave, the separation between bunches of particles to be accelerated
-must be matched to the frequency of this wave. Protons in the LHC are
-accelerated in bunches and in vacuum, this to increase the likelihood of
-collisions and mitigate loss of energy and scattering effects due to
-interactions with air molecules. These two factors lead to the occurrence of
-space charge which causes an increase in the emittance of the beam, where the
+cavities, of which the LHC has 16~\cite{LHC-dr} The electric field in the
+radio-frequency cavity forms a standing wave, the separation between bunches of
+particles to be accelerated must be matched to the frequency of this wave.
+Protons in the LHC are accelerated in bunches and in vacuum, this to increase
+the likelihood of collisions and mitigate loss of energy and scattering effects
+due to interactions with air molecules. These two factors lead to the occurrence
+of space charge which causes an increase in the emittance of the beam, where the
 emittance is defined as the total area that the beam occupies in its beam-pipe.
 The greater the energy of the particles the more they can overcome increase in
 emittance due to space charge. Increased emittance is especially problematic in
@@ -82,7 +81,6 @@ rest in a synchrotron, the starting point for the protons of the LHC is
 therefore a linear accelerator called Linac2 which is used to overcome space
 charge effects before the protons move on to a series of synchrotrons as seen in
 figure~\ref{fig:lhc-acc}.
-\input{03-detector/rf_cavity}
 
 Even a beam with its emittance under control would still be lost from the
 accelerator if only dipole magnets were used to control its path. Magnets in a
@@ -118,34 +116,31 @@ imperfections in the fields of other magnets.
 % are many more results expected from the LHC experiments as data continues to be
 % analysed.
 
-The statistical nature of particle physics analyses means that larger datasets
-(more recorded collisions) increase the sensitivity of searches and
-measurements. Constraints on the number of years the LHC is able to run for mean
-that the best way to record more collisions is to collide more particles per
-second. A quantity known as the luminosity is often used to describe how much
-data is available for an analysis, it is written as
+Ignoring systematic uncertainties for the moment, the sensitivity of a
+measurement can be increased by having a larger dataset, in this case more
+recorded collisions. Constraints on the number of years the LHC is able to run
+for mean that the best way to record more collisions is to collide more
+particles per second. A quantity known as the luminosity is often used to
+describe how much data is available for an analysis, it is written as
 \begin{equation}
-  \label{eq:luminosity}
-  L = \frac{1}{\sigma}\frac{dN}{dt},
-\end{equation}
-where $\sigma$ is the cross-section, a volume within which particles must pass
-by one another in order to interact, and $N$ is the number of events recorded in
-a period of time $t$. For luminosity at the LHC N can be expressed as
+  \label{eq:luminosity} L = \frac{1}{\sigma}\frac{dN}{dt},
+\end{equation} where $\sigma$ is the cross-section, an area within which
+particles must pass by one another in order to interact, and $N$ is the number
+of events recorded in a period of time $t$. For luminosity at the LHC N can be
+expressed as
 \begin{equation}
-  \label{eq:lhc-lumi}
-  N = n_{bp}n_{1}n_{2}\nu_{r},
-\end{equation}
-where $n_{bp}$ is the number of colliding bunch pairs, $n_{1}$ and $n_{2}$ are
-the number of protons in each beam and $\nu_r$ is the frequency with which the
-beams rotate around the LHC's circumference. The number of particles in the
-beams is limited by space charge. The number of bunches is limited by the
-frequency that the radio-frequency cavities can operate at. The revolution
-frequency is limited by the strength of the dipole magnets and the circumference
-of the accelerator ring. Increasing luminosity by reducing the cross-section
-amounts to reducing the beam widths which is limited by the emittance of the
-beam. The LHC has already exceeded it's design luminosity providing physicists
-with more data to analyse than expected and plans are well underway for the
-upgrade to a High-Luminosity LHC (HL-LHC)~\cite{hilumi-tdr}.
+  \label{eq:lhc-lumi} \frac{dN}{dt} = n_{bp}n_{1}n_{2}\nu_{r},
+\end{equation} where $n_{bp}$ is the number of colliding bunch pairs, $n_{1}$
+and $n_{2}$ are the number of protons in each beam and $\nu_r$ is the frequency
+with which the beams rotate around the LHC's circumference. The number of
+particles in the beams is limited by space charge. The number of bunches is
+limited by the frequency that the radio-frequency cavities can operate at. The
+revolution frequency is limited by the strength of the dipole magnets and the
+circumference of the accelerator ring. Increasing luminosity by reducing the
+cross-section amounts to reducing the beam widths which is limited by the
+emittance of the beam. The LHC has already exceeded it's design luminosity
+providing physicists with more data to analyse than expected and plans are well
+underway for the upgrade to a High-Luminosity LHC (HL-LHC)~\cite{hilumi-tdr}.
 
 \section{The ATLAS Detector}%
 \label{sec:atlas}
@@ -161,7 +156,7 @@ weighs 7000~tonnes which is comparable to the weight of the wrought iron content
 of the Eiffel tower~\cite{Eiffel-weight}.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.7\textwidth]{ATLAS-detector}
+  \includegraphics[width=.85\textwidth]{ATLAS-detector}
   \caption[The ATLAS Detector]{Computer generated image of the whole ATLAS
     detector with the major sub detectors labeled~\cite{ATLAS-det-fig}.}%
   \label{fig:ATLAS-det}
@@ -177,13 +172,12 @@ denoted with the symbol $\mu$. As can be seen by inspecting
 equations~\ref{eq:lhc-lumi}~and~\ref{eq:luminosity} increasing the luminosity
 will often cause a higher pile-up environment in the detector. The variety of
 decay products of each collision necessitate the use of specialised
-sub-detectors in order to accurately measure the output of collisions. There are
-dedicated sub-systems in ATLAS with the purpose of measuring properties of
-specific classes of particles. Ultimately in all cases a digital electrical
-signal is the desired output of a sub-detector which usually originates as an
-analogue signal. It is interesting to note that despite the many charges that
-are associated with the forces of nature discussed in chapter~\ref{ch:theory}
-the only one that we can directly measure is electric charge.
+sub-detectors in order to accurately measure the outcome of collisions.
+Ultimately in all cases a digital electrical signal is the desired output of a
+sub-detector which usually originates as an analogue signal. It is interesting
+to note that despite the many charges that are associated with the forces of
+nature discussed in chapter~\ref{ch:theory} the only one that we can directly
+measure is electric charge.
 
 The ATLAS sub-systems are located in either the barrel of the detector or one of
 the end-caps. These two areas have a different geometry, and due to their
@@ -204,29 +198,27 @@ used to describe the physical features of the detector and phenomena caused by
 interactions in the detector that shall be referred to as analysis objects.
 Their definitions are that $\phi$ is the azimuthal angle in the x-y plane
 (transverse) around the beam pipe and $r$ is the distance from the interaction
-point. A relativistic invariant analogy to the zenith angle of an object
-measured from the z-axis is pseudo-rapidity $\eta = - \ln(\tan(\theta / 2))$
-where $\theta$ is the ordinary zenith angle measured from the same axis.
+point. An analogy to the zenith angle of an object measured from the z-axis is
+pseudo-rapidity $\eta = - \ln(\tan(\theta / 2))$ where $\theta$ is the ordinary
+zenith angle measured from the same axis, pseudo-rapidity is relativistic
+invariant for massless particles.
 
-By inspecting equation~\ref{eq:lorentz} it is clear that neutral particles for
-which $q=0$ do not experience the Lorentz force. However for charged particles,
-as previously discussed, a magnetic field alters the trajectory of the particle
-whilst preserving its energy. A large portion of the ATLAS detector is immersed
-in magnetic fields created by the magnet systems, and so this deflection
-phenomenon is present and exploited when making measurements of charged
-particles. There are four magnet systems in ATLAS the solenoid, the barrel
-toroid, and two end-cap toroids. The solenoid surrounds the inner detector
-whilst the toroid systems surround the muon chambers.
-Figure~\ref{fig:ATLAS-magnets} shows a heat map of the magnetic field strengths
-within ATLAS, the image is from an article detailing the superconducting magnet
-system~\cite{ATLAS-magnets}. The magnet systems store a total energy of 1.6~GJ
-and produce fields of a combined volume of approximately $12\times 10^4$~m$^3$.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.7\textwidth]{ATLAS-magnet}
+Magnetic fields alter the trajectory of charged particles whilst preserving
+their energy. A large portion of the ATLAS detector is immersed in magnetic
+fields created by the magnet systems, and so this deflection phenomenon is
+present and exploited when making measurements of charged particles. There are
+four magnet systems in ATLAS the solenoid, the barrel toroid, and two end-cap
+toroids. The solenoid surrounds the inner detector whilst the toroid systems
+surround the muon chambers. Figure~\ref{fig:ATLAS-magnets} shows a heat map of
+the magnetic field strengths within ATLAS, the image is from an article
+detailing the superconducting magnet system~\cite{ATLAS-magnets}. The magnet
+systems store a total energy of 1.6~GJ and produce fields of a combined volume
+of approximately $12\times 10^4$~m$^3$.
+\begin{figure}[ht] \centering \includegraphics[width=.7\textwidth]{ATLAS-magnet}
   \caption[ATLAS magnetic field]{ATLAS magnetic field profile, showing a
-    transverse cross-section in the centre of the detector (a), and a
-    longitudinal section (b)~\cite{ATLAS-magnets}.}%
+transverse cross-section in the centre of the detector (a), and a longitudinal
+section (b)~\cite{ATLAS-magnets}. The heat map is displayed in arbitrary
+units.}%
   \label{fig:ATLAS-magnets}
 \end{figure}
 
@@ -234,48 +226,45 @@ and produce fields of a combined volume of approximately $12\times 10^4$~m$^3$.
 \label{sec:id}
 
 The Inner Detector (ID) is comprised of a number of different tracking detector
-sub-systems; the pixel detectors, the semiconductor
-tracker (SCT) and a transition radiation tracker (TRT) as seen in
-figure~\ref{fig:ATLAS-inner-det}. It covers a volume corresponding with the
-total $\phi$ angle. The pixel detectors and SCT cover the range $|\eta|~<~2.5$
-and the TRT covers $|\eta|~<~2.0$. The job of the ID is to track the propagation
-of charged particles through the detector. This is achieved by measuring a
-sequence of hits for each charged particle that propagates through its volume.
-The sequence of hits describing the trajectory of a given charged particle must
-be disentangled from other hits in the detector, track-finding algorithms are
-applied to this end. Using these tracks we can measure; the direction of the
-particle, the sign of the electric charge of the particle, the rate of energy
-loss of the particle with respect to its distance traveled and by constructing
-the sagitta the transverse momentum of the particle (denoted $p_{\mathrm{T}}$). An example
-construction of the sagitta is shown in figure~\ref{fig:sagitta} and its relation
-to $p_{\mathrm{T}}$ is
+sub-systems; the pixel detectors, the semiconductor tracker (SCT) and a
+transition radiation tracker (TRT) as seen in figure~\ref{fig:ATLAS-inner-det}.
+It covers a volume corresponding with the total $\phi$ angle. The pixel
+detectors and SCT cover the range $|\eta|~<~2.5$ and the TRT covers
+$|\eta|~<~2.0$. The job of the ID is to track the propagation of charged
+particles through the detector. This is achieved by measuring a sequence of hits
+for each charged particle that propagates through its volume. The sequence of
+hits describing the trajectory of a given charged particle must be disentangled
+from other hits in the detector, track-finding algorithms are applied to this
+end. Using these tracks we can measure; the direction of the particle, the sign
+of the electric charge of the particle, the rate of energy loss of the particle
+with respect to its distance traveled and by constructing the sagitta the
+transverse momentum of the particle (denoted $p_{\mathrm{T}}$). An example
+construction of the sagitta is shown in figure~\ref{fig:sagitta} and its
+relation to $p_{\mathrm{T}}$ is
 \begin{equation}
-  \label{eq:sagitta}
-  S = \frac{qL^{2}B}{8p_{\mathrm{T}}},
-\end{equation}
-where $L$ is the distance between the first and last hits in the track, $q$ is
-the charge of the particle, and $B$ is the strength of the magnetic field, in
-this case the field produced by the solenoid magnet system.
-\input{03-detector/sagitta}
-The system is made of a single layer coil with an inner diameter of 2.46~m  and
-produces 2~T field in the axial direction with respect to the beam-pipe. Using
-multiple tracks interaction vertices can also be reconstructed, the vertex which
-comes from the highest energy collision in a given event is known as the primary
-vertex. Vertices coming from pile-up and glancing collisions of partons also
-need to be reconstructed in order to separate detector response due to these
-collisions from that of the primary vertex.
-\input{03-detector/impact-params}
-So-called impact parameters $d_0$ and $z_0$ are used to identify secondary and
-pile-up vertices, their construction is shown in figure~\ref{fig:impact-params}.
-These parameters are also used to perform identification of particles within the
-detector such as $b-$quarks and $\tau$s. Tracks are also used to calculate the
-calorimeter impact point and in general match activity in outer regions of the
-detector to an interaction vertex.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.7\textwidth]{Inner-detector}
+  \label{eq:sagitta} S = \frac{qL^{2}B}{8p_{\mathrm{T}}},
+\end{equation} where $L$ is the distance between the first and last hits in the
+track, $q$ is the charge of the particle, and $B$ is the strength of the
+magnetic field, in this case the field produced by the solenoid magnet system.
+\input{03-detector/sagitta} The system is made of a single layer coil with an
+inner diameter of 2.46~m and produces 2~T field in the axial direction with
+respect to the beam-pipe. Using multiple tracks interaction vertices can also be
+reconstructed, the vertex which comes from the highest energy collision in a
+given event is known as the primary vertex, the details and performance of
+primary vertex finding are given in~\ref{primary-vertex}. Vertices coming from
+pile-up and glancing collisions of partons also need to be reconstructed in
+order to separate detector response due to these collisions from that of the
+primary vertex. \input{03-detector/impact-params} So-called impact parameters
+$d_0$ and $z_0$ are used to identify secondary and pile-up vertices, their
+construction is shown in figure~\ref{fig:impact-params}. These parameters are
+also used to perform identification of particles within the detector such as
+$b-$quarks and $\tau$s. Tracks are also used to calculate the calorimeter impact
+point and in general match activity in outer regions of the detector to an
+interaction vertex.
+\begin{figure}[ht] \centering
+\includegraphics[width=.7\textwidth]{Inner-detector}
   \caption[ATLAS inner detector]{Computer generated image of the ATLAS inner
-    detector~\cite{ATLAS-inner-det}.}%
+detector~\cite{ATLAS-inner-det}.}%
   \label{fig:ATLAS-inner-det}
 \end{figure}
 
@@ -341,7 +330,7 @@ SCT module.
   \centering
   \includegraphics[width=.7\textwidth]{sct-close}
   \caption[ATLAS strip close-up]{A close up image of the end of an SCT sensor in
-    which the snake-like poly-silicon reistors are visible as a yellowish
+    which the snake-like poly-silicon resistors are visible as a yellowish
     coloured structure at the end of each strip. This image was taken with a
     high resolution automatic area scanner commissioned by the
     author~\cite{itk-scanner} in order to take full scans of strip sensors
@@ -355,7 +344,7 @@ and the long strips on the outside. The original operating bias voltage was
 150~V but again due to radiation exposure this will raise to up to 350~V over
 time as necessary. There are four layers of semiconductor trackers in the barrel
 arranged so that sensors have a tilt with respect to a perfect coaxial cylinders
-of approximately 11~$\degree$. This tilt increases the amount of material that
+of approximately 11$\degree$. This tilt increases the amount of material that
 particles will travel through and is optimized to the geometry of the detector.
 Similarly the end-cap modules are arranged in petal like structures, with a
 number of different geometric designed based on the position within the end-cap.
@@ -363,36 +352,38 @@ number of different geometric designed based on the position within the end-cap.
 \subsubsection{Transition Radiation Tracker}
 
 The final layer of the ID is the TRT, the primary role of the TRT is to aid
-electron identification by measurement of transition radiation. The TRT is
-mostly made up of polyimide drift tubes with a diameter of 4~mm. The drift tubes
-are filled with a gas mixture whose majority constituent is xenon. These tubes
-operate with a voltage of -1530~V and are contained within a carbon fibre
-support structure. The geometric layout of the tubes is optimised individually for
-the barrel and end-caps.
+electron identification by measurement of transition radiation. This is useful
+in distinguishing between electrons and charged hadrons which can leave similar
+signatures in the calorimeters and whose tracks are otherwise hard to
+distinguish. The TRT is mostly made up of polyimide drift tubes with a diameter
+of 4~mm. The drift tubes are filled with a gas mixture whose majority
+constituent is xenon. These tubes operate with a voltage of -1530~V and are
+contained within a carbon fibre support structure. Scintillating fibres and
+foils lie between the drift tubes which create the transition radiation.  The
+geometric layout of the tubes is optimised individually for the barrel and
+end-caps.
 
 \subsection{Calorimeters}%
 \label{sec:calo}
 
 The purpose of the calorimeters is to measure the total energy of particles that
-pass through their volume, this is achievable only if the calorimeter
-stops the particle completely. A desirable side effect is that they also act as
-a barrier to stop particles passing through to the muon spectrometers, of course
-this means necessarily that muons pass through the calorimeters. There are two
+pass through their volume, this is achievable only if the calorimeter stops the
+particle completely. A desirable side effect is that they also act as a barrier
+to stop particles passing through to the muon spectrometers, of course this
+means necessarily that muons pass through the calorimeters. There are two
 calorimeter systems in ATLAS the electromagnetic calorimeter (ECAL) and the
-hadronic calorimeter (HCAL), they will be explained in the following sections.
-The calorimeters are not immersed in a significant magnetic field compared to
-the rest of the ATLAS as seen in the heat map of figure~\ref{fig:ATLAS-magnets}.
-The geometric layout of the calorimeter systems, as well as the location of
-specific components can be seen in figure~\ref{fig:ATLAS-calo}, in which the ID
-can also be seen (greyed out). Information from the two calorimeters is used in
-conjunction for any particles whose decay products propagate through both
-volumes. Both calorimeters are split up into cells of material that are used to
-determine the position of decay products in the detector.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=.7\textwidth]{ATLAS-calo}
+hadronic calorimeter (HCAL). The calorimeters are not immersed in a significant
+magnetic field compared to the rest of the ATLAS as seen in the heat map of
+figure~\ref{fig:ATLAS-magnets}. The geometric layout of the calorimeter systems,
+as well as the location of specific components can be seen in
+figure~\ref{fig:ATLAS-calo}, in which the ID can also be seen (greyed out).
+Information from the two calorimeters is used in conjunction for any particles
+whose decay products propagate through both volumes. Both calorimeters are split
+up into cells of material that are used to determine the position of decay
+products in the detector.
+\begin{figure}[ht] \centering \includegraphics[width=.7\textwidth]{ATLAS-calo}
   \caption[ATLAS Calorimeter]{Computer Generated image of the ATLAS
-    calorimeter~\cite{ATLAS-calo-fig}.}%
+calorimeter~\cite{ATLAS-calo-fig}.}%
   \label{fig:ATLAS-calo}
 \end{figure}
 
@@ -405,9 +396,9 @@ rapidly over a short distance, though they are in general not sensitive to
 measuring those showers. The detection medium or active material is used to then
 measure those showers.
 
-In general a good calorimeter will have the following properties. It should be
-hermetic meaning that there are no gaps for particles to escape through without
-being measured. It should have a fast response time to keep up with the rate of
+In general a good calorimeter will have the following properties: it should be
+hermetic, meaning that there are no gaps for particles to escape through without
+being measured. It should have a fast response time, to keep up with the rate of
 collisions (actually the rate of the trigger see the following section). It
 should be radiation tolerant in order to perform over a long period of time. It
 should be able to measure energy to a high resolution in order to resolve
@@ -416,52 +407,55 @@ accurately determine the position of energy deposits (and aid particle
 identification). High energy resolution is greatly aided by not having anything
 front of the calorimeter which may change an incident particles energy before it
 strikes the calorimeter itself. This requirement is therefore somewhat at odds
-with having a detector that has good $p_{\mathrm{T}}$ resolution for electrons, positrons
-and photons (muons go all the the way through the calorimeter anyway) due to the
-process by which $p_{\mathrm{T}}$ is measured becoming more precise with a longer
-``lever-arm'' distance $L$ as seen in figure~\ref{fig:sagitta} and equation
-~\ref{eq:sagitta}.
+with having a detector that has good $p_{\mathrm{T}}$ resolution for electrons,
+positrons and photons (muons go all the the way through the calorimeter anyway)
+due to the process by which $p_{\mathrm{T}}$ is measured becoming more precise
+with a longer ``lever-arm'' distance $L$ as seen in figure~\ref{fig:sagitta} and
+equation~\ref{eq:sagitta}. A large tracker makes the calorimeter much more
+expensive in a barrel shaped detector as the amount of material required
+increases with the square of the radius of the tracker.
 
 \subsubsection{Electromagnetic Calorimeter}
 The ECAL is primarily concerned with measuring the energy of electrons,
 positrons and photons. Theses particles primarily interact with the
 electromagnetic force and so produce electromagnetic showers when they lose
-their energy. The ECAL resides closer to the interaction point that the HCAL and
-has liquid argon (LAr) as it's active material. LAr is a good choice for the
+their energy. The ECAL resides closer to the interaction point than the HCAL and
+has liquid argon (LAr) as its active material. LAr is a good choice for the
 calorimeter which is closer to the interaction point as it is naturally
 resistant to damage by radiation. The absorber of the ECAL is lead, it is
 suitable as it has a high number of nucleons ($Z$) and the radiation
 length\footnote{The radiation length $X_{0}$ is the thickness of material that
-  reduces the energy of a particle by a factor of $e$ the natural number.} of a
-given shower is inversely proportional to $Z^2$. An applied electric field
-causes ions produced in the EM shower to drift in such a way that the signal
-induced is proportional to the energy deposited by the incident particle.
+reduces the energy of an electron by a factor of $e$ the natural number, but is
+also used for other particles.} of a given shower is inversely proportional to
+$Z^2$. An applied electric field causes ions produced in the EM shower to drift
+in such a way that the signal induced is proportional to the energy deposited by
+the incident particle.
 
-\subsubsection{Hadronic Calorimeter}
-The HCAL end-caps use a LAr active material like the ECAL. The absorber is copper
-instead of lead and the dimensions are more suited to hadronic particle showers
-as opposed to electromagnetic. As noted before LAr is naturally radiation hard
-which is why it is used in the end-caps which see more radiation than the barrel
-regions due to almost all of the momentum of the colliding bunches of particles
-being in the axis of the beam-pipe. The barrel section of the hadronic
-calorimeter is made from scintilating tiles of active material interspersed with
-steel as an absorber. Scintilation is the process by
-which a scintilation medium produces light when energy particles travel through
-it. The amount of light produced is proportional to the energy of the incident
-particle that initiated the shower. In order to convert the light into a digital
-electrical signal photo-multiplier tubes (PMTs) are used. PMTs are
-able to measure very small amounts of light, even the incidence of a single
-photon. This is achieved by initially exploiting the photo-electric effect
-whereby the incident photon knocks an electron from a metallic part of the PMT.
-The current produced by this electron is then multiplied by a very large factor
-(up to $10^8$ for some PMTs) by a series of dynodes (electrodes in vacuum that
-produce secondary emission).
+\subsubsection{Hadronic Calorimeter} The HCAL end-caps use a LAr active material
+like the ECAL. The absorber is copper instead of lead and the dimensions are
+more suited to hadronic particle showers as opposed to electromagnetic. As noted
+before, LAr is naturally radiation hard which is why it is used in the end-caps
+which see more radiation than the barrel regions due to almost all of the
+momentum of the colliding bunches of particles being in the axis of the
+beam-pipe. The barrel section of the hadronic calorimeter is made from
+scintillating tiles of active material interspersed with steel as an absorber.
+Scintillation is the process by which a scintilation medium produces light when
+particles travel through it. The amount of light produced is proportional to the
+energy of the incident particle that initiated the shower. In order to convert
+the light into a digital electrical signal photo-multiplier tubes (PMTs) are
+used. PMTs are able to measure very small amounts of light, even the incidence
+of a single photon. This is achieved by initially exploiting the photo-electric
+effect whereby the incident photon knocks an electron from a metallic part of
+the PMT. The current produced by this electron is then multiplied by a very
+large factor (up to $10^8$ for some PMTs) by a series of dynodes (electrodes in
+vacuum that produce secondary emission).
 
 \subsection{Muon Spectrometers}%
 \label{sec:muon}
 
-Surrounding the calorimeters are the muon spectrometers, which form the most
-outer layer of the detector. Though muons are charged leptons just like
+Surrounding the calorimeters are the muon spectrometers, which form the
+outermost layer of the detector. Though muons are charged leptons just like
+
 electrons, their specific properties mean that dedicated muon spectrometers are
 required to detect them. Muons deposit far less energy per distance traveled
 than other particles meaning that they punch through most materials with ease.
@@ -470,15 +464,14 @@ spectrometers are the thin-gap chambers, cathode strip chambers, resistive plate
 chambers and monitor drift tubes. The barrel and end-cap toroid magnets immerse
 the muon spectrometers in a magnetic field which at its peak (visible in
 figure~\ref{fig:ATLAS-magnets}) has a strength of 4~T. Despite a stronger
-peaking magnetic field than in the solenoid observed muon tracks are often far
+peaking magnetic field than in the solenoid, observed muon tracks are often far
 less curved than that of their lighter cousins, the electrons. This is due to the
 larger mass of the muon. Muons do leave tracks in the ID and also deposit
 small amounts of energy in the calorimeters. Tracks in the muon spectrometers are
 matched up to tracks in the ID with the aid of the location of energy deposits
-in the calorimeters if possible. The full tracking information for muons can be
-used in algorithms such as overlap removal, which is used to remove muons from
-jets that they have been erroneously associated with by matching the muon with
-its ID track.
+in the calorimeters if possible. Tracking information for muons is used in
+algorithms such as overlap removal, which removes muons from jets that they have
+been erroneously associated with by matching the muon with its ID track.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=.7\textwidth]{ATLAS-muon-spec}
@@ -491,24 +484,23 @@ its ID track.
 \label{sec:trigger}
 
 The trigger systems in ATLAS allows data to be recorded only when an event meets
-certain criteria. Without triggering there would be no way to decide which
-events to readout and which to ignore. It would be impossible to readout every
-interaction that occurs in the detector. The reason for this is that the
-geometric constraints of the detector mean that there is only a small space
-available for readout wires, as detection medium needs to be prioritized for
-sensitivity and technology limits the data rate that one can achieve through a
-cable of fixed area. The trigger system comes in two parts, a hardware component
-referred to as level one (L1) and software component referred to as the high
-level trigger (HLT). The L1 system is comprised of the L1 calorimeter (L1Calo)
-trigger which operates by searching for clusters of energy in the calorimeters
-and the L1 muon (L1Muon) system which coincidences in the muon systems. A third
-system L1 topological (L1Topo) uses regions of interest built from the L1Calo
-and L1Muon data which are passed to central trigger processors for selection.
-The various limitations of the hardware mean that these selections must be
-passed up to the next level of triggering, the HLT in a time window of
-2.5~$\mu$s. The HLT takes information from the L1 systems and uses faster
-versions of an offline style analysis in order to select or reject events for
-readout. In order for a  trigger to fire an event must pass fully all of the
-requirements of one of the algorithms defined by an extensive trigger menu. More
-information about the triggers used in the \VHbb\ analysis will be given in a
-later chapter.
+certain criteria. It would be impossible to readout every interaction that
+occurs in the detector. The reason for this is that the geometric constraints of
+the detector mean that there is only a small space available for readout wires,
+as detection medium needs to be prioritized for sensitivity and technology
+limits the data rate that one can achieve through a cable of fixed area. The
+trigger system comes in two parts, a hardware component referred to as level one
+(L1) and software component referred to as the high level trigger (HLT). The L1
+system is comprised of the L1 calorimeter (L1Calo) trigger which operates by
+searching for clusters of energy in the calorimeters and the L1 muon (L1Muon)
+system which coincidences in the muon systems. A third system L1 topological
+(L1Topo) uses regions of interest built from the L1Calo and L1Muon data which
+are passed to central trigger processors for selection. The various limitations
+of the hardware mean that these selections must be passed up to the next level
+of triggering, the HLT in a time window of 2.5~$\mu$s. The HLT takes information
+from the L1 systems and uses faster versions of an offline style analysis in
+order to select or reject events for readout. The rate of the HLT was about 1.2
+kHz on average over the period of data taking relevant to this measurement. In
+order for a trigger to fire an event must pass fully all of the requirements of
+one of the algorithms defined by an extensive trigger menu. More information
+about the triggers used in the \VHbb\ analysis will be given in a later chapter.

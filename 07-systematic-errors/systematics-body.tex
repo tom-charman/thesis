@@ -9,7 +9,7 @@ distribution causing events to migrate between bins of a histogram, and
 potentially across boundaries that are used to define analysis regions described
 in~\ref{sec:ana-regions}. Each systematic uncertainty is controlled by a
 nuisance parameter in the profile-likelihood fit. For all Gaussian penalty terms
-the prior is estimated in advance.
+the a prior uncertainty is estimated in advance.
 
 A sub-category of normalisation effect is the acceptance effect which deals with
 the normalisation in a particular region or set of regions. The purpose of the
@@ -52,7 +52,7 @@ testing of the BDTr method.
 \label{sec:re-weighting}
 
 The predictions entering into the profile-likelihood fit of the analysis can be
-written as a probability density function (\PDF) $p(\vec{x}|\vec{\theta})$,
+written as a probability density function (PDF) $p(\vec{x}|\vec{\theta})$,
 where $\vec{x} = [x_{1},..., x_{i}]$ is a vector of observable quantities, with
 $N$ elements and $\vec{\theta}$ represents the theoretical parameters of the
 model. The parameters may come from the Standard Model theory or
@@ -64,7 +64,7 @@ Monte-Carlo generator that has a particular set of parameters. The choice of
 generator will change the prediction due to different choices made by the
 generator creators, including but not limited to, the parton shower model,
 hadronisation model and non-perturbative processes. One way to get a handle on
-the variance of a particular generator is therefore to literally vary these
+the variance of a particular generator is therefore to vary these
 choices by picking an alternative generator and drawing a comparison to the
 alternative prediction. This method is flawed in ways which will be discussed
 but is nonetheless fairly common and often one of the few choices available to
@@ -101,7 +101,7 @@ which can in turn be calculated for as many or as few as the elements of
 $\vec{x}$ as is desired. When the ratio is calculated using only a single
 variable it can still be used to map the $N$ dimensional nominal prediction to
 the alternative, however the mapping is only guaranteed to be successful in the
-dimension chosen to calculate the ratio. In general agreement between the two
+observable $x_i$ chosen to calculate the ratio. In general agreement between the two
 predictions in the other variables can not be relied upon.
 
 In practice the ratio is used to derive a systematic shape uncertainty by
@@ -122,7 +122,7 @@ second. That is to say that if one calculates the ratio in
 equation~\ref{eq:1D-ratio} with $i=1$ and $i=2$ the re-weighting by $r(x_2)$
 will not preserve the agreement between the two predictions that would be
 achieved by the re-weighting with $r(x_1)$. It is clear that this is because a
-ratio for a given $x_i$ only encode information relating to the \PDF s
+ratio for a given $x_i$ only encode information relating to the PDFs
 $p(x_i|\theta_0)$ and $p(x_i|\theta_1)$ whereas an encoding of the multi-variate
 distributions $p(\vec{x}|\theta_0)$ and $p(\vec{x}|\theta_1)$ is desired.
 
@@ -172,7 +172,7 @@ sequentially before training the classifier and so therefore a general
 $(N-k)$--dimensional strategy can be formed, however in this analysis the
 1--dimensional re-weighting is only applied once before training.
 
-The hybrid approach yields two parametrisations one that parametrising the
+The hybrid approach yields two parametrisations one parametrising the
 difference between the two samples in the single variable used in the
 1--dimensional re-weighting and a second that parametrises the remaining
 variables using the density ratio formed by using the classifier trained on the
@@ -189,7 +189,7 @@ not guaranteed to exist. This reveals an incongruity between the nature of the
 Gaussian penalty term used to control the shape uncertainty in the fit, which is
 varied smoothly and continuously, and the underlying mapping that it aims to
 characterise.  A second nuisance parameter arising from the factorised variable
-therefore at least allows the profile-likelihood fit to control in more
+therefore at least allows the profile-likelihood fit to control in a more
 well defined way the histograms relating to that variable. The inclusion of a
 factorised variable may also be desirable as particular variables have increased
 importance to the analysis, for example the histograms entering in the control
@@ -388,7 +388,9 @@ background. Up to 2 extra partons are included in the next-to-leading order
 matrix element, and 3 or 4 extra partons are included at leading order in QCD.
 Different parton multiplicities are combined using  a matching scheme based on
 the CKKW-L~\cite{Lonnblad:2001iq, Lavesson:2005xu} merging technique, with a
-merging scale of $Q_{\text{cut}}=20$~\GeV. Simulation of events with more than 4
+merging scale of $Q_{\text{cut}}=20$~\GeV\footnote{Q_{\text{cut}} describes the
+  momentum sum above which the parton showering is used and below which the
+  matrix element calculation is used.}. Simulation of events with more than 4
 extra partons rely on the parton shower algorithm of \textsc{Sherpa}. The parton
 shower and underlying event models are included in \textsc{Sherpa} whose
 generator adopts a full 5--flavour scheme with $b$- and $c$-quarks being treated
@@ -398,8 +400,8 @@ the underlying event.
 
 The analysis gains a lot of sensitivity from high $p_{\mathrm{T}}^V$ regions
 with two $b$-jets. Therefore it is desirable to have a dataset of predictions
-of these events such that statistical fluctuations are smaller in the data. In
-order to achieve this samples are simulated in specific slices of
+of these events such that statistical fluctuations are smaller than in the data.
+In order to achieve this samples are simulated in specific slices of
 max$(p_{\mathrm{T}}^V, H_{\mathrm{T}})$, which is the larger of the
 $p_{\mathrm{T}}$ of the vector boson or the $H_{\mathrm{T}}$ of the event.
 The following slices are used
@@ -522,8 +524,7 @@ region is controlled by one parameter per control region. Named
 is applied in each of the control regions, and is also correlated across jet
 multiplicity and leptonic channel. The shape uncertainty which uses the BDTr
 method discussed in section~\ref{sec:ND-reweight} induces migration effects
-across the analysis regions, however in order to increase the degrees of freedom
-available to the profile-likelihood fit that systematic is taken as a shape only
+across the analysis regions, however that systematic is taken as a shape only
 effect. The migrations induced by the shape uncertainty agree well with those
 derived from comparisons between nominal and alternative predictions, and the
 sign of the final priors is determined by migration due to the shape
@@ -730,7 +731,7 @@ done with a high degree of certainty over the template as the data from the top
 $e\mu$ CR can be used. The remaining backgrounds contribute a very small amount
 to the region and so even with large uncertainties on their template the method
 is still sufficiently accurate. Neither the signal or diboson background are
-subtracted from the data as they ought to have been removed by the veto of the
+subtracted from the data as they have been removed by the veto of the
 aforementioned range in $m_{bb}$ and the veto is applied to the selection so
 that events in the range are removed from all distributions considered.
 
@@ -751,7 +752,7 @@ procedure and so ought to match more closely between the two leptonic channels.
 The aforementioned veto on events in the range $80 \GeV < m_{bb} < 140 \GeV$ is
 therefore actually applied based on GSC $m_{bb}$.
 
-The plots in figures~\ref{fig:zjets-ptv-shapes} and~\ref{fig:zjets-mbb-shapes}
+The plots in figures~\ref{fig:zjets-mbb-shapes} and~\ref{fig:zjets-ptv-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the $Z+$jets background in
 the 2--lepton channel in the sum of analysis regions CR$_{\text{low}}$, SR and
 CR$_{\text{high}}$ plotted against the subtracted data in the $p_{\mathrm{T}}^V$ and GSC
@@ -776,7 +777,9 @@ not cover the discrepancy between the subtracted data and the prediction at low
 values of $m_{bb}$. Investigating the plots in
 figure~\ref{fig:zjets-mbb-shape-ptv-range} shows that this discrepancy is coming
 from the $75~\GeV < p_{\mathrm{T}}^V < 150~\GeV$ analysis bin, therefore the aforementioned
-nuisance parameters are decorrelated in this bin.
+nuisance parameters are decorrelated in this bin. This is so that the affect of
+opposite sign deviations between data and the prediction do not cancel each
+other out.
 \input{07-systematic-errors/zjets-mbb-shapes-ptv-range}
 The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
 \texttt{SysMbb\_BMin75\_L2}. A summary of the $Z+$jets shape uncertainties is
@@ -863,7 +866,7 @@ equation~\ref{eq:acceptance-dr}.
 Flavour composition uncertainties are derived using ratios of flavour
 sub-components as for other backgrounds, however given that only the $bb$ and
 $bc$ sub-components are non-negligible so the remainder of sub-components are
-combined into $\text{Oth} = [bl, cc, cl, ll]$. Nuisance parameters are therefore
+combined into $\text{Oth}~=~[bl, cc, cl, ll]$. Nuisance parameters are therefore
 implemented for $bc$ and Oth only with $bb$ on the bottom of the ratio as
 before. Given that neither the matrix element nor parton shower variation
 dominates the uncertainty heavily, nuisance parameters are implemented for each

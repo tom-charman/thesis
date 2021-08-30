@@ -237,14 +237,13 @@ $b$-jet and likewise for other types of jets. Those rules are as follows:
 \end{enumerate}
 
 The algorithm used to tag $b$-jets is the MV2c10 algorithm~\cite{mv2c10}, this
-is a BDT which is
-
-trained on kinematic and structural information about each jet. It is setup to
-categorise between $b$-jets (signal) and a mixture of light-jets and $c$-jets
-(background). The events in the training sample are simulated $t\bar{t}$ events
-that have at least one lepton coming from a leptonically decaying $W$ boson, and
-hadronically decaying $Z^\prime$ events. The training sample has 5 million
-$t\bar{t}$ events and 3 million $Z^\prime$ events.
+is a BDT which is trained on kinematic and structural information about each
+jet. It is setup to categorise between $b$-jets (signal) and a mixture of
+light-jets and $c$-jets (background). The events in the training sample are
+simulated $t\bar{t}$ events that have at least one lepton coming from a
+leptonically decaying $W$ boson, and hadronically decaying $Z^\prime$ events.
+The training sample has 5 million $t\bar{t}$ events and 3 million $Z^\prime$
+events.
 
 The kinematic training variables that enter into the MV2c10 algorithm are
 the jet $p_{\mathrm{T}}$ and $\eta$. The structural information is more complicated, IP2D

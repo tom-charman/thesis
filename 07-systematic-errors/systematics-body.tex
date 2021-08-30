@@ -871,16 +871,18 @@ equation~\ref{eq:acceptance-dr}.
 
 \subsubsection{Flavour Composition}
 
-Flavour composition uncertainties are derived using ratios of flavour
-sub-components as for other backgrounds, however given that only the $bb$ and
-$bc$ sub-components are non-negligible so the remainder of sub-components are
-combined into $\text{Oth}~=~[bl, cc, cl, ll]$. Nuisance parameters are therefore
-implemented for $bc$ and Oth only with $bb$ on the bottom of the ratio as
-before. Given that neither the matrix element nor parton shower variation
-dominates the uncertainty heavily, nuisance parameters are implemented for each
-in turn, in total the nuisance parameters controlling flavour composition
-uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
-\texttt{SysTTbarOthMeACC}, \texttt{SysTTbarOthPSACC}.
+\begin{sloppypar}
+  Flavour composition uncertainties are derived using ratios of flavour
+  sub-components as for other backgrounds, however given that only the $bb$ and
+  $bc$ sub-components are non-negligible so the remainder of sub-components are
+  combined into $\text{Oth}~=~[bl, cc, cl, ll]$. Nuisance parameters are therefore
+  implemented for $bc$ and Oth only with $bb$ on the bottom of the ratio as
+  before. Given that neither the matrix element nor parton shower variation
+  dominates the uncertainty heavily, nuisance parameters are implemented for each
+  in turn, in total the nuisance parameters controlling flavour composition
+  uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
+  \texttt{SysTTbarOthMeACC}, \texttt{SysTTbarOthPSACC}.
+\end{sloppypar}
 
 \subsubsection{Shape Uncertainties}
 
@@ -1030,7 +1032,7 @@ tables~\ref{tab:VHSMsignals-nom} and~\ref{tab:VHSMsignals-alt} respectively.
 The cross section that samples are normalised to is the best theoretical
 prediction available which is calculated at NNLO in QCD~\cite{Brein:2003wg,
   Brein:2011vx}, NLO in EW~\cite{Denner:2012sx} and includes higher order
-contributions to the gluon-induced heavy quark loop entering into the \ZH
+contributions to the gluon-induced heavy quark loop entering into the \ZH\
 calculation~\cite{Altenkamp:2012sx}.
 
 A summary of the systematic uncertainties considered on the signal samples can

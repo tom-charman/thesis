@@ -4,15 +4,22 @@
 With the objects required for this analysis reconstructed and an event selection
 in place an analysis strategy is formed in order to maximise the signal strength
 of the \VHbb\ process and yield a robust result that is well understood in terms
-of modelling and systematic errors. In this chapter that strategy will be
-detailed, first the categorisation into analysis regions will be defined, next
-the multi-variate algorithm that is used to generate some of the distributions
-entering into the profile-likelihood fit will be explained. Then the fit itself
-will be explained, including a definition of the likelihood function and
-systematic uncertainty model. Plots of the data versus Monte-Carlo prediction
-will then be shown in order to build a picture of the pre-fit status of the
-agreement. Finally a series of cross-checks which are used to validate the
-methods of the analysis will be explained.
+of modelling and systematic errors. The data the analysis strategy is executed
+on is 140 fb${^-1}$ of proton-proton collision data recorded by the ATLAS
+detector at a centre of mass energy of $\sqrt{s} = 13$~\TeV\ during Run 2 of the
+LHC (2015--2018). Data and Monte Carlo predictions are grouped into datasets
+called mc16a, mc16d and mc16e that refer to data taken in the periods
+2015--2016, 2017 and 2018 respectively.
+
+First the categorisation into analysis regions will be defined, then the
+composition of those regions will be explained detailing the simulated samples
+used, next the multi-variate algorithm that is used to generate some of the
+distributions entering into the profile-likelihood fit will be explained. Then
+the fit itself will be explained, including a definition of the likelihood
+function and systematic uncertainty model. Plots of the data versus Monte-Carlo
+prediction will then be shown in order to build a picture of the pre-fit status
+of the agreement. Finally a series of cross-checks which are used to validate
+the methods of the analysis will be explained.
 
 The author's contributions include studying the behaviour of the
 profile-likelihood fit with the inclusion of these regions, which are new in
@@ -27,83 +34,76 @@ with respect to the previous version of the algorithm.
 Events which pass the selection detailed in table~\ref{tab:event-selection} are
 categorised into several regions for analysis. Firstly they are split into what
 are known as medium (75--150~\GeV), high (150--250~\GeV) and extreme (>250~\GeV)
-$p_{\mathrm{T}}^{V}$. Events are further categorised by jet multiplicity, all jets are
-required by the selection to have at least two jets, categories are defined for
-events with exactly two, or exactly three jets. In the 2--lepton channel there
-is a requirement of three or more jets but when referring to all three channels
-at once categorisation is referred to as simply 3--jet or 2--jet.
+$p_{\mathrm{T}}^{V}$. Events are further categorised by jet multiplicity, all
+jets are required by the selection to have at least two jets, categories are
+defined for events with exactly two, or exactly three jets. In the 2--lepton
+channel there is a requirement of three or more jets but when referring to all
+three channels at once categorisation is referred to as simply 3--jet or 2--jet.
 
-Furthermore events are categorised into a signal region which is straddled
-either side by two control regions. This categorisation is achieved via
-continuous cuts defined in the $\Delta R(b, \bar{b})$~--~$p_{\mathrm{T}}^{V}$ plane,
-they are chosen to maximise the signal purity in the signal region and are shown
-for the 1--lepton channel in figure~\ref{fig:drbb-crs}.
-\input{06-analysis-strategy/drbb-cuts}
-The regions either side of the signal region are known as the
-high-$\Delta R(b, \bar{b})$ and low-$\Delta R(b, \bar{b})$ control regions,
-shortened to CR$_{\text{high}}$ and CR$_{\text{low}}$ respectively.
+Events are categorised into a signal region which is straddled either side by
+two control regions. This categorisation is achieved via cuts defined in the
+$\Delta R(b, \bar{b})$~--~$p_{\mathrm{T}}^{V}$ plane, they are chosen to
+maximise the signal purity in the signal region and are shown for the 1--lepton
+channel in figure~\ref{fig:drbb-crs}. \input{06-analysis-strategy/drbb-cuts} The
+regions either side of the signal region are known as the high-$\Delta R(b,
+\bar{b})$ and low-$\Delta R(b, \bar{b})$ control regions, shortened to
+CR$_{\text{high}}$ and CR$_{\text{low}}$ respectively.
 
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} Control Region}%
 \label{sec:topemucr}
 
 One more region exists only in the 2--lepton channel, it is obtained by
 requiring two opposite flavour leptons instead of two same flavour leptons, and
-keeping all other selection criteria the same. This region contains almost all
-$t\bar{t}$ and single top processes (whose Feynman diagrams belong to the same
-sum) matching very closely the number of expected events of each of these
-backgrounds in the 2--lepton channel. This region is therefore called the top $e
-\mu$ control region. The data from this control region can be used as a
+keeping all other selection criteria the same. This region consists almost
+entirely of $t\bar{t}$ and single top processes (whose Feynman diagrams belong
+to the same sum) matching very closely the number of expected events of each of
+these backgrounds in the 2--lepton channel. This region is therefore called the
+top $e \mu$ control region. The data from this control region can be used as a
 prediction for the number of top process events in the 2--lepton channel once
 multiplied by a scale factor which accounts for differences in normalisation.
-Since data are used as the prediction for these events modelling of shape or
-migration between control regions becomes unnecessary. Given that this region
-exists purely to model systematic uncertainties it will explored in more detail
-in the subsequent chapter in section~\ref{sec:ttbar_DD}.
+Given that this region exists purely to model systematic uncertainties it will
+explored in more detail in the subsequent chapter in section~\ref{sec:ttbar_DD}.
 
 \section{Composition of Analysis Regions}
 \label{sec:composition}
 
 This section will detail the composition of each analysis region in terms of
-background and signal processes. For all regions the signal process is
-\VHbb, the prediction for which comes from events generated using \textsc{Powheg
-  MiNLO}~+~\textsc{Pythia~8} for quark initiated processes and
-\textsc{Powheg}~+~\textsc{Pythia~8} for gluon initiated processes as can be seen
-in table~\ref{tab:sigMC}.
-\input{06-analysis-strategy/signal-MC}
+background and signal processes. For all regions the signal process is \VHbb,
+the prediction for which comes from events generated using \textsc{Powheg
+MiNLO}~\cite{Luisoni2013}~+~\textsc{Pythia~8}~\cite{pythia8} for quark initiated
+processes and \textsc{Powheg}~+~\textsc{Pythia~8} for gluon initiated processes
+as can be seen in table~\ref{tab:sigMC}. \input{06-analysis-strategy/signal-MC}
 
-The 0--lepton channel contains the  $Z + $jets, $W+$jets, top quark and
-diboson backgrounds. The $Z+$jets background dominates the mixture in the
-2--jet category across signal and control regions. In the 3--jet category the
-top-quark processes dominate apart from in CR$_{\text{low}}$. There is very little signal
+The 0--lepton channel contains the $Z + $jets, $W+$jets, top quark and diboson
+backgrounds. The $Z+$jets background dominates the mixture in the 2--jet
+category across signal and control regions. In the 3--jet category the top-quark
+processes dominate apart from in CR$_{\text{low}}$. There is very little signal
 contamination in the control regions. As can be seen in table~\ref{tab:bkgMC},
-$V+$jets events are generated using \textsc{Sherpa~2.2.1}, top quark events
-are generated using \textsc{Powheg}~+~\textsc{Pythia~8} and diboson events are
+$V+$jets events are generated using \textsc{Sherpa~2.2.1}, top quark events are
+generated using \textsc{Powheg}~+~\textsc{Pythia~8} and diboson events are
 generated also using \textsc{Sherpa~2.2.1}, this is true for these backgrounds
 across all channels where a Monte-Carlo prediction is used.
 \input{06-analysis-strategy/background-MC}
 
-The 1--lepton channel contains the $W+$jets, $Z+$jets, top quark, diboson
-and multijet backgrounds where multijet is the name given to backgrounds arising
-from QCD processes. The channel is dominated by a mixture of $W+$jets and top
-quark processes, CR$_{\text{high}}$ has a higher purity of top quark processes whereas CR$_{\text{low}}$
-has a high purity of $W+$jets background. Contribution from multijet and
-$Z+$jets is small across all regions.
+The 1--lepton channel contains the $W+$jets, $Z+$jets, top quark, diboson and
+multijet backgrounds where multijet is the name given to backgrounds with jets
+present that do not fit into any other categorisation. The channel is dominated
+by a mixture of $W+$jets and top quark processes, CR$_{\text{high}}$ has a
+higher purity of top quark processes whereas CR$_{\text{low}}$ has a high purity
+of $W+$jets background. Contribution from multijet and $Z+$jets is small across
+all regions.
 
-The 2--lepton channel contains the $Z+$jets, top quark and diboson
-backgrounds. The $Z+$jets background dominates across all regions particularly
-in both $\Delta R(b, \bar{b})$ control regions. Predictions for the top quark
-processes are taken from the top $e \mu$ control region described in
-section~\ref{sec:topemucr}. Given that these predictions come from data, the
-importance of a good understanding of the remaining large background, $Z$ +
-jets, is crucial to the performance of the analysis.
-
-In all channels the diboson background is contained almost entirely within the
-signal region.
+The 2--lepton channel contains $Z+$jets, top quark and diboson backgrounds. The
+$Z+$jets background dominates across all regions particularly in both $\Delta
+R(b, \bar{b})$ control regions. Predictions for the top quark processes are
+taken from the top $e \mu$ control region described in
+section~\ref{sec:topemucr}. In all channels the diboson background is contained
+almost entirely within the signal region.
 
 \section{Multi-variate Event Classification}%
 \label{sec:mva}
 
-The signal regions in all channels enter into the profile-likelihood fit as
+The signal regions in all channels enter into a profile-likelihood fit as
 distributions generated by a multi-variate analysis. The multi-variate algorithm
 used to generate this distribution is a BDT trained to separate \VHbb\ from all
 other events. Only the signal region enters into the fit as a distribution of
@@ -118,10 +118,9 @@ difference between the fit regions and those that go into training the BDT on
 its performance have been studied~\cite{VHMainNote2019}, and in general the
 mitigation of over-fitting resulting from having more events to train on
 outweighs any change in performance.
-
-\input{06-analysis-strategy/training-regions}
-In tests it has been shown that there is significant evidence of
-over-training when training is performed on the signal region alone.
+\input{06-analysis-strategy/training-regions} In tests it has been shown that
+there is significant evidence of over-training when training is performed on the
+signal region alone.
 
 The BDT is trained on all of the samples listed in tables~\ref{tab:sigMC}
 and~\ref{tab:bkgMC}, this includes the $t\bar{t}$ and single top Monte-Carlo
@@ -152,17 +151,19 @@ being placed in long tails.
 Table~\ref{tab:MVAinputs} shows the choices of variables used as inputs to the
 algorithm in each analysis channel. Inputs are carefully chosen in order to
 maximise the performance of the algorithm.
-\input{06-analysis-strategy/MVA-inputs}
-Table~\ref{tab:BDTSetup} shows the choice of hyper-parameters for the algorithm
-as described in terms of \textsc{tmva}~\cite{TMVA} the toolkit for multi-variate
-analysis which is built into \textsc{ROOT}~\cite{ROOT}, and was used for
-training this algorithm.
+\input{06-analysis-strategy/MVA-inputs} Table~\ref{tab:BDTSetup} shows the
+choice of hyper-parameters for the algorithm as described in terms of
+\textsc{tmva}~\cite{TMVA} the toolkit for multi-variate analysis which is built
+into \textsc{ROOT}~\cite{ROOT}, and was used for training this algorithm.
 \input{06-analysis-strategy/bdt-hps}
 
-Distributions of the inputs to the BDT in 2--jet, high $p_{\mathrm{T}}^V$ region are shown
-in
-figures~\ref{fig:bdtinputs-0lep},~\ref{fig:bdtinputs-1lep},~\ref{fig:bdtinputs-2lep}
-for the 0--, 1-- and 2--lepton channels respectively. In all channels it can be
+Distributions of the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ observables in
+the 2--jet, high $p_{\mathrm{T}}^V$ region are shown in
+figure~\ref{fig:bdtinputs-highlight}. The other variables are included in
+figures,~\ref{fig:bdtinputs-0lep}, ~\ref{fig:bdtinputs-1lep}~and
+~\ref{fig:bdtinputs-2lep} in the appendix for the 0--, 1-- and 2--lepton
+channels respectively. In all channels it can be
+
 seen that a high level of separation power in one dimension can be obtained from
 the $m(b,\bar{b})$ and $\Delta R (b, \bar{b})$ distributions which are
 correlated. In the 0--lepton channel a moderate level of separation can be
@@ -188,35 +189,31 @@ between categories can be seen in section~\ref{sec:prefit}.
 Ultimately the results of the analysis come from a profile-likelihood fit. This
 fit uses a binned likelihood function whose maximum corresponds to the best
 agreement between data and the prediction. The likelihood is defined as the
-product over all bins of the Poisson probability to observe $N^{\text{obs}}_i$ data
-events given a prediction of $N^{\text{pred}}_i(\mu,\bm{k},{\bm\theta})$
+product over all bins of the Poisson probability to observe $N^{\text{obs}}_i$
+data events given a prediction of $N^{\text{pred}}_i(\mu,\bm{k},{\bm\theta})$
 events in a given bin $i$,
-\begin{equation}
-  \mathcal{L}(\mu,{\bm{k},\bm{\theta}}) =
-  \prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})
-    \right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!}
-  \cdot e^{-N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})}.
+\begin{equation} \mathcal{L}(\mu,{\bm{k},\bm{\theta}}) =
+\prod_{i\in\,\text{bins}} \frac{\left( N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})
+\right)^{N_{i}^{\text{data}}}}{N_{i}^{\text{data}}\,!} \cdot
+e^{-N_{i}^{\text{pred}}(\mu,{\bm{k,\theta}})}.
   \label{eq:likelihood}
-\end{equation}
-The number of predicted events $N^{\text{pred}}_i$  is dependent on three sets of
-parameters, the signal strength $\mu$, the scale factors $\bm{k}=\left\{k_1,
-  ...,k_j\right\}$, and the nuisance parameters  $\bm{\theta} =
+\end{equation} The number of predicted events $N^{\text{pred}}_i$ is dependent
+on three sets of parameters, the signal strength $\mu$, the scale factors
+$\bm{k}=\left\{k_1, ...,k_j\right\}$, and the nuisance parameters $\bm{\theta} =
 \left\{\theta_1,...,\theta_l\right\}$, as follows
-\begin{equation}
-  N_{i}^{\text{pred}}(\mu,\bm{k},\bm{\theta}) =
-  \mu \cdot N_{i,\text{sig}}^{\text{pred}}(\bm{\theta}) +
-  \sum_{b\in\,\text{bkg}} k_b\cdot N_{i,b}^{\text{pred}}(\bm{\theta}).
-\end{equation}
-The ratio between the measured and the expected signal cross-sections
-$\mu=\sigma/\sigma_{\text{SM}}$, known as the signal strength, is the parameter
-of interest in the nominal fit. It is common to all analysis regions that enter
-into the fit. Each of the scale factors $k_j$ and the signal strength scale
-either their associated quantity linearly without any prior constraint or
-penalty in the likelihood function, in further sections these parameters will be
-referred to as floating. Each nuisance parameter $\theta_i$ encodes the
-dependence of the prediction on systematic uncertainties into continuous
-parameters in the likelihood. Prior knowledge of the uncertainty that these
-parameters encode for is expressed as a Gaussian penalty term
+\begin{equation} N_{i}^{\text{pred}}(\mu,\bm{k},\bm{\theta}) = \mu \cdot
+N_{i,\text{sig}}^{\text{pred}}(\bm{\theta}) + \sum_{b\in\,\text{bkg}} k_b\cdot
+N_{i,b}^{\text{pred}}(\bm{\theta}).
+\end{equation} The ratio between the measured and the expected signal
+cross-sections $\mu=\sigma/\sigma_{\text{SM}}$, known as the signal strength, is
+the parameter of interest in the nominal fit. It is common to all analysis
+regions that enter into the fit. Each of the scale factors $k_j$ and the signal
+strength scale either their associated quantity linearly without any prior
+constraint or penalty in the likelihood function, in further sections these
+parameters will be referred to as floating. Each nuisance parameter $\theta_i$
+encodes the dependence of the prediction on systematic uncertainties into
+continuous parameters in the likelihood. Prior knowledge of the uncertainty that
+these parameters encode for is expressed as a Gaussian penalty term
 $\mathcal{G}(0\,|\,\theta_i,1)$ added to the likelihood for each uncertainty.
 The parameters $\theta_i$ are therefore expressed as a number of standard
 deviations of a unit Gaussian in the subsequent sections. These penalties
@@ -224,16 +221,14 @@ results in a log-normal, or normal dependence of the predicted yields or shapes
 on the displayed parameter values.
 
 The nominal fit result in terms of $\mu$ and $\sigma_{\mu}$ is obtained by
-maximizing the likelihood function with respect to all parameters.  This is
+maximizing the likelihood function with respect to all parameters. This is
 referred to as the maximized log-likelihood value, MLL. The profile likelihood
 ratio test statistic, $q_\mu$, is then constructed as follows:
-\begin{equation}
-  q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu, \hat{\hat{\mathbf{k}}},
-    \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L} (\hat{\mu},
-    \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
-\end{equation}
-where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that maximise the
-likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
+\begin{equation} q_\mu = - 2\; \ln \left[ \mathcal{L} (\mu,
+\hat{\hat{\mathbf{k}}}, \hat{\hat{\bm\theta}}_{\mu})\, / \, \mathcal{L}
+(\hat{\mu}, \hat{\mathbf{k}}, \hat{\bm\theta}) \right]
+\end{equation} where $\hat{\mu}$ and $\hat{\theta}$ are the parameters that
+maximise the likelihood (with the constraint $0 \leq \hat{\mu} \leq \mu$), and
 $\hat{\hat{\theta}}_\mu$ are the nuisance parameter values that maximise the
 likelihood for a given $\mu$. This test statistic is used to measure the
 compatibility of the background only model with the observed data.
@@ -263,8 +258,7 @@ respectively. Figures~\ref{fig:1lep-2jet-prefit} and \ref{fig:1lep-3jet-prefit}
 show the distributions in the 1--lepton channel in the 2--jet and 3--jet regions
 respectively. Figures~\ref{fig:2lep-2jet-prefit} and \ref{fig:2lep-3pjet-prefit}
 show the distributions in the 2--lepton channel in the 2--jet and $\geq$3--jet
-regions respectively.
-\input{06-analysis-strategy/0lep-2jet-prefit}
+regions respectively. \input{06-analysis-strategy/0lep-2jet-prefit}
 \input{06-analysis-strategy/0lep-3jet-prefit}
 \input{06-analysis-strategy/1lep-2jet-prefit}
 \input{06-analysis-strategy/1lep-3jet-prefit}
@@ -287,8 +281,8 @@ profile-likelihood fit.
 The second cross-check is a measurement of the diboson process. Diboson final
 states arising from proton-proton collisions are well understood and in this
 case are being treated as a standard candle~\footnote{A standard candle is an
-  astronomical object with a known absolute luminosity that can be used to aid
-  astronomical measurements. }. The rationale here is that if the analysis
+astronomical object with a known absolute luminosity that can be used to aid
+astronomical measurements. }. The rationale here is that if the analysis
 methodology produces a measurement of the diboson process that is in agreement
 with the Standard Model prediction, and therefore existing measurements, then
 the methodology itself has not introduced unexpected effects on the result.

@@ -20,27 +20,25 @@ new systematic uncertainties in the CxAOD Framework (not discussed until
 chapter~\ref{ch:systematics}).
 
 \section{Athena and the CxAOD Framework}
-\label{sec:cxaod}
-Data recorded by the ATLAS detector is passed through the central collaboration
-software framework Athena before entering the analysis level data processing.
-\input{05-reconstruction-and-selection/data-flow-chart}
+\label{sec:cxaod} Data recorded by the ATLAS detector is passed through the
+central collaboration software framework Athena before entering the analysis
+level data processing. \input{05-reconstruction-and-selection/data-flow-chart}
 Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
 be seen in the figure Athena processes both data recorded from collisions and
-Monte-Carlo simulated predictions. Steps up until and including reconstruction
-are required to transform the raw or simulated read-out of the detector into
-what are known as physics objects. These physics objects correspond to
-ultra-violet and infra-red safe descriptions particles and hadron showers e.g.
-leptons and jets. Given the initial transverse energy of the collisions (zero)
-any missing transverse energy ($E_{\mathrm{T}}^{\text{miss}}$) is also reconstructed based
+Monte-Carlo simulated predictions. Steps up to and including reconstruction are
+required to transform the raw or simulated read-out of the detector into what
+are known as physics objects. These physics objects correspond to ultra-violet
+and infra-red safe descriptions of particles and hadron showers e.g. leptons and
+jets. Given the initial transverse energy of the collisions (zero) any missing
+transverse energy ($E_{\mathrm{T}}^{\text{miss}}$) is also reconstructed based
 on the sum of the transverse energy of all objects in an event, this missing
-energy indicates the presence of particles in the event that cannot be detected
-by any of the ATLAS subsystems. The only particles in the Standard Model for
-which this is expected are neutrinos. The files containing the reconstructed
-physics objects adhere to the ATLAS Event Data Model and are referred to as
-Analysis Object Data (xAOD). After reconstruction a part of Athena called the
-derivation framework is used to produce skimmed and slimmed xAODs known as
-Derived xAODs (DxAODs). The reduction of these files is carried out based on a
-loose selection criteria.
+energy can indicate the presence of particles in the event that cannot be
+detected by any of the ATLAS subsystems, or mis-measurement. The only particles
+in the Standard Model for which this is expected are neutrinos. The files
+containing are referred to as Analysis Object Data (xAOD). After reconstruction a
+part of Athena called the derivation framework is used to produce skimmed and
+slimmed xAODs known as Derived xAODs (DxAODs). The reduction of these files is
+carried out based on a loose selection criteria.
 
 DxAODs are the usual starting point for analysis level software, in the case of
 this analysis the CxAOD Framework. As in in figure~\ref{fig:cxaod-flow}
@@ -56,12 +54,12 @@ in section~\ref{sec:selection}. CxAODs are produced separately for each of the
 three channels as the different background compositions and signal signatures
 require different optimisation. Pre-selection is performed on jets based on
 requirements of transverse momentum and pseudo-rapidity. A tool known as the Jet
-Vertex Tagger (JVT) is used to remove jets resulting from pileup from events.
+Vertex Tagger (JVT) is used to remove jets resulting from pileup.
 
 \section{Leptons}%
 \label{sec:lepton}
 
-The channels of the \VHbb\ analysis are defined by the number of
+The channels of the \VHbb\ analysis are categorised by the number of
 observed charged leptons ($e$ or $\mu$) in the decay of the vector boson. There
 is one channel for the study of \WHbb\ decays where the leptonic
 decay $W \rightarrow \ell\nu$ yields a single charged lepton, the 1--lepton
@@ -69,11 +67,11 @@ channel. There are two channels for the study of \ZHbb\ decays, the
 0--lepton channel where $Z \rightarrow \nu\nu$, and the 2--lepton channel where
 $Z \rightarrow \ell\ell$.
 
-Two classifications of lepton are defined in order to categorise events into the
+Multiple classifications of lepton are defined in order to categorise events into the
 individual channels of the analysis, these are called \VH-loose and \VH-signal
-leptons, channels are defined as disjoint sets by requiring different numbers of
-both lepton categories. These classifications are defined in
-table~\ref{tab:vh-leptons}.
+leptons (which are broken down into \WH and \ZH), channels are defined as
+disjoint sets by requiring different numbers of both lepton categories. These
+classifications are defined in table~\ref{tab:vh-leptons}.
 \input{05-reconstruction-and-selection/vh-leptons}
 The characteristics of the fake lepton background from QCD multi-jet processes
 differs between the 1-- and 2--lepton channels hence the reason for two
@@ -125,34 +123,34 @@ identify muons.
 
 \subsection{Taus}
 
-As mentioned the only charged leptons that are considered in the analysis are
-electrons and muons, leptonically decaying taus will include these as the only
-visible decay products, hadronically decaying taus must be considered
-separately. Decays are considered as one or three pronged based on the number of
-charged decay products, pions, with neutrinos and neutral pions also present.
-These decays are reconstructed in the calorimeters like jets with the anti-$k_t$
-algorithm with $\Delta R = 0.4$~\cite{ATL-PHYS-PUB-2015-045} but the $p_{\mathrm{T}}$ of
-the tau is set to the total energy of the TopoClusters within $\Delta R < 0.2$,
-more on TopoClusters in section~\ref{sec:jets}. Tau candidates must have $p_{\mathrm{T}} >
-20 \GeV$, $\lvert  \eta \rvert < 2.5$ excluding $1.37 < \lvert \eta \rvert <
-1.52$, and either exactly 1 or 3 tracks. A BDT based method for tau
-identification is used to reject fakes. The number of medium quality taus is
-included in each event~\cite{TauRecommendation2015,TauRecommendation2016}.
+The only charged leptons that are considered in the analysis are electrons and
+muons, leptonically decaying taus will include these as the only visible decay
+products, hadronically decaying taus must be considered separately. Decays are
+considered as one or three pronged based on the number of charged decay
+products, pions, with neutrinos and neutral pions also present. These decays are
+reconstructed in the calorimeters like jets with the anti-$k_t$ algorithm with
+$\Delta R = 0.4$~\cite{ATL-PHYS-PUB-2015-045} but the $p_{\mathrm{T}}$ of the
+tau is set to the total energy of the cluster of calorimeter cells within
+$\Delta R < 0.2$. Tau candidates must have $p_{\mathrm{T}} > 20 \GeV$, $\lvert
+\eta \rvert < 2.5$ excluding $1.37 < \lvert \eta \rvert < 1.52$, and either
+exactly 1 or 3 tracks. A BDT based method for tau identification is used to
+reject fakes. The number of medium quality taus is included in each
+event~\cite{TauRecommendation2015,TauRecommendation2016}.
 
 \section{Triggers}
 \label{sec:triggers}
 
-As stated at the beginning of this chapter the decay products of the vector
-boson candidate are used to trigger the recording of events for this analysis.
-Important triggers are the $E_{\mathrm{T}}^{\text{miss}}$, single electron and single muon
-triggers. Note that it is not necessary to trigger on both charged leptons
-coming from the Z boson in the 2--lepton channel, the presence of one lepton
-allows the triggering to occur and the requirement of 2 leptons can be imposed
-at a later stage. Some events will be missed by not using a di-lepton trigger,
-however these amount to approximately only 5\% of the
-total~\cite{VHObjectNote2019}. The list of triggers used as they appear in the
-ATLAS trigger menu are shown in table~\ref{tab:triggers}, for the
-$E_{\mathrm{T}}^{\text{miss}}$, electron and muon triggers respectively.
+The decay products of the vector boson candidate are used to trigger the
+recording of events for this analysis. Important triggers are the
+$E_{\mathrm{T}}^{\text{miss}}$, single electron and single muon triggers. Note
+that it is not necessary to trigger on both charged leptons coming from the Z
+boson in the 2--lepton channel, the presence of one lepton allows the triggering
+to occur and the requirement of 2 leptons can be imposed at a later stage. Some
+events will be missed by not using a di-lepton trigger, however these amount to
+approximately only 5\% of the total~\cite{VHObjectNote2019}. The list of
+triggers used as they appear in the ATLAS trigger menu are shown in
+table~\ref{tab:triggers}, for the $E_{\mathrm{T}}^{\text{miss}}$, electron and
+muon triggers respectively.
 \input{05-reconstruction-and-selection/trigger_table}
 
 \subsection{0--Lepton Channel Triggers}
@@ -170,7 +168,7 @@ The 1-- and 2--lepton channel's final states are $qq\ell\nu$ and $qq\ell\ell$
 respectively. As the 2--lepton channel events are not expected to contain
 significant $E_{\mathrm{T}}^{\text{miss}}$ and inefficiencies in the muon trigger are
 mitigated by the requirement of two muons, the single lepton triggers listed in
-table~\ref{tab:triggers} are simply used without any $E_{\mathrm{T}}^{\text{miss}}$
+table~\ref{tab:triggers} are used without any $E_{\mathrm{T}}^{\text{miss}}$
 triggers. In the 1--lepton channel there is significant $E_{\mathrm{T}}^{\text{miss}}$
 expected due to the presence of the neutrino. Single lepton triggers are used
 for events with $75~\GeV < p_{\mathrm{T}}^{V} < 150 \GeV$ where the $E_{\mathrm{T}}^{\text{miss}}$
@@ -182,35 +180,35 @@ with the single lepton triggers.
 \section{Jets}
 \label{sec:jets}
 
-As mentioned in chapter~\ref{ch:theory} jets are the roughly conical structure
-of detector activity resulting from the hadronisation of a QCD parton. Two
-categories of jets are considered, signal jets and forward jets, when the number
-of total jets is referred to it is equal to the sum of signal and forward jets.
-As the Higgs candidate in every channel of the analysis consists of two
-$b$-jets, both the reconstruction of jets and the $b$-tagging strategy have huge
-impacts on the final measurements. In this section the way jets are found and
-reconstructed will be introduced, $b$-tagging will be explained in general and
-then the specific tagging strategy of the analysis will be detailed.
+Jets are the roughly conical structure of detector activity resulting from the
+hadronisation of a QCD parton. Two categories of jets are considered, signal
+jets and forward jets, when the number of total jets is referred to it is equal
+to the sum of signal and forward jets. As the Higgs candidate in every channel
+of the analysis consists of two $b$-jets, both the reconstruction of jets and
+the $b$-tagging strategy have huge impacts on the final measurements. In this
+section the way jets are found and reconstructed will be introduced, $b$-tagging
+will be explained in general and then the specific tagging strategy of the
+analysis will be detailed.
 
 \subsection{Topological Calorimeter Cluster Anti-$k_t$ Jets}
 The jets that are found with a given algorithm are referred to as a jet
 collection. The jet collection relevant to this analysis uses topological
-calorimeter cell clusters to reconstruct jets~\cite{CALO2008}. These cluster are
-then passed to the anti-$k_t$ jet finding algorithm~\cite{anti-kt}. This
-algorithm takes a radius parameter which governs the size of jets, a radius
-parameter of $R=0.4$ is chosen.
+calorimeter cell clusters to reconstruct jets~\cite{CALO2008}. Clusters are
+formed by grouping neighbouring calorimeter cells that have significant energies
+over the expected noise. These clusters are then passed to the anti-$k_t$ jet
+finding algorithm~\cite{anti-kt}. This algorithm takes a radius parameter which
+governs the size of jets, a radius parameter of $R=0.4$ is chosen.
 
-As mentioned in chapter~\ref{ch:detector} pileup can cause issues with
-reconstruction. In general there is a desire to suppress any jets which arise
-from pileup. The Jet Vertex Tagger (JVT) is a likelihood-based discriminant
-which is used to achieve this. The primary vertex location, jet $p_{\mathrm{T}}$ and the
-$p_{\mathrm{T}}$ of tracks associated to a given jet, serve as inputs to the JVT which
-outputs a 2-D likelihood that the jet arises from pileup. The likelihood is
-resilient to bias arising from the jet flavour. The tool is applied only to jets
-in region $\lvert  \eta \rvert < 2.5$ and $p_{\mathrm{T}} > 120$~\GeV. A cut of JVT = 0.59,
-is applied to all jets in the collection, this cut has an average efficiency of
-92~\%. The definitions of signal and forward jets can be found in
-table~\ref{tab:jet-cats}.
+Pileup can cause issues with reconstruction. In general there is a desire to
+suppress any jets which arise from pileup. The Jet Vertex Tagger (JVT) is a
+likelihood-based discriminant which is used to achieve this. The primary vertex
+location, jet $p_{\mathrm{T}}$ and the $p_{\mathrm{T}}$ of tracks associated to
+a given jet, serve as inputs to the JVT which outputs a 2-D likelihood that the
+jet arises from pileup. The likelihood is resilient to bias arising from the jet
+flavour. The tool is applied only to jets in region $\lvert \eta \rvert < 2.5$
+and $p_{\mathrm{T}} > 120$~\GeV. A cut of JVT = 0.59, is applied to all jets in
+the collection, this cut has an average efficiency of 92~\%. The definitions of
+signal and forward jets can be found in table~\ref{tab:jet-cats}.
 \input{05-reconstruction-and-selection/jet-categories}
 
 \subsection{\texorpdfstring{$b$}{b}-tagging}
@@ -224,7 +222,7 @@ known as $b$-tagging. In order to develop such a discriminant one must use
 simulated predictions in which the flavour of the parton which initiated a given
 jet is known so that the performance of the discriminant can be validated. In
 simulation a jet and the parton that initiated that jet are distinctly separate
-objects and so a set of rules must be defined in order to decide which jet is
+objects and so a set of rules must be defined in order to decide which jet is a
 $b$-jet and likewise for other types of jets. Those rules are as follows:
 \begin{enumerate}
 \item  If a weakly decaying $b$-hadron is found within $\Delta R<R_{\text{max}}$ of the
@@ -238,7 +236,9 @@ $b$-jet and likewise for other types of jets. Those rules are as follows:
 \item All unlabeled jets after steps 1 through 4 are labeled as light-jets.
 \end{enumerate}
 
-The algorithm used to tag $b$-jets is the MV2c10 algorithm, this is a BDT which is
+The algorithm used to tag $b$-jets is the MV2c10 algorithm~\cite{mv2c10}, this
+is a BDT which is
+
 trained on kinematic and structural information about each jet. It is setup to
 categorise between $b$-jets (signal) and a mixture of light-jets and $c$-jets
 (background). The events in the training sample are simulated $t\bar{t}$ events
@@ -246,7 +246,7 @@ that have at least one lepton coming from a leptonically decaying $W$ boson, and
 hadronically decaying $Z^\prime$ events. The training sample has 5 million
 $t\bar{t}$ events and 3 million $Z^\prime$ events.
 
-The kinematic training variables that enter into the MV2c10 algorithm are simply
+The kinematic training variables that enter into the MV2c10 algorithm are
 the jet $p_{\mathrm{T}}$ and $\eta$. The structural information is more complicated, IP2D
 and IP3D are two algorithms based on a log-likelihood ratio discriminant of
 impact parameters (see chapter~\ref{ch:detector}). IP3D is defined as
@@ -265,7 +265,7 @@ conditional only on the transverse impact parameter $d_0$. The output of two
 algorithms designed to find secondary vertices, SV1 and JetFitter, also enter
 into the MV2c10 training.
 
-A jet is defined $b$-tagged if its MV2c10 score exceeds a certain threshold. This
+A jet is defined as $b$-tagged if its MV2c10 score exceeds a certain threshold. This
 threshold is defined as the cut that gives a pre-determined efficiency value for
 $b$-jets when applied to a $t\bar{t}$ sample. Calibrations are available for a
 number of these so-called working points, these working points are shown in
@@ -287,18 +287,16 @@ tagged as $b$-jets.
 \label{subsec:truth-tagging}
 
 Removing all events that fail the cut associated with the 70~\% working point
-results in loss of many events. This leaves us with a low number of events for
+results in the loss of many events. This leaves a low number of events for
 analysis, which is not ideal as many of the techniques used for categorising
-events have performance conditional on the available number of events. Instead
-of simply throwing these events away it is possible to keep all events that were
-simulated to have a $b$-hadron decay and instead weight distributions by a
+events have a performance that is conditional on the available number of events.
+Instead of throwing these events away it is possible to keep all events that
+were simulated to have a $b$-hadron decay and instead weight distributions by a
 factor which represents the probability that an event would in fact be
 $b$-tagged and enter into the final distribution. This procedure is known as
-truth tagging, since the information as to whether a $b$-hadron is truly present
-in a simulated event is utilised, this does not use any information relating to
-the true nature of jets in the data as this is unknowable. In order to draw easy
-comparisons, tagging directly with the MV2c10 algorithm is referred to as direct
-tagging.
+\emph{truth tagging}, since the information as to whether a $b$-hadron is truly
+present in a simulated event is used. Tagging directly with the MV2c10 algorithm
+is referred to as \emph{direct tagging}.
 
 Given that our events contain more than one jet in all cases it is required to
 develop a of way of generating truth tag weights for events based on all the
@@ -319,7 +317,7 @@ analysis~\cite{VHObjectNote2019}.
 
 \subsection{Hybrid Tagging}
 \label{subsec:hybrid-tagging}
-There exists disagreement between direct-tagged and truth-tagged events which
+There is disagreement between direct-tagged and truth-tagged events which
 means that truth tagging cannot directly be applied to events in the analysis.
 This is because direct tagging is the only strategy which can be used on data
 and so we can only assume that direct-tagged distributions in simulation will
@@ -340,71 +338,73 @@ involves the following steps:
 Distributions of $t\bar{t}$ and $W+$jets are shown in
 figures~\ref{fig:truth_tag_validation_tt}~and~\ref{fig:truth_tag_validation_wjets}.
 Which show direct, truth and hybrid-tagged distributions. It can be seen that
-the closure of hybrid-tagged events is much better than that of truth-tagged
-events with respect to that of the direct-tagged events. Hybrid tagging is
-therefore chosen as the analysis strategy.
+the agreement with respect to direct-tagged events of hybrid-tagged events is
+much better than that of truth-tagged events. Hybrid tagging is therefore chosen
+as the analysis strategy.
 \input{05-reconstruction-and-selection/truth-vs-direct-fig}
 
 \clearpage
 \newpage
 \section{Missing Transverse Momentum}
 \label{sec:met}
-This section describes how $E_{\mathrm{T}}^{\text{miss}}$ is calculated. The calculation is based
-on the assumption that partons entering into the hard scatter interaction have
-zero transverse momentum when they collide. This is not true due them having
-Fermi energy~\cite{fermi-energy}, but the transverse momentum induced by this
-phenomenon is minimal and therefore is ignored. Given this assumption
-$E_{\mathrm{T}}^{\text{miss}}$ is calculated as the negative vector sum of the $p_{\mathrm{T}}$ of
-photons, electrons, muons, taus, and jets. There is also an additional soft term
-that enters into the sum which is made up of all good quality tracks that aren't
-associated with any of the aforementioned objects. These tracks must be
-associated with the primary vertex and therefore are robust against pileup. A
-second formulation of $E_{\mathrm{T}}^{\text{miss}}$ called $E_{T, Trk}^{\text{miss}}$ is
+This section describes how $E_{\mathrm{T}}^{\text{miss}}$ is calculated. The
+calculation is based on the assumption that partons entering into the hard
+scatter interaction have zero transverse momentum when they collide. This is not
+exactly true, due them having Fermi energy~\cite{fermi-energy}, but the
+transverse momentum induced by this phenomenon is minimal and therefore is
+ignored. Given this assumption, $E_{\mathrm{T}}^{\text{miss}}$ is calculated as
+the negative vector sum of the $p_{\mathrm{T}}$ of photons, electrons, muons,
+taus, and jets. There is also an additional soft term that enters into the sum
+which is made up of all good quality tracks that aren't associated with any of
+the aforementioned objects. These tracks must be associated with the primary
+vertex and therefore are robust against pileup. A second formulation of
+$E_{\mathrm{T}}^{\text{miss}}$ called $E_{\mathrm{T}, Trk}^{\text{miss}}$ is
 formulated just using inner detector tracks, it is even more robust to pileup
 but cannot account for neutral particles which do no leave tracks in the inner
-detector. One more variable known as $E_{\mathrm{T}}^{\text{miss}}$-significance is also
-calculated as
-\begin{equation}
-  E_{\mathrm{T}}^{\text{miss}}\text{-significance} =
-  \frac{E_{\mathrm{T}}^{\text{miss}}}{\sqrt{\Sigma p_{\mathrm{T}}^e + \Sigma p_{\mathrm{T}}^\mu + \Sigma p_{\mathrm{T}}^{jet}}},
+detector. One more variable known as $E_{\mathrm{T}}^{\text{miss}}$-significance
+is also calculated as
+\begin{equation} E_{\mathrm{T}}^{\text{miss}}\text{-significance} =
+\frac{E_{\mathrm{T}}^{\text{miss}}}{\sqrt{\Sigma p_{\mathrm{T}}^e + \Sigma
+p_{\mathrm{T}}^\mu + \Sigma p_{\mathrm{T}}^{jet}}},
   \label{eq:metsig}
-\end{equation}
-where the denominator is clearly proportional to the $E_{\mathrm{T}}^{\text{miss}}$
-resolution and therefore making cuts on this variable simulates making harder
-cuts on $E_{\mathrm{T}}^{\text{miss}}$ with better resolution and looser cuts on
-$E_{\mathrm{T}}^{\text{miss}}$ with poorer resolution.
+\end{equation} where the denominator is clearly proportional to the
+$E_{\mathrm{T}}^{\text{miss}}$ resolution and therefore making cuts on this
+variable simulates making harder cuts on $E_{\mathrm{T}}^{\text{miss}}$ with
+better resolution and looser cuts on $E_{\mathrm{T}}^{\text{miss}}$ with poorer
+resolution.
 
 \section{Overlap Removal}
-Given all of the reconstruction methods described so far for different physics
-objects there has yet been any mention of what happens if overlapping detector
-activity could be reconstructed into more than one physics object. The treatment
-of overlap depends on which physics objects are involved. Below is summary of
-how different pairs of overlapping objects which are relevant to the analysis
-are handled, in the summary a combined muon is one which has been reconstructed
-with the combined muon reconstruction algorithm, that is to say it has tracks in
-the ID and energy deposits in the ECAL.\\
+Overlap removal addresses what happens when overlapping detector activity could
+be reconstructed into more than one physics object. The treatment of overlap
+depends on which physics objects are involved. Below is a summary of how different
+pairs of overlapping objects which
+
+are relevant to the analysis are handled, in the summary a combined muon is one
+which has been reconstructed with the combined muon reconstruction algorithm,
+that is to say it has tracks in the ID and energy deposits in the ECAL.\\
 $\bullet$ \textbf{tau-electron:} If $\Delta R(\tau,e)<0.2$, the $\tau$ lepton is
 removed.\\
 %
 $\bullet$ \textbf{tau-muon:} If $\Delta R(\tau,\mu)<0.2$, the $\tau$ lepton is
-removed, unless the $\tau$ lepton has $p_{\mathrm{T}}>50$~\GeV\ and the muon is not a combined
-muon, then the $\tau$ lepton is not removed.\\
+removed, unless the $\tau$ lepton has $p_{\mathrm{T}}>50$~\GeV\ and the muon is
+not a combined muon, then the $\tau$ lepton is not removed.\\
 %
 $\bullet$ \textbf{electron-muon:} If a combined muon shares an ID track with an
 electron, the electron is removed. If a calo-tagged muon shares an ID track with
 an electron, the muon is removed.\\
 %
 $\bullet$ \textbf{electron-jet:} If $\Delta R(\text{jet},e)<0.2$ the jet is
-removed. For any remaining jets, if $\Delta R(\text{jet},e)<0.4$, the
-electron is removed.\\
+removed. For any remaining jets, if $\Delta R(\text{jet},e)<0.4$, the electron
+is removed.\\
 %
 $\bullet$ \textbf{muon-jet} If $\Delta R(\text{jet},\mu)<0.2$ or the muon ID
-track is ghost associated~\cite{PERF-2012-02, ghost-ac-01, ghost-ac-02} to
-the jet, then the jet is removed if the following also holds. The jet has less
-than three associated tracks with $p_{\mathrm{T}} > 500$~\MeV\ or the $p_{\mathrm{T}}$ ratio of the muon
-and jet is larger than 0.5 and the ratio of the muon $p_{\mathrm{T}}$ to the sum of $p_{\mathrm{T}}$
-of tracks with $p_{\mathrm{T}} > 500$~\MeV\ associated to the jet is larger than 0.7. For
-any remaining jets, if $\Delta R(\text{jet},\mu)<\min(0.4, 0.04 + 10\ \GeV /
+track is ghost associated~\cite{PERF-2012-02, ghost-ac-01, ghost-ac-02} to the
+jet, then the jet is removed if the following also holds. The jet has less than
+three associated tracks with $p_{\mathrm{T}} > 500$~\MeV\ or the
+$p_{\mathrm{T}}$ ratio of the muon and jet is larger than 0.5 and the ratio of
+the muon $p_{\mathrm{T}}$ to the sum of $p_{\mathrm{T}}$ of tracks with
+$p_{\mathrm{T}} > 500$~\MeV\ associated to the jet is larger than 0.7. For any
+remaining jets, if $\Delta R(\text{jet},\mu)<\min(0.4, 0.04 + 10\ \GeV /
 p_{\mathrm{T}}^{\mu})$, the muon is removed from the jet.\\
 %
 $\bullet$ \textbf{tau-jet:} If $\Delta R(\tau,\text{jet})<0.2$, the jet is
@@ -418,16 +418,16 @@ common selections to all three channels as the Higgs candidate does not differ
 between them. All events must have at least two signal jets. These signal jets
 must be $b$-tagged, events with between 0 or 1 $b$-tags are considered for study
 and are not used in the final analysis, events with $\ge3$ $b$-tags are rejected
-entirely. The leading $b$-jet must have $p_{\mathrm{T}} > 45$~\GeV. A key variable in the
-analysis, the di-jet mass, $m_{jj}$ is reconstructed from the two leading jets,
-in the case where both jets are $b$-tagged $m_{bb} \equiv m_{jj}$ and represent
-the mass of the Higgs candidate.
+entirely. The leading $b$-jet must have $p_{\mathrm{T}} > 45$~\GeV. A key
+variable in the analysis, the di-jet mass, $m_{jj}$ is reconstructed from the
+two leading jets, in the case where both jets are $b$-tagged $m_{bb} \equiv
+m_{jj}$ and represent the mass of the Higgs candidate.
 
 The reconstructed momentum of $b$-jets can be enhanced with better resolution
 with respect to other jets. This is achieved with so-called muon-in-jet and
-$p_{\mathrm{T}}$-reco corrections~\cite{VHObjectNote2019}. Corrections are applied after
-events pass the full analysis selection, but before other stages of the
-analysis. These corrections are not used in the calculation of any
+$p_{\mathrm{T}}$-reco corrections~\cite{VHObjectNote2019}. Corrections are
+applied after events pass the full analysis selection, but before other stages
+of the analysis. These corrections are not used in the calculation of any
 $E_{\mathrm{T}}^{\text{miss}}$ related variables.
 
 \subsection{0--Lepton Channel Selection}
@@ -435,54 +435,56 @@ $E_{\mathrm{T}}^{\text{miss}}$ related variables.
 
 The vector boson candidate in the 0--lepton channel is a $Z$ boson decaying to
 two neutrinos. In order to select events for this candidate a large amount of
-$E_{\mathrm{T}}^{\text{miss}}$ is required (> 150~\GeV) and there must be exactly 0
-\VH-loose leptons in the event. Whilst events with lower $E_{\mathrm{T}}^{\text{miss}}$
-may come from the physical process we desire to measure the $E_{\mathrm{T}}^{\text{miss}}$
-trigger thresholds require setting the cut at it's value, the efficiency is
-~90\% for events with $E_{\mathrm{T}}^{\text{miss}} = 150$~\GeV\ and efficiency plateaus at
+$E_{\mathrm{T}}^{\text{miss}}$ is required (> 150~\GeV) and there must be
+exactly 0 \VH-loose leptons in the event. Whilst events with lower
+$E_{\mathrm{T}}^{\text{miss}}$ may come from the physical process we desire to
+measure the $E_{\mathrm{T}}^{\text{miss}}$ trigger thresholds require setting
+the cut at it's value, the efficiency is ~90\% for events with
+$E_{\mathrm{T}}^{\text{miss}} = 150$~\GeV\ and efficiency plateaus at
 $E_{\mathrm{T}}^{\text{miss}} \approx 180$~\GeV.
 
-There exists a non-trivial dependence of the trigger efficiency on activity of
+There is a non-trivial dependence of the trigger efficiency on activity of
 jets in detector. This arises due to the fact that the calculation of
-$E_{\mathrm{T}}^{\text{miss}}$ is simply the total transverse energy of the event minus the
-transverse energy of all objects in the event. These effects are hard to model
-and so a requirement is put on
-\begin{equation}
-  S_{\mathrm{T}} = \sum_i p_{\mathrm{T}}^i, \text{for } i \text{ jets in the event,}
-\end{equation}
-such that it must be greater than 120 \GeV\ for events with two total jets, and
-greater than 150 \GeV\ for events with three total jets.
+$E_{\mathrm{T}}^{\text{miss}}$ is the total transverse energy of the event minus
+the transverse energy of all objects in the event. These effects are hard to
+model and so a requirement is put on
+\begin{equation} S_{\mathrm{T}} = \sum_i p_{\mathrm{T}}^i, \text{for } i \text{
+jets in the event,}
+\end{equation} such that it must be greater than 120 \GeV\ for events with two
+total jets, and greater than 150 \GeV\ for events with three total jets.
 
 Due to the lack of charged leptons in the $Z \rightarrow \nu\nu$ decay there is
 nothing to trigger on to suppress multi-jet background processes arising from
-QCD. This background is also enhanced due to limitations of the calorimeter
-performance. A set of so-called anti-QCD cuts are applied to deal with this
+QCD. This background is also enhanced due to performance limitations of the
+calorimeter. A set of so-called anti-QCD cuts are applied to deal with this
 multi-jet background, they are as follows:
 \begin{itemize}
-\item $\lvert \Delta \Phi ( E_{\mathrm{T}}^{\text{miss}} ,
-  E_{t, trk}^{\text{miss}} ) \rvert <$ 90 $^\circ$
-\item $\lvert \Delta \Phi ( j_1 , j_2 ) \rvert <$ 140 $^\circ$, where $j_1$ and
-  $j_2$ are the leading and sub-leading jets respectively,
-\item $\lvert \Delta \Phi ( E_{\mathrm{T}}^{\text{miss}} , h ) \rvert >$ 120 $^\circ$
-\item $\text{min} ( \lvert \Delta \Phi ( E_{\mathrm{T}}^{\text{miss}} ,
-  \text{pre-sel. jets}) \rvert ) >$ 20 $^\circ$ for  2 jets,
-  $>$ 30 $^\circ$ for 3 jets.
-\end{itemize}
-Where $E_{t, trk}^{\text{miss}}$ is defined as the missing transverse momentum
-calculated from the negative vector sum of the transverse momenta of tracks
-reconstructed in the inner detector and identified as originating from the
-primary vertex. These cuts reduce the multi-jet background to approximately 1\%
-of the total background in this channel.
+\item $\lvert \Delta \phi ( E_{\mathrm{T}}^{\text{miss}} , E_{t,
+trk}^{\text{miss}} ) \rvert <$ 90$^\circ$
+\item $\lvert \Delta \phi ( j_1 , j_2 ) \rvert <$ 140$^\circ$, where $j_1$ and
+$j_2$ are the leading and sub-leading jets respectively,
+\item $\lvert \Delta \phi ( E_{\mathrm{T}}^{\text{miss}} , h ) \rvert >$
+  120$^\circ$
+  
+\item $\text{min} ( \lvert \Delta \phi ( E_{\mathrm{T}}^{\text{miss}} ,
+\text{pre-sel. jets}) \rvert ) >$ 20$^\circ$ for 2 jets, $>$ 30$^\circ$ for 3
+jets.
+\end{itemize} Where $E_{t, trk}^{\text{miss}}$ is defined as the missing
+transverse momentum calculated from the negative vector sum of the transverse
+momenta of tracks reconstructed in the inner detector and identified as
+originating from the primary vertex. These cuts reduce the multi-jet background
+to approximately 1\% of the total background in this channel.
 
 \subsection{1--Lepton Channel Selection}
 \label{sec:1lep-selection}
 
 The vector boson candidate in the 1--lepton channel is a W boson decaying to one
 charged lepton and one neutrino. In order to select for events of this signature
-exactly one \WH-signal lepton is required. At low $p_{\mathrm{T}}$ there is increased
-contribution from multi-jet processes, therefore the extra requirements of
-$p_{\mathrm{T}}^{W} > 150$ \GeV\ and $E_{\mathrm{T}}^{\text{miss}} > 30$ \GeV are applied to mitigate
-this. The latter cut is only applied in the electron channel.  
+exactly one \WH-signal lepton is required. At low $p_{\mathrm{T}}$ there is
+increased contribution from multi-jet processes, therefore the extra
+requirements of $p_{\mathrm{T}}^{W} > 150$ \GeV\ and
+$E_{\mathrm{T}}^{\text{miss}} > 30$ \GeV\ are applied to mitigate this. The
+latter cut is only applied in the electron channel.
 
 \subsection{2--Lepton Channel Selection}
 \label{sec:2lep-selection}
@@ -492,10 +494,10 @@ two charged leptons. Exactly two \VH-loose leptons of the same lepton flavour
 are required, additionally one of the leptons must pass the \ZH-signal
 requirements. For events with two muons, it is required that the muons are of
 opposite charge. Electron reconstruction suffers from a higher rate of charge
-misidentification and so this requirement is not applied to events with two
-electrons. The di-lepton invariant mass is confined to be around the $Z$ boson
-mass peak, events require $81 < m_{\ell\ell} < 101$ \GeV. These cuts reduce
-multi-jet backgrounds to negligible levels.
+misidentification (of order $10^-2$ in data) and so this requirement is not
+applied to events with two electrons. The di-lepton invariant mass is confined
+to be around the $Z$ boson mass peak, events require $81 < m_{\ell\ell} < 101$
+\GeV. These cuts reduce multi-jet backgrounds to negligible levels.
 
 The presence of two visible leptons in this channel allows for the enhancement
 to $b$-jets momentum resolution to be further improved. By inspecting the $Z\!H\!

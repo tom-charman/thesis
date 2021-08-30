@@ -208,6 +208,8 @@ consistent understanding of the performance of the detector and the
 reconstruction algorithms of Athena. A summary of all of the experimental
 systematic uncertainties used in the analysis can be found in
 table~\ref{tab:expSyst}.
+\clearpage
+\newpage
 \input{07-systematic-errors/experimental-table.tex}
 
 \subsection{Luminosity and Pile-up}
@@ -246,12 +248,14 @@ events recorded in 2017 due to a specific trigger used in this year.
 
 \subsubsection{Lepton trigger}
 
-The nuisance parameter \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is
-used to control the overall uncertainty on the electron trigger. For the muons,
-the two components are considered \texttt{MUON\_EFF\_TrigSystUncertainty} and
-\texttt{MUON\_EFF\_TrigStatUncertainty}, which account for the systematic error
-and the statistical error on scale factor respectively. An up and down variation
-of 1-$\sigma$ are used for all of the aforementioned nuisance parameters.
+\begin{sloppypar}
+  The nuisance parameter \texttt{EL\_EFF\_Trigger\_Total\_1NPCOR\_PLUS\_UNCOR} is
+  used to control the overall uncertainty on the electron trigger. For the muons,
+  the two components are considered \texttt{MUON\_EFF\_TrigSystUncertainty} and
+  \texttt{MUON\_EFF\_TrigStatUncertainty}, which account for the systematic error
+  and the statistical error on scale factor respectively. An up and down variation
+  of 1-$\sigma$ are used for all of the aforementioned nuisance parameters.
+\end{sloppypar}
 
 \subsection{Electrons}
 
@@ -510,13 +514,15 @@ using equation~\ref{eq:acceptance-dr}\footnote{Whilst the priors are obtained
 control the migration of events between the 0-- and 1--lepton channels and the
 migration between the $\Delta R(b, \bar{b})$ regions.
 
-A parameter controlling migration between the two channels considered,
-\texttt{SysWbbNorm\_L0}, is applied to both the 2--jet and 3--jet regions of the
-0--lepton channel. The choice to apply to the 0--lepton channel and not the
-1--lepton channel is made because the 1--lepton channel provides a better
-constraint on the $W+$hf process. Whilst all alternative predictions are
-considered the size of this prior is dominated by the difference between the
-nominal prediction and \textsc{MadGraph}.
+\begin{sloppypar}
+  A parameter controlling migration between the two channels considered,
+  \texttt{SysWbbNorm\_L0}, is applied to both the 2--jet and 3--jet regions of the
+  0--lepton channel. The choice to apply to the 0--lepton channel and not the
+  1--lepton channel is made because the 1--lepton channel provides a better
+  constraint on the $W+$hf process. Whilst all alternative predictions are
+  considered the size of this prior is dominated by the difference between the
+  nominal prediction and \textsc{MadGraph}.
+\end{sloppypar}
 
 Migration between the $\Delta R(b, \bar{b})$ control regions and the signal
 region is controlled by one parameter per control region. Named
@@ -678,22 +684,24 @@ table~\ref{tab:zjets-ptv-extrap} are similar in size to the largest variations
 one would obtain by comparing the nominal prediction to the
 alternatives.\input{07-systematic-errors/zjets-shape-yield-effect}
 
-Induced normalisation effects by the $m_{bb}$ shape are smaller than those
-arising from comparison of the different available predictions. Therefore this
-systematic uncertainty is applied as a shape effect only and an additional
-nuisance parameter is introduced to cover the migration between analysis
-regions. As will be explained in section~\ref{sec:zjets-shapes} it is necessary
-to de-correlate the $m_{bb}$ shape systematic in the lowest $p_{\mathrm{T}}^V$
-bin of the analysis. The nuisance parameter controlling the migration between
-analysis regions in the $m_{bb}$ variable is also de-correlated in that bin.
-These acceptance uncertainties are applied to the CR$_{\text{high}}$ and
-CR$_{\text{low}}$ separately, the nuisance parameter are
-\texttt{SysZbbCRSRExtrapolation\_CRLow}, de-correlated as
-\texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRLow} and
-\texttt{SysZbbCRSRExtrapolation\_CRHigh} de-correlated as
-\texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRHigh}. The determination of the prior
-for these nuisance parameters is dominated by the difference between
-\textsc{Sherpa}~2.2.1 and \textsc{MadGraph}.
+\begin{sloppypar}
+  Induced normalisation effects by the $m_{bb}$ shape are smaller than those
+  arising from comparison of the different available predictions. Therefore this
+  systematic uncertainty is applied as a shape effect only and an additional
+  nuisance parameter is introduced to cover the migration between analysis
+  regions. As will be explained in section~\ref{sec:zjets-shapes} it is necessary
+  to de-correlate the $m_{bb}$ shape systematic in the lowest $p_{\mathrm{T}}^V$
+  bin of the analysis. The nuisance parameter controlling the migration between
+  analysis regions in the $m_{bb}$ variable is also de-correlated in that bin.
+  These acceptance uncertainties are applied to the CR$_{\text{high}}$ and
+  CR$_{\text{low}}$ separately, the nuisance parameter are
+  \texttt{SysZbbCRSRExtrapolation\_CRLow}, de-correlated as
+  \texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRLow} and
+  \texttt{SysZbbCRSRExtrapolation\_CRHigh} de-correlated as
+  \texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRHigh}. The determination of the prior
+  for these nuisance parameters is dominated by the difference between
+  \textsc{Sherpa}~2.2.1 and \textsc{MadGraph}.
+\end{sloppypar}
 
 \subsubsection{Flavour Composition Uncertainties}
 

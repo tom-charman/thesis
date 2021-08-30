@@ -1,16 +1,15 @@
 \chapter{Machine Learning}%
 \label{ch:ml}
 
-The next chapter is somewhat of a diversion from the physics discussed so far.
-It will focus on techniques in machine learning which are referred to
-interchangeably as a Multi-variate Analyses (MVA). These techniques have become
-very widespread in the field, they are used in several of the reconstruction
-algorithms that are used to obtain the events on which the analysis is
-performed. Furthermore an MVA is used to obtain the distribution that acts as
-the final discriminant for the analysis, and machine learning techniques are
-also used to quantify systematic uncertainties on background modelling. The
-algorithms at the core of these techniques are described here before diving into
-specific applications.
+The next chapter will focus on techniques in machine learning which are referred
+to interchangeably as a Multi-variate Analyses (MVA). These techniques have
+become very widespread in the field, they are used in several of the
+reconstruction algorithms that are used to obtain the events on which the
+analysis is performed. Furthermore an MVA is used to obtain the distribution
+that acts as the final discriminant for the analysis, and machine learning
+techniques are also used to quantify systematic uncertainties on background
+modelling. The algorithms at the core of these techniques are described here
+before diving into specific applications.
 
 The two main algorithms used are Boosted Decision Trees (BDTs) and Neural
 Networks (NNs), which will be described in sections~\ref{sec:bdts}
@@ -52,24 +51,21 @@ problem is not circumvented entirely.
 
 \section{Boosted Decision Trees}%
 \label{sec:bdts}
-We will start by discussing a decision tree for a classification problem with
-two classes. Decision trees have a structure as in figure~\ref{fig:bdt}, which
-shows a tree dividing examples into two classes, red and blue.
-\input{04-machine-learning/bdt}
-Each circular node in the tree represents a cut on one of a number of variables
-provided as input to the algorithm. The tree is read top to bottom with each
-node being followed by two edges branching left and right that represent the
-path taken by examples which pass or fail the cut respectively. Square nodes
-represent that the termination criteria have been reached and that events in
-these nodes have been classified according to the colour of the node. The
-variable chosen at each node is optimised in order to maximise a criteria
-related to the separation of classes.  For a problem containing two classes a
-common separation criteria is the Gini index,
-\begin{equation}
-  G = p(1-p),
+Decision trees have a structure as in figure~\ref{fig:bdt}, which shows a tree
+dividing examples into two classes, red and blue.
+\input{04-machine-learning/bdt} Each circular node in the tree represents a cut
+on one of a number of variables provided as input to the algorithm. The tree is
+read top to bottom with each node being followed by two edges branching left and
+right that represent the path taken by examples which pass or fail the cut
+respectively. Square nodes represent that the termination criteria have been
+reached and that events in these nodes have been classified according to the
+colour of the node. The variable chosen at each node is optimised in order to
+maximise a criteria related to the separation of classes. For a problem
+containing two classes a common separation criteria is the Gini index,
+\begin{equation} G = p(1-p),
   \label{eq:gini}
-\end{equation}
-where $p$ is the purity of a chosen class that one wants to maximise.
+\end{equation} where $p$ is the purity of a chosen class that one wants to
+maximise.
 
 A decision tree by itself is able to separate examples into a two classes,
 however a single tree is prone to over-fitting.  The reason that decision trees
@@ -134,15 +130,14 @@ The aforementioned hyper-parameters that control the properties of the model
 come in a few forms for the BDT. They include but are not limited to, the
 maximum tree depth and the number of weak learners to train. The choice of
 boosting algorithm can also be considered a hyper-parameter, gradient boosting
-is chosen for the analysis MVA, which is a change from the previously used
-AdaBoost~\cite{AdaBoost} that is still used in some of the reconstruction
-algorithms.
+has risen in popularity recently but AdaBoost~\cite{AdaBoost} remains popular
+and is still used in some of the reconstruction algorithms.
 
 \section{Neural Networks}%
 
 \label{sec:neural-networks}
 
-Like boosted decision trees neural networks can be described as a function of
+Like boosted decision trees, neural networks can be described as a function of
 input data, weights and hyper-parameters $F(\vec{x}, \vec{w}, \vec{\theta} \,)$.
 Unlike BDTs neural networks can vary a lot more in their structure, the
 hyper-parameters of these algorithms allow for much finer control over the

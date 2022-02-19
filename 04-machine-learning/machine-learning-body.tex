@@ -62,10 +62,10 @@ reached and that events in these nodes have been classified according to the
 colour of the node. The variable chosen at each node is optimised in order to
 maximise a criteria related to the separation of classes. For a problem
 containing two classes a common separation criteria is the Gini index,
-\begin{equation} G = p(1-p),
+\begin{equation} G = 1 - \sum_{i=1}^{C}(p_i)^2,
   \label{eq:gini}
-\end{equation} where $p$ is the purity of a chosen class that one wants to
-maximise.
+\end{equation} where $C$ is the number of classes, in this case two, and $p_i$
+is the probability of an element belonging to class $i \in C$.
 
 A decision tree by itself is able to separate examples into a two classes,
 however a single tree is prone to over-fitting.  The reason that decision trees
@@ -231,3 +231,15 @@ used in this work. In general it would be preferred to use something more
 modern such as adaptive moment estimation or ADAM~\cite{ADAMOpt}. ADAM is a
 variant of the gradient descent algorithm, which is widely used and has spawned
 many other variants~\cite{GDOverview}.
+
+In later sections where boosted decision trees are used to generate a
+representation of a multi-dimensional input space it should be noted that neural
+networks could also serve this purpose. Due to the mathematical formulations of
+both algorithms there are differences in the relationship between adjacent
+points in the input and output spaces. In a boosted decision there is no
+guarantee that adjacent points remain adjacent in the output, whereas for a
+neural network this is guaranteed. This only has a significant impact on creating
+lower-dimensional representations of higher-dimensional inputs in the case where
+there are not gaps in the input distribution, as the case in this work. An
+extension to this work that allows for gaps in the input space would require the
+use of neural networks.

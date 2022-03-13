@@ -42,19 +42,19 @@ three channels at once categorisation is referred to as simply 3--jet or 2--jet.
 
 Events are categorised into a signal region which is straddled either side by
 two control regions. This categorisation is achieved via cuts defined in the
-$\Delta R(b, \bar{b})$~--~$p_{\mathrm{T}}^{V}$ plane, they are chosen to
-maximise the signal purity in the signal region and are shown for the 1--lepton
-channel in figure~\ref{fig:drbb-crs}, and come from a previous iteration of the
-analysis that did not use a machine learning based classifier. In this iteration
-of the analysis~\cite{ObsHbbInternal} the cuts were originally optimised to
-yield a control region pure in $W + hf$ events (which had ~75\% purity), and
-have been adapted to allow for a single set of cuts which can be used in all
-channels of the analysis in the di-jet mass fit, as well as the multi-variate
-fit.
+$\Delta R(b, \bar{b})$~--~$p_{\mathrm{T}}^{V}$ plane, they are shown for the
+1--lepton channel in figure~\ref{fig:drbb-crs}. The cuts are defined in the
+1--lepton channel in order to optimise the number of predicted signal and
+diboson events in the signal region, whilst keeping as many of the predicted
+background events in the other regions. They place 95~\% of predicted signal
+events in the 2--jet signal region, 85~\% in the 3--jet signal region and 90~\%
+of predicted diboson events in the combined signal region.
 \input{06-analysis-strategy/drbb-cuts}
 The regions either side of the signal region are known as the high-$\Delta R(b,
 \bar{b})$ and low-$\Delta R(b, \bar{b})$ control regions, shortened to
-CR$_{\text{high}}$ and CR$_{\text{low}}$ respectively.
+CR$_{\text{high}}$ and CR$_{\text{low}}$ respectively. The composition of the
+resulting regions is discussed further in~\ref{sec:composition} and allows us to
+constrain the modelling of background processes.
 
 \subsection{Top \texorpdfstring{$e \mu$}{e mu} Control Region}%
 \label{sec:topemucr}

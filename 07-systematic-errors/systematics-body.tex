@@ -7,14 +7,14 @@ number of events in a given sample across the entire sample simply changing the
 total number of events. Shape effects change where events lie in a given
 distribution causing events to migrate between bins of a histogram, and
 potentially across boundaries that are used to define analysis regions described
-in~\ref{sec:ana-regions}. Each systematic uncertainty is controlled by a
+in Section~\ref{sec:ana-regions}. Each systematic uncertainty is controlled by a
 nuisance parameter in the profile-likelihood fit. For all Gaussian penalty terms
 the a prior uncertainty is estimated in advance.
 
 A sub-category of normalisation effect is the acceptance effect which deals with
 the normalisation in a particular region or set of regions. The purpose of the
 acceptance uncertainties is to account for any mismodelling in the theoretical
-prediction of the quantities used to categorise events into regions be it the
+prediction of the quantities used to categorise events into regions, be it the
 leptonic channel, jet multiplicity or an analysis region. The priors of these so
 called acceptance uncertainties are calculated using the double ratio, unless
 stated otherwise,
@@ -32,9 +32,9 @@ uncertainties. Rather than impacting the normalisation of an entire background
 in terms of how they are categorised in the analysis plots, for example in
 section~\ref{sec:prefit}, they impact the sub-processes split by flavour of the
 decay products individually. A heavy flavour process is defined as one where the
-two leading jets have flavour $(b,~b)$, $(b,~c)$, $(b,~l)$, or $(c,~c)$,
-this categorisation is often written as hf for short for example when
-considering all heavy flavour sub-process of the $V+$jets background one could
+two leading jets have flavour $(b,~b)$, $(b,~c)$, $(b,~l)$, or $(c,~c)$.
+This categorisation is often written as hf for short, for example when
+considering all heavy flavour sub-processes of the $V+$jets background one could
 write $V+$hf. Flavour composition uncertainties affect the normalisation of one
 of the flavour sub-processes with respect to one of the others, specific details
 will follow under the sections relating to the relevant backgrounds.
@@ -53,7 +53,7 @@ testing of the BDTr method.
 
 The predictions entering into the profile-likelihood fit of the analysis can be
 written as a probability density function (PDF) $p(\vec{x}|\vec{\theta})$,
-where $\vec{x} = [x_{1},..., x_{i}]$ is a vector of observable quantities, with
+where $\vec{x} = [x_{1},..., x_{i}]$ is a vector of observable quantities with
 $N$ elements and $\vec{\theta}$ represents the theoretical parameters of the
 model. The parameters may come from the Standard Model theory or
 phenomenological considerations that must be taken into account to turn that
@@ -73,7 +73,7 @@ uncertainties on the modelling of complex physics processes are. Two such
 methods of comparison will be detailed here, the single dimension
 parameterisation described in section~\ref{sec:1D-reweight} and a
 multi-dimensional parameterisation described in section~\ref{sec:ND-reweight}.
-Following this a hybrid approach which uses both methods will be described in
+Following this, a hybrid approach which uses both methods will be described in
 section~\ref{sec:hybrid-reweight}.
 
 \subsection{Single Dimension Parameterisation}
@@ -100,7 +100,7 @@ chosen from the vector $\vec{x}$. The ratio then becomes
 which can in turn be calculated for as many or as few as the elements of
 $\vec{x}$ as is desired. When the ratio is calculated using only a single
 variable it can still be used to map the $N$ dimensional nominal prediction to
-the alternative, however the mapping is only guaranteed to be successful in the
+the alternative, however, the mapping is only guaranteed to be successful in the
 observable $x_i$ chosen to calculate the ratio. In general agreement between the two
 predictions in the other variables can not be relied upon.
 
@@ -156,7 +156,7 @@ of the $\vec{y}$ is being selected. Once the above approximation is made, the
 steps to generate weights and perform a parameterisation of the shape
 discrepancy between two predictions is the same as in the one dimensional case.
 By placing certain restrictions on $F$ one can turn the approximation into an
-equivalence, this is discussed in~\cite{VHModellingNote2019}, however for what
+equivalence, this is discussed in~\cite{VHModellingNote2019}, however, for what
 is considered here the approximation will be the focus. As mentioned this
 parametrisation will be referred to in the analysis as the BDTr method.
 
@@ -169,7 +169,7 @@ a single strategy. This is achieved by first re-weighting using the
 distributions and proceeding with the $N$--dimensional parametrisation as usual.
 In principle the 1--dimensional re-weighting can be performed a number of times
 sequentially before training the classifier and so therefore a general
-$(N-k)$--dimensional strategy can be formed, however in this analysis the
+$(N-k)$--dimensional strategy can be formed, however, in this analysis the
 1--dimensional re-weighting is only applied once before training.
 
 The hybrid approach yields two parametrisations one parametrising the
@@ -199,7 +199,7 @@ directly the shape of this variable is considered to aid interpretability.
 \section{Experimental Systematic Uncertainties}
 \label{sec:experimental-systs}
 
-This section describes experimental systematic uncertainties, these arise due to
+This section describes experimental systematic uncertainties, which arise due to
 limitations of the hardware discussed in chapter~\ref{ch:detector} and
 reconstruction algorithms described in chapter~\ref{ch:recon}. All of these
 uncertainties are provided by different combined performance (CP) groups and
@@ -235,12 +235,12 @@ respectively~\cite{puTWiki}.
 
 Scale factors are derived for the $E_{\mathrm{T}}^{\text{miss}}$ triggers using
 $W(\mu,\nu)+$jets events as outlined in~\cite{VHObjectNote2019}. Three
-uncertainties are taken into account, the statistical error on the dataset used
+uncertainties are taken into account: the statistical error on the dataset used
 to derived the scale factor \texttt{METTrigStat}, a parameter used to account
 for the choice of physics process and the effect that might have on the
 determination of the scale factor \texttt{METTrigTop} and \texttt{METTrigSumPt}
 which aims to account for dependence of the offline $S_{\mathrm{T}}$ (as defined
-in~\ref{sec:0lep-selection}) on the trigger efficiency. The uncertainty
+in Section~\ref{sec:0lep-selection}) on the trigger efficiency. The uncertainty
 \texttt{METTrigTop} is named as such because it is derived from a comparison of
 the scale factors as calculated with a $t\bar{t}$ sample and compared to the
 nominal sample. The uncertainty relating to $S_{\mathrm{T}}$ is only applied to
@@ -331,14 +331,14 @@ for different sources of energy scale uncertainty.
 
 \subsection{Jets}
 
-A baseline set of parameters controlling uncertainties on jets is available
-however in the analysis a set which is reduced to 23 nuisance parameters using
+A baseline set of parameters controlling uncertainties on jets is available,
+however, in the analysis a set which is reduced to 23 nuisance parameters using
 principal component analysis~\cite{PCA} is used. The baseline set accounts for
 effects due to eta calibration, high-$p_{\mathrm{T}}$ jets, pile-up, flavour
 composition, flavour response, $b$-jets, and punch-through jets. The 23 nuisance
 parameters and a short description of each are displayed in
 table~\ref{tab:expSyst} under the category jets and $b$-tagging where all of the
-relevant nuisance parameters start with \texttt{JET} and
+relevant nuisance parameters start with \texttt{JET}.
 \texttt{JET\_CR\_Flavour\_Composition} represents three independent nuisance
 parameters as explained in its short description. The largest source of
 uncertainty amongst the chosen set come from the jet energy scale and the jet
@@ -408,7 +408,7 @@ of these events such that statistical fluctuations are smaller than in the data.
 In order to achieve this samples are simulated in specific slices of
 max$(p_{\mathrm{T}}^V, H_{\mathrm{T}})$, which is the larger of the
 $p_{\mathrm{T}}$ of the vector boson or the $H_{\mathrm{T}}$ of the event.
-The following slices are used
+The following slices are used:
 \begin{equation*}
   \text{max}(p_{\mathrm{T}}^V, H_{\mathrm{T}}) =
   [0\text{--}70, 70\text{--}140, 140\text{--}280,
@@ -468,10 +468,10 @@ account the different hadron filter efficiencies, is scaled to the NNLO
 prediction obtaining scaling factor of $k_{\text{NNLO}}^{\text{QCD}} = 0.9702$.
 
 For $Z+$jets some subtleties must be considered. For $Z\to\ell\ell +$jets the
-cut at generator level, $m_{\ell\ell}>40$ \GeV, must be taken into account. The
-NNLO calculation uses a cut of $66<m_{\ell\ell}<116$ \GeV, which can be applied
-at before reconstruction to the samples of this analysis in order to get the
-scaling correct as follows
+selection criteria at generator level, $m_{\ell\ell}>40$ \GeV, must be taken
+into account. The NNLO calculation uses a cut of $66<m_{\ell\ell}<116$ \GeV,
+which can be applied before reconstruction to the samples of this analysis in
+order to get the scaling correct as follows
 \begin{equation}
   k_{\text{NNLO}}^{\text{QCD}} =
   \frac{\sigma_{\text{NNLO}}(66<m_{\ell\ell}<116\,{\GeV})}%
@@ -479,7 +479,7 @@ scaling correct as follows
   \label{eq:nnlo-vjets-k}
 \end{equation}
 hence the scaling factor is found to be $0.9751$. For $Z \to \nu\nu$ +jets the
-NNLO no theoretical cross section is available. Values from the
+NNLO theoretical cross section is available. Values from the
 Particle Data Group (PDG)~\cite{PDG} are used to correct for the difference
 between the $Z \to \nu\nu$ and $Z \to \ell\ell$ branching ratios, and the NNLO
 cross section is used without any mass cuts and with the $Z/\gamma^*$
@@ -496,7 +496,7 @@ $W+$jets background present in the 2--lepton channel is negligible. A summary of
 all of the uncertainties for this background can be found in
 table~\ref{tab:wjets_systematics}.
 
-The nominal and alternative predictions described in~\ref{sec:vjets} are used to
+The nominal and alternative predictions described in Section~\ref{sec:vjets} are used to
 in the determination of all of the values described in the following. 
 
 \subsubsection{Normalisation and Acceptance Uncertainties}
@@ -530,7 +530,7 @@ region is controlled by one parameter per control region. Named
 is applied in each of the control regions, and is also correlated across jet
 multiplicity and leptonic channel. The shape uncertainty which uses the BDTr
 method discussed in section~\ref{sec:ND-reweight} induces migration effects
-across the analysis regions, however that systematic is taken as a shape only
+across the analysis regions, however, that systematic is taken as a shape only
 effect. The migrations induced by the shape uncertainty agree well with those
 derived from comparisons between nominal and alternative predictions, and the
 sign of the final priors is determined by migration due to the shape
@@ -543,13 +543,13 @@ the $p_{\mathrm{T}}^V$ shape uncertainty.
 
 \subsubsection{Flavour Composition Uncertainties}
 
-As introduced at the start of this chapter the $W+$jets background has a $W+$hf
+As introduced at the start of this chapter, the $W+$jets background has a $W+$hf
 component that is comprised of the $bb$, $bc$, $bl$ and $cc$ sub-components. The
 fractional contribution of each of these sub-components is detailed in
 table~\ref{tab:whf-comp}.
 \input{07-systematic-errors/whf-components}
 Flavour composition uncertainties are computed using
-equation~\ref{eq:acceptance-dr} for each sub-component, the calculated priors
+equation~\ref{eq:acceptance-dr} for each sub-component, and the calculated priors
 are summarised in tables~\ref{tab:wjets-flavour-comp} separately in the 0-- and
 1--lepton channels\footnote{Whilst these numbers were calculated in this
   iteration of the analysis, incomplete availability of \textsc{Sherpa} internal
@@ -565,7 +565,7 @@ imposed.
 \subsubsection{Shape Uncertainties}
 
 The hybrid $(N-1)$--dimensional parametrisation technique described
-in~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
+in Section~\ref{sec:hybrid-reweight} is used to generate uncertainties on the shape of
 the distributions of the $W+$jets background. The variable that has been
 factorised out is $p_{\mathrm{T}}^V$ and so there are nuisance parameters which
 control the $p_{\mathrm{T}}^V$ shape in each of the 2-- and 3--jet categories as
@@ -653,13 +653,13 @@ Several normalisation and acceptance uncertainties are considered for the Z +
 jets background, they are summarised in table~\ref{tab:zjetsnorm}.
 \input{07-systematic-errors/zjets-norm-table}
 One nuisance parameter is used for each of the $Z+l$ and $Z+cl$ components as
-they are sub-dominant accounting for less than 1~\% of the total background in
+they are sub-dominant accounting for less than 1\% of the total background in
 any region due to the requirement of two $b$-jets, they are called
 \texttt{SysZlNorm} and \texttt{SysZclNorm} respectively. These normalisations
 are each correlated across all regions.
 
 The $Z+$hf process has a large normalisation uncertainty and so separate
-nuisance parameters are used for the 2--jet and 3--jet regions, these are called
+nuisance parameters are used for the 2--jet and 3--jet regions, called
 \texttt{norm\_Zbb\_J2} and \texttt{norm\_Zbb\_J3} respectively. These parameters
 are heavily constrained in the fit due to a very large number of $Z+$jets events
 in the 0-- and 2--lepton signal regions and due to high $Z+$jets purity
@@ -669,7 +669,7 @@ Nuisance parameters are introduced to the model migration of events between
 regions. The priors for these parameters are calculated using the double ratio
 in equation~\ref{eq:acceptance-dr}. Firstly a parameter is introduced in order
 to account for the difference in the number of $Z+$jets in the 0-- and 2--lepton
-channels, is it called \texttt{SysZbbNorm\_0L} and is applied to $Z+$hf events
+channels. It is called \texttt{SysZbbNorm\_0L} and is applied to $Z+$hf events
 in the 0--lepton channel as the 2--lepton channel has a higher purity of Z +
 jets events and therefore yields a better constraint on the normalisation. The
 size of the prior as calculated by comparing \textsc{Sherpa}~2.2.1 and
@@ -694,7 +694,7 @@ alternatives.\input{07-systematic-errors/zjets-shape-yield-effect}
   bin of the analysis. The nuisance parameter controlling the migration between
   analysis regions in the $m_{bb}$ variable is also de-correlated in that bin.
   These acceptance uncertainties are applied to the CR$_{\text{high}}$ and
-  CR$_{\text{low}}$ separately, the nuisance parameter are
+  CR$_{\text{low}}$ separately. The nuisance parameter are
   \texttt{SysZbbCRSRExtrapolation\_CRLow}, de-correlated as
   \texttt{SysZbbCRSRextrap\_BMin75\_L2\_CRLow} and
   \texttt{SysZbbCRSRExtrapolation\_CRHigh} de-correlated as
@@ -745,20 +745,18 @@ that events in the range are removed from all distributions considered.
 
 This method is used to derived shape uncertainties on the $p_{\mathrm{T}}^V$ and
 $m_{bb}$ variables as they are considered to be the most important in the
-analysis. The
-
-uncertainty is used in the 0--lepton channel which adds an additional
-complication. As mentioned in section~\ref{sec:2lep-selection} a kinematic fit
-is used in order to correct the $b$-jet momentum and these corrected jets are then
-used in the formulation of $m_{bb}$ in the 2--lepton channel. This means that
-$m_{bb}$ in the 0-- and 2--lepton channels refers to a different quantity and so
-a shape uncertainty derived on one may not be suitable to use on the other. In
-order to get around this issue the shape uncertainty for $m_{bb}$ is derived on
-a variable that is calculated using globally sequentially calibrated (GSC) jets
-and is called GSC $m_{bb}$, these jets have not undergone the kinematic fit
-procedure and so ought to match more closely between the two leptonic channels.
-The aforementioned veto on events in the range $80 \GeV < m_{bb} < 140 \GeV$ is
-therefore actually applied based on GSC $m_{bb}$.
+analysis. The uncertainty is used in the 0--lepton channel which adds an
+additional complication. As mentioned in section~\ref{sec:2lep-selection} a
+kinematic fit is used in order to correct the $b$-jet momentum and these
+corrected jets are then used in the formulation of $m_{bb}$ in the 2--lepton
+channel. This means that $m_{bb}$ in the 0-- and 2--lepton channels refers to a
+different quantity and so a shape uncertainty derived on one may not be suitable
+to use on the other. In order to get around this issue the shape uncertainty for
+$m_{bb}$ is derived on a variable that is calculated using globally sequentially
+calibrated (GSC) jets and is called GSC $m_{bb}$, these jets have not undergone
+the kinematic fit procedure and so ought to match more closely between the two
+leptonic channels. The aforementioned veto on events in the range $80 \GeV <
+m_{bb} < 140 \GeV$ is therefore actually applied based on GSC $m_{bb}$.
 
 The plots in figures~\ref{fig:zjets-mbb-shapes} and~\ref{fig:zjets-ptv-shapes}
 show the nominal \textsc{Sherpa}~2.2.1 prediction of the $Z+$jets background in
@@ -767,27 +765,28 @@ CR$_{\text{high}}$ plotted against the subtracted data in the $p_{\mathrm{T}}^V$
 $m_{bb}$ variables respectively.
 \input{07-systematic-errors/zjets-mbb-shape-plots}
 \input{07-systematic-errors/zjets-ptv-shape-plots}
-The subtracted data is the data with a template comprised of the data from the
-top $e\mu$ CR and the nominal predictions of all backgrounds other than $Z+$jets
-subtracted from it. Plots are shown in the 2--jet, $\geq$3--jet and $\geq$2--jet
+The subtracted data is the data minus a template comprised of the data from the
+top $e\mu$ CR and the nominal predictions of all backgrounds other than
+$Z+$jets. Plots are shown in the 2--jet, $\geq$3--jet and $\geq$2--jet
 categories (the sum of the two jet multiplicity based categories in the
-analysis) and are plotted across all $p_{\mathrm{T}}^V$ bins of the analysis. The shape
-uncertainty is derived by taking a fit to the ratio in the bottom pane of each
-plot, the fit defines the 1-$\sigma$ up variation of the Gaussian constrained
-nuisance parameter, the symmetrised version of the fit (not displayed) defines
-the 1-$\sigma$ down variation. The $\geq$2--jet region is used to calculate the
-prior for the systematic uncertainties \texttt{SysZPtV} and \texttt{SysZMbb}
-that are applied to all $Z+$jets events in the 0-- and 2--lepton channels.
+analysis) and are plotted across all $p_{\mathrm{T}}^V$ bins of the analysis.
+The shape uncertainty is derived by taking a fit (with linear or logarithmic
+functional form as written on each plot) to the ratio in the bottom pane of each
+plot. The fit defines the 1-$\sigma$ up variation of the Gaussian
+constrained nuisance parameter and the symmetrised version of the fit (not
+displayed) defines the 1-$\sigma$ down variation. The $\geq$2--jet region is used
+to calculate the prior for the systematic uncertainties \texttt{SysZPtV} and
+\texttt{SysZMbb} that are applied to all $Z+$jets events in the 0-- and
+2--lepton channels.
 
 The nuisance parameters are correlated across leptonic channels, however as can
 be seen by inspection of figure~\ref{fig:zjets-mbb-shapes} the fitted shape does
 not cover the discrepancy between the subtracted data and the prediction at low
 values of $m_{bb}$. Investigating the plots in
 figure~\ref{fig:zjets-mbb-shape-ptv-range} shows that this discrepancy is coming
-from the $75~\GeV < p_{\mathrm{T}}^V < 150~\GeV$ analysis bin, therefore the aforementioned
-nuisance parameters are decorrelated in this bin. This is so that the affect of
-opposite sign deviations between data and the prediction do not cancel each
-other out.
+from the $75~\GeV < p_{\mathrm{T}}^V < 150~\GeV$ analysis bin, therefore the
+aforementioned nuisance parameters are decorrelated in this bin to stop the
+effect of opposite sign deviations between data and the prediction cancelling.
 \input{07-systematic-errors/zjets-mbb-shapes-ptv-range}
 The decorrelated parameters are named \texttt{SysZPtV\_BMin75\_L2} and
 \texttt{SysMbb\_BMin75\_L2}. A summary of the $Z+$jets shape uncertainties is
@@ -796,7 +795,7 @@ found in table~\ref{tab:zjets-shapes}.
 
 The fits to the ratios of the relevant quantities are performed on data in the
 0--1~\TeV\ range. The functional form of the fit to the $ p_{\mathrm{T}}^V$
-ratio is logarithmic, whereas the GSC $m_{bb}$ ratio is linear and it's value at
+ratio is logarithmic, whereas the GSC $m_{bb}$ ratio is linear and its value at
 300~\GeV\ is levelled to the end of the range. This is to make sure that the
 shape uncertainty is not overly influenced by events far from the Higgs mass.
 Similarly the binning of the GSC $m_{bb}$ histograms is chosen to give the fit
@@ -873,15 +872,16 @@ equation~\ref{eq:acceptance-dr}.
 
 \begin{sloppypar}
   Flavour composition uncertainties are derived using ratios of flavour
-  sub-components as for other backgrounds, however given that only the $bb$ and
-  $bc$ sub-components are non-negligible so the remainder of sub-components are
-  combined into $\text{Oth}~=~[bl, cc, cl, ll]$. Nuisance parameters are therefore
-  implemented for $bc$ and Oth only with $bb$ on the bottom of the ratio as
-  before. Given that neither the matrix element nor parton shower variation
-  dominates the uncertainty heavily, nuisance parameters are implemented for each
-  in turn, in total the nuisance parameters controlling flavour composition
-  uncertainty are \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC},
-  \texttt{SysTTbarOthMeACC}, \texttt{SysTTbarOthPSACC}.
+  sub-components as for other backgrounds, however, given that only the $bb$ and
+  $bc$ sub-components are non-negligible, the remainder of sub-components are
+  combined into $\text{Oth}~=~[bl, cc, cl, ll]$, where $\text{Oth}$ is short for
+  other. Nuisance parameters are therefore implemented for $bc$ and Oth only
+  with $bb$ on the bottom of the ratio as before. Given that neither the matrix
+  element nor parton shower variation dominates the uncertainty heavily,
+  nuisance parameters are implemented for each in turn. In total the nuisance
+  parameters controlling flavour composition uncertainty are
+  \texttt{SysTTbarbcMeACC}, \texttt{SysTTbarbcPSACC}, \texttt{SysTTbarOthMeACC},
+  \texttt{SysTTbarOthPSACC}.
 \end{sloppypar}
 
 \subsubsection{Shape Uncertainties}
@@ -901,11 +901,11 @@ samples which turns out to be the comparison of
 uncertainty is not clearly dominated by one comparison of generators and
 therefore multiple nuisance parameters enter to encapsulate all the potential
 sources of uncertainty. Differences due to the matrix element calculation are
-correlated in leptonic channel but decorrelated in 2-- and 3--jet categories as
+correlated in each leptonic channel but decorrelated in 2-- and 3--jet categories as
 \texttt{SysBDTr\_ttbar\_ME\_J2} and \texttt{SysBDTr\_ttbar\_ME\_J3}
 respectively. For the parton shower variation the uncertainties are correlated
-in jet multiplicity but decorrelated in leptonic channel and also in the
-1--lepton channel decorrelated in $p_{\mathrm{T}}^V$ bin, the nuisance parameters in
+in jet multiplicity but decorrelated in each leptonic channel and also in the
+1--lepton channel decorrelated in each $p_{\mathrm{T}}^V$ bin, the nuisance parameters in
 question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 \texttt{SysBDTr\_ttbar\_PS\_Bmin150\_L1}, and \texttt{SysBDTr\_ttbar\_PS}.
 
@@ -915,7 +915,7 @@ question are \texttt{SysBDTr\_ttbar\_PS\_L0},
 As mentioned in section~\ref{sec:topemucr} the top $e\mu$ control region is
 constructed and studied in the analysis in order to get a handle on top quark
 backgrounds in the 2--lepton channel. Due to the flavour symmetry of the
-$t\bar{t}$ and $$Wt$$ processes the shape of the top quark backgrounds in the top
+$t\bar{t}$ and $Wt$ processes the shape of the top quark backgrounds in the top
 $e\mu$ control region and the SR ought to be the same. In order to correct for
 any differences in normalisation a scale factor $\alpha$ is derived as follows
 \begin{align}
@@ -932,11 +932,11 @@ be used as a template for top quark backgrounds in the SR.
 
 Using the data driven estimate of the background eliminates the need to apply
 the experimental systematics detailed in section~\ref{sec:experimental-systs}.
-It also means we don't have to consider theoretical modelling uncertainties
+It also means we do not have to consider theoretical modelling uncertainties
 associated with any Monte-Carlo generator. Note that systematic uncertainties on
 the Monte-Carlo prediction used to derive the scale factor $\alpha$ cancel.
 
-In order to check the validity of this approach a data versus prediction check
+In order to check the validity of this approach, a data versus prediction check
 was carried out as part of series of wider checks~\cite{VHModellingNote2019}.
 This check includes the data from the top $e\mu$ control region as the
 prediction for both $t\bar{t}$ and single top events. The plots showing the
@@ -945,7 +945,7 @@ two figures.
 \input{07-systematic-errors/ttbar-data-driven-check}
 In order to see how the shape is modelled the scale factors controlling
 normalisation of the other backgrounds have been taken from the previous
-iteration of the analysis and applied, in this iteration there was no boundary
+iteration of the analysis and applied. In this iteration there was no boundary
 at 250~\GeV\ and therefore $p_{\mathrm{T}}^V$ bins 75--150~\GeV\ and
 $\geq$150~\GeV\ are shown. The previous iteration also did not categorise events
 into $\Delta R(b,b)$ based regions and therefore the sum of all the $\Delta
@@ -967,7 +967,7 @@ table~\ref{tab:small_bkg_systematics}.
 \input{07-systematic-errors/small-bkg-table.tex}
 All of these systematic uncertainties are based on the comparison of different
 Monte-Carlo predictions, apart from in the case of the multi-jet background
-which is estimated using a data-driven process, details of the nominal
+which is estimated using a data-driven process. Details of the nominal
 predictions for diboson are found in table~\ref{tab:diboson-nom}, and the
 alternative predictions are found in table~\ref{tab:diboson-alt}. Details of all
 single-top predictions are found in table~\ref{tab:st-nom-alt}.
@@ -1011,7 +1011,7 @@ of $VZ$ events in the 2--jet category, one to control migration of $VZ$ events
 between the 2-- and 3--jet categories, one that controls acceptance changes due
 to the veto based on the total number of jets in any $VZ$ event, and one that
 controls the acceptance of $gg$ initiated $ZZ$ events. Shape uncertainties are
-considered, for variations due to the matrix element calculation and for
+considered for variations due to the matrix element calculation and for
 variations due to the underlying events and parton shower calculations, for the
 $p_{\mathrm{T}}^V$ and $m_{bb}$ variables, totalling four parameters.
 
@@ -1044,7 +1044,7 @@ The majority of these uncertainties account for migration between STXS bins
 Parameters are decorrelated for each STXS bin boundary (75, 150, 250, 400)~\GeV\
 and for the $q\bar{q}$ and $gg$ initiated processes. Similarly there are
 parameters that control for migration at the relevant $N_{\text{jet}} -
-N_{H\text{jet}}$ boundaries that are decorrelated in the same way, these
+N_{H\text{jet}}$ boundaries that are decorrelated in the same way. These
 boundaries come from the separations in the STXS scheme based on the number of
 additional jets in an event beyond the two $b$-jets coming from the Higgs boson,
 as per the previous STXS measurement~\cite{STXSpaper}. Additionally

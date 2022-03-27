@@ -120,22 +120,22 @@ relativity~\cite{Einstein:special}. The aim of the idea was to unify the then
 inconsistent theories of Maxwell's electromagnetism and Newtonian mechanics. The
 result of Einstein's work was a theory of motion which agreed with the
 predictions of Newtonian mechanics at velocities much smaller than the speed of
-light but whose predictions were accurate also at much higher velocities (for
-which Newtonian predictions fail). A consequence of special relativity is that
+light but whose predictions were accurate also at much higher velocities, for
+which Newtonian predictions fail. A consequence of special relativity is that
 it demands that any equation of motion must be invariant under Lorentz
-transformations, at least in terms of the formulation of new theories is
-concerned. Many physical phenomena predicted by special relativity could be
-considered of higher consequence in general, for example the phenomena of length
+transformations. Many physical phenomena predicted by special relativity could be
+considered of high consequence in general, for example the phenomena of length
 contraction, time dilation, energy-mass equivalence and the universal speed
-limit (equal to the speed of light in vacuum), all of which are extensively
+limit equal to the speed of light in vacuum, all of which have been extensively
 scrutinised experimentally ~\cite{sr-tests-1, sr-tests-2, sr-tests-3,
 sr-tests-4, sr-tests-5, sr-tests-6, sr-tests-7}. It is the Lorentz
-transformation however that should be kept in mind for the following discussion,
-the transformation may be written as
+transformation however that should be kept in mind for the following discussion.
+The transformation may be written as
 \begin{equation}
   \begin{split}
-    \begin{aligned}[t] &t'&=&\;\;\;\gamma(t -vx/c^{2})\\ &x'&=&\;\;\;\gamma(x -
-vt)\\ \text{with } &\gamma&=&\;\;\;\frac{1}{\sqrt{1 - v^{2}/c^{2}}},
+    \begin{aligned}[t] &t'&=&\;\;\;\gamma(t -vx/c^{2}),\\
+      &x'&=&\;\;\;\gamma(x - vt),\\
+      \text{with } &\gamma&=&\;\;\;\frac{1}{\sqrt{1 - v^{2}/c^{2}}},
     \end{aligned}
   \end{split}
   \label{eq:lorentz-transform}
@@ -153,24 +153,24 @@ universe forever. His famous equation
   \label{eq:schrodinger} i\hbar\frac{\partial}{\partial t}\Psi(\vec{x}, t) =
 \Bigg(\frac{-\hbar^{2}}{2m}\nabla^{2} + V(\vec{x}, t) \Bigg)\Psi(\vec{x}, t),
 \end{equation} describes the states of particles as wave-functions $\Psi$ which
-can only be interpreted in a probabilistic manner and contains Planck's constant
+can only be interpreted in a probabilistic manner and contains Planck's constant,
 the quantum of action. This work had many consequences including the
 quantisation of the values of measured observables (meaning they can only take
 discrete values) and the descriptions of particles as waves.
 
 It was the aim of Paul Dirac to make the Schr\"odinger equation Lorentz
 invariant and thus provide a more complete description of quantum systems. Along
-the way he came to the realisation that in order for his equation to satisfy his
-needs the wave-function had to be replaced with a four component spinor ($\psi$)
-and the introduction of matrices known now as the Dirac matrices (labeled
-$\gamma^{\mu} \text{ with } \mu=0,1,2,4$) was required. Though not the form he
-originally wrote down Dirac's Lagrangian density takes the form
-  \begin{equation}
+the way he came to the realisation that in order for his equation to satisfy
+Lorentz invariance the wave-function had to be replaced with a four component
+spinor ($\psi$) and the introduction of matrices known now as the Dirac matrices
+(labeled $\gamma^{\mu} \text{ with } \mu=0,1,2,4$) was required. Though not the
+form he originally wrote down, Dirac's Lagrangian density takes the form
+\begin{equation}
     \label{eq:dirac} \mathcal{L}_{Dirac} =
 \bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi,
-  \end{equation} where the repeated up and down indices are implicitly summed
-over ($\partial_{\mu}$ represents the partial derivative taken with respect to a
-spatial coordinate $\mu = 1,2,3$ or time $\mu = 0$).
+\end{equation} where the repeated up and down indices are implicitly summed
+over $\partial_{\mu}$ represents the partial derivative taken with respect to a
+spatial coordinate $\mu = 1,2,3$ or time $\mu = 0$.
 
 \section{Quantum Electrodynamics}
 
@@ -195,7 +195,7 @@ transforms as
 resulting from the derivative of the transformed spinor. Instead let us change
 the derivative to the gauge covariant derivative
 \begin{equation}
-  \label{eq:covariant-em} D_\mu = \partial_{\mu} + ieA_{\mu}
+  \label{eq:covariant-em} D_\mu = \partial_{\mu} + ieA_{\mu},
 \end{equation} where we interpret $A_{\mu}$ as the photon field, with coupling
 constant $e$, parametrising the interaction strength. The field is also referred
 to as the electromagnetic gauge field since it arrives during the process of
@@ -235,7 +235,7 @@ Putting everything together we can define the Lagrangian for QED as
 \section{Quantum Chromodynamics}
 
 Quantum Chromodynamics (QCD) is the theory of the strong force. Its
-mathematical formulation is similar to that of QED. Except the gauge group for
+mathematical formulation is similar to that of QED, except the gauge group for
 QCD is $SU(3)_C$ where the $C$ denotes that the force is associated with colour
 charge. As previously discussed the eight generators of the group are associated
 with the eight gluons of the Standard Model. The generators are present in the
@@ -256,15 +256,15 @@ which has been discussed previously. Quark confinement is the reason for many of
 the complications that arise when trying to detect certain particles in a
 particle detector such as ATLAS. Specifically, quarks and gluons that are
 produced in collisions undergo a process called hadronisation whereby they
-transition from their coloured states to colour singlets. Energy present in this
-process results in the creation of lots of different states, some which decay to
-leptons, with the overall process producing a roughly conical shower of
-particles known as a jet.
+transition from their coloured states to colour singlets, producing a roughly
+conical shower of particles known as a jet. Energy present in this process
+results in the creation of lots of different states, some of which decay to
+leptons.
 
 \section{Electroweak theory}
 
 The Glashow-Salam-Weinberg model of electroweak interactions~\cite{Glashow:1959,
-Salam:1959, Weinberg:1967} describes the weak force and electromagnetism as a
+Salam:1968, Weinberg:1967} describes the weak force and electromagnetism as a
 quantum field theory, which is gauge invariant under transformations that are
 elements of $SU{(2)}_{L} \times U{(1)}_{Y_{W}}$. As previously mentioned the $L$
 and $Y_{W}$ subscripts denote that the gauge groups in the direct product that
@@ -279,7 +279,7 @@ under $SU(2)$ is given by
 $\sigma_i\text{ with }i=1,2,3$, a familiar representation of $SU(2)$ generators.
 Constructing a gauge covariant derivative for the full transformation under
 $SU(2) \times U(1)$ requires the addition of new fields analogous to the photon
-field from QED, the new derivative takes the form
+field from QED. The new derivative takes the form
 \begin{equation}
   \label{eq:ew-derivative} D_{\mu} = \partial_{\mu} - i
 \frac{g_1}{2}Y_{W}B_{\mu} - i\frac{g_2}{2}\sigma_{i}W_{\mu}^{i},
@@ -314,7 +314,7 @@ multiplication with one of two corresponding projection operators defined as
     \end{aligned}
   \end{split}
 \end{equation} with $\gamma^{5} = i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$,
-where $\gamma^{\mu}$ are the Dirac matrices, like so
+where $\gamma^{\mu}$ are the Dirac matrices:
 \begin{equation}
   \label{eq:chiral-fermions}
   \begin{split}
@@ -323,7 +323,7 @@ where $\gamma^{\mu}$ are the Dirac matrices, like so
   \end{split}
 \end{equation} It is known that the weak neutral current and the electromagnetic
 force both interact with particles of left and right handed chirality.
-Spontaneous symmetry breaking, has the effect of rotating the plane defined by
+Spontaneous symmetry breaking has the effect of rotating the plane defined by
 the $B_\mu$ and $W_\mu^3$ fields into the physical fields we see in nature
 today. The mixing of the fields due to this rotation takes the form
 \begin{equation}
@@ -335,10 +335,10 @@ today. The mixing of the fields due to this rotation takes the form
   \end{pmatrix}
   \begin{pmatrix} B_\mu \\ W_\mu^3
   \end{pmatrix},
-\end{equation} where $\theta_W$ the Weinberg angle parametrises the amount of
+\end{equation} where $\theta_W$ the weak mixing angle parametrises the amount of
 mixing. This picture shows that unification of QED, up to the inclusion of the
 two coupling constants, and a description of the weak force has been achieved.
-Although it at first seems like the $U(1)_{EM}$ gauge group is not present in
+At first seems like the $U(1)_{EM}$ gauge group is not present in
 $SU(2)_{L} \times U(1)_{Y_{W}}$ gauge group of electroweak theory it has been
 shown~\cite{halzen} that the QED gauge symmetry is recovered by spontaneous
 symmetry breaking. Also the $Y_W$ subscript in the gauge group represents weak
@@ -420,7 +420,7 @@ rest of this report is a Higgs boson decaying to a pair of $b$-quarks, denoted
 Given that the focus here is on vector boson associated production
 of a Higgs boson it is also important to consider the decay of the vector boson.
 Three possible scenarios are represented in figure~\ref{fig:feyn-vhbb}, namely
-the situations where the vector boson decays to 1, 2 or 3 charged leptons and
+the situations where the vector boson decays to 0, 1 or 2 charged leptons and
 the appropriate number of neutrinos. \input{02-phys-theory/feyn-vhbb} It is
 these leptonic decay modes that motivate the reason for studying this production
 mechanism as opposed to one of the more common ones. The issue with looking at

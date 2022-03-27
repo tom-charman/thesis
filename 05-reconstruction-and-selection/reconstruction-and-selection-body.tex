@@ -3,9 +3,9 @@
 
 At the top level events are required to have one Higgs boson candidate and one
 vector boson candidate. In all cases a Higgs boson candidate is comprised of two
-$b$-jets. More on the jet collection and $b$-tagging strategy used in
+$b$-jets. More on the jet collection and $b$-tagging strategy in
 section~\ref{sec:jets}. Vector boson candidates are characterised by a number of
-different decay products defined in section~\ref{sec:lepton}, these decay
+different decay products defined in section~\ref{sec:lepton}. These decay
 products trigger the recording of events, specific triggers used are discussed
 in section~\ref{sec:triggers}. Reconstruction of basic quantities as well as
 higher level algorithms such as overlap removal are handled by Athena and the
@@ -24,7 +24,7 @@ chapter~\ref{ch:systematics}).
 central collaboration software framework Athena before entering the analysis
 level data processing. \input{05-reconstruction-and-selection/data-flow-chart}
 Athena is responsible for the steps shown in figure~\ref{fig:data-flow}. As can
-be seen in the figure Athena processes both data recorded from collisions and
+be seen in the figure, Athena processes both data recorded from collisions and
 Monte-Carlo simulated predictions. Steps up to and including reconstruction are
 required to transform the raw or simulated read-out of the detector into what
 are known as physics objects. These physics objects correspond to ultra-violet
@@ -43,11 +43,11 @@ carried out based on a loose selection criteria.
 DxAODs are the usual starting point for analysis level software, in the case of
 this analysis the CxAOD Framework. As in in figure~\ref{fig:cxaod-flow}
 \input{05-reconstruction-and-selection/cxaod-flow}
-The CxAOD Framework has two major modules the Maker and the Reader. The job of
+The CxAOD Framework has two major modules, the Maker and the Reader. The job of
 the Maker is to further slim the data by performing pre-selection cuts and also
-to apply calibrations which will be detailed below, the output of the Maker is
+to apply calibrations which will be detailed below. The output of the Maker is
 called a Calibrated xAOD (CxAOD). The Reader takes a CxAOD as input and performs
-the analysis event selection, it can output histograms or $N$-tuples.
+the analysis event selection; it can output histograms or $N$-tuples.
 
 The Maker applies the selections of each of the three analysis channels, defined
 in section~\ref{sec:selection}. CxAODs are produced separately for each of the
@@ -68,7 +68,7 @@ channel. There are two channels for the study of \ZHbb\ decays, the
 $Z~\rightarrow~\ell\ell$.
 
 Multiple classifications of lepton are defined in order to categorise events into the
-individual channels of the analysis, these are called \VH-loose and \VH-signal
+individual channels of the analysis, called \VH-loose and \VH-signal
 leptons (which are broken down into \WH and \ZH), channels are defined as
 disjoint sets by requiring different numbers of both lepton categories. These
 classifications are defined in table~\ref{tab:vh-leptons}.

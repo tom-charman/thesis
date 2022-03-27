@@ -1,9 +1,9 @@
 \chapter{Machine Learning}%
 \label{ch:ml}
 
-The next chapter will focus on techniques in machine learning which are referred
-to interchangeably as a Multi-variate Analyses (MVA). These techniques have
-become very widespread in the field, they are used in several of the
+This chapter will focus on techniques in machine learning which are referred
+to interchangeably as Multi-variate Analyses (MVA). These techniques have
+become widespread in the field. They are used in several of the
 reconstruction algorithms that are used to obtain the events on which the
 analysis is performed. Furthermore an MVA is used to obtain the distribution
 that acts as the final discriminant for the analysis, and machine learning
@@ -33,12 +33,12 @@ $\vec{\theta}$ as follows
   F(\vec{x}, \vec{w}, \vec{\theta} \,) = \vec{y},
   \label{eq:ml-general}
 \end{equation}
-where $\vec{y}$ is a vector whose outputs correspond to each class in a
+where $\vec{y}$ is a vector whose elements correspond to each class in a
 classification problem. If the algorithm is set up for a regression problem then
 the output will just be one number. The hyper-parameters control the behaviour
 of the algorithm in question and are set by hand in advance of training.
 Training either algorithm involves an iterative process where at each iteration
-the function is evaluated for the current set of weights, the outputs are
+the function is evaluated for the current set of weights, and the outputs are
 compared against some truth labels $\vec{t}$ via the computation of a loss
 function. Based on the value of the loss function the weights are then updated
 according to the given algorithm. It is therefore vital that firstly these truth
@@ -53,25 +53,26 @@ problem is not circumvented entirely.
 \label{sec:bdts}
 Decision trees have a structure as in figure~\ref{fig:bdt}, which shows a tree
 dividing examples into two classes, red and blue.
-\input{04-machine-learning/bdt} Each circular node in the tree represents a cut
-on one of a number of variables provided as input to the algorithm. The tree is
-read top to bottom with each node being followed by two edges branching left and
-right that represent the path taken by examples which pass or fail the cut
-respectively. Square nodes represent that the termination criteria have been
-reached and that events in these nodes have been classified according to the
-colour of the node. The variable chosen at each node is optimised in order to
-maximise a criteria related to the separation of classes. For a problem
-containing two classes a common separation criteria is the Gini index,
+\input{04-machine-learning/bdt} Each circular node in the tree represents
+selection criteria on one of a number of variables provided as input to the
+algorithm. The tree is read top to bottom with each node being followed by two
+edges branching left and right that represent the path taken by examples which
+pass or fail the cut respectively. Square nodes represent that the termination
+criteria have been reached and that events in these nodes have been classified
+according to the colour of the node. The variable chosen at each node is
+optimised in order to maximise a criteria related to the separation of classes.
+For a problem containing two classes a common separation criteria is the Gini
+index,
 \begin{equation} G = 1 - \sum_{i=1}^{C}(p_i)^2,
   \label{eq:gini}
 \end{equation} where $C$ is the number of classes, in this case two, and $p_i$
 is the probability of an element belonging to class $i \in C$.
 
-A decision tree by itself is able to separate examples into a two classes,
-however a single tree is prone to over-fitting.  The reason that decision trees
+A decision tree by itself is able to separate examples into a two classes
+however, a single tree is prone to over-fitting.  The reason that decision trees
 are susceptible to this is that if two variables yield a similar separation
 criteria then a fluctuation in the training data may lead to the choice of one
-variable over another for a particular node, this choice will lead to a very
+variable over another for a particular node. This choice will lead to a very
 different tree structure than if the fluctuation were not present.
 
 In order to mitigate the over-fitting tendencies of decision trees they are
@@ -81,7 +82,7 @@ decision trees are often referred to as random forests. Boosting works by
 training a sequence of trees and then weighting misclassified events from a tree
 so that they have more influence over the structure of the next tree in the
 sequence. The final classification of any given example is a weighted average
-over all trees, this can be weighted by the overall accuracy of each tree, but
+over all trees. This can be weighted by the overall accuracy of each tree, but
 in general can take any weighted average.
 
 \subsection{Gradient Boosting}
@@ -102,28 +103,28 @@ $\vec{y}$ and the truth labels $\vec{t}$. For a loss written as
   \mathcal{L}(\vec{y}, \vec{t} \,),
 \end{equation}
 the predictions and the labels define a point in the space around which the
-function must be locally differentiable, it is hard to determine where these
+function must be locally differentiable. It is hard to determine where these
 points will be before training an algorithm on a given dataset and so in general
 a loss is chosen that is differentiable everywhere.
 
-Considering now a boosted decision tree that has a number of iterations for each
+Considering now a boosted decision tree that has a number of iterations, for each
 of which a decision tree is constructed using the Gini index. The model can be
 written as
 \begin{equation}
-  F_i(\vec{x}),
+  F_i(\vec{x})
 \end{equation}
 at a given iteration and is evolved by the addition of a single decision tree as
 \begin{equation}
-  F_i({\vec{x}}) + d(\vec{x}) = F_{i+1}(\vec{x}),
+  F_i({\vec{x}}) + d(\vec{x}) = F_{i+1}(\vec{x}).
 \end{equation}
-the decision tree which is added is found by taking the negative gradient of the
-loss computed at the previous iteration
+The decision tree which is added is found by taking the negative gradient of the
+loss computed at the previous iteration,
 \begin{equation}
   d(\vec{x}) = - \frac{\partial \mathcal{L}(F_i, \vec{t} \,)}{\partial F}.
 \end{equation}
-This is process is known as gradient boosting. Each decision tree is known as a
-weak learner, by evolving the overall model by stepping in the direction of the
-negative gradient of the loss at the current step the algorithm aims to correct
+This process is known as gradient boosting. Each decision tree is known as a
+weak learner. By evolving the overall model by stepping in the direction of the
+negative gradient of the loss at the current step, the algorithm aims to correct
 for mistakes of each weak leaner.
 
 The aforementioned hyper-parameters that control the properties of the model
@@ -148,7 +149,7 @@ Fisher discriminants~\cite{Fisher} and take the form
 a_j = \sum_{i=1}^{d} w_{ji}x_{i} + w_{j0},
 \label{eq:fisher}
 \end{equation}
-where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases, these
+where the $w_{ji}$ terms are known as weights and the $w_{j0}$ as biases. These
 constructions are called activations. It would be remiss of me to cite the works
 of Fisher without condemning his participation in the field of eugenics, but I
 leave the citation here as a reminder that as scientists we have a
@@ -157,7 +158,8 @@ inspired by neurons in the brain, that fire when some threshold of
 neuro-transmitting chemical is reached~\cite{neuron} and are linked up in
 intricate ways to manifest complex behaviours. In order to take activations and
 give them a behaviour similar to neurons they must be passed through an
-activation function, denoted $\mathcal{H}$, which gives the threshold effect
+activation function, denoted $\mathcal{H}$, which gives the threshold effect,
+the result are hidden units:
 \begin{equation}
 h_j = \mathcal{H}(a_j).
 \label{eq:hiddenunit}
@@ -168,9 +170,8 @@ a step function.
 
 All neural networks  have an input layer which is a vector of input data and an
 output layer, a vector whose size relates to the predictions being made. Layers
-inbetween these are called hidden layers and are made of units $h_j$, known as
-hidden units. The most simple neural network has a single hidden layer. This
-model can be written as
+in-between are called hidden layers and are made of units $h_j$. The most simple
+neural network has a single hidden layer. This model can be written as
 \begin{equation}
 F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}
 \mathcal{H} \Bigg( \sum_{i=1}^{d} w_{ji} x_{i} + w_{j0} \Bigg) + w_{k0} \Bigg).
@@ -181,11 +182,11 @@ F(\vec{x},\vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j=1}^{m} w_{kj}
  hidden layers.
  
 The output function $\mathcal{O}$ must have properties that allow us to
-interpret the outputs of the network as probabilistic i.e. the sum of elements
+interpret the outputs of the network as probabilistic, i.e. the sum of elements
 in the output must equal 1. A common choice of output function for
 classification problems is the softmax function
 \begin{equation}
-  \mathcal{O}(z)_c = p(c|\vec{x}) = \frac{exp(z_c)}{\sum_{i=1}^kexp(z_i)}
+  \mathcal{O}(z)_c = p(c|\vec{x}) = \frac{\exp(z_c)}{\sum_{i=1}^k\exp(z_i)},
   \label{eq:softmax}
 \end{equation}
 where $z$ merely denotes the argument of the output function. This function
@@ -193,7 +194,7 @@ gives the probability that an example represented by data $\vec{x}$ belongs to
 class $c$ where there are $k$ possible classes.
 
 By controlling the hyper-parameters a network of any size and shape can be
-built, the network function can be written in general as the cumbersome
+built. The network function can be written in general as the cumbersome
 \begin{equation}
   F(\vec{x}, \vec{w}, \vec{\theta}) = \mathcal{O} \Bigg( \sum_{j_{n}=0}^{m_{n}} w_{kj_{n}}
   \mathcal{H}_{n} \Bigg( \dots \mathcal{H}_2  \Bigg( \sum_{j_{1}=0}^{m_{1}} w_{j_{2}j_{1}} 
@@ -205,14 +206,14 @@ layer's width and activation must be chosen individually, though often they are
 set to the same values. A diagram of an arbitrarily sized neural network is
 shown in figure~\ref{fig:nn}.
 \input{04-machine-learning/nn}
-It is clear that the number of parameters that need to be learned $\vec{w}$ and
-the number that need to be set by hand to tune the model to a given problem
-$\vec{\theta}$ are much larger than in the BDT algorithm. For this reason
+It is clear that the number of parameters $\vec{w}$, that need to be learned and
+the number $\vec{\theta}$, that need to be set by hand to tune the model to a
+given problem are much larger than in the BDT algorithm. For this reason
 adoption of neural networks is sometimes hampered by lack of data or sufficient
 time to tune the hyper-parameters to achieve satisfactory performance.
 
 The loss has not been discussed in detail here but two common choices of
-function are the mean squared error
+loss function are the mean squared error
 \begin{equation}
 E(\vec{w}) = \frac{1}{2}\sum_{n=1}^{N}(y(\vec{x}_n, \vec{w}) - t_n)^2,
 \label{eq:MSE}
@@ -224,8 +225,8 @@ E(\vec{w}) = - \sum_{n=1}^{N} \Bigg (t_n \ln (y_n) + (1-t_n) \ln (1-y_n) \Bigg).
 \label{eq:xentropy}
 \end{equation}
 
-Likewise the choice of optimiser has not been discussed, a large number are
-available though in general the choice of optimiser depends on what is available
+Likewise the choice of optimiser has not been discussed. A large number are
+available, though in general the choice of optimiser depends on what is available
 in the software that one is using. For this reason minuit~\cite{minuit} is often
 used in this work. In general it would be preferred to use something more
 modern such as adaptive moment estimation or ADAM~\cite{ADAMOpt}. ADAM is a

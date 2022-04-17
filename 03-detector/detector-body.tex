@@ -330,35 +330,37 @@ Next closest to the beam-pipe is the SCT whose modules have long thin strip
 shaped diodes. The strips provide high resolution in only a single direction. In
 contrast to the n-type silicon of the pixels, the strips are made from p-in-n
 type silicon. Each SCT module is comprised of two back to back silicon
-rectangles such that the orientation of the strips are offset by a small angle
-in order to improve coverage. Each strip is covered with metalisation on top.
-The strips are separated by a distance of 80~$\mu$m. A rather old and dirty SCT
-module left over from the quality control testing stage of production that took
-place at Queen Mary University of London can be seen in
-figure~\ref{fig:strip-module}. As can be seen in the figure the SCT modules are
-wire bonded to their ASICs which is cheaper than the bump bonding used on the
-pixel modules.
+detectors such that the orientation of the strips are offset by a stereo angle.
+The strips are separated by a distance of 80~$\mu$m and each one is covered with
+metalisation on top. The SCT measures hits of incident charged particles in the
+$(R, \phi)$ and $z$ coordinates, where the $z$-measurement is obtained using the
+stereo angle.
+
+A rather old and dirty SCT module left over from the quality control testing
+stage of production that took place at Queen Mary University of London can be
+seen in figure~\ref{fig:strip-module}. As can be seen in the figure the SCT
+modules are wire bonded to their ASICs.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=.7\textwidth]{sct-module}
-  \caption[ATLAS long strip module]{An image of an SCT long strip module
-    mounted in a rig for testing at Queen Mary Univesity of London.}
+  \caption[ATLAS long strip module]{An image of an SCT~\cite{ATLAS-ID-TDR} long
+    strip module mounted in a rig for testing at Queen Mary Univesity of
+    London.}
   \label{fig:strip-module}
 \end{figure}
-In order to calibrate the response of the strips a 100~M$\Omega$ poly-silicon
-resistor is located at the end of each strip. Figure~\ref{fig:sct-close} shows an
-image of the snake-like structure of a poly-silicon resistor from the end of an
-SCT module.
+A 100~M$\Omega$ poly-silicon bias resistor is located at the end of each strip.
+Figure~\ref{fig:sct-close} shows an image of the snake-like structure of a
+poly-silicon resistor from the end of an SCT module.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=.7\textwidth]{sct-close}
-  \caption[ATLAS strip close-up]{A close up image of the end of an SCT sensor in
-    which the snake-like poly-silicon resistors are visible as a yellowish
-    coloured structure at the end of each strip. This image was taken with a
-    high resolution automatic area scanner commissioned by the
-    author~\cite{itk-scanner} in order to take full scans of strip sensors
-    during the production of the ATLAS Inner Detector upgrade known as the Inner
-    Tracker (ITk)~\cite{itk-tdr, itk-strips-tdr}.}
+  \caption[ATLAS strip close-up]{A close up image of the end of an
+    SCT~\cite{ATLAS-ID-TDR} sensor in which the snake-like poly-silicon
+    resistors are visible as a yellowish coloured structure at the end of each
+    strip. This image was taken with a high resolution automatic area scanner
+    commissioned by the author~\cite{itk-scanner} in order to take full scans of
+    strip sensors during the production of the ATLAS Inner Detector upgrade
+    known as the Inner Tracker (ITk)~\cite{itk-tdr, itk-strips-tdr}.}
   \label{fig:sct-close}
 \end{figure}
 The modules come in two different designs, short strips and long
@@ -367,10 +369,11 @@ and the long strips on the outside. The original operating bias voltage was
 150~V but again due to radiation exposure this will raise to up to 350~V over
 time as necessary. There are four layers of semiconductor trackers in the barrel
 arranged so that sensors have a tilt with respect to a perfect coaxial cylinders
-of approximately 11$\degree$. This tilt increases the amount of material that
-particles will travel through and is optimized to the geometry of the detector.
-Similarly the end-cap modules are arranged in petal like structures, with a
-number of different geometric designed based on the position within the end-cap.
+of approximately 11$\degree$. This tilt provides an overlap in the $(R, \phi)$
+direction of the active area of adjacent modules, this improves the ability to
+separate tracks. Similarly the end-cap modules are arranged in petal like
+structures, with a number of different geometric designed based on the position
+within the end-cap.
 
 \subsubsection{Transition Radiation Tracker}
 

@@ -490,8 +490,6 @@ the PMT. The current produced by this electron is then multiplied by a very
 large factor (up to $10^8$ for some PMTs) by a series of dynodes (electrodes in
 vacuum that produce secondary emission).
 
-\subsubsection{Calorimeter Performance}
-Put calorimeter performance here: LAr performance, 
 
 \subsection{Muon Spectrometers}%
 \label{sec:muon}
@@ -522,8 +520,20 @@ matching the muon with its ID track.
   \label{fig:ATLAS-muon}
 \end{figure}
 
-\subsection{Missing Transverse Energy Resolution}
-Plot of MET resolution callback to part where we say MET depends on all bits of the detector.
+\subsection{Missing Transverse Momentum Resolution}
+The initial transverse energy of collisions is zero and therefore the sum of
+transverse momenta in an event should also be zero. The existence of particles
+which are produced in collisions but not detected by ATLAS e.g. neutrinos means
+that this sum is not always zero. The discrepancy is referred to as missing
+transverse momentum or missing transverse energy interchangeably in this thesis.
+The determination of the missing transverse relies on the performance of the
+ATLAS detector in general since information from each sub-detector may in
+principle be used in such a measurement. The resolution with which missing
+transverse momentum can be determined in Run 2 is shown in
+figure~\ref{fig:met-res} as a function of the number of primary vertices.
+\input{\input{03-detector/met-res}
+The reconstruction of this quantity will be discussed further in
+Chapter~\ref{ch:recon}.
 
 \subsection{Trigger Systems}%
 \label{sec:trigger}

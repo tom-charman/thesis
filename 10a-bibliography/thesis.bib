@@ -89,7 +89,8 @@ author = "ATLAS Collaboration",
     title = {The Perceptron: A Probabilistic Model for Information Storage and Organization in The Brain},
     journal = {Psychological Review},
     year = {1958},
-    pages = {65--386}
+    pages = {65--386},
+    doi = "https://doi.org/10.1037/h0042519",
 }
 
 @online{Teodorescu,
@@ -150,16 +151,15 @@ archivePrefix = "arXiv",
       primaryClass   = "hep-ph",
 }
 
-@ARTICLE{TMVA,
-   author = "A. Hoecker et al.",
-    title = "{TMVA - Toolkit for Multivariate Data Analysis}",
-  journal = {ArXiv Physics e-prints},
-   eprint = {physics/0703039},
- keywords = {Physics - Data Analysis, Statistics and Probability},
-     year = 2007,
-    month = mar,
-   adsurl = {http://adsabs.harvard.edu/abs/2007physics...3039H},
-  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+@misc{TMVA,
+  doi = {10.48550/ARXIV.PHYSICS/0703039},
+  url = {https://arxiv.org/abs/physics/0703039},
+  author  = "A. Hoecker et. al",
+  keywords = {Data Analysis, Statistics and Probability (physics.data-an), FOS: Physical sciences, FOS: Physical sciences},
+  title = {TMVA - Toolkit for Multivariate Data Analysis},
+  publisher = {arXiv},
+  year = {2007}, 
+  copyright = {Assumed arXiv.org perpetual, non-exclusive license to distribute this article for submissions made before January 2004}
 }
 
 @article{ATLAS,
@@ -427,7 +427,8 @@ keywords = "Smooth approximation "
   timestamp = {2007-09-22T20:12:44.000+0200},
   title = {ROOT - An Object Oriented Data Analysis Framework},
   volume = 389,
-  year = 1996
+  year = 1996,
+  doi = "https://doi.org/10.1016/S0168-9002(97)00048-X",
 }
 
 @unpublished{LHC-acc-fig,
@@ -776,14 +777,28 @@ keywords = "Superconducting magnets, High energy physics detectors, Toroid, Sole
 
 % --- ATLAS TDR ---
 
-@techreport{ATLAS-TDR-01,
-      author         = "ATLAS Collaboration",
-      title          = "{ATLAS: Detector and physics performance technical design
-                        report. Volume 1}",
-      collaboration  = "ATLAS",
-      institution    = "CERN",
-      year           = "1999",
-      reportNumber   = "CERN-LHCC-99-14, ATLAS-TDR-14",
+@book{ATLAS-TDR-01,
+      author        = "The ATLAS Collaboration",
+      title         = "{ATLAS detector and physics performance: Technical Design
+                       Report, 1}",
+      publisher     = "CERN",
+      collaboration = "ATLAS Collaboration",
+      address       = "Geneva",
+      series        = "Technical design report. ATLAS",
+      year          = "1999",
+      url           = "https://cds.cern.ch/record/391176",
+}
+
+@book{ATLAS-TDR-02,
+      author        = "The ATLAS Collaboration",
+      title         = "{ATLAS detector and physics performance: Technical Design
+                       Report, 2}",
+      publisher     = "CERN",
+      collaboration = "ATLAS Collaboration",
+      address       = "Geneva",
+      series        = "Technical design report. ATLAS",
+      year          = "1999",
+      url           = "http://cds.cern.ch/record/391177",
 }
 
 @techreport{ATLAS-TDR-02,
@@ -829,25 +844,36 @@ keywords = "Superconducting magnets, High energy physics detectors, Toroid, Sole
 }
 
 
-@ARTICLE{Fermi-stat,
-   author = {{Zannoni}, A.},
-    title = "{On the Quantization of the Monoatomic Ideal Gas}",
-  journal = {eprint arXiv:cond-mat/9912229},
-   eprint = {cond-mat/9912229},
- keywords = {Statistical Mechanics},
-     year = 1999,
-    month = dec,
-   adsurl = {http://adsabs.harvard.edu/abs/1999cond.mat.12229Z},
-  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+@misc{Fermi-stat,
+  doi = {10.48550/ARXIV.COND-MAT/9912229},
+  
+  url = {https://arxiv.org/abs/cond-mat/9912229},
+  
+  author = {Zannoni, Alberto},
+  
+  keywords = {Statistical Mechanics (cond-mat.stat-mech), FOS: Physical sciences, FOS: Physical sciences},
+  
+  title = {On the Quantization of the Monoatomic Ideal Gas},
+  
+  publisher = {arXiv},
+  
+  year = {1999},
+  
+  copyright = {Assumed arXiv.org perpetual, non-exclusive license to distribute this article for submissions made before January 2004}
 }
+
 
 % --- Bose Einstein Statistics ---
 
-@Book{Bose-Einstein,
- author = {{Borrelli}, A.},
-  title = {Compendium of Quantum Physics},
-chapter = {Bose—Einstein Statistics},
-   year = {2009}
+@book{Bose-Einstein,
+  title={Compendium of Quantum Physics: Concepts, Experiments, History and Philosophy},
+  author={Greenberger, D. and Hentschel, K. and Weinert, F.},
+  isbn={9783540706267},
+  lccn={2008942038},
+  series={Physics and astronomy online library},
+  url={https://books.google.co.uk/books?id=ekyAV8VtfuYC},
+  year={2009},
+  publisher={Springer Berlin Heidelberg}
 }
 
 % --- Brout-Englert-Higgs References ---
@@ -948,6 +974,7 @@ chapter = {Bose—Einstein Statistics},
       archivePrefix  = "arXiv",
       primaryClass   = "hep-ph",
       reportNumber   = "FERMILAB-FN-1025-T, CERN-2017-002-M",
+      url           = "https://cds.cern.ch/record/2227475",
 }
 
 @techreport{ATLAS-CONF-2018-036,
@@ -1457,6 +1484,7 @@ eprint = {https://doi.org/10.1119/1.14146}
       institution   = "CERN",
       year           = "1995",
       reportNumber   = "LHCb-95-001, CERN-LHCb-95-001",
+      url            = "http://cds.cern.ch/record/691698",
 }
 
 @techreport{ATLAS-loi,
@@ -1466,6 +1494,7 @@ eprint = {https://doi.org/10.1119/1.14146}
       year           = "1992",
       institution   = "CERN",
       reportNumber   = "CERN-LHCC-92-04, CERN-LHCC-I-2",
+      url            = "https://cds.cern.ch/record/291061",
 }
 
 @techreport{CMS-loi,
@@ -1539,11 +1568,12 @@ eprint = {https://doi.org/10.1119/1.14146}
 }
 
 @techreport{hilumi-tdr,
-      author         = "Bejar Alonso, I. and Rossi, L.",
-      title          = "{HiLumi LHC Technical Design Report}",
-      year           = "2015",
-      reportNumber   = "CERN-ACC-2015-0140",
-      institution   = "CERN",
+      author        = "Bejar Alonso, I and Rossi, L",
+      title         = "{HiLumi LHC Technical Design Report: Deliverable: D1.10}",
+      reportNumber  = "CERN-ACC-2015-0140",
+      month         = "Nov",
+      year          = "2015",
+      url           = "https://cds.cern.ch/record/2069130",
 }
 
 @Book{Eiffel-weight,
@@ -2620,29 +2650,34 @@ author = {Alwall, J. and Frederix, R. and Frixione, S. and others},
 }
 
 @article{JHEP0411.2004.040,
-  title = { A New method for combining NLO QCD with shower Monte Carlo algorithms},
-  author = {P. Nason},
-  journal = {JHEP},
-  volume = {11},
-  pages = {040},
-  year = {2004},
-  eprint         = {0409146},
-  archivePrefix  = {arXiv},
-  primaryClass   = {hep-ph}
+	doi = {10.1088/1126-6708/2004/11/040},
+	url = {https://doi.org/10.1088%2F1126-6708%2F2004%2F11%2F040},
+	year = 2004,
+	month = {nov},
+	publisher = {Springer Science and Business Media {LLC}
+},
+	volume = {2004},
+	number = {11},
+	pages = {040--040},
+	author = {Paolo Nason},
+	title = {A New Method for Combining {NLO} {QCD} with Shower Monte Carlo Algorithms},
+	journal = {Journal of High Energy Physics}
 }
 
 %% Pythia8.2
 
 @article{Comp.Phys.Comm.191.159,
-  title = { An Introduction to PYTHIA 8.2},
-  author = {T. Sjöstrand et al.},
-  journal = {Computer Physics Communications},
-  volume = {191},
-  pages = {159},
-  year = {2015},
-  eprint         = {1410.3012},
-  archivePrefix  = {arXiv},
-  primaryClass   = {hep-ph}
+	doi = {10.1016/j.cpc.2015.01.024},
+	url = {https://doi.org/10.1016%2Fj.cpc.2015.01.024},
+	year = 2015,
+	month = {jun},
+	publisher = {Elsevier {BV}
+},
+	volume = {191},
+	pages = {159--177},
+	author = {Torbjörn Sjöstrand and Stefan Ask and Jesper R. Christiansen and Richard Corke and Nishita Desai and Philip Ilten and Stephen Mrenna and Stefan Prestel and Christine O. Rasmussen and Peter Z. Skands},
+	title = {An introduction to {PYTHIA} 8.2},
+	journal = {Computer Physics Communications}
 }
 
 %% HERWIG7
@@ -2769,15 +2804,15 @@ author = {Alwall, J. and Frederix, R. and Frixione, S. and others},
       url           = "http://cds.cern.ch/record/2649241",
 }
 
-@online{Cranmer:2015bka,
-      author         = "Cranmer, Kyle and Pavez, Juan and Louppe, Gilles",
-      title          = "{Approximating Likelihood Ratios with Calibrated
-                        Discriminative  Classifiers}",
-      year           = "2015",
-      eprint         = "1506.02169",
-      archivePrefix  = "arXiv",
-      primaryClass   = "stat.AP",
-      url            = "https://arxiv.org/abs/1506.02169",
+@misc{Cranmer:2015bka,
+  doi = {10.48550/ARXIV.1506.02169},
+  url = {https://arxiv.org/abs/1506.02169},
+  author = {Cranmer, Kyle and Pavez, Juan and Louppe, Gilles},
+  keywords = {Applications (stat.AP), Data Analysis, Statistics and Probability (physics.data-an), Machine Learning (stat.ML), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Physical sciences, FOS: Physical sciences, 62P35, 62F99, 62H30},
+  title = {Approximating Likelihood Ratios with Calibrated Discriminative Classifiers},
+  publisher = {arXiv},
+  year = {2015},
+  copyright = {arXiv.org perpetual, non-exclusive license}
 }
 
 @article{Hormander1990,
@@ -2985,19 +3020,6 @@ url = {https://indico.cern.ch/event/859774/contributions/3659497/attachments/195
     primaryClass   = "hep-ex",
 }
 
-@techreport{yellowReport4,
-      author         = "de Florian, D. and others",
-      title          = "{Handbook of LHC Higgs Cross Sections: 4. Deciphering the
-                        Nature of the Higgs Sector}",
-      collaboration  = "LHC Higgs Cross Section Working Group",
-      institution    = "CERN",
-      doi            = "10.23731/CYRM-2017-002",
-      year           = "2016",
-      eprint         = "1610.07922",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ph",
-      reportNumber   = "FERMILAB-FN-1025-T, CERN-2017-002-M",
-}
 
 @online{LHCHXSWG-INT-2017-01,
       author         = "Hays, Chris; Sanz Gonzalez, Veronica and Zemaityte, Gabija",
@@ -4608,7 +4630,7 @@ author = "ATLAS Collaboration",
     title =        "2012 preliminary result for luminosity uncertainity to be used for Moriod 2013",
     author = "ATLAS Collaboration",
     year = "accessed 5th April 2021",
-    howpublished =  "https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics"
+    url =  "https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics"
 }
 
 @techreport{MCP2013,
@@ -5165,7 +5187,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/ExtendedPileupReweighting},
   urldate = {2016-01-27},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/ExtendedPileupReweighting}
 }
 
 @online{DQM2016,
@@ -5389,7 +5410,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/ElectronEfficiencyRun2},
   urldate = {2016-12-09},
-  note = {https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/ElectronEfficiencyRun2}
 }
 
 @online{muonTWiki,
@@ -5398,7 +5418,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MCPAnalysisGuidelinesMC15},
   urldate = {2015-10-31},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MCPAnalysisGuidelinesMC15}
 }
 
 @article{Aad:2012tfa,
@@ -5625,7 +5644,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/EGammaIdentificationRun2},
   urldate = {2017-02-06},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/EGammaIdentificationRun2}
 }
 
 @online{TrackingCPTWiki,
@@ -5715,7 +5733,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MuonsCollection},
   urldate = {2015-11-19},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MuonsCollection}
 }
 
 @article{Aad:2014rra,
@@ -5742,7 +5759,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/EGammaCalibrationRun2},
   urldate = {2016-12-02},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/EGammaCalibrationRun2}
 }
 
 @online{MuonSelectionToolTwiki,
@@ -5760,7 +5776,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2015,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TauPreRecommendations2015},
   urldate = {2016-06-07},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TauPreRecommendations2015}
 }
 
 @online{TauRecommendation2016,
@@ -5769,7 +5784,6 @@ title = "{Search for new resonances decaying to a W or Z boson and a Higgs boson
   year = 2016,
   url = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TauRecommendationsSummer2016},
   urldate = {2016-07-18},
-  note = {https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TauRecommendationsSummer2016}
 }
 
 @techreport{Bechtle:2004901,
@@ -6207,13 +6221,20 @@ doi="10.1007/978-0-387-21579-2_9",
 url="https://doi.org/10.1007/978-0-387-21579-2_9"
 }
 
+
 @inproceedings{AdaBoost,
-  author={Yoav Freund and Robert E. Schapire},
-  title={Experiments with a New Boosting Algorithm},
-  year={1996},
-  cdate={820454400000},
-  pages={148-156},
-  booktitle={ICML},
+author = {Freund, Yoav and Schapire, Robert E.},
+title = {Experiments with a New Boosting Algorithm},
+year = {1996},
+isbn = {1558604197},
+publisher = {Morgan Kaufmann Publishers Inc.},
+address = {San Francisco, CA, USA},
+booktitle = {Proceedings of the Thirteenth International Conference on International Conference on Machine Learning},
+pages = {148–156},
+numpages = {9},
+location = {Bari, Italy},
+series = {ICML'96},
+doi= "10.5555/3091696.3091715",
 }
 
 @inbook{neuron,
@@ -18230,12 +18251,14 @@ eprint = {https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.2015.0202}
 }
 
 @misc{nn-truth-tagging,
-      title={Efficiency Parameterization with Neural Networks}, 
-      author={C. Badiali and F. A. Di Bello and G. Frattari and E. Gross and V. Ippolito and M. Kado and J. Shlomi},
-      year={2020},
-      eprint={2004.02665},
-      archivePrefix={arXiv},
-      primaryClass={hep-ex}
+  doi = {10.48550/ARXIV.2004.02665},
+  url = {https://arxiv.org/abs/2004.02665},
+  author = {Badiali, C. and Di Bello, F. A. and Frattari, G. and Gross, E. and Ippolito, V. and Kado, M. and Shlomi, J.},
+  keywords = {High Energy Physics - Experiment (hep-ex), High Energy Physics - Phenomenology (hep-ph), FOS: Physical sciences, FOS: Physical sciences},
+  title = {Efficiency Parameterization with Neural Networks},
+  publisher = {arXiv},
+  year = {2020},
+  copyright = {Creative Commons Attribution 4.0 International}
 }
 
 @article{STXSpaper,
